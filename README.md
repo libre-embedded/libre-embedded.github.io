@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=3.1.4
-    hash=318d359430e8e04acd04accc70b15bac
+    hash=1b0d5213995cad37b082cb805ae08f5e
     =====================================
 -->
 
@@ -35,3 +35,8 @@ via UDP.
 ### [`collection`](https://libre-embedded.com/collection)
 
 An application showcasing multiple runtime control features.
+
+### [`process`](https://libre-embedded.com/process)
+
+An external process controller example (i.e. game server, COTS software
+integration).
