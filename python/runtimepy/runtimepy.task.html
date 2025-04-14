@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy.task package &#8212; runtimepy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.task';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="runtimepy.task.basic package" href="runtimepy.task.basic.html" />
+    <link rel="prev" title="runtimepy.subprocess package" href="runtimepy.subprocess.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.control.html">runtimepy.control package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.control.env.html">runtimepy.control.env package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.struct.html">runtimepy.net.arbiter.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.html.html">runtimepy.net.html package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html.bootstrap.html">runtimepy.net.html.bootstrap package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.scpi.html">runtimepy.net.tcp.scpi package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.udp.html">runtimepy.net.udp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.tftp.html">runtimepy.net.udp.tftp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.noise.html">runtimepy.noise package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">runtimepy.task package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.ui.html">runtimepy.ui package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/runtimepy.task.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>runtimepy.task package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.task.asynchronous">runtimepy.task.asynchronous module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask"><code class="docutils literal notranslate"><span class="pre">AsyncTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.dispatch"><code class="docutils literal notranslate"><span class="pre">AsyncTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.enable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.init"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.init_channels"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init_channels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.log_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.log_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.rate_str"><code class="docutils literal notranslate"><span class="pre">AsyncTask.rate_str</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.reset_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.reset_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.run"><code class="docutils literal notranslate"><span class="pre">AsyncTask.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.task.sample">runtimepy.task.sample module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.Sample.kind"><code class="docutils literal notranslate"><span class="pre">Sample.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleApp"><code class="docutils literal notranslate"><span class="pre">SampleApp</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleApp.kind"><code class="docutils literal notranslate"><span class="pre">SampleApp.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask"><code class="docutils literal notranslate"><span class="pre">SampleAppTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask.app"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask.init"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleTask"><code class="docutils literal notranslate"><span class="pre">SampleTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleTask.init"><code class="docutils literal notranslate"><span class="pre">SampleTask.init()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.task">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask"><code class="docutils literal notranslate"><span class="pre">AsyncTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.dispatch"><code class="docutils literal notranslate"><span class="pre">AsyncTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.enable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.init"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.init_channels"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init_channels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.log_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.log_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.rate_str"><code class="docutils literal notranslate"><span class="pre">AsyncTask.rate_str</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.reset_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.reset_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.run"><code class="docutils literal notranslate"><span class="pre">AsyncTask.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask"><code class="docutils literal notranslate"><span class="pre">PeriodicTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.auto_finalize"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.auto_finalize</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.dispatch"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.run"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.run()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.set_period"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.set_period()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.stop_extra"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop_extra()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.task"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.task()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.wait_for_disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_for_disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.wait_iterations"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_iterations()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.register"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.register()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.running"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.running()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.start"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.start()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.stop()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.tasks"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.tasks</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.average_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.average_s</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.create"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.dispatches"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.dispatches</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.max_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.max_s</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.measure"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.measure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.min_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.min_s</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.overruns"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.overruns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.rate_hz"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.rate_hz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="runtimepy-task-package">
+<h1>runtimepy.task package<a class="headerlink" href="#runtimepy-task-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.task.basic.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.task.basic.html#module-runtimepy.task.basic.manager">runtimepy.task.basic.manager module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.manager.PeriodicTaskManager"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.manager.PeriodicTaskManager.register"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.manager.PeriodicTaskManager.running"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.running()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.manager.PeriodicTaskManager.start"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.manager.PeriodicTaskManager.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.manager.PeriodicTaskManager.tasks"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.tasks</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.task.basic.html#module-runtimepy.task.basic.periodic">runtimepy.task.basic.periodic module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask"><code class="docutils literal notranslate"><span class="pre">PeriodicTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.auto_finalize"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.auto_finalize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.config"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.disable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.dispatch"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.env"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.logger"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.markdown"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.markdown</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.run"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.set_period"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.set_period()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.stop_extra"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop_extra()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.task"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.wait_for_disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_for_disable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.wait_iterations"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_iterations()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.task.basic.html#module-runtimepy.task.basic">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask"><code class="docutils literal notranslate"><span class="pre">PeriodicTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.auto_finalize"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.auto_finalize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.config"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.disable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.dispatch"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.env"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.logger"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.markdown"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.markdown</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.run"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.set_period"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.set_period()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.stop_extra"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop_extra()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.task"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.wait_for_disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_for_disable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTask.wait_iterations"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_iterations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTaskManager"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTaskManager.register"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTaskManager.running"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.running()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTaskManager.start"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTaskManager.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#runtimepy.task.basic.PeriodicTaskManager.tasks"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.tasks</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.task.trig.html#module-runtimepy.task.trig">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html#runtimepy.task.trig.Sinusoid"><code class="docutils literal notranslate"><span class="pre">Sinusoid</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.trig.html#runtimepy.task.trig.Sinusoid.kind"><code class="docutils literal notranslate"><span class="pre">Sinusoid.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html#runtimepy.task.trig.SinusoidTask"><code class="docutils literal notranslate"><span class="pre">SinusoidTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.trig.html#runtimepy.task.trig.SinusoidTask.auto_finalize"><code class="docutils literal notranslate"><span class="pre">SinusoidTask.auto_finalize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.trig.html#runtimepy.task.trig.SinusoidTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SinusoidTask.dispatch()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-runtimepy.task.asynchronous">
+<span id="runtimepy-task-asynchronous-module"></span><h2>runtimepy.task.asynchronous module<a class="headerlink" href="#module-runtimepy.task.asynchronous" title="Link to this heading">#</a></h2>
+<p>A module implementing an asynchronous task interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.asynchronous.</span></span><span class="sig-name descname"><span class="pre">AsyncTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<p>A basic implementation of a periodic task.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.disable" title="Link to this definition">#</a></dt>
+<dd><p>Disable this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.dispatch">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.dispatch" title="Link to this definition">#</a></dt>
+<dd><p>Dispatch this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.enable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.enable" title="Link to this definition">#</a></dt>
+<dd><p>Enable this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.init">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.init_channels">
+<span class="sig-name descname"><span class="pre">init_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.init_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.init_channels" title="Link to this definition">#</a></dt>
+<dd><p>Initialize task-specific channels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.log_metrics">
+<span class="sig-name descname"><span class="pre">log_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.log_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.log_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Log information related to metrics channels.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.rate_str">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.rate_str" title="Link to this definition">#</a></dt>
+<dd><p>Get this periodic’s rate as a string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.reset_metrics">
+<span class="sig-name descname"><span class="pre">reset_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.reset_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.reset_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Reset metrics channel values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.asynchronous.AsyncTask.run">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.asynchronous.AsyncTask.run" title="Link to this definition">#</a></dt>
+<dd><p>Run this task while it’s enabled.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.task.sample">
+<span id="runtimepy-task-sample-module"></span><h2>runtimepy.task.sample module<a class="headerlink" href="#module-runtimepy.task.sample" title="Link to this heading">#</a></h2>
+<p>A sample task interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.sample.Sample">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.sample.</span></span><span class="sig-name descname"><span class="pre">Sample</span></span><a class="reference internal" href="_modules/runtimepy/task/sample.html#Sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.Sample" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.task.TaskFactory" title="runtimepy.net.arbiter.task.TaskFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaskFactory</span></code></a>[<a class="reference internal" href="#runtimepy.task.sample.SampleTask" title="runtimepy.task.sample.SampleTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleTask</span></code></a>]</p>
+<p>A sample-task application factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.sample.Sample.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.task.sample.Sample.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#runtimepy.task.sample.SampleTask" title="runtimepy.task.sample.SampleTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleTask</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleApp">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.sample.</span></span><span class="sig-name descname"><span class="pre">SampleApp</span></span><a class="reference internal" href="_modules/runtimepy/task/sample.html#SampleApp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.SampleApp" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.task.TaskFactory" title="runtimepy.net.arbiter.task.TaskFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaskFactory</span></code></a>[<a class="reference internal" href="#runtimepy.task.sample.SampleAppTask" title="runtimepy.task.sample.SampleAppTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleAppTask</span></code></a>]</p>
+<p>A TUI application factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleApp.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.task.sample.SampleApp.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#runtimepy.task.sample.SampleAppTask" title="runtimepy.task.sample.SampleAppTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleAppTask</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleAppTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.sample.</span></span><span class="sig-name descname"><span class="pre">SampleAppTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics" title="runtimepy.metrics.task.PeriodicTaskMetrics"><span class="pre">PeriodicTaskMetrics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'period'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/task/sample.html#SampleAppTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.SampleAppTask" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.task.ArbiterTask" title="runtimepy.net.arbiter.task.ArbiterTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArbiterTask</span></code></a></p>
+<p>A base TUI application.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleAppTask.app">
+<span class="sig-name descname"><span class="pre">app</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.info.AppInfo" title="runtimepy.net.arbiter.info.AppInfo"><span class="pre">AppInfo</span></a></em><a class="headerlink" href="#runtimepy.task.sample.SampleAppTask.app" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleAppTask.dispatch">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/sample.html#SampleAppTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.SampleAppTask.dispatch" title="Link to this definition">#</a></dt>
+<dd><p>Dispatch an iteration of this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleAppTask.init">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.info.AppInfo" title="runtimepy.net.arbiter.info.AppInfo"><span class="pre">AppInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/sample.html#SampleAppTask.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.SampleAppTask.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this task with application information.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics" title="runtimepy.metrics.task.PeriodicTaskMetrics"><span class="pre">PeriodicTaskMetrics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'period'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/task/sample.html#SampleTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.SampleTask" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.task.ArbiterTask" title="runtimepy.net.arbiter.task.ArbiterTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArbiterTask</span></code></a>, <a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.trig.TrigMixin" title="runtimepy.mixins.trig.TrigMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrigMixin</span></code></a>, <a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.async_command.AsyncCommandProcessingMixin" title="runtimepy.mixins.async_command.AsyncCommandProcessingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin</span></code></a></p>
+<p>A sample application.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleTask.dispatch">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/sample.html#SampleTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.SampleTask.dispatch" title="Link to this definition">#</a></dt>
+<dd><p>Dispatch an iteration of this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.sample.SampleTask.init">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.info.AppInfo" title="runtimepy.net.arbiter.info.AppInfo"><span class="pre">AppInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/sample.html#SampleTask.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.sample.SampleTask.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this task with application information.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.task">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.task" title="Link to this heading">#</a></h2>
+<p>A module implementing an asynchronous task interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.</span></span><span class="sig-name descname"><span class="pre">AsyncTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<p>A basic implementation of a periodic task.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.disable" title="Link to this definition">#</a></dt>
+<dd><p>Disable this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.dispatch">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.dispatch" title="Link to this definition">#</a></dt>
+<dd><p>Dispatch this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.enable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.enable" title="Link to this definition">#</a></dt>
+<dd><p>Enable this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.init">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.init_channels">
+<span class="sig-name descname"><span class="pre">init_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.init_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.init_channels" title="Link to this definition">#</a></dt>
+<dd><p>Initialize task-specific channels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.log_metrics">
+<span class="sig-name descname"><span class="pre">log_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.log_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.log_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Log information related to metrics channels.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.rate_str">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#runtimepy.task.AsyncTask.rate_str" title="Link to this definition">#</a></dt>
+<dd><p>Get this periodic’s rate as a string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.reset_metrics">
+<span class="sig-name descname"><span class="pre">reset_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.reset_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.reset_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Reset metrics channel values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.AsyncTask.run">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/asynchronous.html#AsyncTask.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.AsyncTask.run" title="Link to this definition">#</a></dt>
+<dd><p>Run this task while it’s enabled.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.</span></span><span class="sig-name descname"><span class="pre">PeriodicTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics" title="runtimepy.metrics.task.PeriodicTaskMetrics"><span class="pre">PeriodicTaskMetrics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'period'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LoggerMixinLevelControl" title="runtimepy.mixins.logging.LoggerMixinLevelControl"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixinLevelControl</span></code></a>, <a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.environment.ChannelEnvironmentMixin" title="runtimepy.mixins.environment.ChannelEnvironmentMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MarkdownMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>A class implementing a simple periodic-task interface.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.auto_finalize">
+<span class="sig-name descname"><span class="pre">auto_finalize</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#runtimepy.task.PeriodicTask.auto_finalize" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.disable" title="Link to this definition">#</a></dt>
+<dd><p>Disable this task, return whether or not any action was taken.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.dispatch">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.dispatch" title="Link to this definition">#</a></dt>
+<dd><p>Dispatch an iteration of this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.run">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.run" title="Link to this definition">#</a></dt>
+<dd><p>Run this task by executing the dispatch method at the specified period
+until a dispatch iteration fails or the task is otherwise disabled.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.set_period">
+<span class="sig-name descname"><span class="pre">set_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.set_period"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.set_period" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to set a new period for this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.stop">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.stop" title="Link to this definition">#</a></dt>
+<dd><p>Wait for this task to stop running (if it is).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.stop_extra">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop_extra</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.stop_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.stop_extra" title="Link to this definition">#</a></dt>
+<dd><p>Extra actions to perform when this task is stopping.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.task">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Task</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.task" title="Link to this definition">#</a></dt>
+<dd><p>Create an event-loop task for this periodic.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.wait_for_disable">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_disable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.evaluation.EvalResult" title="runtimepy.primitives.evaluation.EvalResult"><span class="pre">EvalResult</span></a></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.wait_for_disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.wait_for_disable" title="Link to this definition">#</a></dt>
+<dd><p>Wait for a task to become disabled.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTask.wait_iterations">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_iterations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/periodic.html#PeriodicTask.wait_iterations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTask.wait_iterations" title="Link to this definition">#</a></dt>
+<dd><p>Wait for a task to complete a certain number of iterations.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskManager">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.</span></span><span class="sig-name descname"><span class="pre">PeriodicTaskManager</span></span><a class="reference internal" href="_modules/runtimepy/task/basic/manager.html#PeriodicTaskManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskManager" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>A class for managing periodic tasks as a single group.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskManager.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/manager.html#PeriodicTaskManager.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskManager.register" title="Link to this definition">#</a></dt>
+<dd><p>Register a periodic task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskManager.running">
+<span class="sig-name descname"><span class="pre">running</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/manager.html#PeriodicTaskManager.running"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskManager.running" title="Link to this definition">#</a></dt>
+<dd><p>Run tasks as an async context.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskManager.start">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/manager.html#PeriodicTaskManager.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskManager.start" title="Link to this definition">#</a></dt>
+<dd><p>Ensure tasks are started.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskManager.stop">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/task/basic/manager.html#PeriodicTaskManager.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskManager.stop" title="Link to this definition">#</a></dt>
+<dd><p>Ensure tasks are stopped.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskManager.tasks">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tasks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.task.PeriodicTaskManager.tasks" title="Link to this definition">#</a></dt>
+<dd><p>Iterate over tasks.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.task.</span></span><span class="sig-name descname"><span class="pre">PeriodicTaskMetrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dispatches</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_hz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">overruns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/metrics/task.html#PeriodicTaskMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>Metrics for a periodic tasks.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.average_s">
+<span class="sig-name descname"><span class="pre">average_s</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></em><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.average_s" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.create">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_source:</span> <span class="pre">~typing.Callable[[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">metrics_time_ns&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics" title="runtimepy.metrics.task.PeriodicTaskMetrics"><span class="pre">PeriodicTaskMetrics</span></a></span></span><a class="reference internal" href="_modules/runtimepy/metrics/task.html#PeriodicTaskMetrics.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.create" title="Link to this definition">#</a></dt>
+<dd><p>Create a new metrics instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.dispatches">
+<span class="sig-name descname"><span class="pre">dispatches</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a></em><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.dispatches" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.max_s">
+<span class="sig-name descname"><span class="pre">max_s</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></em><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.max_s" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RateTracker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dispatch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MovingAverage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/metrics/task.html#PeriodicTaskMetrics.measure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.measure" title="Link to this definition">#</a></dt>
+<dd><p>Measure the time spent yielding and update data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.min_s">
+<span class="sig-name descname"><span class="pre">min_s</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></em><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.min_s" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.overruns">
+<span class="sig-name descname"><span class="pre">overruns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a></em><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.overruns" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.task.PeriodicTaskMetrics.rate_hz">
+<span class="sig-name descname"><span class="pre">rate_hz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></em><a class="headerlink" href="#runtimepy.task.PeriodicTaskMetrics.rate_hz" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="runtimepy.subprocess.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">runtimepy.subprocess package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="runtimepy.task.basic.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">runtimepy.task.basic package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.task.asynchronous">runtimepy.task.asynchronous module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask"><code class="docutils literal notranslate"><span class="pre">AsyncTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.dispatch"><code class="docutils literal notranslate"><span class="pre">AsyncTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.enable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.init"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.init_channels"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init_channels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.log_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.log_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.rate_str"><code class="docutils literal notranslate"><span class="pre">AsyncTask.rate_str</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.reset_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.reset_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.asynchronous.AsyncTask.run"><code class="docutils literal notranslate"><span class="pre">AsyncTask.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.task.sample">runtimepy.task.sample module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.Sample.kind"><code class="docutils literal notranslate"><span class="pre">Sample.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleApp"><code class="docutils literal notranslate"><span class="pre">SampleApp</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleApp.kind"><code class="docutils literal notranslate"><span class="pre">SampleApp.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask"><code class="docutils literal notranslate"><span class="pre">SampleAppTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask.app"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleAppTask.init"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleTask"><code class="docutils literal notranslate"><span class="pre">SampleTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.sample.SampleTask.init"><code class="docutils literal notranslate"><span class="pre">SampleTask.init()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.task">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask"><code class="docutils literal notranslate"><span class="pre">AsyncTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.dispatch"><code class="docutils literal notranslate"><span class="pre">AsyncTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.enable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.init"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.init_channels"><code class="docutils literal notranslate"><span class="pre">AsyncTask.init_channels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.log_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.log_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.rate_str"><code class="docutils literal notranslate"><span class="pre">AsyncTask.rate_str</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.reset_metrics"><code class="docutils literal notranslate"><span class="pre">AsyncTask.reset_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.AsyncTask.run"><code class="docutils literal notranslate"><span class="pre">AsyncTask.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask"><code class="docutils literal notranslate"><span class="pre">PeriodicTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.auto_finalize"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.auto_finalize</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.dispatch"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.run"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.run()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.set_period"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.set_period()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.stop_extra"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop_extra()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.task"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.task()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.wait_for_disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_for_disable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTask.wait_iterations"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.wait_iterations()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.register"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.register()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.running"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.running()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.start"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.start()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.stop()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskManager.tasks"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskManager.tasks</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.average_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.average_s</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.create"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.dispatches"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.dispatches</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.max_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.max_s</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.measure"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.measure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.min_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.min_s</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.overruns"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.overruns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.task.PeriodicTaskMetrics.rate_hz"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.rate_hz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

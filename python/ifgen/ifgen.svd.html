@@ -1,0 +1,932 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ifgen.svd package &#8212; ifgen  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ifgen.svd';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ifgen.svd.group package" href="ifgen.svd.group.html" />
+    <link rel="prev" title="ifgen.struct.python package" href="ifgen.struct.python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="ifgen  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="ifgen  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="ifgen.html">ifgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.common.html">ifgen.common package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.config.html">ifgen.config package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.enum.html">ifgen.enum package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.python.html">ifgen.enum.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html">ifgen.struct.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">ifgen.svd package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html">ifgen.svd.group package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html">ifgen.svd.model package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ifgen.svd.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ifgen.svd package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.cpu">ifgen.svd.cpu module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.cpu.process_cpu"><code class="docutils literal notranslate"><span class="pre">process_cpu()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.device">ifgen.svd.device module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.device.process_device"><code class="docutils literal notranslate"><span class="pre">process_device()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.peripherals">ifgen.svd.peripherals module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.peripherals.process_peripheral"><code class="docutils literal notranslate"><span class="pre">process_peripheral()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.peripherals.process_peripherals"><code class="docutils literal notranslate"><span class="pre">process_peripherals()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.process">ifgen.svd.process module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.process.cluster"><code class="docutils literal notranslate"><span class="pre">cluster()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.process.handle_registers"><code class="docutils literal notranslate"><span class="pre">handle_registers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.process.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.string">ifgen.svd.string module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyVal"><code class="docutils literal notranslate"><span class="pre">StringKeyVal</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyVal.key"><code class="docutils literal notranslate"><span class="pre">StringKeyVal.key</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyVal.required"><code class="docutils literal notranslate"><span class="pre">StringKeyVal.required</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.create"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.get_values"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.get_values()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.handle_description"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.handle_description()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.log"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.raw"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.raw()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.raw_data"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.raw_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.string_keys"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.get_string_values"><code class="docutils literal notranslate"><span class="pre">get_string_values()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.task">ifgen.svd.task module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.generate_configs"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.generate_configs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.min_enum_width"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.min_enum_width</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.model"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.process"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.process()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.svd"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.svd()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.filter_includes"><code class="docutils literal notranslate"><span class="pre">filter_includes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.register_processors"><code class="docutils literal notranslate"><span class="pre">register_processors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ifgen-svd-package">
+<h1>ifgen.svd package<a class="headerlink" href="#ifgen-svd-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.svd.group.html">ifgen.svd.group package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.group.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group.base">ifgen.svd.group.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.base.PeripheralGroup"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.base.PeripheralGroup.derivatives"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup.derivatives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.base.PeripheralGroup.peripherals"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup.peripherals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.base.PeripheralGroup.root"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup.root</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.base.get_derived"><code class="docutils literal notranslate"><span class="pre">get_derived()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.base.peripheral_groups"><code class="docutils literal notranslate"><span class="pre">peripheral_groups()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group.enums">ifgen.svd.group.enums module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.enums.as_alnum"><code class="docutils literal notranslate"><span class="pre">as_alnum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.enums.get_enum_name"><code class="docutils literal notranslate"><span class="pre">get_enum_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.enums.handle_duplicate"><code class="docutils literal notranslate"><span class="pre">handle_duplicate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.enums.handle_enum_name"><code class="docutils literal notranslate"><span class="pre">handle_enum_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.enums.is_name_part"><code class="docutils literal notranslate"><span class="pre">is_name_part()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.enums.remove_common_prefixes"><code class="docutils literal notranslate"><span class="pre">remove_common_prefixes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.enums.translate_enums"><code class="docutils literal notranslate"><span class="pre">translate_enums()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group.fields">ifgen.svd.group.fields module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.check_not_handled_fields"><code class="docutils literal notranslate"><span class="pre">check_not_handled_fields()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.handle_cluster"><code class="docutils literal notranslate"><span class="pre">handle_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.handle_item"><code class="docutils literal notranslate"><span class="pre">handle_item()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.handle_register"><code class="docutils literal notranslate"><span class="pre">handle_register()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.handle_register_group"><code class="docutils literal notranslate"><span class="pre">handle_register_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.parse_offset"><code class="docutils literal notranslate"><span class="pre">parse_offset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.process_bit_fields"><code class="docutils literal notranslate"><span class="pre">process_bit_fields()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.sanitize_name"><code class="docutils literal notranslate"><span class="pre">sanitize_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.fields.struct_fields"><code class="docutils literal notranslate"><span class="pre">struct_fields()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.PeripheralGroup"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.PeripheralGroup.derivatives"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup.derivatives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.PeripheralGroup.peripherals"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup.peripherals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.PeripheralGroup.root"><code class="docutils literal notranslate"><span class="pre">PeripheralGroup.root</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.handle_group"><code class="docutils literal notranslate"><span class="pre">handle_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html#ifgen.svd.group.peripheral_groups"><code class="docutils literal notranslate"><span class="pre">peripheral_groups()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.svd.model.html">ifgen.svd.model package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.address_block">ifgen.svd.model.address_block module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.address_block.AddressBlock"><code class="docutils literal notranslate"><span class="pre">AddressBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.address_block.AddressBlock.string_keys"><code class="docutils literal notranslate"><span class="pre">AddressBlock.string_keys()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.cpu">ifgen.svd.model.cpu module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.cpu.Cpu"><code class="docutils literal notranslate"><span class="pre">Cpu</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.cpu.Cpu.string_keys"><code class="docutils literal notranslate"><span class="pre">Cpu.string_keys()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.derived">ifgen.svd.model.derived module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin"><code class="docutils literal notranslate"><span class="pre">DerivedMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.alternate"><code class="docutils literal notranslate"><span class="pre">DerivedMixin.alternate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.alternates"><code class="docutils literal notranslate"><span class="pre">DerivedMixin.alternates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.derived"><code class="docutils literal notranslate"><span class="pre">DerivedMixin.derived</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.derived_elem"><code class="docutils literal notranslate"><span class="pre">DerivedMixin.derived_elem</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.is_alternate"><code class="docutils literal notranslate"><span class="pre">DerivedMixin.is_alternate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.log"><code class="docutils literal notranslate"><span class="pre">DerivedMixin.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.name"><code class="docutils literal notranslate"><span class="pre">DerivedMixin.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.derived.derived_from_stack"><code class="docutils literal notranslate"><span class="pre">derived_from_stack()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.device">ifgen.svd.model.device module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.device.Device"><code class="docutils literal notranslate"><span class="pre">Device</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.device.Device.string_keys"><code class="docutils literal notranslate"><span class="pre">Device.string_keys()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.enum">ifgen.svd.model.enum module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.enum.EnumeratedValue"><code class="docutils literal notranslate"><span class="pre">EnumeratedValue</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.enum.EnumeratedValue.string_keys"><code class="docutils literal notranslate"><span class="pre">EnumeratedValue.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.enum.EnumeratedValues"><code class="docutils literal notranslate"><span class="pre">EnumeratedValues</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.enum.EnumeratedValues.derived_from"><code class="docutils literal notranslate"><span class="pre">EnumeratedValues.derived_from</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.enum.EnumeratedValues.enum"><code class="docutils literal notranslate"><span class="pre">EnumeratedValues.enum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.enum.EnumeratedValues.string_keys"><code class="docutils literal notranslate"><span class="pre">EnumeratedValues.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.enum.get_enum"><code class="docutils literal notranslate"><span class="pre">get_enum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.field">ifgen.svd.model.field module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.field.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.field.Field.access"><code class="docutils literal notranslate"><span class="pre">Field.access</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.field.Field.derived_from"><code class="docutils literal notranslate"><span class="pre">Field.derived_from</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.field.Field.enum"><code class="docutils literal notranslate"><span class="pre">Field.enum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.field.Field.ifgen_data"><code class="docutils literal notranslate"><span class="pre">Field.ifgen_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.field.Field.string_keys"><code class="docutils literal notranslate"><span class="pre">Field.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.field.get_fields"><code class="docutils literal notranslate"><span class="pre">get_fields()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.interrupt">ifgen.svd.model.interrupt module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.interrupt.Interrupt"><code class="docutils literal notranslate"><span class="pre">Interrupt</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.interrupt.Interrupt.string_keys"><code class="docutils literal notranslate"><span class="pre">Interrupt.string_keys()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.peripheral">ifgen.svd.model.peripheral module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster"><code class="docutils literal notranslate"><span class="pre">Cluster</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster.children"><code class="docutils literal notranslate"><span class="pre">Cluster.children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster.derived_from"><code class="docutils literal notranslate"><span class="pre">Cluster.derived_from</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster.peripheral"><code class="docutils literal notranslate"><span class="pre">Cluster.peripheral</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster.string_keys"><code class="docutils literal notranslate"><span class="pre">Cluster.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral"><code class="docutils literal notranslate"><span class="pre">Peripheral</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.access"><code class="docutils literal notranslate"><span class="pre">Peripheral.access</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.address_blocks"><code class="docutils literal notranslate"><span class="pre">Peripheral.address_blocks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.base_name"><code class="docutils literal notranslate"><span class="pre">Peripheral.base_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.bits"><code class="docutils literal notranslate"><span class="pre">Peripheral.bits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.derived_from"><code class="docutils literal notranslate"><span class="pre">Peripheral.derived_from</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.handle_address_block"><code class="docutils literal notranslate"><span class="pre">Peripheral.handle_address_block()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.handle_interrupt"><code class="docutils literal notranslate"><span class="pre">Peripheral.handle_interrupt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.interrupts"><code class="docutils literal notranslate"><span class="pre">Peripheral.interrupts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.register_groups"><code class="docutils literal notranslate"><span class="pre">Peripheral.register_groups()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.registers"><code class="docutils literal notranslate"><span class="pre">Peripheral.registers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.string_keys"><code class="docutils literal notranslate"><span class="pre">Peripheral.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register"><code class="docutils literal notranslate"><span class="pre">Register</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.access"><code class="docutils literal notranslate"><span class="pre">Register.access</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.alternate_group"><code class="docutils literal notranslate"><span class="pre">Register.alternate_group</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.bits"><code class="docutils literal notranslate"><span class="pre">Register.bits</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.c_type"><code class="docutils literal notranslate"><span class="pre">Register.c_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.derived_from"><code class="docutils literal notranslate"><span class="pre">Register.derived_from</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.fields"><code class="docutils literal notranslate"><span class="pre">Register.fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.peripheral"><code class="docutils literal notranslate"><span class="pre">Register.peripheral</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.size"><code class="docutils literal notranslate"><span class="pre">Register.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.string_keys"><code class="docutils literal notranslate"><span class="pre">Register.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.fields_equal"><code class="docutils literal notranslate"><span class="pre">fields_equal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.register_groups"><code class="docutils literal notranslate"><span class="pre">register_groups()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel"><code class="docutils literal notranslate"><span class="pre">SvdModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.assign_cpu"><code class="docutils literal notranslate"><span class="pre">SvdModel.assign_cpu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.assign_device"><code class="docutils literal notranslate"><span class="pre">SvdModel.assign_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.cpu"><code class="docutils literal notranslate"><span class="pre">SvdModel.cpu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.device"><code class="docutils literal notranslate"><span class="pre">SvdModel.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.device_name"><code class="docutils literal notranslate"><span class="pre">SvdModel.device_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.metadata"><code class="docutils literal notranslate"><span class="pre">SvdModel.metadata()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.namespace"><code class="docutils literal notranslate"><span class="pre">SvdModel.namespace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.peripherals"><code class="docutils literal notranslate"><span class="pre">SvdModel.peripherals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.register_peripheral"><code class="docutils literal notranslate"><span class="pre">SvdModel.register_peripheral()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-ifgen.svd.cpu">
+<span id="ifgen-svd-cpu-module"></span><h2>ifgen.svd.cpu module<a class="headerlink" href="#module-ifgen.svd.cpu" title="Link to this heading">#</a></h2>
+<p>A module implementing a ‘cpu’ SVD-element processor.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.cpu.process_cpu">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.cpu.</span></span><span class="sig-name descname"><span class="pre">process_cpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/cpu.html#process_cpu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.cpu.process_cpu" title="Link to this definition">#</a></dt>
+<dd><p>Process a SVD cpu element.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.svd.device">
+<span id="ifgen-svd-device-module"></span><h2>ifgen.svd.device module<a class="headerlink" href="#module-ifgen.svd.device" title="Link to this heading">#</a></h2>
+<p>A module implementing a ‘device’ SVD-element processor.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.device.process_device">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.device.</span></span><span class="sig-name descname"><span class="pre">process_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/device.html#process_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.device.process_device" title="Link to this definition">#</a></dt>
+<dd><p>Process a SVD device element.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.svd.peripherals">
+<span id="ifgen-svd-peripherals-module"></span><h2>ifgen.svd.peripherals module<a class="headerlink" href="#module-ifgen.svd.peripherals" title="Link to this heading">#</a></h2>
+<p>A module implementing a ‘peripherals’ SVD-element processor.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.peripherals.process_peripheral">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.peripherals.</span></span><span class="sig-name descname"><span class="pre">process_peripheral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/peripherals.html#process_peripheral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.peripherals.process_peripheral" title="Link to this definition">#</a></dt>
+<dd><p>Process a SVD peripheral element.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.peripherals.process_peripherals">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.peripherals.</span></span><span class="sig-name descname"><span class="pre">process_peripherals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/peripherals.html#process_peripherals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.peripherals.process_peripherals" title="Link to this definition">#</a></dt>
+<dd><p>Process a SVD peripherals element.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.svd.process">
+<span id="ifgen-svd-process-module"></span><h2>ifgen.svd.process module<a class="headerlink" href="#module-ifgen.svd.process" title="Link to this heading">#</a></h2>
+<p>A module implementing interfaces for processing registers and clusters.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.process.cluster">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.process.</span></span><span class="sig-name descname"><span class="pre">cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster" title="ifgen.svd.model.peripheral.Cluster"><span class="pre">Cluster</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripheral</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral" title="ifgen.svd.model.peripheral.Peripheral"><span class="pre">Peripheral</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">register_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register" title="ifgen.svd.model.peripheral.Register"><span class="pre">Register</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster" title="ifgen.svd.model.peripheral.Cluster"><span class="pre">Cluster</span></a></span></span><a class="reference internal" href="_modules/ifgen/svd/process.html#cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.process.cluster" title="Link to this definition">#</a></dt>
+<dd><p>Create a Cluster instance from an SVD element.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.process.handle_registers">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.process.</span></span><span class="sig-name descname"><span class="pre">handle_registers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">registers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripheral</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral" title="ifgen.svd.model.peripheral.Peripheral"><span class="pre">Peripheral</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster" title="ifgen.svd.model.peripheral.Cluster"><span class="pre">Cluster</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">register_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register" title="ifgen.svd.model.peripheral.Register"><span class="pre">Register</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register" title="ifgen.svd.model.peripheral.Register"><span class="pre">Register</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Cluster" title="ifgen.svd.model.peripheral.Cluster"><span class="pre">Cluster</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/process.html#handle_registers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.process.handle_registers" title="Link to this definition">#</a></dt>
+<dd><p>Handle the ‘registers’ element.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.process.register">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.process.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">register_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register" title="ifgen.svd.model.peripheral.Register"><span class="pre">Register</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peripheral</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral" title="ifgen.svd.model.peripheral.Peripheral"><span class="pre">Peripheral</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register" title="ifgen.svd.model.peripheral.Register"><span class="pre">Register</span></a></span></span><a class="reference internal" href="_modules/ifgen/svd/process.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.process.register" title="Link to this definition">#</a></dt>
+<dd><p>Create a Register instance from an SVD element.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.svd.string">
+<span id="ifgen-svd-string-module"></span><h2>ifgen.svd.string module<a class="headerlink" href="#module-ifgen.svd.string" title="Link to this heading">#</a></h2>
+<p>A module implementing interfaces for string-data elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyVal">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.svd.string.</span></span><span class="sig-name descname"><span class="pre">StringKeyVal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyVal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyVal" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Name of key and whether or not it’s required.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyVal.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ifgen.svd.string.StringKeyVal.key" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyVal.required">
+<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#ifgen.svd.string.StringKeyVal.required" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.svd.string.</span></span><span class="sig-name descname"><span class="pre">StringKeyValueMixin</span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>A mixin for SVD data model classes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.create">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.create" title="Link to this definition">#</a></dt>
+<dd><p>Create a device instance from an element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.get_values">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.get_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.get_values" title="Link to this definition">#</a></dt>
+<dd><p>Get string values for this instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.handle_description">
+<span class="sig-name descname"><span class="pre">handle_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.handle_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.handle_description" title="Link to this definition">#</a></dt>
+<dd><p>Handle a possible description entry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.log" title="Link to this definition">#</a></dt>
+<dd><p>Log information from this instance’s raw data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.raw">
+<span class="sig-name descname"><span class="pre">raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.raw" title="Link to this definition">#</a></dt>
+<dd><p>Get raw data for this instance based on string keys.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.raw_data">
+<span class="sig-name descname"><span class="pre">raw_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.raw_data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.string_keys">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">string_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ifgen.svd.string.StringKeyVal" title="ifgen.svd.string.StringKeyVal"><span class="pre">StringKeyVal</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.string_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.string_keys" title="Link to this definition">#</a></dt>
+<dd><p>Get string keys for this instance type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.string.get_string_values">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.string.</span></span><span class="sig-name descname"><span class="pre">get_string_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ifgen.svd.string.StringKeyVal" title="ifgen.svd.string.StringKeyVal"><span class="pre">StringKeyVal</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#get_string_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.get_string_values" title="Link to this definition">#</a></dt>
+<dd><p>Get string values from an element’s children.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.svd.task">
+<span id="ifgen-svd-task-module"></span><h2>ifgen.svd.task module<a class="headerlink" href="#module-ifgen.svd.task" title="Link to this heading">#</a></h2>
+<p>A module implementing an SVD-processing task interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.svd.task.</span></span><span class="sig-name descname"><span class="pre">SvdProcessingTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel" title="ifgen.svd.model.SvdModel"><span class="pre">SvdModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_enum_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A container for SVD-processing state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.generate_configs">
+<span class="sig-name descname"><span class="pre">generate_configs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.config.html#ifgen.config.svd.SvdConfig" title="ifgen.config.svd.SvdConfig"><span class="pre">SvdConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask.generate_configs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.generate_configs" title="Link to this definition">#</a></dt>
+<dd><p>Generate output configuration files.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.min_enum_width">
+<span class="sig-name descname"><span class="pre">min_enum_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.min_enum_width" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel" title="ifgen.svd.model.SvdModel"><span class="pre">SvdModel</span></a></em><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.model" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.process" title="Link to this definition">#</a></dt>
+<dd><p>Process a single element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.svd">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_enum_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask.svd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.svd" title="Link to this definition">#</a></dt>
+<dd><p>Process a single SVD file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.task.filter_includes">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.task.</span></span><span class="sig-name descname"><span class="pre">filter_includes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.config.html#ifgen.config.svd.SvdConfig" title="ifgen.config.svd.SvdConfig"><span class="pre">SvdConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel" title="ifgen.svd.model.SvdModel"><span class="pre">SvdModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/task.html#filter_includes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.filter_includes" title="Link to this definition">#</a></dt>
+<dd><p>Filter includes based on configuration.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.svd">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ifgen.svd" title="Link to this heading">#</a></h2>
+<p>A module implementing interfaces for working with ARM CMSIS-SVD files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.svd.register_processors">
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.</span></span><span class="sig-name descname"><span class="pre">register_processors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd.html#register_processors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.register_processors" title="Link to this definition">#</a></dt>
+<dd><p>Register tag-processing methods.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ifgen.struct.python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ifgen.struct.python package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ifgen.svd.group.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ifgen.svd.group package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.cpu">ifgen.svd.cpu module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.cpu.process_cpu"><code class="docutils literal notranslate"><span class="pre">process_cpu()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.device">ifgen.svd.device module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.device.process_device"><code class="docutils literal notranslate"><span class="pre">process_device()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.peripherals">ifgen.svd.peripherals module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.peripherals.process_peripheral"><code class="docutils literal notranslate"><span class="pre">process_peripheral()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.peripherals.process_peripherals"><code class="docutils literal notranslate"><span class="pre">process_peripherals()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.process">ifgen.svd.process module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.process.cluster"><code class="docutils literal notranslate"><span class="pre">cluster()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.process.handle_registers"><code class="docutils literal notranslate"><span class="pre">handle_registers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.process.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.string">ifgen.svd.string module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyVal"><code class="docutils literal notranslate"><span class="pre">StringKeyVal</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyVal.key"><code class="docutils literal notranslate"><span class="pre">StringKeyVal.key</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyVal.required"><code class="docutils literal notranslate"><span class="pre">StringKeyVal.required</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.create"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.get_values"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.get_values()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.handle_description"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.handle_description()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.log"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.raw"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.raw()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.raw_data"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.raw_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.StringKeyValueMixin.string_keys"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.string.get_string_values"><code class="docutils literal notranslate"><span class="pre">get_string_values()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd.task">ifgen.svd.task module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.generate_configs"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.generate_configs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.min_enum_width"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.min_enum_width</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.model"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.process"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.process()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.SvdProcessingTask.svd"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.svd()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.task.filter_includes"><code class="docutils literal notranslate"><span class="pre">filter_includes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.svd">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.svd.register_processors"><code class="docutils literal notranslate"><span class="pre">register_processors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

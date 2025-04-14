@@ -1,0 +1,990 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy.net.udp.tftp package &#8212; runtimepy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.net.udp.tftp';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="runtimepy.net.websocket package" href="runtimepy.net.websocket.html" />
+    <link rel="prev" title="runtimepy.net.udp package" href="runtimepy.net.udp.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.control.html">runtimepy.control package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.control.env.html">runtimepy.control.env package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.struct.html">runtimepy.net.arbiter.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.html.html">runtimepy.net.html package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html.bootstrap.html">runtimepy.net.html.bootstrap package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.scpi.html">runtimepy.net.tcp.scpi package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="runtimepy.net.udp.html">runtimepy.net.udp package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">runtimepy.net.udp.tftp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.noise.html">runtimepy.noise package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.ui.html">runtimepy.ui package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/runtimepy.net.udp.tftp.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>runtimepy.net.udp.tftp package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.base">runtimepy.net.udp.tftp.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.default_auto_restart"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.default_auto_restart</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.endpoint"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.endpoint()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.init"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.path"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.process_datagram"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.process_datagram()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_ack"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_ack()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_data"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_error"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_error()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_rrq"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_rrq()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_wrq"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_wrq()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.set_root"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.set_root()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.should_connect"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.should_connect</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.endpoint">runtimepy.net.udp.tftp.endpoint module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.chunk_sender"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.chunk_sender()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.get_path"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.get_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_ack"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_ack()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_data"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_error"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_error()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_read_request"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_read_request()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_write_request"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_write_request()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.ingest_file"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.ingest_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.serve_file"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.serve_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.set_root"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.set_root()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.update_from_other"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.update_from_other()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.enums">runtimepy.net.udp.tftp.enums module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.ACCESS_VIOLATION"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.ACCESS_VIOLATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.DISK_FULL"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.DISK_FULL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_EXISTS"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.FILE_EXISTS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_NOT_FOUND"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.FILE_NOT_FOUND</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.ILLEGAL_OPERATION"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.ILLEGAL_OPERATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.NO_USER"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.NO_USER</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.OPTION_NEGOTIATION"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.OPTION_NEGOTIATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.UNKNOWN</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN_ID"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.UNKNOWN_ID</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode"><code class="docutils literal notranslate"><span class="pre">TftpOpCode</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.ACK"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.ACK</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.DATA"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.DATA</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.ERROR"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.ERROR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.INVALID"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.INVALID</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.RRQ"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.RRQ</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.WRQ"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.WRQ</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.encode_filename_mode"><code class="docutils literal notranslate"><span class="pre">encode_filename_mode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.parse_filename_mode"><code class="docutils literal notranslate"><span class="pre">parse_filename_mode()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.io">runtimepy.net.udp.tftp.io module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.io.tftp_chunks"><code class="docutils literal notranslate"><span class="pre">tftp_chunks()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.TftpConnection"><code class="docutils literal notranslate"><span class="pre">TftpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.TftpConnection.request_read"><code class="docutils literal notranslate"><span class="pre">TftpConnection.request_read()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.TftpConnection.request_write"><code class="docutils literal notranslate"><span class="pre">TftpConnection.request_write()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.tftp"><code class="docutils literal notranslate"><span class="pre">tftp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.tftp_read"><code class="docutils literal notranslate"><span class="pre">tftp_read()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.tftp_write"><code class="docutils literal notranslate"><span class="pre">tftp_write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="runtimepy-net-udp-tftp-package">
+<h1>runtimepy.net.udp.tftp package<a class="headerlink" href="#runtimepy-net-udp-tftp-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-runtimepy.net.udp.tftp.base">
+<span id="runtimepy-net-udp-tftp-base-module"></span><h2>runtimepy.net.udp.tftp.base module<a class="headerlink" href="#module-runtimepy.net.udp.tftp.base" title="Link to this heading">#</a></h2>
+<p>A module implementing a base tftp (RFC 1350) connection interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.base.</span></span><span class="sig-name descname"><span class="pre">BaseTftpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.protocol.UdpQueueProtocol" title="runtimepy.net.udp.protocol.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.connection.UdpConnection" title="runtimepy.net.udp.connection.UdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnection</span></code></a></p>
+<p>A class implementing a basic tftp interface.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.default_auto_restart">
+<span class="sig-name descname"><span class="pre">default_auto_restart</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.default_auto_restart" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint" title="runtimepy.net.udp.tftp.endpoint.TftpEndpoint"><span class="pre">TftpEndpoint</span></a></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.endpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.endpoint" title="Link to this definition">#</a></dt>
+<dd><p>Lookup an endpoint instance from an address.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.log_alias">
+<span class="sig-name descname"><span class="pre">log_alias</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TFTP'</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.log_alias" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.path">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.path" title="Link to this definition">#</a></dt>
+<dd><p>Get this connection’s root path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.process_datagram">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.process_datagram" title="Link to this definition">#</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.send_ack">
+<span class="sig-name descname"><span class="pre">send_ack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.send_ack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_ack" title="Link to this definition">#</a></dt>
+<dd><p>Send a data message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.send_data">
+<span class="sig-name descname"><span class="pre">send_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.send_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_data" title="Link to this definition">#</a></dt>
+<dd><p>Send a data message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.send_error">
+<span class="sig-name descname"><span class="pre">send_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode" title="runtimepy.net.udp.tftp.enums.TftpErrorCode"><span class="pre">TftpErrorCode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.send_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_error" title="Link to this definition">#</a></dt>
+<dd><p>Send a data message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.send_rrq">
+<span class="sig-name descname"><span class="pre">send_rrq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'octet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.send_rrq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_rrq" title="Link to this definition">#</a></dt>
+<dd><p>Send a read request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.send_wrq">
+<span class="sig-name descname"><span class="pre">send_wrq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'octet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.send_wrq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_wrq" title="Link to this definition">#</a></dt>
+<dd><p>Send a write request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.set_root">
+<span class="sig-name descname"><span class="pre">set_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/base.html#BaseTftpConnection.set_root"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.set_root" title="Link to this definition">#</a></dt>
+<dd><p>Set a new root path for this instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.base.BaseTftpConnection.should_connect">
+<span class="sig-name descname"><span class="pre">should_connect</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.should_connect" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.udp.tftp.endpoint">
+<span id="runtimepy-net-udp-tftp-endpoint-module"></span><h2>runtimepy.net.udp.tftp.endpoint module<a class="headerlink" href="#module-runtimepy.net.udp.tftp.endpoint" title="Link to this heading">#</a></h2>
+<p>A module implementing an interface for individual tftp endpoints.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.endpoint.</span></span><span class="sig-name descname"><span class="pre">TftpEndpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_sender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ack_sender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_sender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode" title="runtimepy.net.udp.tftp.enums.TftpErrorCode"><span class="pre">TftpErrorCode</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<p>A data structure for endpoint-related runtime storage.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.chunk_sender">
+<span class="sig-name descname"><span class="pre">chunk_sender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.chunk_sender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.chunk_sender" title="Link to this definition">#</a></dt>
+<dd><p>Create a method that sends a specific block of data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.get_path">
+<span class="sig-name descname"><span class="pre">get_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.get_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.get_path" title="Link to this definition">#</a></dt>
+<dd><p>Get a path from a filename.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_ack">
+<span class="sig-name descname"><span class="pre">handle_ack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.handle_ack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_ack" title="Link to this definition">#</a></dt>
+<dd><p>Handle a block acknowledgement.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_data">
+<span class="sig-name descname"><span class="pre">handle_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.handle_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_data" title="Link to this definition">#</a></dt>
+<dd><p>Handle a data payload.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_error">
+<span class="sig-name descname"><span class="pre">handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode" title="runtimepy.net.udp.tftp.enums.TftpErrorCode"><span class="pre">TftpErrorCode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.handle_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_error" title="Link to this definition">#</a></dt>
+<dd><p>Handle a tftp error message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_read_request">
+<span class="sig-name descname"><span class="pre">handle_read_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Task</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.handle_read_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_read_request" title="Link to this definition">#</a></dt>
+<dd><p>Handle a read-request message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_write_request">
+<span class="sig-name descname"><span class="pre">handle_write_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Task</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.handle_write_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_write_request" title="Link to this definition">#</a></dt>
+<dd><p>Handle a write request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.ingest_file">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ingest_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.ingest_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.ingest_file" title="Link to this definition">#</a></dt>
+<dd><p>Ingest incoming file data and write to a stream.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.serve_file">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.serve_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.serve_file" title="Link to this definition">#</a></dt>
+<dd><p>Serve file chunks via this endpoint.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.set_root">
+<span class="sig-name descname"><span class="pre">set_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.set_root"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.set_root" title="Link to this definition">#</a></dt>
+<dd><p>Set a new root path for this instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.endpoint.TftpEndpoint.update_from_other">
+<span class="sig-name descname"><span class="pre">update_from_other</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint" title="runtimepy.net.udp.tftp.endpoint.TftpEndpoint"><span class="pre">TftpEndpoint</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint" title="runtimepy.net.udp.tftp.endpoint.TftpEndpoint"><span class="pre">TftpEndpoint</span></a></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/endpoint.html#TftpEndpoint.update_from_other"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.update_from_other" title="Link to this definition">#</a></dt>
+<dd><p>Update this endpoint’s attributes with attributes of another’s.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.udp.tftp.enums">
+<span id="runtimepy-net-udp-tftp-enums-module"></span><h2>runtimepy.net.udp.tftp.enums module<a class="headerlink" href="#module-runtimepy.net.udp.tftp.enums" title="Link to this heading">#</a></h2>
+<p>A module implementing tftp enums and other protocol minutia interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.enums.</span></span><span class="sig-name descname"><span class="pre">TftpErrorCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/enums.html#TftpErrorCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum" title="runtimepy.enum.registry.RuntimeIntEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeIntEnum</span></code></a></p>
+<p>A runtime enumeration for tftp error codes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.ACCESS_VIOLATION">
+<span class="sig-name descname"><span class="pre">ACCESS_VIOLATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.ACCESS_VIOLATION" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.DISK_FULL">
+<span class="sig-name descname"><span class="pre">DISK_FULL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.DISK_FULL" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_EXISTS">
+<span class="sig-name descname"><span class="pre">FILE_EXISTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_EXISTS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_NOT_FOUND">
+<span class="sig-name descname"><span class="pre">FILE_NOT_FOUND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_NOT_FOUND" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.ILLEGAL_OPERATION">
+<span class="sig-name descname"><span class="pre">ILLEGAL_OPERATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.ILLEGAL_OPERATION" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.NO_USER">
+<span class="sig-name descname"><span class="pre">NO_USER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.NO_USER" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.OPTION_NEGOTIATION">
+<span class="sig-name descname"><span class="pre">OPTION_NEGOTIATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.OPTION_NEGOTIATION" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN">
+<span class="sig-name descname"><span class="pre">UNKNOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN_ID">
+<span class="sig-name descname"><span class="pre">UNKNOWN_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpOpCode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.enums.</span></span><span class="sig-name descname"><span class="pre">TftpOpCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/enums.html#TftpOpCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpOpCode" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum" title="runtimepy.enum.registry.RuntimeIntEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeIntEnum</span></code></a></p>
+<p>A runtime enumeration for tftp op codes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpOpCode.ACK">
+<span class="sig-name descname"><span class="pre">ACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.ACK" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpOpCode.DATA">
+<span class="sig-name descname"><span class="pre">DATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.DATA" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpOpCode.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.ERROR" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpOpCode.INVALID">
+<span class="sig-name descname"><span class="pre">INVALID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.INVALID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpOpCode.RRQ">
+<span class="sig-name descname"><span class="pre">RRQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.RRQ" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.TftpOpCode.WRQ">
+<span class="sig-name descname"><span class="pre">WRQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.WRQ" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.encode_filename_mode">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.enums.</span></span><span class="sig-name descname"><span class="pre">encode_filename_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'octet'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/enums.html#encode_filename_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.encode_filename_mode" title="Link to this definition">#</a></dt>
+<dd><p>Encode filename and mode for a tftp message.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.enums.parse_filename_mode">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.enums.</span></span><span class="sig-name descname"><span class="pre">parse_filename_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/enums.html#parse_filename_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.enums.parse_filename_mode" title="Link to this definition">#</a></dt>
+<dd><p>Parse two null-terminated strings from the provided stream.</p>
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.udp.tftp.io">
+<span id="runtimepy-net-udp-tftp-io-module"></span><h2>runtimepy.net.udp.tftp.io module<a class="headerlink" href="#module-runtimepy.net.udp.tftp.io" title="Link to this heading">#</a></h2>
+<p>A module implementing I/O utilities related to tftp transactions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.io.tftp_chunks">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.io.</span></span><span class="sig-name descname"><span class="pre">tftp_chunks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_block_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rb'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp/io.html#tftp_chunks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.io.tftp_chunks" title="Link to this definition">#</a></dt>
+<dd><p>Iterate over file chunks.</p>
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.udp.tftp">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.net.udp.tftp" title="Link to this heading">#</a></h2>
+<p>A module implementing a tftp (RFC 1350) interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.TftpConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.</span></span><span class="sig-name descname"><span class="pre">TftpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.protocol.UdpQueueProtocol" title="runtimepy.net.udp.protocol.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp.html#TftpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.TftpConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection" title="runtimepy.net.udp.tftp.base.BaseTftpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseTftpConnection</span></code></a></p>
+<p>A class implementing a basic tftp interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.TftpConnection.request_read">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'octet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp.html#TftpConnection.request_read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.TftpConnection.request_read" title="Link to this definition">#</a></dt>
+<dd><p>Request a tftp read operation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.TftpConnection.request_write">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'octet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp.html#TftpConnection.request_write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.TftpConnection.request_write" title="Link to this definition">#</a></dt>
+<dd><p>Request a tftp write operation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.tftp">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.</span></span><span class="sig-name descname"><span class="pre">tftp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reemit_period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode" title="runtimepy.net.udp.tftp.enums.TftpErrorCode"><span class="pre">TftpErrorCode</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.net.udp.tftp.TftpConnection" title="runtimepy.net.udp.tftp.TftpConnection"><span class="pre">TftpConnection</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp.html#tftp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.tftp" title="Link to this definition">#</a></dt>
+<dd><p>Use a tftp connection as a managed context.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.tftp_read">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.</span></span><span class="sig-name descname"><span class="pre">tftp_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'octet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reemit_period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode" title="runtimepy.net.udp.tftp.enums.TftpErrorCode"><span class="pre">TftpErrorCode</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp.html#tftp_read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.tftp_read" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to perform a tftp read.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.udp.tftp.tftp_write">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.tftp.</span></span><span class="sig-name descname"><span class="pre">tftp_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'octet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reemit_period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode" title="runtimepy.net.udp.tftp.enums.TftpErrorCode"><span class="pre">TftpErrorCode</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/tftp.html#tftp_write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.tftp.tftp_write" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to perform a tftp write.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="runtimepy.net.udp.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">runtimepy.net.udp package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="runtimepy.net.websocket.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">runtimepy.net.websocket package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.base">runtimepy.net.udp.tftp.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.default_auto_restart"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.default_auto_restart</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.endpoint"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.endpoint()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.init"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.path"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.path</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.process_datagram"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.process_datagram()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_ack"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_ack()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_data"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_error"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_error()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_rrq"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_rrq()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.send_wrq"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.send_wrq()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.set_root"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.set_root()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.base.BaseTftpConnection.should_connect"><code class="docutils literal notranslate"><span class="pre">BaseTftpConnection.should_connect</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.endpoint">runtimepy.net.udp.tftp.endpoint module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.chunk_sender"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.chunk_sender()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.get_path"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.get_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_ack"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_ack()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_data"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_error"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_error()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_read_request"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_read_request()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.handle_write_request"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.handle_write_request()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.ingest_file"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.ingest_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.serve_file"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.serve_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.set_root"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.set_root()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.endpoint.TftpEndpoint.update_from_other"><code class="docutils literal notranslate"><span class="pre">TftpEndpoint.update_from_other()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.enums">runtimepy.net.udp.tftp.enums module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.ACCESS_VIOLATION"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.ACCESS_VIOLATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.DISK_FULL"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.DISK_FULL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_EXISTS"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.FILE_EXISTS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.FILE_NOT_FOUND"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.FILE_NOT_FOUND</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.ILLEGAL_OPERATION"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.ILLEGAL_OPERATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.NO_USER"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.NO_USER</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.OPTION_NEGOTIATION"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.OPTION_NEGOTIATION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.UNKNOWN</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpErrorCode.UNKNOWN_ID"><code class="docutils literal notranslate"><span class="pre">TftpErrorCode.UNKNOWN_ID</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode"><code class="docutils literal notranslate"><span class="pre">TftpOpCode</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.ACK"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.ACK</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.DATA"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.DATA</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.ERROR"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.ERROR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.INVALID"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.INVALID</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.RRQ"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.RRQ</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.TftpOpCode.WRQ"><code class="docutils literal notranslate"><span class="pre">TftpOpCode.WRQ</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.encode_filename_mode"><code class="docutils literal notranslate"><span class="pre">encode_filename_mode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.enums.parse_filename_mode"><code class="docutils literal notranslate"><span class="pre">parse_filename_mode()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp.io">runtimepy.net.udp.tftp.io module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.io.tftp_chunks"><code class="docutils literal notranslate"><span class="pre">tftp_chunks()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.udp.tftp">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.TftpConnection"><code class="docutils literal notranslate"><span class="pre">TftpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.TftpConnection.request_read"><code class="docutils literal notranslate"><span class="pre">TftpConnection.request_read()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.TftpConnection.request_write"><code class="docutils literal notranslate"><span class="pre">TftpConnection.request_write()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.tftp"><code class="docutils literal notranslate"><span class="pre">tftp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.tftp_read"><code class="docutils literal notranslate"><span class="pre">tftp_read()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.udp.tftp.tftp_write"><code class="docutils literal notranslate"><span class="pre">tftp_write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

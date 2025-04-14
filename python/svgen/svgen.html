@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>svgen package &#8212; svgen  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'svgen';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="svgen.attribute package" href="svgen.attribute.html" />
+    <link rel="prev" title="svgen" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="svgen  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="svgen  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">svgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html">svgen.attribute package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.cartesian.html">svgen.cartesian package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.rectangle.html">svgen.cartesian.rectangle package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.color.html">svgen.color package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.theme.html">svgen.color.theme package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.element.html">svgen.element package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html.html">svgen.element.html package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.mixins.html">svgen.element.mixins package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.generation.html">svgen.generation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html">svgen.shapes package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/svgen.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>svgen package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.app">svgen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.initialize_config"><code class="docutils literal notranslate"><span class="pre">initialize_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.display">svgen.display module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio"><code class="docutils literal notranslate"><span class="pre">AspectRatio</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.args"><code class="docutils literal notranslate"><span class="pre">AspectRatio.args</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.as_str"><code class="docutils literal notranslate"><span class="pre">AspectRatio.as_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.create"><code class="docutils literal notranslate"><span class="pre">AspectRatio.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.final"><code class="docutils literal notranslate"><span class="pre">AspectRatio.final</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.landscape"><code class="docutils literal notranslate"><span class="pre">AspectRatio.landscape</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.over_height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.over_height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.portrait"><code class="docutils literal notranslate"><span class="pre">AspectRatio.portrait</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.rotate"><code class="docutils literal notranslate"><span class="pre">AspectRatio.rotate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.square"><code class="docutils literal notranslate"><span class="pre">AspectRatio.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.width"><code class="docutils literal notranslate"><span class="pre">AspectRatio.width</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.common_sizes"><code class="docutils literal notranslate"><span class="pre">common_sizes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.entry">svgen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.inkscape">svgen.inkscape module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask"><code class="docutils literal notranslate"><span class="pre">InkscapeTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask.invoke"><code class="docutils literal notranslate"><span class="pre">InkscapeTask.invoke()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke"><code class="docutils literal notranslate"><span class="pre">invoke()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke_multiple"><code class="docutils literal notranslate"><span class="pre">invoke_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.script">svgen.script module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.script.invoke_script"><code class="docutils literal notranslate"><span class="pre">invoke_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="svgen-package">
+<h1>svgen package<a class="headerlink" href="#svgen-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="svgen.attribute.html">svgen.attribute package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html#module-svgen.attribute.style">svgen.attribute.style module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty"><code class="docutils literal notranslate"><span class="pre">CssProperty</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty.color"><code class="docutils literal notranslate"><span class="pre">CssProperty.color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty.decode"><code class="docutils literal notranslate"><span class="pre">CssProperty.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty.encode"><code class="docutils literal notranslate"><span class="pre">CssProperty.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty.encoded"><code class="docutils literal notranslate"><span class="pre">CssProperty.encoded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty.from_dict"><code class="docutils literal notranslate"><span class="pre">CssProperty.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty.key"><code class="docutils literal notranslate"><span class="pre">CssProperty.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.CssProperty.value"><code class="docutils literal notranslate"><span class="pre">CssProperty.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.Style"><code class="docutils literal notranslate"><span class="pre">Style</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.Style.add"><code class="docutils literal notranslate"><span class="pre">Style.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.Style.add_color"><code class="docutils literal notranslate"><span class="pre">Style.add_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.Style.decode"><code class="docutils literal notranslate"><span class="pre">Style.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.Style.value"><code class="docutils literal notranslate"><span class="pre">Style.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.properties"><code class="docutils literal notranslate"><span class="pre">properties()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html#module-svgen.attribute.viewbox">svgen.attribute.viewbox module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox"><code class="docutils literal notranslate"><span class="pre">ViewBox</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.center"><code class="docutils literal notranslate"><span class="pre">ViewBox.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.decode"><code class="docutils literal notranslate"><span class="pre">ViewBox.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.dimensions"><code class="docutils literal notranslate"><span class="pre">ViewBox.dimensions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.from_dict"><code class="docutils literal notranslate"><span class="pre">ViewBox.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.height"><code class="docutils literal notranslate"><span class="pre">ViewBox.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.key"><code class="docutils literal notranslate"><span class="pre">ViewBox.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.new_grid"><code class="docutils literal notranslate"><span class="pre">ViewBox.new_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.origin"><code class="docutils literal notranslate"><span class="pre">ViewBox.origin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.translate"><code class="docutils literal notranslate"><span class="pre">ViewBox.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.value"><code class="docutils literal notranslate"><span class="pre">ViewBox.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox.width"><code class="docutils literal notranslate"><span class="pre">ViewBox.width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData"><code class="docutils literal notranslate"><span class="pre">ViewBoxData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.center"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.from_dict"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.height"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.min_x"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.min_x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.min_y"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.min_y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.origin"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.origin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.translate"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBoxData.width"><code class="docutils literal notranslate"><span class="pre">ViewBoxData.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html#module-svgen.attribute">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute"><code class="docutils literal notranslate"><span class="pre">Attribute</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute.decode"><code class="docutils literal notranslate"><span class="pre">Attribute.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute.encode"><code class="docutils literal notranslate"><span class="pre">Attribute.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute.key"><code class="docutils literal notranslate"><span class="pre">Attribute.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute.value"><code class="docutils literal notranslate"><span class="pre">Attribute.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.SimpleAttribute"><code class="docutils literal notranslate"><span class="pre">SimpleAttribute</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.SimpleAttribute.decode"><code class="docutils literal notranslate"><span class="pre">SimpleAttribute.decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.SimpleAttribute.from_dict"><code class="docutils literal notranslate"><span class="pre">SimpleAttribute.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.SimpleAttribute.value"><code class="docutils literal notranslate"><span class="pre">SimpleAttribute.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.attributes"><code class="docutils literal notranslate"><span class="pre">attributes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="svgen.cartesian.html">svgen.cartesian package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.rectangle.html">svgen.cartesian.rectangle package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.rectangle.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.rectangle.html#module-svgen.cartesian.rectangle.corner">svgen.cartesian.rectangle.corner module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.rectangle.html#module-svgen.cartesian.rectangle.grid">svgen.cartesian.rectangle.grid module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.rectangle.html#module-svgen.cartesian.rectangle">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#module-svgen.cartesian.angle">svgen.cartesian.angle module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.angle.DegreePrimitive"><code class="docutils literal notranslate"><span class="pre">DegreePrimitive</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.angle.DegreePrimitive.arc"><code class="docutils literal notranslate"><span class="pre">DegreePrimitive.arc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.angle.DegreePrimitive.rotate"><code class="docutils literal notranslate"><span class="pre">DegreePrimitive.rotate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.angle.Rotatable"><code class="docutils literal notranslate"><span class="pre">Rotatable</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.angle.Rotatable.arc"><code class="docutils literal notranslate"><span class="pre">Rotatable.arc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#module-svgen.cartesian.circle">svgen.cartesian.circle module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle.attrs"><code class="docutils literal notranslate"><span class="pre">Circle.attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle.center"><code class="docutils literal notranslate"><span class="pre">Circle.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle.center_attrs"><code class="docutils literal notranslate"><span class="pre">Circle.center_attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle.radius"><code class="docutils literal notranslate"><span class="pre">Circle.radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle.radius_attr"><code class="docutils literal notranslate"><span class="pre">Circle.radius_attr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle.scale"><code class="docutils literal notranslate"><span class="pre">Circle.scale()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle.translate"><code class="docutils literal notranslate"><span class="pre">Circle.translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.CircleAttrs"><code class="docutils literal notranslate"><span class="pre">CircleAttrs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.CircleAttrs.center"><code class="docutils literal notranslate"><span class="pre">CircleAttrs.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.CircleAttrs.radius"><code class="docutils literal notranslate"><span class="pre">CircleAttrs.radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.CircleAttrs.radius_val"><code class="docutils literal notranslate"><span class="pre">CircleAttrs.radius_val</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#module-svgen.cartesian.mutate">svgen.cartesian.mutate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Angle"><code class="docutils literal notranslate"><span class="pre">Angle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Angle.cos"><code class="docutils literal notranslate"><span class="pre">Angle.cos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Angle.degrees"><code class="docutils literal notranslate"><span class="pre">Angle.degrees</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Angle.from_degrees"><code class="docutils literal notranslate"><span class="pre">Angle.from_degrees()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Angle.from_radians"><code class="docutils literal notranslate"><span class="pre">Angle.from_radians()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Angle.radians"><code class="docutils literal notranslate"><span class="pre">Angle.radians</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Angle.sin"><code class="docutils literal notranslate"><span class="pre">Angle.sin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation"><code class="docutils literal notranslate"><span class="pre">Translation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.dx"><code class="docutils literal notranslate"><span class="pre">Translation.dx</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.dy"><code class="docutils literal notranslate"><span class="pre">Translation.dy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.normalize"><code class="docutils literal notranslate"><span class="pre">Translation.normalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.rotate"><code class="docutils literal notranslate"><span class="pre">Translation.rotate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#module-svgen.cartesian.plane">svgen.cartesian.plane module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.plane.Plane"><code class="docutils literal notranslate"><span class="pre">Plane</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.plane.Plane.origin"><code class="docutils literal notranslate"><span class="pre">Plane.origin</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#module-svgen.cartesian.point">svgen.cartesian.point module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point"><code class="docutils literal notranslate"><span class="pre">Point</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.attrs"><code class="docutils literal notranslate"><span class="pre">Point.attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.center"><code class="docutils literal notranslate"><span class="pre">Point.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.distance"><code class="docutils literal notranslate"><span class="pre">Point.distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.idx"><code class="docutils literal notranslate"><span class="pre">Point.idx</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.to_center"><code class="docutils literal notranslate"><span class="pre">Point.to_center()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.translate"><code class="docutils literal notranslate"><span class="pre">Point.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.with_index"><code class="docutils literal notranslate"><span class="pre">Point.with_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.x"><code class="docutils literal notranslate"><span class="pre">Point.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.x_attr"><code class="docutils literal notranslate"><span class="pre">Point.x_attr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.y"><code class="docutils literal notranslate"><span class="pre">Point.y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.y_attr"><code class="docutils literal notranslate"><span class="pre">Point.y_attr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointAttrs"><code class="docutils literal notranslate"><span class="pre">PointAttrs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointAttrs.x"><code class="docutils literal notranslate"><span class="pre">PointAttrs.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointAttrs.x_val"><code class="docutils literal notranslate"><span class="pre">PointAttrs.x_val</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointAttrs.y"><code class="docutils literal notranslate"><span class="pre">PointAttrs.y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointAttrs.y_val"><code class="docutils literal notranslate"><span class="pre">PointAttrs.y_val</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointManager"><code class="docutils literal notranslate"><span class="pre">PointManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointManager.add_point"><code class="docutils literal notranslate"><span class="pre">PointManager.add_point()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointManager.get_point"><code class="docutils literal notranslate"><span class="pre">PointManager.get_point()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.PointManager.translate"><code class="docutils literal notranslate"><span class="pre">PointManager.translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.to_center"><code class="docutils literal notranslate"><span class="pre">to_center()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.cartesian.html#module-svgen.cartesian">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.DimensionAttrs"><code class="docutils literal notranslate"><span class="pre">DimensionAttrs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.DimensionAttrs.height"><code class="docutils literal notranslate"><span class="pre">DimensionAttrs.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.DimensionAttrs.height_val"><code class="docutils literal notranslate"><span class="pre">DimensionAttrs.height_val</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.DimensionAttrs.width"><code class="docutils literal notranslate"><span class="pre">DimensionAttrs.width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.DimensionAttrs.width_val"><code class="docutils literal notranslate"><span class="pre">DimensionAttrs.width_val</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions"><code class="docutils literal notranslate"><span class="pre">Dimensions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.attrs"><code class="docutils literal notranslate"><span class="pre">Dimensions.attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.dx"><code class="docutils literal notranslate"><span class="pre">Dimensions.dx</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.dy"><code class="docutils literal notranslate"><span class="pre">Dimensions.dy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.height"><code class="docutils literal notranslate"><span class="pre">Dimensions.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.height_attr"><code class="docutils literal notranslate"><span class="pre">Dimensions.height_attr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.scale"><code class="docutils literal notranslate"><span class="pre">Dimensions.scale()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.square"><code class="docutils literal notranslate"><span class="pre">Dimensions.square</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.to_centered_square"><code class="docutils literal notranslate"><span class="pre">Dimensions.to_centered_square()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.to_square"><code class="docutils literal notranslate"><span class="pre">Dimensions.to_square()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.width"><code class="docutils literal notranslate"><span class="pre">Dimensions.width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions.width_attr"><code class="docutils literal notranslate"><span class="pre">Dimensions.width_attr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.distance"><code class="docutils literal notranslate"><span class="pre">distance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="svgen.color.html">svgen.color package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.theme.html">svgen.color.theme package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.theme.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.theme.html#module-svgen.color.theme.manager">svgen.color.theme.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.theme.html#module-svgen.color.theme.visualize">svgen.color.theme.visualize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.theme.html#module-svgen.color.theme">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#module-svgen.color.alpha">svgen.color.alpha module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.alpha.Alpha"><code class="docutils literal notranslate"><span class="pre">Alpha</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.alpha.Alpha.hex_str"><code class="docutils literal notranslate"><span class="pre">Alpha.hex_str</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#module-svgen.color.conversion">svgen.color.conversion module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.conversion.hsl_to_rgb"><code class="docutils literal notranslate"><span class="pre">hsl_to_rgb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.conversion.rgb_to_hsl"><code class="docutils literal notranslate"><span class="pre">rgb_to_hsl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#module-svgen.color.hsl">svgen.color.hsl module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl"><code class="docutils literal notranslate"><span class="pre">Hsl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl.alpha"><code class="docutils literal notranslate"><span class="pre">Hsl.alpha</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl.arc"><code class="docutils literal notranslate"><span class="pre">Hsl.arc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl.from_ctor"><code class="docutils literal notranslate"><span class="pre">Hsl.from_ctor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl.hue"><code class="docutils literal notranslate"><span class="pre">Hsl.hue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl.lightness"><code class="docutils literal notranslate"><span class="pre">Hsl.lightness</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl.saturation"><code class="docutils literal notranslate"><span class="pre">Hsl.saturation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.PercentPrimitive"><code class="docutils literal notranslate"><span class="pre">PercentPrimitive</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.PercentPrimitive.arc"><code class="docutils literal notranslate"><span class="pre">PercentPrimitive.arc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.PercentPrimitive.ratio"><code class="docutils literal notranslate"><span class="pre">PercentPrimitive.ratio</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.hsl"><code class="docutils literal notranslate"><span class="pre">hsl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.hsl.hsla"><code class="docutils literal notranslate"><span class="pre">hsla()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#module-svgen.color.numbers">svgen.color.numbers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.numbers.css_number_to_ratio"><code class="docutils literal notranslate"><span class="pre">css_number_to_ratio()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.numbers.parse_ctor"><code class="docutils literal notranslate"><span class="pre">parse_ctor()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#module-svgen.color.resolve">svgen.color.resolve module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.resolve.get_color"><code class="docutils literal notranslate"><span class="pre">get_color()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#module-svgen.color.rgb">svgen.color.rgb module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb"><code class="docutils literal notranslate"><span class="pre">Rgb</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.alpha"><code class="docutils literal notranslate"><span class="pre">Rgb.alpha</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.blue"><code class="docutils literal notranslate"><span class="pre">Rgb.blue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.from_ctor"><code class="docutils literal notranslate"><span class="pre">Rgb.from_ctor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.from_hex"><code class="docutils literal notranslate"><span class="pre">Rgb.from_hex()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.green"><code class="docutils literal notranslate"><span class="pre">Rgb.green</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.red"><code class="docutils literal notranslate"><span class="pre">Rgb.red</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.rgb"><code class="docutils literal notranslate"><span class="pre">Rgb.rgb</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb.rgba"><code class="docutils literal notranslate"><span class="pre">Rgb.rgba</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.RgbPrimitive"><code class="docutils literal notranslate"><span class="pre">RgbPrimitive</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.RgbPrimitive.ratio"><code class="docutils literal notranslate"><span class="pre">RgbPrimitive.ratio</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.rgb"><code class="docutils literal notranslate"><span class="pre">rgb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.rgb.rgba"><code class="docutils literal notranslate"><span class="pre">rgba()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.color.html#module-svgen.color">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.html#svgen.color.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.create"><code class="docutils literal notranslate"><span class="pre">Color.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.from_ctor"><code class="docutils literal notranslate"><span class="pre">Color.from_ctor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.from_hex"><code class="docutils literal notranslate"><span class="pre">Color.from_hex()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.from_hsl"><code class="docutils literal notranslate"><span class="pre">Color.from_hsl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.from_rgb"><code class="docutils literal notranslate"><span class="pre">Color.from_rgb()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.hsl"><code class="docutils literal notranslate"><span class="pre">Color.hsl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.hsl_arc"><code class="docutils literal notranslate"><span class="pre">Color.hsl_arc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.color.html#svgen.color.Color.rgb"><code class="docutils literal notranslate"><span class="pre">Color.rgb</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="svgen.element.html">svgen.element package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html.html">svgen.element.html package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html.html#module-svgen.element.html">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.mixins.html">svgen.element.mixins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.mixins.html#module-svgen.element.mixins">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element.circle">svgen.element.circle module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.circle.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.circle.Circle.center"><code class="docutils literal notranslate"><span class="pre">Circle.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.circle.Circle.centered"><code class="docutils literal notranslate"><span class="pre">Circle.centered()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.circle.Circle.create"><code class="docutils literal notranslate"><span class="pre">Circle.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.circle.Circle.radius"><code class="docutils literal notranslate"><span class="pre">Circle.radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.circle.Circle.scale"><code class="docutils literal notranslate"><span class="pre">Circle.scale()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.circle.Circle.translate"><code class="docutils literal notranslate"><span class="pre">Circle.translate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element.line">svgen.element.line module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.line.Line"><code class="docutils literal notranslate"><span class="pre">Line</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.line.Line.create"><code class="docutils literal notranslate"><span class="pre">Line.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.line.Line.translate"><code class="docutils literal notranslate"><span class="pre">Line.translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.line.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element.rect">svgen.element.rect module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.bottom_left"><code class="docutils literal notranslate"><span class="pre">Rect.bottom_left</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.bottom_right"><code class="docutils literal notranslate"><span class="pre">Rect.bottom_right</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.centered"><code class="docutils literal notranslate"><span class="pre">Rect.centered()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.corner"><code class="docutils literal notranslate"><span class="pre">Rect.corner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.create"><code class="docutils literal notranslate"><span class="pre">Rect.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.grid"><code class="docutils literal notranslate"><span class="pre">Rect.grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.height"><code class="docutils literal notranslate"><span class="pre">Rect.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.scale"><code class="docutils literal notranslate"><span class="pre">Rect.scale()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.scale_whole"><code class="docutils literal notranslate"><span class="pre">Rect.scale_whole()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.square"><code class="docutils literal notranslate"><span class="pre">Rect.square</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.to_square"><code class="docutils literal notranslate"><span class="pre">Rect.to_square()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.top_left"><code class="docutils literal notranslate"><span class="pre">Rect.top_left</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.top_right"><code class="docutils literal notranslate"><span class="pre">Rect.top_right</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.translate"><code class="docutils literal notranslate"><span class="pre">Rect.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.width"><code class="docutils literal notranslate"><span class="pre">Rect.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element.svg">svgen.element.svg module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.svg.Svg"><code class="docutils literal notranslate"><span class="pre">Svg</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.svg.add_background_grid"><code class="docutils literal notranslate"><span class="pre">add_background_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element.text">svgen.element.text module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.text.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.text.Text.has_dimensions"><code class="docutils literal notranslate"><span class="pre">Text.has_dimensions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.add_attribute"><code class="docutils literal notranslate"><span class="pre">Element.add_attribute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.add_class"><code class="docutils literal notranslate"><span class="pre">Element.add_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.closing"><code class="docutils literal notranslate"><span class="pre">Element.closing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.encode"><code class="docutils literal notranslate"><span class="pre">Element.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.encode_str"><code class="docutils literal notranslate"><span class="pre">Element.encode_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.style"><code class="docutils literal notranslate"><span class="pre">Element.style</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.xml"><code class="docutils literal notranslate"><span class="pre">Element.xml</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="svgen.generation.html">svgen.generation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.generation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.generation.html#module-svgen.generation.images">svgen.generation.images module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.generation.html#svgen.generation.images.generate_icon"><code class="docutils literal notranslate"><span class="pre">generate_icon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.generation.html#svgen.generation.images.generate_images"><code class="docutils literal notranslate"><span class="pre">generate_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.generation.html#module-svgen.generation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="svgen.shapes.html">svgen.shapes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#module-svgen.shapes.chip">svgen.shapes.chip module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.chip.add_chip"><code class="docutils literal notranslate"><span class="pre">add_chip()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#module-svgen.shapes.pins">svgen.shapes.pins module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.pins.add_pins"><code class="docutils literal notranslate"><span class="pre">add_pins()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#module-svgen.shapes">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-svgen.app">
+<span id="svgen-app-module"></span><h2>svgen.app module<a class="headerlink" href="#module-svgen.app" title="Link to this heading">#</a></h2>
+<p>svgen - This package’s command-line entry-point application.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.app.add_app_args">
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.add_app_args" title="Link to this definition">#</a></dt>
+<dd><p>Add application-specific arguments to the command-line parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.app.entry">
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.entry" title="Link to this definition">#</a></dt>
+<dd><p>Execute the requested task.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.app.generate">
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scripts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.generate" title="Link to this definition">#</a></dt>
+<dd><p>Generate a single SVG document.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.app.initialize_config">
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">initialize_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#initialize_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.initialize_config" title="Link to this definition">#</a></dt>
+<dd><p>Set initial values for SVG document configurations.</p>
+</dd></dl>
+
+</section>
+<section id="module-svgen.display">
+<span id="svgen-display-module"></span><h2>svgen.display module<a class="headerlink" href="#module-svgen.display" title="Link to this heading">#</a></h2>
+<p>A module for working with common display assets.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.display.</span></span><span class="sig-name descname"><span class="pre">AspectRatio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A class to storge a width and height ratio.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.args">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.display.AspectRatio.args" title="Link to this definition">#</a></dt>
+<dd><p>Get inkscape command-line arguments.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.as_str">
+<span class="sig-name descname"><span class="pre">as_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">':'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.as_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.as_str" title="Link to this definition">#</a></dt>
+<dd><p>Get this aspect ratio as a string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.create">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">':'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.create" title="Link to this definition">#</a></dt>
+<dd><p>Create an aspect ration from a string.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.final">
+<span class="sig-name descname"><span class="pre">final</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.final" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.height">
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.display.AspectRatio.height" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.landscape">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">landscape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.landscape" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this ratio is landscape.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.over_height">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">over_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.display.AspectRatio.over_height" title="Link to this definition">#</a></dt>
+<dd><p>Express this ratio as one of width over height.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.portrait">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">portrait</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.portrait" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this ratio is portrait.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.rotate" title="Link to this definition">#</a></dt>
+<dd><p>Get this aspect ratio rotated.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.square">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.square" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this is a square aspect ratio.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.display.AspectRatio.width">
+<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.display.AspectRatio.width" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.display.common_sizes">
+<span class="sig-prename descclassname"><span class="pre">svgen.display.</span></span><span class="sig-name descname"><span class="pre">common_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox" title="svgen.attribute.viewbox.ViewBox"><span class="pre">ViewBox</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/svgen/display.html#common_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.common_sizes" title="Link to this definition">#</a></dt>
+<dd><p>Iterate over common sizes for a given aspect ratio.</p>
+</dd></dl>
+
+</section>
+<section id="module-svgen.entry">
+<span id="svgen-entry-module"></span><h2>svgen.entry module<a class="headerlink" href="#module-svgen.entry" title="Link to this heading">#</a></h2>
+<p>This package’s command-line entry-point (boilerplate).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.entry.main">
+<span class="sig-prename descclassname"><span class="pre">svgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.entry.main" title="Link to this definition">#</a></dt>
+<dd><p>Program entry-point.</p>
+</dd></dl>
+
+</section>
+<section id="module-svgen.inkscape">
+<span id="svgen-inkscape-module"></span><h2>svgen.inkscape module<a class="headerlink" href="#module-svgen.inkscape" title="Link to this heading">#</a></h2>
+<p>A module for generating image outputs from SVG via Inkscape.</p>
+<p><a class="gitlab reference external" href="https://gitlab.com/inkscape/inkscape">inkscape/inkscape</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.inkscape.InkscapeTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">InkscapeTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Timer</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Target</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/inkscape.html#InkscapeTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.InkscapeTask" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SubprocessExecStreamed</span></code></p>
+<p>A task implementation for invoking inkscape at command-line.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.inkscape.InkscapeTask.invoke">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cli_args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#InkscapeTask.invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.InkscapeTask.invoke" title="Link to this definition">#</a></dt>
+<dd><p>Invoke inkscape.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.inkscape.invoke">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cli_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke" title="Link to this definition">#</a></dt>
+<dd><p>Run an inkscape command-line command.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.inkscape.invoke_multiple">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke_multiple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke_multiple" title="Link to this definition">#</a></dt>
+<dd><p>Run multiple inkscape invocations at the same time.</p>
+</dd></dl>
+
+</section>
+<section id="module-svgen.script">
+<span id="svgen-script-module"></span><h2>svgen.script module<a class="headerlink" href="#module-svgen.script" title="Link to this heading">#</a></h2>
+<p>svgen - A module for working with external scripts.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.script.invoke_script">
+<span class="sig-prename descclassname"><span class="pre">svgen.script.</span></span><span class="sig-name descname"><span class="pre">invoke_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.element.html#svgen.element.svg.Svg" title="svgen.element.svg.Svg"><span class="pre">Svg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/script.html#invoke_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.script.invoke_script" title="Link to this definition">#</a></dt>
+<dd><p>Invoke an external script’s ‘compose’ function.</p>
+</dd></dl>
+
+</section>
+<section id="module-svgen">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-svgen" title="Link to this heading">#</a></h2>
+<p>Useful defaults and other package metadata.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">svgen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="svgen.attribute.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">svgen.attribute package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.app">svgen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.initialize_config"><code class="docutils literal notranslate"><span class="pre">initialize_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.display">svgen.display module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio"><code class="docutils literal notranslate"><span class="pre">AspectRatio</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.args"><code class="docutils literal notranslate"><span class="pre">AspectRatio.args</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.as_str"><code class="docutils literal notranslate"><span class="pre">AspectRatio.as_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.create"><code class="docutils literal notranslate"><span class="pre">AspectRatio.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.final"><code class="docutils literal notranslate"><span class="pre">AspectRatio.final</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.landscape"><code class="docutils literal notranslate"><span class="pre">AspectRatio.landscape</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.over_height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.over_height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.portrait"><code class="docutils literal notranslate"><span class="pre">AspectRatio.portrait</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.rotate"><code class="docutils literal notranslate"><span class="pre">AspectRatio.rotate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.square"><code class="docutils literal notranslate"><span class="pre">AspectRatio.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.width"><code class="docutils literal notranslate"><span class="pre">AspectRatio.width</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.common_sizes"><code class="docutils literal notranslate"><span class="pre">common_sizes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.entry">svgen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.inkscape">svgen.inkscape module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask"><code class="docutils literal notranslate"><span class="pre">InkscapeTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask.invoke"><code class="docutils literal notranslate"><span class="pre">InkscapeTask.invoke()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke"><code class="docutils literal notranslate"><span class="pre">invoke()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke_multiple"><code class="docutils literal notranslate"><span class="pre">invoke_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.script">svgen.script module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.script.invoke_script"><code class="docutils literal notranslate"><span class="pre">invoke_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy &#8212; runtimepy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="runtimepy package" href="runtimepy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.control.html">runtimepy.control package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.control.env.html">runtimepy.control.env package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.struct.html">runtimepy.net.arbiter.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.html.html">runtimepy.net.html package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html.bootstrap.html">runtimepy.net.html.bootstrap package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.scpi.html">runtimepy.net.tcp.scpi package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.udp.html">runtimepy.net.udp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.tftp.html">runtimepy.net.udp.tftp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.noise.html">runtimepy.noise package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.ui.html">runtimepy.ui package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>runtimepy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="runtimepy">
+<h1>runtimepy<a class="headerlink" href="#runtimepy" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.html">runtimepy package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#module-runtimepy.channel.registry">runtimepy.channel.registry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#module-runtimepy.channel">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.html#module-runtimepy.codec">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.all">runtimepy.commands.all module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.arbiter">runtimepy.commands.arbiter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.common">runtimepy.commands.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.mtu">runtimepy.commands.mtu module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.server">runtimepy.commands.server module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.task">runtimepy.commands.task module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.tftp">runtimepy.commands.tftp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.tui">runtimepy.commands.tui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.control.html">runtimepy.control package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.control.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.control.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.control.html#module-runtimepy.control.source">runtimepy.control.source module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.control.html#module-runtimepy.control.step">runtimepy.control.step module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.control.html#module-runtimepy.control">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#module-runtimepy.enum.registry">runtimepy.enum.registry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#module-runtimepy.enum.types">runtimepy.enum.types module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#module-runtimepy.enum">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message.handlers">runtimepy.message.handlers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message.interface">runtimepy.message.interface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message.types">runtimepy.message.types module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#module-runtimepy.metrics.channel">runtimepy.metrics.channel module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#module-runtimepy.metrics.connection">runtimepy.metrics.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#module-runtimepy.metrics.task">runtimepy.metrics.task module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#module-runtimepy.metrics">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.async_command">runtimepy.mixins.async_command module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.enum">runtimepy.mixins.enum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.environment">runtimepy.mixins.environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.finalize">runtimepy.mixins.finalize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.logging">runtimepy.mixins.logging module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.psutil">runtimepy.mixins.psutil module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.regex">runtimepy.mixins.regex module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.trig">runtimepy.mixins.trig module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.backoff">runtimepy.net.backoff module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.connection">runtimepy.net.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.manager">runtimepy.net.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.mixin">runtimepy.net.mixin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.mtu">runtimepy.net.mtu module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.ssl">runtimepy.net.ssl module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.util">runtimepy.net.util module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.noise.html">runtimepy.noise package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.noise.html#module-runtimepy.noise">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.base">runtimepy.primitives.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.bool">runtimepy.primitives.bool module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.byte_order">runtimepy.primitives.byte_order module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.evaluation">runtimepy.primitives.evaluation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.float">runtimepy.primitives.float module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.int">runtimepy.primitives.int module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.scaling">runtimepy.primitives.scaling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.string">runtimepy.primitives.string module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#module-runtimepy.registry.bool">runtimepy.registry.bool module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#module-runtimepy.registry.item">runtimepy.registry.item module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#module-runtimepy.registry.name">runtimepy.registry.name module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#module-runtimepy.registry">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#module-runtimepy.sample.peer">runtimepy.sample.peer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#module-runtimepy.sample.program">runtimepy.sample.program module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#module-runtimepy.sample">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.struct.html#module-runtimepy.struct">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.interface">runtimepy.subprocess.interface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.peer">runtimepy.subprocess.peer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.program">runtimepy.subprocess.program module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.protocol">runtimepy.subprocess.protocol module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#module-runtimepy.task.asynchronous">runtimepy.task.asynchronous module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#module-runtimepy.task.sample">runtimepy.task.sample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#module-runtimepy.task">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.telemetry.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.telemetry.html#module-runtimepy.telemetry.sample">runtimepy.telemetry.sample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.telemetry.html#module-runtimepy.telemetry">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#module-runtimepy.tui.cursor">runtimepy.tui.cursor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#module-runtimepy.tui.mixin">runtimepy.tui.mixin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#module-runtimepy.tui.mock">runtimepy.tui.mock module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#module-runtimepy.tui.task">runtimepy.tui.task module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#module-runtimepy.tui">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.ui.html">runtimepy.ui package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.ui.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.ui.html#module-runtimepy.ui.controls">runtimepy.ui.controls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.ui.html#module-runtimepy.ui">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.app">runtimepy.app module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.entry">runtimepy.entry module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.mapping">runtimepy.mapping module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.asdict"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.asdict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.bool_from_dict"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.bool_from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.identifier"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.identifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.int_from_dict"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.int_from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.load_key_to_name"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.load_key_to_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.load_name_to_key"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.load_name_to_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.name"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.names"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.search"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.schemas">runtimepy.schemas module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.schemas.RuntimepyDictCodec"><code class="docutils literal notranslate"><span class="pre">RuntimepyDictCodec</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.html#runtimepy.schemas.RuntimepyDictCodec.default_schemas"><code class="docutils literal notranslate"><span class="pre">RuntimepyDictCodec.default_schemas</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.util">runtimepy.util module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.util.Identifier"><code class="docutils literal notranslate"><span class="pre">Identifier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.util.normalize_root"><code class="docutils literal notranslate"><span class="pre">normalize_root()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.util.parse_path_parts"><code class="docutils literal notranslate"><span class="pre">parse_path_parts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.util.path_has_part"><code class="docutils literal notranslate"><span class="pre">path_has_part()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.html#runtimepy.util.read_binary"><code class="docutils literal notranslate"><span class="pre">read_binary()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="runtimepy.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">runtimepy package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

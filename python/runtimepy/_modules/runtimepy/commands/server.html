@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>runtimepy.commands.server &#8212; runtimepy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/runtimepy/commands/server';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../runtimepy.html">runtimepy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.channel.environment.html">runtimepy.channel.environment package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../runtimepy.codec.html">runtimepy.codec package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../runtimepy.control.html">runtimepy.control package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.control.env.html">runtimepy.control.env package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.message.html">runtimepy.message package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.metrics.html">runtimepy.metrics package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../runtimepy.net.html">runtimepy.net package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.arbiter.struct.html">runtimepy.net.arbiter.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.net.html.html">runtimepy.net.html package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.html.bootstrap.html">runtimepy.net.html.bootstrap package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.net.server.html">runtimepy.net.server package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.net.stream.html">runtimepy.net.stream package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.net.tcp.html">runtimepy.net.tcp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.tcp.scpi.html">runtimepy.net.tcp.scpi package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.net.udp.html">runtimepy.net.udp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.net.udp.tftp.html">runtimepy.net.udp.tftp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.noise.html">runtimepy.noise package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../runtimepy.primitives.html">runtimepy.primitives package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../runtimepy.primitives.field.html">runtimepy.primitives.field package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../runtimepy.task.html">runtimepy.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../runtimepy.tui.html">runtimepy.tui package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../runtimepy.ui.html">runtimepy.ui package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for runtimepy.commands.server</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">An entry-point for the &#39;server&#39; command.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span> <span class="k">as</span> <span class="n">_ArgumentParser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">Namespace</span> <span class="k">as</span> <span class="n">_Namespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.args</span><span class="w"> </span><span class="kn">import</span> <span class="n">CommandFunction</span> <span class="k">as</span> <span class="n">_CommandFunction</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.commands.arbiter</span><span class="w"> </span><span class="kn">import</span> <span class="n">arbiter_cmd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.commands.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">FACTORIES</span><span class="p">,</span> <span class="n">arbiter_args</span><span class="p">,</span> <span class="n">cmd_with_jit</span>
+
+<span class="n">SSL_PASSTHROUGH</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cafile&quot;</span><span class="p">,</span> <span class="s2">&quot;capath&quot;</span><span class="p">,</span> <span class="s2">&quot;cadata&quot;</span><span class="p">,</span> <span class="s2">&quot;certfile&quot;</span><span class="p">]</span>
+<span class="n">PASSTHROUGH</span> <span class="o">=</span> <span class="n">SSL_PASSTHROUGH</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;keyfile&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="port_name">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.port_name">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">port_name</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">_Namespace</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;port&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name for a connection factory&#39;s port.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">factory</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="s1">&#39;udp&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">args</span><span class="o">.</span><span class="n">udp</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;tcp&#39;</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="server_data">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.server_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">server_data</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">_Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get server data based on command-line arguments.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;factory&quot;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">factory</span><span class="p">,</span>
+        <span class="s2">&quot;kwargs&quot;</span><span class="p">:</span> <span class="n">get_kwargs</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">port_name</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">),</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="is_websocket">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.is_websocket">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_websocket</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">_Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Determine if the specified factory uses WebSocket or not.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;websocket&quot;</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="is_ssl">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.is_ssl">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_ssl</span><span class="p">(</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Determine if server arugments indicate SSL use.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">SSL_PASSTHROUGH</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_kwargs">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.get_kwargs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_kwargs</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">_Namespace</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get boilerplate kwargs.&quot;&quot;&quot;</span>
+
+    <span class="n">new_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+
+    <span class="c1"># Pass additional arguments through.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">PASSTHROUGH</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new_kwargs</span><span class="p">[</span><span class="n">opt</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">new_kwargs</span></div>
+
+
+
+<div class="viewcode-block" id="client_data">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.client_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">client_data</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">_Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get client data based on command-line arguments.&quot;&quot;&quot;</span>
+
+    <span class="n">port</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">port_name</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">arg_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="n">is_websocket</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">arg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;ws</span><span class="si">{</span><span class="s1">&#39;s&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_ssl</span><span class="p">(</span><span class="n">get_kwargs</span><span class="p">(</span><span class="n">args</span><span class="p">))</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">://localhost:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">udp</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">port</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;remote_addr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">]</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">port_name</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;client&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;defer&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;factory&quot;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">factory</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">arg_list</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;args&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arg_list</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;kwargs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="config_data">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.config_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">config_data</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">_Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get configuration data for the &#39;server&#39; command.&quot;&quot;&quot;</span>
+
+    <span class="n">servers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">clients</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">udp</span><span class="p">:</span>
+        <span class="n">servers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">server_data</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">clients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">port_name</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;server&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;factory&quot;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">factory</span><span class="p">,</span>
+                <span class="s2">&quot;kwargs&quot;</span><span class="p">:</span> <span class="n">get_kwargs</span><span class="p">(</span>
+                    <span class="n">args</span><span class="p">,</span> <span class="n">local_addr</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">port_name</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+                <span class="p">),</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Add a loopback connection if specified.</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">loopback</span><span class="p">:</span>
+        <span class="n">clients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">client_data</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;includes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">FACTORIES</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">configs</span><span class="p">,</span>
+        <span class="s2">&quot;clients&quot;</span><span class="p">:</span> <span class="n">clients</span><span class="p">,</span>
+        <span class="s2">&quot;servers&quot;</span><span class="p">:</span> <span class="n">servers</span><span class="p">,</span>
+        <span class="s2">&quot;ports&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">port_name</span><span class="p">(</span><span class="n">args</span><span class="p">),</span>
+                <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;udp&quot;</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">udp</span> <span class="k">else</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="server_cmd">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.server_cmd">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">server_cmd</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">_Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Execute the server command.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">cmd_with_jit</span><span class="p">(</span><span class="n">arbiter_cmd</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">config_data</span><span class="p">(</span><span class="n">args</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="add_server_cmd">
+<a class="viewcode-back" href="../../../runtimepy.commands.html#runtimepy.commands.server.add_server_cmd">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_server_cmd</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">_ArgumentParser</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CommandFunction</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add server-command arguments to its parser.&quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">arbiter_args</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">optional</span> <span class="ow">in</span> <span class="n">PASSTHROUGH</span><span class="p">:</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;--</span><span class="si">{</span><span class="n">optional</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;passed directly to instantiation&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s2">&quot;--host&quot;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;host address to listen on (default: &#39;</span><span class="si">%(default)s</span><span class="s2">&#39;)&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s2">&quot;-p&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;--port&quot;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;port to listen on (default: </span><span class="si">%(default)s</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s2">&quot;-u&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;--udp&quot;</span><span class="p">,</span>
+            <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;whether or not this is a UDP-based server &quot;</span>
+            <span class="s2">&quot;(otherwise it must be a TCP-based server)&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s2">&quot;-l&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;--loopback&quot;</span><span class="p">,</span>
+            <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;if true a client of the same connection type is added&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s2">&quot;factory&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;name of connection factory to create server for&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">server_cmd</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

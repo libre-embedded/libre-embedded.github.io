@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vcorelib.paths.info_cache &#8212; vcorelib  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/vcorelib/paths/info_cache';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="vcorelib  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="vcorelib  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../vcorelib.html">vcorelib package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.args.html">vcorelib.args package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.asyncio.html">vcorelib.asyncio package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.dict.html">vcorelib.dict package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.graph.html">vcorelib.graph package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.math.html">vcorelib.math package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../vcorelib.math.analysis.html">vcorelib.math.analysis package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.namespace.html">vcorelib.namespace package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.paths.html">vcorelib.paths package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.platform.html">vcorelib.platform package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.schemas.html">vcorelib.schemas package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.script.html">vcorelib.script package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.target.html">vcorelib.target package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.task.html">vcorelib.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.task.dict.html">vcorelib.task.dict package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.task.subprocess.html">vcorelib.task.subprocess package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.task.time.html">vcorelib.task.time package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for vcorelib.paths.info_cache</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing a file-info cache.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExitStack</span> <span class="k">as</span> <span class="n">_ExitStack</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span> <span class="k">as</span> <span class="n">_contextmanager</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span> <span class="k">as</span> <span class="n">_Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span> <span class="k">as</span> <span class="n">_Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.dict.cache</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileCache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonObject</span> <span class="k">as</span> <span class="n">_JsonObject</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.math.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggerType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pathlike</span> <span class="k">as</span> <span class="n">_Pathlike</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize</span> <span class="k">as</span> <span class="n">_normalize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">rel</span> <span class="k">as</span> <span class="n">_rel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths.info</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileChangeEvent</span><span class="p">,</span> <span class="n">FileInfo</span>
+
+
+<div class="viewcode-block" id="FileChanged">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.info_cache.FileChanged">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FileChanged</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Data provided to a file-changed callback.&quot;&quot;&quot;</span>
+
+    <span class="n">new</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">FileInfo</span><span class="p">]</span>
+    <span class="n">old</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">FileInfo</span><span class="p">]</span>
+    <span class="n">event</span><span class="p">:</span> <span class="n">FileChangeEvent</span></div>
+
+
+
+<span class="c1">#</span>
+<span class="c1"># new file (if still present), old file (if it was previously present), kind</span>
+<span class="c1"># of file-change event</span>
+<span class="c1">#</span>
+<span class="c1"># return True if the callback succeeded, in this case an implementation using</span>
+<span class="c1"># this callback should consider the new file info valid</span>
+<span class="c1">#</span>
+<span class="c1"># if False was returned, do not promote the new file info into any cache or</span>
+<span class="c1"># runtime state</span>
+<span class="c1">#</span>
+<span class="c1"># this return-value signal is useful because software that acts on file changes</span>
+<span class="c1"># can fail, and eventually retry later (such as in a completely new invocation</span>
+<span class="c1"># of the program), without the file-change event being lost</span>
+<span class="c1">#</span>
+<span class="n">FileChangedCallback</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[</span><span class="n">FileChanged</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span>
+
+<span class="c1"># Adds &#39;FileInfo&#39; and &#39;FileChangeEvent&#39; from the .info module.</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;FileChanged&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FileChangedCallback&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FileInfoManager&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;file_info_cache&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FileInfo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FileChangeEvent&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_file_change_event</span><span class="p">(</span>
+    <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span><span class="p">,</span> <span class="n">change</span><span class="p">:</span> <span class="n">FileChanged</span><span class="p">,</span> <span class="n">base</span><span class="p">:</span> <span class="n">_Pathlike</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log information based on a file-change event.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">change</span><span class="o">.</span><span class="n">event</span> <span class="ow">is</span> <span class="n">FileChangeEvent</span><span class="o">.</span><span class="n">CREATED</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+            <span class="n">level</span><span class="p">,</span>
+            <span class="s2">&quot;File &#39;</span><span class="si">%s</span><span class="s2">&#39; is newly created.&quot;</span><span class="p">,</span>
+            <span class="n">_rel</span><span class="p">(</span><span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">change</span><span class="o">.</span><span class="n">event</span> <span class="ow">is</span> <span class="n">FileChangeEvent</span><span class="o">.</span><span class="n">REMOVED</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">change</span><span class="o">.</span><span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+            <span class="n">level</span><span class="p">,</span> <span class="s2">&quot;File &#39;</span><span class="si">%s</span><span class="s2">&#39; was removed.&quot;</span><span class="p">,</span> <span class="n">_rel</span><span class="p">(</span><span class="n">change</span><span class="o">.</span><span class="n">old</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">assert</span> <span class="n">change</span><span class="o">.</span><span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+            <span class="n">level</span><span class="p">,</span>
+            <span class="s2">&quot;File &#39;</span><span class="si">%s</span><span class="s2">&#39; changed (</span><span class="si">%d</span><span class="s2"> bytes added/removed).&quot;</span><span class="p">,</span>
+            <span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="n">change</span><span class="o">.</span><span class="n">old</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="FileInfoManager">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.info_cache.FileInfoManager">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FileInfoManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class simplifying evaluation of changes to files on disk.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">poll_cb</span><span class="p">:</span> <span class="n">FileChangedCallback</span><span class="p">,</span>
+        <span class="n">initial</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="n">_Path</span><span class="p">,</span> <span class="n">FileInfo</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="n">check_contents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this file-info manager.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">poll</span> <span class="o">=</span> <span class="n">poll_cb</span>
+
+        <span class="k">if</span> <span class="n">initial</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">initial</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infos</span> <span class="o">=</span> <span class="n">initial</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_contents</span> <span class="o">=</span> <span class="n">check_contents</span>
+
+        <span class="c1"># If we have initial files, poll them all.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">poll_existing</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">_Path</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">FileInfo</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update our internal tracking.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span><span class="n">info</span><span class="o">.</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+
+<div class="viewcode-block" id="FileInfoManager.poll_existing">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.info_cache.FileInfoManager.poll_existing">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">poll_existing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">:</span> <span class="n">_Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Poll all existing files. This is the only way to detect files that have</span>
+<span class="sd">        been deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">poll_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FileInfoManager.poll_directory">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.info_cache.FileInfoManager.poll_directory">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">poll_directory</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span> <span class="n">recurse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">base</span><span class="p">:</span> <span class="n">_Pathlike</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Poll an entire directory for changes. If files previously in this</span>
+<span class="sd">        directory were polled and are no longer present, they won&#39;t be polled</span>
+<span class="sd">        and thus won&#39;t trigger the callback. Use &#39;poll_existing&#39; for that</span>
+<span class="sd">        behavior.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">_normalize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+        <span class="c1"># Don&#39;t do anything if this isn&#39;t a directory.</span>
+        <span class="k">if</span> <span class="n">norm</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">norm</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">poll_file</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">recurse</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">poll_directory</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_call_callback</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">:</span> <span class="n">FileChanged</span><span class="p">,</span> <span class="n">base</span><span class="p">:</span> <span class="n">_Pathlike</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Call the provided callback with the change event. Log information if</span>
+<span class="sd">        a logger is provided.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Log the event, if a logger was provided.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">log_file_change_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="n">change</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">change</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_poll_path</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">_Path</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">_Optional</span><span class="p">[</span><span class="n">FileChangeEvent</span><span class="p">],</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">FileInfo</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get information about a file-system path.&quot;&quot;&quot;</span>
+
+        <span class="n">change</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">file_info</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># If the path isn&#39;t in the mapping, it&#39;s a new file.</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+                <span class="n">change</span> <span class="o">=</span> <span class="n">FileChangeEvent</span><span class="o">.</span><span class="n">CREATED</span>
+                <span class="n">file_info</span> <span class="o">=</span> <span class="n">FileInfo</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">change</span><span class="p">,</span> <span class="n">file_info</span>
+
+        <span class="c1"># Determine if the existing file has changed.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span><span class="n">path</span><span class="p">]</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">check_contents</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">check_contents</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FileInfoManager.poll_file">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.info_cache.FileInfoManager.poll_file">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">poll_file</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span>
+        <span class="n">base</span><span class="p">:</span> <span class="n">_Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if a file has changed and invoke the callback if so.&quot;&quot;&quot;</span>
+
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">_normalize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="n">kind</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_poll_path</span><span class="p">(</span><span class="n">norm</span><span class="p">)</span>
+
+        <span class="c1"># Invoke the callback if a change event occured. Update our internal</span>
+        <span class="c1"># structure if the callback succeeds.</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_callback</span><span class="p">(</span>
+            <span class="n">FileChanged</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">norm</span><span class="p">),</span> <span class="n">kind</span><span class="p">),</span>
+            <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_info</span><span class="p">(</span><span class="n">norm</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="nd">@_contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">file_info_manager</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">_JsonObject</span><span class="p">,</span> <span class="n">poll_cb</span><span class="p">:</span> <span class="n">FileChangedCallback</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">FileInfoManager</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a file-info manager as a managed context.&quot;&quot;&quot;</span>
+
+    <span class="n">manager</span> <span class="o">=</span> <span class="n">FileInfoManager</span><span class="p">(</span>
+        <span class="n">poll_cb</span><span class="p">,</span> <span class="n">FileInfo</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">manager</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># Update dictionary data with the current cache contents.</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">manager</span><span class="o">.</span><span class="n">infos</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">info</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="file_info_cache">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.info_cache.file_info_cache">[docs]</a>
+<span class="nd">@_contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">file_info_cache</span><span class="p">(</span>
+    <span class="n">cache_path</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span>
+    <span class="n">poll_cb</span><span class="p">:</span> <span class="n">FileChangedCallback</span><span class="p">,</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">check_contents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">FileInfoManager</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain a file-info manager as a cached context.&quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="n">_normalize</span><span class="p">(</span><span class="n">cache_path</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; is a directory!&quot;</span>
+
+    <span class="k">with</span> <span class="n">_ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">file_info_manager</span><span class="p">(</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="n">FileCache</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">loaded</span><span class="p">()),</span>
+            <span class="n">poll_cb</span><span class="p">,</span>
+            <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+            <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+            <span class="n">check_contents</span><span class="o">=</span><span class="n">check_contents</span><span class="p">,</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">manager</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">manager</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

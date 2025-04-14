@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; userfs  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="userfs  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="userfs  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="userfs.html">userfs package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="userfs.build.html">userfs.build package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userfs.commands.html">userfs.commands package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userfs.config.html">userfs.config package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userfs.deploy.html">userfs.deploy package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userfs.fetch.html">userfs.fetch package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userfs.hooks.html">userfs.hooks package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userfs.project.html">userfs.project package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userfs.update.html">userfs.update package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.html#userfs.app.add_app_args">add_app_args() (in module userfs.app)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.build.add_build_cmd">add_build_cmd() (in module userfs.commands.build)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.common.add_common">add_common() (in module userfs.commands.common)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.custom.add_custom_cmd">add_custom_cmd() (in module userfs.commands.custom)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.commands.html#userfs.commands.fetch.add_fetch_cmd">add_fetch_cmd() (in module userfs.commands.fetch)</a>
+</li>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.attributes">attributes (userfs.config.project.ProjectSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.attributes">(userfs.config.ProjectSpecification attribute)</a>
+</li>
+        <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.attributes">(userfs.config.source.SourceSpecification attribute)</a>
+</li>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.attributes">(userfs.config.SourceSpecification attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectInteraction.BUILD">BUILD (userfs.config.project.ProjectInteraction attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectInteraction.BUILD">(userfs.config.ProjectInteraction attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.build.html#userfs.build.build">build() (in module userfs.build)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.build.build_cmd">build_cmd() (in module userfs.commands.build)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask.cli_options">cli_options (userfs.project.ProjectInteractionTask attribute)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.all.commands">commands() (in module userfs.commands.all)</a>
+</li>
+      <li><a href="userfs.config.html#userfs.config.Config">Config (class in userfs.config)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectInteraction.CUSTOM">CUSTOM (userfs.config.project.ProjectInteraction attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectInteraction.CUSTOM">(userfs.config.ProjectInteraction attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.commands.html#userfs.commands.custom.custom_cmd">custom_cmd() (in module userfs.commands.custom)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.html#userfs.schemas.UserfsDictCodec.default_schemas">default_schemas (userfs.schemas.UserfsDictCodec attribute)</a>
+</li>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectInteraction.DEPLOY">DEPLOY (userfs.config.project.ProjectInteraction attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectInteraction.DEPLOY">(userfs.config.ProjectInteraction attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.deploy.html#userfs.deploy.deploy">deploy() (in module userfs.deploy)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.html#userfs.app.entry">entry() (in module userfs.app)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.project.html#userfs.project.execute_interactions">execute_interactions() (in module userfs.project)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectInteraction.FETCH">FETCH (userfs.config.project.ProjectInteraction attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectInteraction.FETCH">(userfs.config.ProjectInteraction attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.fetch.html#userfs.fetch.fetch">fetch() (in module userfs.fetch)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.fetch.fetch_cmd">fetch_cmd() (in module userfs.commands.fetch)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.from_json">from_json() (userfs.config.project.ProjectSpecification static method)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.from_json">(userfs.config.ProjectSpecification static method)</a>
+</li>
+        <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.from_json">(userfs.config.source.SourceSpecification static method)</a>
+</li>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.from_json">(userfs.config.SourceSpecification static method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.hooks.html#userfs.hooks.get_hooks">get_hooks() (in module userfs.hooks)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.common.get_projects">get_projects() (in module userfs.commands.common)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.source.SourceKind.GIT">GIT (userfs.config.source.SourceKind attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceKind.GIT">(userfs.config.SourceKind attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask.hooks">hooks (userfs.project.ProjectInteractionTask attribute)</a>
+</li>
+      <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask.hooks_only">hooks_only (userfs.project.ProjectInteractionTask attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.host">host (userfs.config.source.SourceSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.host">(userfs.config.SourceSpecification attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.Config.init">init() (userfs.config.Config method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.project.html#userfs.project.interact">interact() (in module userfs.project)</a>
+
+      <ul>
+        <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask.interact">(userfs.project.ProjectInteractionTask method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.kind">kind (userfs.config.source.SourceSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.kind">(userfs.config.SourceSpecification attribute)</a>
+</li>
+        <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask.kind">(userfs.project.ProjectInteractionTask attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.load_config">load_config() (in module userfs.config)</a>
+</li>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.location">location() (userfs.config.project.ProjectSpecification method)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.location">(userfs.config.ProjectSpecification method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.logger">logger (userfs.config.project.ProjectSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.logger">(userfs.config.ProjectSpecification attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.html#userfs.entry.main">main() (in module userfs.entry)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="userfs.html#module-userfs">userfs</a>
+</li>
+        <li><a href="userfs.html#module-userfs.app">userfs.app</a>
+</li>
+        <li><a href="userfs.build.html#module-userfs.build">userfs.build</a>
+</li>
+        <li><a href="userfs.commands.html#module-userfs.commands">userfs.commands</a>
+</li>
+        <li><a href="userfs.commands.html#module-userfs.commands.all">userfs.commands.all</a>
+</li>
+        <li><a href="userfs.commands.html#module-userfs.commands.build">userfs.commands.build</a>
+</li>
+        <li><a href="userfs.commands.html#module-userfs.commands.common">userfs.commands.common</a>
+</li>
+        <li><a href="userfs.commands.html#module-userfs.commands.custom">userfs.commands.custom</a>
+</li>
+        <li><a href="userfs.commands.html#module-userfs.commands.fetch">userfs.commands.fetch</a>
+</li>
+        <li><a href="userfs.config.html#module-userfs.config">userfs.config</a>
+</li>
+        <li><a href="userfs.config.html#module-userfs.config.project">userfs.config.project</a>
+</li>
+        <li><a href="userfs.config.html#module-userfs.config.source">userfs.config.source</a>
+</li>
+        <li><a href="userfs.deploy.html#module-userfs.deploy">userfs.deploy</a>
+</li>
+        <li><a href="userfs.html#module-userfs.entry">userfs.entry</a>
+</li>
+        <li><a href="userfs.fetch.html#module-userfs.fetch">userfs.fetch</a>
+</li>
+        <li><a href="userfs.hooks.html#module-userfs.hooks">userfs.hooks</a>
+</li>
+        <li><a href="userfs.html#module-userfs.paths">userfs.paths</a>
+</li>
+        <li><a href="userfs.project.html#module-userfs.project">userfs.project</a>
+</li>
+        <li><a href="userfs.html#module-userfs.schemas">userfs.schemas</a>
+</li>
+        <li><a href="userfs.update.html#module-userfs.update">userfs.update</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.options">options (userfs.config.project.ProjectSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.options">(userfs.config.ProjectSpecification attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.path">path (userfs.config.project.ProjectSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.path">(userfs.config.ProjectSpecification attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.html#userfs.paths.paths_added">paths_added() (in module userfs.paths)</a>
+</li>
+      <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.port">port (userfs.config.source.SourceSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.port">(userfs.config.SourceSpecification attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask.project">project (userfs.project.ProjectInteractionTask attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.ProjectInteraction">ProjectInteraction (class in userfs.config)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.project.ProjectInteraction">(class in userfs.config.project)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask">ProjectInteractionTask (class in userfs.project)</a>
+</li>
+      <li><a href="userfs.config.html#userfs.config.ProjectSpecification">ProjectSpecification (class in userfs.config)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification">(class in userfs.config.project)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.protocol">protocol (userfs.config.source.SourceSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.protocol">(userfs.config.SourceSpecification attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.repository">repository (userfs.config.project.ProjectSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.repository">(userfs.config.ProjectSpecification attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.project.html#userfs.project.ProjectInteractionTask.root">root (userfs.project.ProjectInteractionTask attribute)</a>
+</li>
+      <li><a href="userfs.commands.html#userfs.commands.common.run_command">run_command() (in module userfs.commands.common)</a>
+</li>
+      <li><a href="userfs.build.html#userfs.build.run_process">run_process() (in module userfs.build)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.source">source (userfs.config.project.ProjectSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.source">(userfs.config.ProjectSpecification attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.config.html#userfs.config.SourceKind">SourceKind (class in userfs.config)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.source.SourceKind">(class in userfs.config.source)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.config.html#userfs.config.SourceSpecification">SourceSpecification (class in userfs.config)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.source.SourceSpecification">(class in userfs.config.source)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.source.SourceKind.SRC">SRC (userfs.config.source.SourceKind attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceKind.SRC">(userfs.config.SourceKind attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.suffix">suffix (userfs.config.source.SourceSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.suffix">(userfs.config.SourceSpecification attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectInteraction.UPDATE">UPDATE (userfs.config.project.ProjectInteraction attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectInteraction.UPDATE">(userfs.config.ProjectInteraction attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.update.html#userfs.update.update">update() (in module userfs.update)</a>
+</li>
+      <li><a href="userfs.config.html#userfs.config.project.ProjectSpecification.url">url (userfs.config.project.ProjectSpecification property)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.ProjectSpecification.url">(userfs.config.ProjectSpecification property)</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.config.html#userfs.config.source.SourceSpecification.user">user (userfs.config.source.SourceSpecification attribute)</a>
+
+      <ul>
+        <li><a href="userfs.config.html#userfs.config.SourceSpecification.user">(userfs.config.SourceSpecification attribute)</a>
+</li>
+      </ul></li>
+      <li>
+    userfs
+
+      <ul>
+        <li><a href="userfs.html#module-userfs">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.app
+
+      <ul>
+        <li><a href="userfs.html#module-userfs.app">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.build
+
+      <ul>
+        <li><a href="userfs.build.html#module-userfs.build">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.commands
+
+      <ul>
+        <li><a href="userfs.commands.html#module-userfs.commands">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.commands.all
+
+      <ul>
+        <li><a href="userfs.commands.html#module-userfs.commands.all">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.commands.build
+
+      <ul>
+        <li><a href="userfs.commands.html#module-userfs.commands.build">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.commands.common
+
+      <ul>
+        <li><a href="userfs.commands.html#module-userfs.commands.common">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.commands.custom
+
+      <ul>
+        <li><a href="userfs.commands.html#module-userfs.commands.custom">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.commands.fetch
+
+      <ul>
+        <li><a href="userfs.commands.html#module-userfs.commands.fetch">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    userfs.config
+
+      <ul>
+        <li><a href="userfs.config.html#module-userfs.config">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.config.project
+
+      <ul>
+        <li><a href="userfs.config.html#module-userfs.config.project">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.config.source
+
+      <ul>
+        <li><a href="userfs.config.html#module-userfs.config.source">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.deploy
+
+      <ul>
+        <li><a href="userfs.deploy.html#module-userfs.deploy">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.entry
+
+      <ul>
+        <li><a href="userfs.html#module-userfs.entry">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.fetch
+
+      <ul>
+        <li><a href="userfs.fetch.html#module-userfs.fetch">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.hooks
+
+      <ul>
+        <li><a href="userfs.hooks.html#module-userfs.hooks">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.paths
+
+      <ul>
+        <li><a href="userfs.html#module-userfs.paths">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.project
+
+      <ul>
+        <li><a href="userfs.project.html#module-userfs.project">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.schemas
+
+      <ul>
+        <li><a href="userfs.html#module-userfs.schemas">module</a>
+</li>
+      </ul></li>
+      <li>
+    userfs.update
+
+      <ul>
+        <li><a href="userfs.update.html#module-userfs.update">module</a>
+</li>
+      </ul></li>
+      <li><a href="userfs.html#userfs.schemas.UserfsDictCodec">UserfsDictCodec (class in userfs.schemas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

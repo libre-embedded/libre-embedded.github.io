@@ -1,0 +1,929 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ifgen package &#8212; ifgen  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ifgen';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ifgen.commands package" href="ifgen.commands.html" />
+    <link rel="prev" title="ifgen" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="ifgen  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="ifgen  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">ifgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.common.html">ifgen.common package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.config.html">ifgen.config package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.enum.html">ifgen.enum package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.python.html">ifgen.enum.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html">ifgen.struct.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.svd.html">ifgen.svd package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html">ifgen.svd.group package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html">ifgen.svd.model package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ifgen.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ifgen package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.app">ifgen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.entry">ifgen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.paths">ifgen.paths module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.schemas">ifgen.schemas module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.schemas.IfgenDictCodec"><code class="docutils literal notranslate"><span class="pre">IfgenDictCodec</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.schemas.IfgenDictCodec.data"><code class="docutils literal notranslate"><span class="pre">IfgenDictCodec.data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.schemas.IfgenDictCodec.default_schemas"><code class="docutils literal notranslate"><span class="pre">IfgenDictCodec.default_schemas</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ifgen-package">
+<h1>ifgen package<a class="headerlink" href="#ifgen-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html#module-ifgen.commands.all">ifgen.commands.all module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.commands.html#ifgen.commands.all.commands"><code class="docutils literal notranslate"><span class="pre">commands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html#module-ifgen.commands.gen">ifgen.commands.gen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.commands.html#ifgen.commands.gen.add_gen_cmd"><code class="docutils literal notranslate"><span class="pre">add_gen_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.commands.html#ifgen.commands.gen.gen_cmd"><code class="docutils literal notranslate"><span class="pre">gen_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html#module-ifgen.commands.svd">ifgen.commands.svd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.commands.html#ifgen.commands.svd.add_svd_cmd"><code class="docutils literal notranslate"><span class="pre">add_svd_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.commands.html#ifgen.commands.svd.svd_cmd"><code class="docutils literal notranslate"><span class="pre">svd_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html#module-ifgen.commands">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.common.html">ifgen.common package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.common.html#module-ifgen.common">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.create_common"><code class="docutils literal notranslate"><span class="pre">create_common()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.create_common_test"><code class="docutils literal notranslate"><span class="pre">create_common_test()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.config.html">ifgen.config package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.config.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.config.html#module-ifgen.config.svd">ifgen.config.svd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.config.html#ifgen.config.svd.SvdConfig"><code class="docutils literal notranslate"><span class="pre">SvdConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.config.html#module-ifgen.config">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.config.html#ifgen.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.config.html#ifgen.config.Config.init"><code class="docutils literal notranslate"><span class="pre">Config.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.config.html#ifgen.config.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.enum.html">ifgen.enum package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.python.html">ifgen.enum.python package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.enum.python.html#module-ifgen.enum.python">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#module-ifgen.enum.common">ifgen.enum.common module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.common.enum_from_string"><code class="docutils literal notranslate"><span class="pre">enum_from_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.common.enum_to_string"><code class="docutils literal notranslate"><span class="pre">enum_to_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.common.enum_to_string_function"><code class="docutils literal notranslate"><span class="pre">enum_to_string_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.common.string_to_enum_function"><code class="docutils literal notranslate"><span class="pre">string_to_enum_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#module-ifgen.enum.header">ifgen.enum.header module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.header.cpp_enum_neader"><code class="docutils literal notranslate"><span class="pre">cpp_enum_neader()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.header.enum_header"><code class="docutils literal notranslate"><span class="pre">enum_header()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.header.enum_line"><code class="docutils literal notranslate"><span class="pre">enum_line()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#module-ifgen.enum.map">ifgen.enum.map module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.map.enum_from_string_map"><code class="docutils literal notranslate"><span class="pre">enum_from_string_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.map.enum_to_string_map"><code class="docutils literal notranslate"><span class="pre">enum_to_string_map()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#module-ifgen.enum.source">ifgen.enum.source module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.source.create_enum_source"><code class="docutils literal notranslate"><span class="pre">create_enum_source()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.source.enum_source"><code class="docutils literal notranslate"><span class="pre">enum_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#module-ifgen.enum.test">ifgen.enum.test module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.test.create_enum_test"><code class="docutils literal notranslate"><span class="pre">create_enum_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.test.test_single"><code class="docutils literal notranslate"><span class="pre">test_single()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.test.unit_test_body"><code class="docutils literal notranslate"><span class="pre">unit_test_body()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.enum.html#module-ifgen.enum">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.create_enum"><code class="docutils literal notranslate"><span class="pre">create_enum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.create_enum_source"><code class="docutils literal notranslate"><span class="pre">create_enum_source()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.html#ifgen.enum.create_enum_test"><code class="docutils literal notranslate"><span class="pre">create_enum_test()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html#module-ifgen.environment.field">ifgen.environment.field module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.field.process_field"><code class="docutils literal notranslate"><span class="pre">process_field()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html#module-ifgen.environment.padding">ifgen.environment.padding module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.padding.PaddingManager"><code class="docutils literal notranslate"><span class="pre">PaddingManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.padding.PaddingManager.add_padding"><code class="docutils literal notranslate"><span class="pre">PaddingManager.add_padding()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.padding.PaddingManager.base_name"><code class="docutils literal notranslate"><span class="pre">PaddingManager.base_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.padding.PaddingManager.reset"><code class="docutils literal notranslate"><span class="pre">PaddingManager.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.padding.type_string"><code class="docutils literal notranslate"><span class="pre">type_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html#module-ifgen.environment">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories"><code class="docutils literal notranslate"><span class="pre">Directories</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories.config_parts"><code class="docutils literal notranslate"><span class="pre">Directories.config_parts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories.output"><code class="docutils literal notranslate"><span class="pre">Directories.output</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories.prune_empty"><code class="docutils literal notranslate"><span class="pre">Directories.prune_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories.source"><code class="docutils literal notranslate"><span class="pre">Directories.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories.test_dir"><code class="docutils literal notranslate"><span class="pre">Directories.test_dir</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_dirs"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_enum"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_enum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_protocol"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_protocol()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.is_enum"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.is_enum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.is_struct"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.is_struct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.make_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.make_test_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_test_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.prune_empty"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.prune_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.rel_include"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.rel_include()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.size"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.size()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.runtime_enum_data"><code class="docutils literal notranslate"><span class="pre">runtime_enum_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.python.html#module-ifgen.generation.python">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation.interface">ifgen.generation.interface module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask"><code class="docutils literal notranslate"><span class="pre">GenerateTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.boilerplate"><code class="docutils literal notranslate"><span class="pre">GenerateTask.boilerplate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.check_custom_type"><code class="docutils literal notranslate"><span class="pre">GenerateTask.check_custom_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.command"><code class="docutils literal notranslate"><span class="pre">GenerateTask.command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.config"><code class="docutils literal notranslate"><span class="pre">GenerateTask.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.cpp_namespace"><code class="docutils literal notranslate"><span class="pre">GenerateTask.cpp_namespace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.custom_include"><code class="docutils literal notranslate"><span class="pre">GenerateTask.custom_include()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.enum"><code class="docutils literal notranslate"><span class="pre">GenerateTask.enum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.env"><code class="docutils literal notranslate"><span class="pre">GenerateTask.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.generator"><code class="docutils literal notranslate"><span class="pre">GenerateTask.generator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.handle_namespace"><code class="docutils literal notranslate"><span class="pre">GenerateTask.handle_namespace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.has_instances"><code class="docutils literal notranslate"><span class="pre">GenerateTask.has_instances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.instance"><code class="docutils literal notranslate"><span class="pre">GenerateTask.instance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.is_cpp"><code class="docutils literal notranslate"><span class="pre">GenerateTask.is_cpp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.is_python"><code class="docutils literal notranslate"><span class="pre">GenerateTask.is_python</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.javadoc_header"><code class="docutils literal notranslate"><span class="pre">GenerateTask.javadoc_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.language"><code class="docutils literal notranslate"><span class="pre">GenerateTask.language</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.method_suffix"><code class="docutils literal notranslate"><span class="pre">GenerateTask.method_suffix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.name"><code class="docutils literal notranslate"><span class="pre">GenerateTask.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.namespace"><code class="docutils literal notranslate"><span class="pre">GenerateTask.namespace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.path"><code class="docutils literal notranslate"><span class="pre">GenerateTask.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.protocol"><code class="docutils literal notranslate"><span class="pre">GenerateTask.protocol()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.resolve_description"><code class="docutils literal notranslate"><span class="pre">GenerateTask.resolve_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.source_boilerplate"><code class="docutils literal notranslate"><span class="pre">GenerateTask.source_boilerplate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.source_path"><code class="docutils literal notranslate"><span class="pre">GenerateTask.source_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.stream_implementation"><code class="docutils literal notranslate"><span class="pre">GenerateTask.stream_implementation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.test_path"><code class="docutils literal notranslate"><span class="pre">GenerateTask.test_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.write_includes"><code class="docutils literal notranslate"><span class="pre">GenerateTask.write_includes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.TypeLookup"><code class="docutils literal notranslate"><span class="pre">TypeLookup</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.TypeLookup.final"><code class="docutils literal notranslate"><span class="pre">TypeLookup.final</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.TypeLookup.generator"><code class="docutils literal notranslate"><span class="pre">TypeLookup.generator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.TypeLookup.name"><code class="docutils literal notranslate"><span class="pre">TypeLookup.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation.json">ifgen.generation.json module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.json.to_json_method"><code class="docutils literal notranslate"><span class="pre">to_json_method()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation.test">ifgen.generation.test module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.test.unit_test_boilerplate"><code class="docutils literal notranslate"><span class="pre">unit_test_boilerplate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.test.unit_test_main"><code class="docutils literal notranslate"><span class="pre">unit_test_main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.test.unit_test_method"><code class="docutils literal notranslate"><span class="pre">unit_test_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.test.unit_test_method_name"><code class="docutils literal notranslate"><span class="pre">unit_test_method_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.bit">ifgen.struct.methods.bit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.common">ifgen.struct.methods.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.decode">ifgen.struct.methods.decode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.encode">ifgen.struct.methods.encode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.swap">ifgen.struct.methods.swap module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html">ifgen.struct.python package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.python.html#module-ifgen.struct.python">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.header">ifgen.struct.header module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.cpp_struct_header"><code class="docutils literal notranslate"><span class="pre">cpp_struct_header()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.enforce_expected_size"><code class="docutils literal notranslate"><span class="pre">enforce_expected_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_fields"><code class="docutils literal notranslate"><span class="pre">struct_fields()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_header"><code class="docutils literal notranslate"><span class="pre">struct_header()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_instance"><code class="docutils literal notranslate"><span class="pre">struct_instance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_line"><code class="docutils literal notranslate"><span class="pre">struct_line()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.source">ifgen.struct.source module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.source.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.stream">ifgen.struct.stream module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.stream.struct_istream"><code class="docutils literal notranslate"><span class="pre">struct_istream()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.stream.struct_ostream"><code class="docutils literal notranslate"><span class="pre">struct_ostream()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.stream.struct_stream_methods"><code class="docutils literal notranslate"><span class="pre">struct_stream_methods()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.test">ifgen.struct.test module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.test.assert_line"><code class="docutils literal notranslate"><span class="pre">assert_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.test.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.test.unit_test_basic_method"><code class="docutils literal notranslate"><span class="pre">unit_test_basic_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.test.unit_test_body"><code class="docutils literal notranslate"><span class="pre">unit_test_body()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.test.unit_test_stream_tests"><code class="docutils literal notranslate"><span class="pre">unit_test_stream_tests()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.util">ifgen.struct.util module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.util.struct_dependencies"><code class="docutils literal notranslate"><span class="pre">struct_dependencies()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct"><code class="docutils literal notranslate"><span class="pre">create_struct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.svd.html">ifgen.svd package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html">ifgen.svd.group package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group.base">ifgen.svd.group.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group.enums">ifgen.svd.group.enums module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group.fields">ifgen.svd.group.fields module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.group.html#module-ifgen.svd.group">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html">ifgen.svd.model package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.address_block">ifgen.svd.model.address_block module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.cpu">ifgen.svd.model.cpu module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.derived">ifgen.svd.model.derived module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.device">ifgen.svd.model.device module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.enum">ifgen.svd.model.enum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.field">ifgen.svd.model.field module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.interrupt">ifgen.svd.model.interrupt module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model.peripheral">ifgen.svd.model.peripheral module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#module-ifgen.svd.model">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#module-ifgen.svd.cpu">ifgen.svd.cpu module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.cpu.process_cpu"><code class="docutils literal notranslate"><span class="pre">process_cpu()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#module-ifgen.svd.device">ifgen.svd.device module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.device.process_device"><code class="docutils literal notranslate"><span class="pre">process_device()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#module-ifgen.svd.peripherals">ifgen.svd.peripherals module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.peripherals.process_peripheral"><code class="docutils literal notranslate"><span class="pre">process_peripheral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.peripherals.process_peripherals"><code class="docutils literal notranslate"><span class="pre">process_peripherals()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#module-ifgen.svd.process">ifgen.svd.process module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.process.cluster"><code class="docutils literal notranslate"><span class="pre">cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.process.handle_registers"><code class="docutils literal notranslate"><span class="pre">handle_registers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.process.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#module-ifgen.svd.string">ifgen.svd.string module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyVal"><code class="docutils literal notranslate"><span class="pre">StringKeyVal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyVal.key"><code class="docutils literal notranslate"><span class="pre">StringKeyVal.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyVal.required"><code class="docutils literal notranslate"><span class="pre">StringKeyVal.required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.create"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.get_values"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.get_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.handle_description"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.handle_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.log"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.raw"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.raw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.raw_data"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.raw_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.string_keys"><code class="docutils literal notranslate"><span class="pre">StringKeyValueMixin.string_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.string.get_string_values"><code class="docutils literal notranslate"><span class="pre">get_string_values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#module-ifgen.svd.task">ifgen.svd.task module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.generate_configs"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.generate_configs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.min_enum_width"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.min_enum_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.model"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.process"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.svd"><code class="docutils literal notranslate"><span class="pre">SvdProcessingTask.svd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.task.filter_includes"><code class="docutils literal notranslate"><span class="pre">filter_includes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.svd.html#module-ifgen.svd">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.html#ifgen.svd.register_processors"><code class="docutils literal notranslate"><span class="pre">register_processors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-ifgen.app">
+<span id="ifgen-app-module"></span><h2>ifgen.app module<a class="headerlink" href="#module-ifgen.app" title="Link to this heading">#</a></h2>
+<p>This package’s command-line entry-point application.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.app.add_app_args">
+<span class="sig-prename descclassname"><span class="pre">ifgen.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.app.add_app_args" title="Link to this definition">#</a></dt>
+<dd><p>Add application-specific arguments to the command-line parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.app.entry">
+<span class="sig-prename descclassname"><span class="pre">ifgen.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/ifgen/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.app.entry" title="Link to this definition">#</a></dt>
+<dd><p>Execute the requested task.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.entry">
+<span id="ifgen-entry-module"></span><h2>ifgen.entry module<a class="headerlink" href="#module-ifgen.entry" title="Link to this heading">#</a></h2>
+<p>This package’s command-line entry-point (boilerplate).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.entry.main">
+<span class="sig-prename descclassname"><span class="pre">ifgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/ifgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.entry.main" title="Link to this definition">#</a></dt>
+<dd><p>Program entry-point.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.paths">
+<span id="ifgen-paths-module"></span><h2>ifgen.paths module<a class="headerlink" href="#module-ifgen.paths" title="Link to this heading">#</a></h2>
+<p>A module exposing some pathing utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.paths.audit_init_file">
+<span class="sig-prename descclassname"><span class="pre">ifgen.paths.</span></span><span class="sig-name descname"><span class="pre">audit_init_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/paths.html#audit_init_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.paths.audit_init_file" title="Link to this definition">#</a></dt>
+<dd><p>Create initialization files if necessary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.paths.combine_if_not_absolute">
+<span class="sig-prename descclassname"><span class="pre">ifgen.paths.</span></span><span class="sig-name descname"><span class="pre">combine_if_not_absolute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/ifgen/paths.html#combine_if_not_absolute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.paths.combine_if_not_absolute" title="Link to this definition">#</a></dt>
+<dd><p>Combine a root directory with a path if the path isn’t absolute.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.schemas">
+<span id="ifgen-schemas-module"></span><h2>ifgen.schemas module<a class="headerlink" href="#module-ifgen.schemas" title="Link to this heading">#</a></h2>
+<p>A module for working with schemas belonging to this package.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.schemas.IfgenDictCodec">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.schemas.</span></span><span class="sig-name descname"><span class="pre">IfgenDictCodec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/schemas.html#IfgenDictCodec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DictCodec</span></code></p>
+<p>A simple wrapper for package classes that want to implement DictCodec.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.schemas.IfgenDictCodec.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.schemas.IfgenDictCodec.default_schemas">
+<span class="sig-name descname"><span class="pre">default_schemas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SchemaMap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'SvdConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Config':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_json_indent':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_bit_fields':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_volatile':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_description':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'BitField':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructField':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_expected_size':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'SvdInstanceConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_namespace':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructFieldAlternate':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructInstance':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Enum':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Struct':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.default_schemas" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-ifgen">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ifgen" title="Link to this heading">#</a></h2>
+<p>Useful defaults and other package metadata.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ifgen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ifgen.commands.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ifgen.commands package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.app">ifgen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.entry">ifgen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.paths">ifgen.paths module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.schemas">ifgen.schemas module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.schemas.IfgenDictCodec"><code class="docutils literal notranslate"><span class="pre">IfgenDictCodec</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.schemas.IfgenDictCodec.data"><code class="docutils literal notranslate"><span class="pre">IfgenDictCodec.data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.schemas.IfgenDictCodec.default_schemas"><code class="docutils literal notranslate"><span class="pre">IfgenDictCodec.default_schemas</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

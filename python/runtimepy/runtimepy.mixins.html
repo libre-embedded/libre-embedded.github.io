@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy.mixins package &#8212; runtimepy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.mixins';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="runtimepy.net package" href="runtimepy.net.html" />
+    <link rel="prev" title="runtimepy.metrics package" href="runtimepy.metrics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.control.html">runtimepy.control package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.control.env.html">runtimepy.control.env package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">runtimepy.mixins package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.struct.html">runtimepy.net.arbiter.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.html.html">runtimepy.net.html package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html.bootstrap.html">runtimepy.net.html.bootstrap package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.scpi.html">runtimepy.net.tcp.scpi package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.udp.html">runtimepy.net.udp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.tftp.html">runtimepy.net.udp.tftp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.noise.html">runtimepy.noise package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.ui.html">runtimepy.ui package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/runtimepy.mixins.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>runtimepy.mixins package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.async_command">runtimepy.mixins.async_command module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.command"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.command</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.handle_command"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.handle_command()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.outgoing_commands"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.outgoing_commands</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.process_command_queue"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.process_command_queue()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.enum">runtimepy.mixins.enum module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.enum.EnumMixin"><code class="docutils literal notranslate"><span class="pre">EnumMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.enum.EnumMixin.enum"><code class="docutils literal notranslate"><span class="pre">EnumMixin.enum</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.enum.EnumMixin.is_enum"><code class="docutils literal notranslate"><span class="pre">EnumMixin.is_enum</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.environment">runtimepy.mixins.environment module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.env"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.env</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_channel_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_channel_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_connection_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_connection_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_task_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_task_metrics()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.finalize">runtimepy.mixins.finalize module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.bypass_finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.bypass_finalized()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.finalize"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.finalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.finalized</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.wait_finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.wait_finalized()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.logging">runtimepy.mixins.logging module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.dispatch_log_capture()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.init_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.init_log_capture()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.log_line"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.log_line()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.logger"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.logger</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.safe_to_log"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.safe_to_log</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.streams"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.streams</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.CRITICAL"><code class="docutils literal notranslate"><span class="pre">LogLevel.CRITICAL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.DEBUG"><code class="docutils literal notranslate"><span class="pre">LogLevel.DEBUG</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.ERROR"><code class="docutils literal notranslate"><span class="pre">LogLevel.ERROR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.INFO"><code class="docutils literal notranslate"><span class="pre">LogLevel.INFO</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.WARNING"><code class="docutils literal notranslate"><span class="pre">LogLevel.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LoggerMixinLevelControl"><code class="docutils literal notranslate"><span class="pre">LoggerMixinLevelControl</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LoggerMixinLevelControl.setup_level_channel"><code class="docutils literal notranslate"><span class="pre">LoggerMixinLevelControl.setup_level_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.handle_safe_log"><code class="docutils literal notranslate"><span class="pre">handle_safe_log()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.psutil">runtimepy.mixins.psutil module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin"><code class="docutils literal notranslate"><span class="pre">PsutilMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.cpu_average"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.cpu_average</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.cpu_percent"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.cpu_percent</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.init_psutil"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.init_psutil()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.memory_percent"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.memory_percent</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.poll_psutil"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.poll_psutil()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.process"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.process</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.regex">runtimepy.mixins.regex module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.regex.RegexMixin"><code class="docutils literal notranslate"><span class="pre">RegexMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.regex.RegexMixin.name_regex"><code class="docutils literal notranslate"><span class="pre">RegexMixin.name_regex</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.regex.RegexMixin.validate_name"><code class="docutils literal notranslate"><span class="pre">RegexMixin.validate_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.trig">runtimepy.mixins.trig module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.trig.TrigMixin"><code class="docutils literal notranslate"><span class="pre">TrigMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.trig.TrigMixin.dispatch_trig"><code class="docutils literal notranslate"><span class="pre">TrigMixin.dispatch_trig()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="runtimepy-mixins-package">
+<h1>runtimepy.mixins package<a class="headerlink" href="#runtimepy-mixins-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-runtimepy.mixins.async_command">
+<span id="runtimepy-mixins-async-command-module"></span><h2>runtimepy.mixins.async_command module<a class="headerlink" href="#module-runtimepy.mixins.async_command" title="Link to this heading">#</a></h2>
+<p>A module implementing an interface for classes with channel-command processors
+that need to handle commands asynchronously.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.async_command.AsyncCommandProcessingMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.async_command.</span></span><span class="sig-name descname"><span class="pre">AsyncCommandProcessingMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mixins/async_command.html#AsyncCommandProcessingMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<p>A class mixin for handling asynchronous commands.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.async_command.AsyncCommandProcessingMixin.command">
+<span class="sig-name descname"><span class="pre">command</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.environment.command.html#runtimepy.channel.environment.command.processor.ChannelCommandProcessor" title="runtimepy.channel.environment.command.processor.ChannelCommandProcessor"><span class="pre">ChannelCommandProcessor</span></a></em><a class="headerlink" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.command" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.async_command.AsyncCommandProcessingMixin.handle_command">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handle_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.field.html#runtimepy.primitives.field.BitField" title="runtimepy.primitives.field.BitField"><span class="pre">BitField</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int8Primitive" title="runtimepy.primitives.int.Int8Primitive"><span class="pre">Int8Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int16Primitive" title="runtimepy.primitives.int.Int16Primitive"><span class="pre">Int16Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int32Primitive" title="runtimepy.primitives.int.Int32Primitive"><span class="pre">Int32Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int64Primitive" title="runtimepy.primitives.int.Int64Primitive"><span class="pre">Int64Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive" title="runtimepy.primitives.bool.BooleanPrimitive"><span class="pre">BooleanPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/async_command.html#AsyncCommandProcessingMixin.handle_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.handle_command" title="Link to this definition">#</a></dt>
+<dd><p>Handle a command.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.async_command.AsyncCommandProcessingMixin.outgoing_commands">
+<span class="sig-name descname"><span class="pre">outgoing_commands</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Queue</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.field.html#runtimepy.primitives.field.BitField" title="runtimepy.primitives.field.BitField"><span class="pre">BitField</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int8Primitive" title="runtimepy.primitives.int.Int8Primitive"><span class="pre">Int8Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int16Primitive" title="runtimepy.primitives.int.Int16Primitive"><span class="pre">Int16Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int32Primitive" title="runtimepy.primitives.int.Int32Primitive"><span class="pre">Int32Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int64Primitive" title="runtimepy.primitives.int.Int64Primitive"><span class="pre">Int64Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel" title="runtimepy.channel.Channel"><span class="pre">Channel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive" title="runtimepy.primitives.bool.BooleanPrimitive"><span class="pre">BooleanPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.outgoing_commands" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.async_command.AsyncCommandProcessingMixin.process_command_queue">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_command_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/async_command.html#AsyncCommandProcessingMixin.process_command_queue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.process_command_queue" title="Link to this definition">#</a></dt>
+<dd><p>Process any outgoing command requests.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins.enum">
+<span id="runtimepy-mixins-enum-module"></span><h2>runtimepy.mixins.enum module<a class="headerlink" href="#module-runtimepy.mixins.enum" title="Link to this heading">#</a></h2>
+<p>A module implementing a class mixin for classes that have an optional
+enum-registry key.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.enum.EnumMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.enum.</span></span><span class="sig-name descname"><span class="pre">EnumMixin</span></span><a class="reference internal" href="_modules/runtimepy/mixins/enum.html#EnumMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.enum.EnumMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for working with an underlying enum attribute.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.mixins.enum.EnumMixin.enum">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.mixins.enum.EnumMixin.enum" title="Link to this definition">#</a></dt>
+<dd><p>Get the enum-registry key for this channel.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.mixins.enum.EnumMixin.is_enum">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_enum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#runtimepy.mixins.enum.EnumMixin.is_enum" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this channel has an associated enumeration.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins.environment">
+<span id="runtimepy-mixins-environment-module"></span><h2>runtimepy.mixins.environment module<a class="headerlink" href="#module-runtimepy.mixins.environment" title="Link to this heading">#</a></h2>
+<p>A module implementing a channel-environment class mixin.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.environment.ChannelEnvironmentMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.environment.</span></span><span class="sig-name descname"><span class="pre">ChannelEnvironmentMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mixins/environment.html#ChannelEnvironmentMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple channel-environment mixin.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.environment.ChannelEnvironmentMixin.env">
+<span class="sig-name descname"><span class="pre">env</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></em><a class="headerlink" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.env" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.environment.ChannelEnvironmentMixin.register_channel_metrics">
+<span class="sig-name descname"><span class="pre">register_channel_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.channel.ChannelMetrics" title="runtimepy.metrics.channel.ChannelMetrics"><span class="pre">ChannelMetrics</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">verb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/environment.html#ChannelEnvironmentMixin.register_channel_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_channel_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Register individual channel metrics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.environment.ChannelEnvironmentMixin.register_connection_metrics">
+<span class="sig-name descname"><span class="pre">register_connection_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.connection.ConnectionMetrics" title="runtimepy.metrics.connection.ConnectionMetrics"><span class="pre">ConnectionMetrics</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'metrics'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/environment.html#ChannelEnvironmentMixin.register_connection_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_connection_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Register connection metrics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.environment.ChannelEnvironmentMixin.register_task_metrics">
+<span class="sig-name descname"><span class="pre">register_task_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics" title="runtimepy.metrics.task.PeriodicTaskMetrics"><span class="pre">PeriodicTaskMetrics</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'metrics'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/environment.html#ChannelEnvironmentMixin.register_task_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_task_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Register periodic task metrics.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins.finalize">
+<span id="runtimepy-mixins-finalize-module"></span><h2>runtimepy.mixins.finalize module<a class="headerlink" href="#module-runtimepy.mixins.finalize" title="Link to this heading">#</a></h2>
+<p>A module implementing a class with a simple finalize interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.finalize.FinalizeMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.finalize.</span></span><span class="sig-name descname"><span class="pre">FinalizeMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mixins/finalize.html#FinalizeMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.finalize.FinalizeMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class implementing a simple finalize interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.finalize.FinalizeMixin.bypass_finalized">
+<span class="sig-name descname"><span class="pre">bypass_finalized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/finalize.html#FinalizeMixin.bypass_finalized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.finalize.FinalizeMixin.bypass_finalized" title="Link to this definition">#</a></dt>
+<dd><p>Allows bypassing ‘finalized’ checks for specific situations. Ideally
+runtime environment entities don’t rely on this, but things like
+self-describing network protocols it’s difficult to resolve
+runtime-state storage needs during initialization alone.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.finalize.FinalizeMixin.finalize">
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/finalize.html#FinalizeMixin.finalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.finalize.FinalizeMixin.finalize" title="Link to this definition">#</a></dt>
+<dd><p>Finalize this instance.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.mixins.finalize.FinalizeMixin.finalized">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">finalized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#runtimepy.mixins.finalize.FinalizeMixin.finalized" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this instance is finalized or not.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.finalize.FinalizeMixin.wait_finalized">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_finalized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/finalize.html#FinalizeMixin.wait_finalized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.finalize.FinalizeMixin.wait_finalized" title="Link to this definition">#</a></dt>
+<dd><p>Wait for this instance to be finalized.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins.logging">
+<span id="runtimepy-mixins-logging-module"></span><h2>runtimepy.mixins.logging module<a class="headerlink" href="#module-runtimepy.mixins.logging" title="Link to this heading">#</a></h2>
+<p>A module implementing a logger-mixin extension.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.logging.</span></span><span class="sig-name descname"><span class="pre">LogCaptureMixin</span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogCaptureMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple async file-reading interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch_log_capture</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogCaptureMixin.dispatch_log_capture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture" title="Link to this definition">#</a></dt>
+<dd><p>Get the next line from this log stream.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.init_log_capture">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init_log_capture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AsyncExitStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.mixins.logging.LogLevel" title="runtimepy.mixins.logging.LogLevel"><span class="pre">LogLevel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogCaptureMixin.init_log_capture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.init_log_capture" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this task with application information.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.log_line">
+<span class="sig-name descname"><span class="pre">log_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogCaptureMixin.log_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.log_line" title="Link to this definition">#</a></dt>
+<dd><p>Log a line for output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.logger" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.safe_to_log">
+<span class="sig-name descname"><span class="pre">safe_to_log</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.safe_to_log" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.streams">
+<span class="sig-name descname"><span class="pre">streams</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.streams" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogLevel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.logging.</span></span><span class="sig-name descname"><span class="pre">LogLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogLevel" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum" title="runtimepy.enum.registry.RuntimeIntEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeIntEnum</span></code></a></p>
+<p>A runtime enumeration for log level.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogLevel.CRITICAL">
+<span class="sig-name descname"><span class="pre">CRITICAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogLevel.CRITICAL" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogLevel.DEBUG">
+<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogLevel.DEBUG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogLevel.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogLevel.ERROR" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogLevel.INFO">
+<span class="sig-name descname"><span class="pre">INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogLevel.INFO" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogLevel.WARNING">
+<span class="sig-name descname"><span class="pre">WARNING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#runtimepy.mixins.logging.LogLevel.WARNING" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LoggerMixinLevelControl">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.logging.</span></span><span class="sig-name descname"><span class="pre">LoggerMixinLevelControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LoggerMixinLevelControl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LoggerMixinLevelControl" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<p>A logger mixin that exposes a runtime-controllable level.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LoggerMixinLevelControl.setup_level_channel">
+<span class="sig-name descname"><span class="pre">setup_level_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'log_level'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'info'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Text-log</span> <span class="pre">level</span> <span class="pre">filter</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">environment.'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LoggerMixinLevelControl.setup_level_channel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LoggerMixinLevelControl.setup_level_channel" title="Link to this definition">#</a></dt>
+<dd><p>Add a commandable log-level channel to the environment.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.handle_safe_log">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.logging.</span></span><span class="sig-name descname"><span class="pre">handle_safe_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">safe_to_log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#handle_safe_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.handle_safe_log" title="Link to this definition">#</a></dt>
+<dd><p>handle a log filtering scenario.</p>
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins.psutil">
+<span id="runtimepy-mixins-psutil-module"></span><h2>runtimepy.mixins.psutil module<a class="headerlink" href="#module-runtimepy.mixins.psutil" title="Link to this heading">#</a></h2>
+<p>A module implementing interfaces for psutil.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.psutil.PsutilMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.psutil.</span></span><span class="sig-name descname"><span class="pre">PsutilMixin</span></span><a class="reference internal" href="_modules/runtimepy/mixins/psutil.html#PsutilMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.psutil.PsutilMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple psutil runtime interface.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.psutil.PsutilMixin.cpu_average">
+<span class="sig-name descname"><span class="pre">cpu_average</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">WeightedAverage</span></em><a class="headerlink" href="#runtimepy.mixins.psutil.PsutilMixin.cpu_average" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.psutil.PsutilMixin.cpu_percent">
+<span class="sig-name descname"><span class="pre">cpu_percent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></em><a class="headerlink" href="#runtimepy.mixins.psutil.PsutilMixin.cpu_percent" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.psutil.PsutilMixin.init_psutil">
+<span class="sig-name descname"><span class="pre">init_psutil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/psutil.html#PsutilMixin.init_psutil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.psutil.PsutilMixin.init_psutil" title="Link to this definition">#</a></dt>
+<dd><p>Initialize psutil-based metrics.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.psutil.PsutilMixin.memory_percent">
+<span class="sig-name descname"><span class="pre">memory_percent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a></em><a class="headerlink" href="#runtimepy.mixins.psutil.PsutilMixin.memory_percent" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.psutil.PsutilMixin.poll_psutil">
+<span class="sig-name descname"><span class="pre">poll_psutil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/psutil.html#PsutilMixin.poll_psutil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.psutil.PsutilMixin.poll_psutil" title="Link to this definition">#</a></dt>
+<dd><p>Poll psutil-based metrics.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.psutil.PsutilMixin.process">
+<span class="sig-name descname"><span class="pre">process</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Process</span></em><a class="headerlink" href="#runtimepy.mixins.psutil.PsutilMixin.process" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins.regex">
+<span id="runtimepy-mixins-regex-module"></span><h2>runtimepy.mixins.regex module<a class="headerlink" href="#module-runtimepy.mixins.regex" title="Link to this heading">#</a></h2>
+<p>A class mixin for classes that have a regular expression that they wish to
+validate names with.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.regex.RegexMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.regex.</span></span><span class="sig-name descname"><span class="pre">RegexMixin</span></span><a class="reference internal" href="_modules/runtimepy/mixins/regex.html#RegexMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.regex.RegexMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple class mixin for validating names.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.regex.RegexMixin.name_regex">
+<span class="sig-name descname"><span class="pre">name_regex</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^[\\w\\:.\\-_\\/]+$')</span></em><a class="headerlink" href="#runtimepy.mixins.regex.RegexMixin.name_regex" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.regex.RegexMixin.validate_name">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/regex.html#RegexMixin.validate_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.regex.RegexMixin.validate_name" title="Link to this definition">#</a></dt>
+<dd><p>Determine if a name is valid for this class.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins.trig">
+<span id="runtimepy-mixins-trig-module"></span><h2>runtimepy.mixins.trig module<a class="headerlink" href="#module-runtimepy.mixins.trig" title="Link to this heading">#</a></h2>
+<p>A module implementing a simple trig-channel environment mixin.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.trig.TrigMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.trig.</span></span><span class="sig-name descname"><span class="pre">TrigMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'steps'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'amplitude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_angle_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'phase'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mixins/trig.html#TrigMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.trig.TrigMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple trig mixin class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.trig.TrigMixin.dispatch_trig">
+<span class="sig-name descname"><span class="pre">dispatch_trig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/trig.html#TrigMixin.dispatch_trig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.trig.TrigMixin.dispatch_trig" title="Link to this definition">#</a></dt>
+<dd><p>Dispatch trig channel updates.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.mixins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.mixins" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="runtimepy.metrics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">runtimepy.metrics package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="runtimepy.net.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">runtimepy.net package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.async_command">runtimepy.mixins.async_command module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.command"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.command</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.handle_command"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.handle_command()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.outgoing_commands"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.outgoing_commands</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.process_command_queue"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.process_command_queue()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.enum">runtimepy.mixins.enum module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.enum.EnumMixin"><code class="docutils literal notranslate"><span class="pre">EnumMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.enum.EnumMixin.enum"><code class="docutils literal notranslate"><span class="pre">EnumMixin.enum</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.enum.EnumMixin.is_enum"><code class="docutils literal notranslate"><span class="pre">EnumMixin.is_enum</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.environment">runtimepy.mixins.environment module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.env"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.env</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_channel_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_channel_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_connection_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_connection_metrics()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_task_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_task_metrics()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.finalize">runtimepy.mixins.finalize module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.bypass_finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.bypass_finalized()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.finalize"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.finalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.finalized</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.finalize.FinalizeMixin.wait_finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.wait_finalized()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.logging">runtimepy.mixins.logging module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.dispatch_log_capture()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.init_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.init_log_capture()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.log_line"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.log_line()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.logger"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.logger</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.safe_to_log"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.safe_to_log</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.streams"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.streams</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.CRITICAL"><code class="docutils literal notranslate"><span class="pre">LogLevel.CRITICAL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.DEBUG"><code class="docutils literal notranslate"><span class="pre">LogLevel.DEBUG</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.ERROR"><code class="docutils literal notranslate"><span class="pre">LogLevel.ERROR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.INFO"><code class="docutils literal notranslate"><span class="pre">LogLevel.INFO</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel.WARNING"><code class="docutils literal notranslate"><span class="pre">LogLevel.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LoggerMixinLevelControl"><code class="docutils literal notranslate"><span class="pre">LoggerMixinLevelControl</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LoggerMixinLevelControl.setup_level_channel"><code class="docutils literal notranslate"><span class="pre">LoggerMixinLevelControl.setup_level_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.handle_safe_log"><code class="docutils literal notranslate"><span class="pre">handle_safe_log()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.psutil">runtimepy.mixins.psutil module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin"><code class="docutils literal notranslate"><span class="pre">PsutilMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.cpu_average"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.cpu_average</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.cpu_percent"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.cpu_percent</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.init_psutil"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.init_psutil()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.memory_percent"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.memory_percent</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.poll_psutil"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.poll_psutil()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.psutil.PsutilMixin.process"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.process</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.regex">runtimepy.mixins.regex module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.regex.RegexMixin"><code class="docutils literal notranslate"><span class="pre">RegexMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.regex.RegexMixin.name_regex"><code class="docutils literal notranslate"><span class="pre">RegexMixin.name_regex</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.regex.RegexMixin.validate_name"><code class="docutils literal notranslate"><span class="pre">RegexMixin.validate_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.trig">runtimepy.mixins.trig module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.trig.TrigMixin"><code class="docutils literal notranslate"><span class="pre">TrigMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.trig.TrigMixin.dispatch_trig"><code class="docutils literal notranslate"><span class="pre">TrigMixin.dispatch_trig()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

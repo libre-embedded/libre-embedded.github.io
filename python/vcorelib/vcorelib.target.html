@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>vcorelib.target package &#8212; vcorelib  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vcorelib.target';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vcorelib.task package" href="vcorelib.task.html" />
+    <link rel="prev" title="vcorelib.script package" href="vcorelib.script.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="vcorelib  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="vcorelib  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="vcorelib.html">vcorelib package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.args.html">vcorelib.args package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.asyncio.html">vcorelib.asyncio package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.dict.html">vcorelib.dict package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.graph.html">vcorelib.graph package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.logging.html">vcorelib.logging package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.math.html">vcorelib.math package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="vcorelib.math.analysis.html">vcorelib.math.analysis package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.namespace.html">vcorelib.namespace package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.paths.html">vcorelib.paths package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.platform.html">vcorelib.platform package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.schemas.html">vcorelib.schemas package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.script.html">vcorelib.script package</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">vcorelib.target package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.task.html">vcorelib.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.dict.html">vcorelib.task.dict package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.subprocess.html">vcorelib.task.subprocess package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.time.html">vcorelib.task.time package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/vcorelib.target.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>vcorelib.target package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target.evaluation">vcorelib.target.evaluation module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.DynamicTargetEvaluator"><code class="docutils literal notranslate"><span class="pre">DynamicTargetEvaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.DynamicTargetEvaluator.compile_key"><code class="docutils literal notranslate"><span class="pre">DynamicTargetEvaluator.compile_key()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetEvaluatorInterface"><code class="docutils literal notranslate"><span class="pre">TargetEvaluatorInterface</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetEvaluatorInterface.compile"><code class="docutils literal notranslate"><span class="pre">TargetEvaluatorInterface.compile()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetEvaluatorInterface.compile_key"><code class="docutils literal notranslate"><span class="pre">TargetEvaluatorInterface.compile_key()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface"><code class="docutils literal notranslate"><span class="pre">TargetInterface</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.compile"><code class="docutils literal notranslate"><span class="pre">TargetInterface.compile()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.dynamic_end"><code class="docutils literal notranslate"><span class="pre">TargetInterface.dynamic_end</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.dynamic_start"><code class="docutils literal notranslate"><span class="pre">TargetInterface.dynamic_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.is_literal"><code class="docutils literal notranslate"><span class="pre">TargetInterface.is_literal()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.parse"><code class="docutils literal notranslate"><span class="pre">TargetInterface.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.segment_count"><code class="docutils literal notranslate"><span class="pre">TargetInterface.segment_count()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target.expression">vcorelib.target.expression module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTarget"><code class="docutils literal notranslate"><span class="pre">ExpressionTarget</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTarget.compile_match"><code class="docutils literal notranslate"><span class="pre">ExpressionTarget.compile_match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTarget.parse"><code class="docutils literal notranslate"><span class="pre">ExpressionTarget.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTargetEvaluator"><code class="docutils literal notranslate"><span class="pre">ExpressionTargetEvaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTargetEvaluator.compile_key"><code class="docutils literal notranslate"><span class="pre">ExpressionTargetEvaluator.compile_key()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target.resolver">vcorelib.target.resolver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolution"><code class="docutils literal notranslate"><span class="pre">TargetResolution</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolution.data"><code class="docutils literal notranslate"><span class="pre">TargetResolution.data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolution.result"><code class="docutils literal notranslate"><span class="pre">TargetResolution.result</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver"><code class="docutils literal notranslate"><span class="pre">TargetResolver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver.evaluate"><code class="docutils literal notranslate"><span class="pre">TargetResolver.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver.evaluate_all"><code class="docutils literal notranslate"><span class="pre">TargetResolver.evaluate_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver.register"><code class="docutils literal notranslate"><span class="pre">TargetResolver.register()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target"><code class="docutils literal notranslate"><span class="pre">Target</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target.evaluate"><code class="docutils literal notranslate"><span class="pre">Target.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target.parse"><code class="docutils literal notranslate"><span class="pre">Target.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target.valid"><code class="docutils literal notranslate"><span class="pre">Target.valid</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch"><code class="docutils literal notranslate"><span class="pre">TargetMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch.get"><code class="docutils literal notranslate"><span class="pre">TargetMatch.get()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch.matched"><code class="docutils literal notranslate"><span class="pre">TargetMatch.matched</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch.substitutions"><code class="docutils literal notranslate"><span class="pre">TargetMatch.substitutions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="vcorelib-target-package">
+<h1>vcorelib.target package<a class="headerlink" href="#vcorelib-target-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-vcorelib.target.evaluation">
+<span id="vcorelib-target-evaluation-module"></span><h2>vcorelib.target.evaluation module<a class="headerlink" href="#module-vcorelib.target.evaluation" title="Link to this heading">#</a></h2>
+<p>A module for target-evaluation interfaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.DynamicTargetEvaluator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.evaluation.</span></span><span class="sig-name descname"><span class="pre">DynamicTargetEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pattern</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#DynamicTargetEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.DynamicTargetEvaluator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vcorelib.target.evaluation.TargetEvaluatorInterface" title="vcorelib.target.evaluation.TargetEvaluatorInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">TargetEvaluatorInterface</span></code></a></p>
+<p>A regular expression configured to match as many groups as in the provided
+keys. When the pattern matches some data, the names of the keys can become
+associated with the data that was matched inside each group.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.DynamicTargetEvaluator.compile_key">
+<span class="sig-name descname"><span class="pre">compile_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#DynamicTargetEvaluator.compile_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.DynamicTargetEvaluator.compile_key" title="Link to this definition">#</a></dt>
+<dd><p>Process the key based on substitution data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetEvaluatorInterface">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.evaluation.</span></span><span class="sig-name descname"><span class="pre">TargetEvaluatorInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetEvaluatorInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetEvaluatorInterface" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>An interface for evaluating targets.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetEvaluatorInterface.compile">
+<span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetEvaluatorInterface.compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetEvaluatorInterface.compile" title="Link to this definition">#</a></dt>
+<dd><p>Build a string from this target with values replaced for keys that
+appeared in the original string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetEvaluatorInterface.compile_key">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compile_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetEvaluatorInterface.compile_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetEvaluatorInterface.compile_key" title="Link to this definition">#</a></dt>
+<dd><p>Process the key based on substitution data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetInterface">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.evaluation.</span></span><span class="sig-name descname"><span class="pre">TargetInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetInterface" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>A generic interface for target implementations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetInterface.compile">
+<span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetInterface.compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetInterface.compile" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to get a target literal from this target and optional
+substitutions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetInterface.dynamic_end">
+<span class="sig-name descname"><span class="pre">dynamic_end</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'}'</span></em><a class="headerlink" href="#vcorelib.target.evaluation.TargetInterface.dynamic_end" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetInterface.dynamic_start">
+<span class="sig-name descname"><span class="pre">dynamic_start</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'{'</span></em><a class="headerlink" href="#vcorelib.target.evaluation.TargetInterface.dynamic_start" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetInterface.is_literal">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_literal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetInterface.is_literal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetInterface.is_literal" title="Link to this definition">#</a></dt>
+<dd><p>Determine if a target is guaranteed to be literal or not.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetInterface.parse">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetInterface.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetInterface.parse" title="Link to this definition">#</a></dt>
+<dd><p>Obtain an expression target-evaluator from provided string data. If
+data doesn’t contain any target-evaluation syntax, return None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.evaluation.TargetInterface.segment_count">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">segment_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/target/evaluation.html#TargetInterface.segment_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.evaluation.TargetInterface.segment_count" title="Link to this definition">#</a></dt>
+<dd><p>Count the number of dynamic segments and validate syntax.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vcorelib.target.expression">
+<span id="vcorelib-target-expression-module"></span><h2>vcorelib.target.expression module<a class="headerlink" href="#module-vcorelib.target.expression" title="Link to this heading">#</a></h2>
+<p>A module implementing expression evaluation for targets.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.expression.ExpressionTarget">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.expression.</span></span><span class="sig-name descname"><span class="pre">ExpressionTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target/expression.html#ExpressionTarget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.expression.ExpressionTarget" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vcorelib.target.evaluation.TargetInterface" title="vcorelib.target.evaluation.TargetInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">TargetInterface</span></code></a>[<a class="reference internal" href="#vcorelib.target.expression.ExpressionTargetEvaluator" title="vcorelib.target.expression.ExpressionTargetEvaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExpressionTargetEvaluator</span></code></a>]</p>
+<p>A class for evaluating expressions based on substitution data.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.expression.ExpressionTarget.compile_match">
+<span class="sig-name descname"><span class="pre">compile_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.target.Target" title="vcorelib.target.Target"><span class="pre">Target</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/target/expression.html#ExpressionTarget.compile_match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.expression.ExpressionTarget.compile_match" title="Link to this definition">#</a></dt>
+<dd><p>If a target matches provided data, compile our expression and return
+the result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.expression.ExpressionTarget.parse">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.target.expression.ExpressionTargetEvaluator" title="vcorelib.target.expression.ExpressionTargetEvaluator"><span class="pre">ExpressionTargetEvaluator</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/target/expression.html#ExpressionTarget.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.expression.ExpressionTarget.parse" title="Link to this definition">#</a></dt>
+<dd><p>Obtain an expression target-evaluator from provided string data. If
+data doesn’t contain any target-evaluation syntax, return None.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.expression.ExpressionTargetEvaluator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.expression.</span></span><span class="sig-name descname"><span class="pre">ExpressionTargetEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target/expression.html#ExpressionTargetEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.expression.ExpressionTargetEvaluator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vcorelib.target.evaluation.TargetEvaluatorInterface" title="vcorelib.target.evaluation.TargetEvaluatorInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">TargetEvaluatorInterface</span></code></a></p>
+<p>An interface for evaluating expression targets.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.expression.ExpressionTargetEvaluator.compile_key">
+<span class="sig-name descname"><span class="pre">compile_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/target/expression.html#ExpressionTargetEvaluator.compile_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.expression.ExpressionTargetEvaluator.compile_key" title="Link to this definition">#</a></dt>
+<dd><p>Process the key based on substitution data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vcorelib.target.resolver">
+<span id="vcorelib-target-resolver-module"></span><h2>vcorelib.target.resolver module<a class="headerlink" href="#module-vcorelib.target.resolver" title="Link to this heading">#</a></h2>
+<p>Implements management of target objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.resolver.TargetResolution">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.resolver.</span></span><span class="sig-name descname"><span class="pre">TargetResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.target.TargetMatch" title="vcorelib.target.TargetMatch"><span class="pre">TargetMatch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target/resolver.html#TargetResolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.resolver.TargetResolution" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A return type for the target resolver.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.target.resolver.TargetResolution.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#vcorelib.target.resolver.TargetResolution.data" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.target.resolver.TargetResolution.result">
+<span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#vcorelib.target.TargetMatch" title="vcorelib.target.TargetMatch"><span class="pre">TargetMatch</span></a></em><a class="headerlink" href="#vcorelib.target.resolver.TargetResolution.result" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.resolver.TargetResolver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.resolver.</span></span><span class="sig-name descname"><span class="pre">TargetResolver</span></span><a class="reference internal" href="_modules/vcorelib/target/resolver.html#TargetResolver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.resolver.TargetResolver" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for registering target prototypes that can be used to match
+incoming data.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.resolver.TargetResolver.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.target.resolver.TargetResolution" title="vcorelib.target.resolver.TargetResolution"><span class="pre">TargetResolution</span></a></span></span><a class="reference internal" href="_modules/vcorelib/target/resolver.html#TargetResolver.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.resolver.TargetResolver.evaluate" title="Link to this definition">#</a></dt>
+<dd><p>Find the target that matches data, if one can be found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.resolver.TargetResolver.evaluate_all">
+<span class="sig-name descname"><span class="pre">evaluate_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#vcorelib.target.resolver.TargetResolution" title="vcorelib.target.resolver.TargetResolution"><span class="pre">TargetResolution</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/target/resolver.html#TargetResolver.evaluate_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.resolver.TargetResolver.evaluate_all" title="Link to this definition">#</a></dt>
+<dd><p>Evaluate all targets and optionally enforce that they all matched.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.resolver.TargetResolver.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/vcorelib/target/resolver.html#TargetResolver.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.resolver.TargetResolver.register" title="Link to this definition">#</a></dt>
+<dd><p>Register a target to this resolver. If it is ever resolved in
+evaluation, value will be returned. Return whether or not any target
+was registered.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vcorelib.target">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vcorelib.target" title="Link to this heading">#</a></h2>
+<p>A module defining an interface for dynamic task targets.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.Target">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.</span></span><span class="sig-name descname"><span class="pre">Target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target.html#Target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.Target" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vcorelib.target.evaluation.TargetInterface" title="vcorelib.target.evaluation.TargetInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">TargetInterface</span></code></a>[<a class="reference internal" href="#vcorelib.target.evaluation.DynamicTargetEvaluator" title="vcorelib.target.evaluation.DynamicTargetEvaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">DynamicTargetEvaluator</span></code></a>]</p>
+<p>An interface for string targets that may encode data substitutions or
+otherwise be matched to only a single, literal string.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.Target.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.target.TargetMatch" title="vcorelib.target.TargetMatch"><span class="pre">TargetMatch</span></a></span></span><a class="reference internal" href="_modules/vcorelib/target.html#Target.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.Target.evaluate" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to match this target with some string data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.Target.parse">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.target.evaluation.DynamicTargetEvaluator" title="vcorelib.target.evaluation.DynamicTargetEvaluator"><span class="pre">DynamicTargetEvaluator</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/target.html#Target.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.Target.parse" title="Link to this definition">#</a></dt>
+<dd><p>Obtain a compiled target evaluator if data is a dynamic target, else
+None.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.target.Target.valid">
+<span class="sig-name descname"><span class="pre">valid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'[a-zA-Z0-9-_.]+'</span></em><a class="headerlink" href="#vcorelib.target.Target.valid" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.target.TargetMatch">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.target.</span></span><span class="sig-name descname"><span class="pre">TargetMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matched</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Substitutions</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/target.html#TargetMatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.TargetMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>An encapsulation of results when attempting to patch a target name to a
+pattern. If a target was matched and had keyword substitutions, the actual
+values used will be set as match data.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.target.TargetMatch.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/target.html#TargetMatch.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.target.TargetMatch.get" title="Link to this definition">#</a></dt>
+<dd><p>Get data for keys that matched the target.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.target.TargetMatch.matched">
+<span class="sig-name descname"><span class="pre">matched</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#vcorelib.target.TargetMatch.matched" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.target.TargetMatch.substitutions">
+<span class="sig-name descname"><span class="pre">substitutions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#vcorelib.target.TargetMatch.substitutions" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vcorelib.script.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">vcorelib.script package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vcorelib.task.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">vcorelib.task package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target.evaluation">vcorelib.target.evaluation module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.DynamicTargetEvaluator"><code class="docutils literal notranslate"><span class="pre">DynamicTargetEvaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.DynamicTargetEvaluator.compile_key"><code class="docutils literal notranslate"><span class="pre">DynamicTargetEvaluator.compile_key()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetEvaluatorInterface"><code class="docutils literal notranslate"><span class="pre">TargetEvaluatorInterface</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetEvaluatorInterface.compile"><code class="docutils literal notranslate"><span class="pre">TargetEvaluatorInterface.compile()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetEvaluatorInterface.compile_key"><code class="docutils literal notranslate"><span class="pre">TargetEvaluatorInterface.compile_key()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface"><code class="docutils literal notranslate"><span class="pre">TargetInterface</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.compile"><code class="docutils literal notranslate"><span class="pre">TargetInterface.compile()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.dynamic_end"><code class="docutils literal notranslate"><span class="pre">TargetInterface.dynamic_end</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.dynamic_start"><code class="docutils literal notranslate"><span class="pre">TargetInterface.dynamic_start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.is_literal"><code class="docutils literal notranslate"><span class="pre">TargetInterface.is_literal()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.parse"><code class="docutils literal notranslate"><span class="pre">TargetInterface.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.evaluation.TargetInterface.segment_count"><code class="docutils literal notranslate"><span class="pre">TargetInterface.segment_count()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target.expression">vcorelib.target.expression module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTarget"><code class="docutils literal notranslate"><span class="pre">ExpressionTarget</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTarget.compile_match"><code class="docutils literal notranslate"><span class="pre">ExpressionTarget.compile_match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTarget.parse"><code class="docutils literal notranslate"><span class="pre">ExpressionTarget.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTargetEvaluator"><code class="docutils literal notranslate"><span class="pre">ExpressionTargetEvaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.expression.ExpressionTargetEvaluator.compile_key"><code class="docutils literal notranslate"><span class="pre">ExpressionTargetEvaluator.compile_key()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target.resolver">vcorelib.target.resolver module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolution"><code class="docutils literal notranslate"><span class="pre">TargetResolution</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolution.data"><code class="docutils literal notranslate"><span class="pre">TargetResolution.data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolution.result"><code class="docutils literal notranslate"><span class="pre">TargetResolution.result</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver"><code class="docutils literal notranslate"><span class="pre">TargetResolver</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver.evaluate"><code class="docutils literal notranslate"><span class="pre">TargetResolver.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver.evaluate_all"><code class="docutils literal notranslate"><span class="pre">TargetResolver.evaluate_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.resolver.TargetResolver.register"><code class="docutils literal notranslate"><span class="pre">TargetResolver.register()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.target">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target"><code class="docutils literal notranslate"><span class="pre">Target</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target.evaluate"><code class="docutils literal notranslate"><span class="pre">Target.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target.parse"><code class="docutils literal notranslate"><span class="pre">Target.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.Target.valid"><code class="docutils literal notranslate"><span class="pre">Target.valid</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch"><code class="docutils literal notranslate"><span class="pre">TargetMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch.get"><code class="docutils literal notranslate"><span class="pre">TargetMatch.get()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch.matched"><code class="docutils literal notranslate"><span class="pre">TargetMatch.matched</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.target.TargetMatch.substitutions"><code class="docutils literal notranslate"><span class="pre">TargetMatch.substitutions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

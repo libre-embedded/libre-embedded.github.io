@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ifgen.struct package &#8212; ifgen  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ifgen.struct';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ifgen.struct.methods package" href="ifgen.struct.methods.html" />
+    <link rel="prev" title="ifgen.generation.python package" href="ifgen.generation.python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="ifgen  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="ifgen  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="ifgen.html">ifgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.common.html">ifgen.common package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.config.html">ifgen.config package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.enum.html">ifgen.enum package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.enum.python.html">ifgen.enum.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">ifgen.struct package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html">ifgen.struct.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.svd.html">ifgen.svd package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.group.html">ifgen.svd.group package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html">ifgen.svd.model package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ifgen.struct.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ifgen.struct package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.header">ifgen.struct.header module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.cpp_struct_header"><code class="docutils literal notranslate"><span class="pre">cpp_struct_header()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.enforce_expected_size"><code class="docutils literal notranslate"><span class="pre">enforce_expected_size()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_fields"><code class="docutils literal notranslate"><span class="pre">struct_fields()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_header"><code class="docutils literal notranslate"><span class="pre">struct_header()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_instance"><code class="docutils literal notranslate"><span class="pre">struct_instance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_line"><code class="docutils literal notranslate"><span class="pre">struct_line()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.source">ifgen.struct.source module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.source.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.stream">ifgen.struct.stream module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.stream.struct_istream"><code class="docutils literal notranslate"><span class="pre">struct_istream()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.stream.struct_ostream"><code class="docutils literal notranslate"><span class="pre">struct_ostream()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.stream.struct_stream_methods"><code class="docutils literal notranslate"><span class="pre">struct_stream_methods()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.test">ifgen.struct.test module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.assert_line"><code class="docutils literal notranslate"><span class="pre">assert_line()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.unit_test_basic_method"><code class="docutils literal notranslate"><span class="pre">unit_test_basic_method()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.unit_test_body"><code class="docutils literal notranslate"><span class="pre">unit_test_body()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.unit_test_stream_tests"><code class="docutils literal notranslate"><span class="pre">unit_test_stream_tests()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.util">ifgen.struct.util module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.util.struct_dependencies"><code class="docutils literal notranslate"><span class="pre">struct_dependencies()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.create_struct"><code class="docutils literal notranslate"><span class="pre">create_struct()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ifgen-struct-package">
+<h1>ifgen.struct package<a class="headerlink" href="#ifgen-struct-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields.common">ifgen.struct.methods.fields.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields.getter">ifgen.struct.methods.fields.getter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields.setter">ifgen.struct.methods.fields.setter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.bit">ifgen.struct.methods.bit module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.bit.bit_field_toggle_method"><code class="docutils literal notranslate"><span class="pre">bit_field_toggle_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.bit.clear_bit_method"><code class="docutils literal notranslate"><span class="pre">clear_bit_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.bit.handle_description"><code class="docutils literal notranslate"><span class="pre">handle_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.bit.set_bit_method"><code class="docutils literal notranslate"><span class="pre">set_bit_method()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.common">ifgen.struct.methods.common module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.common.native_decode"><code class="docutils literal notranslate"><span class="pre">native_decode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.common.native_encode"><code class="docutils literal notranslate"><span class="pre">native_encode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.common.wrapper_method"><code class="docutils literal notranslate"><span class="pre">wrapper_method()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.decode">ifgen.struct.methods.decode module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.decode.decode_method"><code class="docutils literal notranslate"><span class="pre">decode_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.decode.struct_decode"><code class="docutils literal notranslate"><span class="pre">struct_decode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.encode">ifgen.struct.methods.encode module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.encode.encode_method"><code class="docutils literal notranslate"><span class="pre">encode_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.encode.struct_encode"><code class="docutils literal notranslate"><span class="pre">struct_encode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.swap">ifgen.struct.methods.swap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.assignment"><code class="docutils literal notranslate"><span class="pre">assignment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.decode_primitive_swap"><code class="docutils literal notranslate"><span class="pre">decode_primitive_swap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.decode_swapped_method"><code class="docutils literal notranslate"><span class="pre">decode_swapped_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.encode_primitive_swap"><code class="docutils literal notranslate"><span class="pre">encode_primitive_swap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.encode_swapped_method"><code class="docutils literal notranslate"><span class="pre">encode_swapped_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.no_swap"><code class="docutils literal notranslate"><span class="pre">no_swap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.swap_enum"><code class="docutils literal notranslate"><span class="pre">swap_enum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.swap_fields"><code class="docutils literal notranslate"><span class="pre">swap_fields()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.swap_struct"><code class="docutils literal notranslate"><span class="pre">swap_struct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap.to_integral"><code class="docutils literal notranslate"><span class="pre">to_integral()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.protocol_json"><code class="docutils literal notranslate"><span class="pre">protocol_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.span_method"><code class="docutils literal notranslate"><span class="pre">span_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.struct_buffer_method"><code class="docutils literal notranslate"><span class="pre">struct_buffer_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.struct_methods"><code class="docutils literal notranslate"><span class="pre">struct_methods()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.methods.html#ifgen.struct.methods.swap_method"><code class="docutils literal notranslate"><span class="pre">swap_method()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.struct.python.html">ifgen.struct.python package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.python.html#module-ifgen.struct.python">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html#ifgen.struct.python.cpp_ns_final"><code class="docutils literal notranslate"><span class="pre">cpp_ns_final()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html#ifgen.struct.python.python_dependencies"><code class="docutils literal notranslate"><span class="pre">python_dependencies()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html#ifgen.struct.python.python_enums_structs"><code class="docutils literal notranslate"><span class="pre">python_enums_structs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html#ifgen.struct.python.python_struct_field"><code class="docutils literal notranslate"><span class="pre">python_struct_field()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html#ifgen.struct.python.python_struct_fields"><code class="docutils literal notranslate"><span class="pre">python_struct_fields()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.python.html#ifgen.struct.python.python_struct_header"><code class="docutils literal notranslate"><span class="pre">python_struct_header()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-ifgen.struct.header">
+<span id="ifgen-struct-header-module"></span><h2>ifgen.struct.header module<a class="headerlink" href="#module-ifgen.struct.header" title="Link to this heading">#</a></h2>
+<p>A module implementing a struct header-file interface generator.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.header.cpp_struct_header">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.header.</span></span><span class="sig-name descname"><span class="pre">cpp_struct_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/header.html#cpp_struct_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.header.cpp_struct_header" title="Link to this definition">#</a></dt>
+<dd><p>Create the contents of a C++ struct header file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.header.enforce_expected_size">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.header.</span></span><span class="sig-name descname"><span class="pre">enforce_expected_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assert_msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/header.html#enforce_expected_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.header.enforce_expected_size" title="Link to this definition">#</a></dt>
+<dd><p>Enforce an expected-size field.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.header.struct_fields">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.header.</span></span><span class="sig-name descname"><span class="pre">struct_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/header.html#struct_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.header.struct_fields" title="Link to this definition">#</a></dt>
+<dd><p>Generate struct fields.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.header.struct_header">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.header.</span></span><span class="sig-name descname"><span class="pre">struct_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/header.html#struct_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.header.struct_header" title="Link to this definition">#</a></dt>
+<dd><p>Create the contents of a struct header file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.header.struct_instance">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.header.</span></span><span class="sig-name descname"><span class="pre">struct_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/header.html#struct_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.header.struct_instance" title="Link to this definition">#</a></dt>
+<dd><p>Generate struct instances.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.header.struct_line">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.header.</span></span><span class="sig-name descname"><span class="pre">struct_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volatile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">const</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/struct/header.html#struct_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.header.struct_line" title="Link to this definition">#</a></dt>
+<dd><p>Build a string for a struct-field line.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.struct.source">
+<span id="ifgen-struct-source-module"></span><h2>ifgen.struct.source module<a class="headerlink" href="#module-ifgen.struct.source" title="Link to this heading">#</a></h2>
+<p>A module for generating struct source files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.source.create_struct_source">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.source.</span></span><span class="sig-name descname"><span class="pre">create_struct_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/source.html#create_struct_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.source.create_struct_source" title="Link to this definition">#</a></dt>
+<dd><p>Create a header file based on a struct definition.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.struct.stream">
+<span id="ifgen-struct-stream-module"></span><h2>ifgen.struct.stream module<a class="headerlink" href="#module-ifgen.struct.stream" title="Link to this heading">#</a></h2>
+<p>A module for implementing struct stream-related methods.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.stream.struct_istream">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.stream.</span></span><span class="sig-name descname"><span class="pre">struct_istream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/stream.html#struct_istream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.stream.struct_istream" title="Link to this definition">#</a></dt>
+<dd><p>Generate an input-stream handling method.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.stream.struct_ostream">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.stream.</span></span><span class="sig-name descname"><span class="pre">struct_ostream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/stream.html#struct_ostream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.stream.struct_ostream" title="Link to this definition">#</a></dt>
+<dd><p>Generate an output-stream handling method.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.stream.struct_stream_methods">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.stream.</span></span><span class="sig-name descname"><span class="pre">struct_stream_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/stream.html#struct_stream_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.stream.struct_stream_methods" title="Link to this definition">#</a></dt>
+<dd><p>Generate struct stream read and write methods.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.struct.test">
+<span id="ifgen-struct-test-module"></span><h2>ifgen.struct.test module<a class="headerlink" href="#module-ifgen.struct.test" title="Link to this heading">#</a></h2>
+<p>A module implementing a unit-test output generator for structs.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.test.assert_line">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.test.</span></span><span class="sig-name descname"><span class="pre">assert_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/test.html#assert_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.test.assert_line" title="Link to this definition">#</a></dt>
+<dd><p>Write an assert line to the file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.test.create_struct_test">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.test.</span></span><span class="sig-name descname"><span class="pre">create_struct_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/test.html#create_struct_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.test.create_struct_test" title="Link to this definition">#</a></dt>
+<dd><p>Create a unit test for the enum string-conversion methods.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.test.unit_test_basic_method">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.test.</span></span><span class="sig-name descname"><span class="pre">unit_test_basic_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/test.html#unit_test_basic_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.test.unit_test_basic_method" title="Link to this definition">#</a></dt>
+<dd><p>Implement a simple encode-and-decode scenario with endianness as a
+function argument.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.test.unit_test_body">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.test.</span></span><span class="sig-name descname"><span class="pre">unit_test_body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/test.html#unit_test_body"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.test.unit_test_body" title="Link to this definition">#</a></dt>
+<dd><p>Implement a unit test for a struct.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.test.unit_test_stream_tests">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.test.</span></span><span class="sig-name descname"><span class="pre">unit_test_stream_tests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/test.html#unit_test_stream_tests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.test.unit_test_stream_tests" title="Link to this definition">#</a></dt>
+<dd><p>Generate unit tests for stream interfaces.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.struct.util">
+<span id="ifgen-struct-util-module"></span><h2>ifgen.struct.util module<a class="headerlink" href="#module-ifgen.struct.util" title="Link to this heading">#</a></h2>
+<p>Utility interfaces related to struct code generation.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.util.struct_dependencies">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.util.</span></span><span class="sig-name descname"><span class="pre">struct_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/struct/util.html#struct_dependencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.util.struct_dependencies" title="Link to this definition">#</a></dt>
+<dd><p>Generates string type names for dependencies.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.struct">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ifgen.struct" title="Link to this heading">#</a></h2>
+<p>A module implementing interfaces for struct-file generation.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.create_struct">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.</span></span><span class="sig-name descname"><span class="pre">create_struct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct.html#create_struct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.create_struct" title="Link to this definition">#</a></dt>
+<dd><p>Create a header file based on a struct definition.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.create_struct_source">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.</span></span><span class="sig-name descname"><span class="pre">create_struct_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/source.html#create_struct_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.create_struct_source" title="Link to this definition">#</a></dt>
+<dd><p>Create a header file based on a struct definition.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.struct.create_struct_test">
+<span class="sig-prename descclassname"><span class="pre">ifgen.struct.</span></span><span class="sig-name descname"><span class="pre">create_struct_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/struct/test.html#create_struct_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.struct.create_struct_test" title="Link to this definition">#</a></dt>
+<dd><p>Create a unit test for the enum string-conversion methods.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ifgen.generation.python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ifgen.generation.python package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ifgen.struct.methods.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ifgen.struct.methods package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.header">ifgen.struct.header module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.cpp_struct_header"><code class="docutils literal notranslate"><span class="pre">cpp_struct_header()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.enforce_expected_size"><code class="docutils literal notranslate"><span class="pre">enforce_expected_size()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_fields"><code class="docutils literal notranslate"><span class="pre">struct_fields()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_header"><code class="docutils literal notranslate"><span class="pre">struct_header()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_instance"><code class="docutils literal notranslate"><span class="pre">struct_instance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.header.struct_line"><code class="docutils literal notranslate"><span class="pre">struct_line()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.source">ifgen.struct.source module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.source.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.stream">ifgen.struct.stream module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.stream.struct_istream"><code class="docutils literal notranslate"><span class="pre">struct_istream()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.stream.struct_ostream"><code class="docutils literal notranslate"><span class="pre">struct_ostream()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.stream.struct_stream_methods"><code class="docutils literal notranslate"><span class="pre">struct_stream_methods()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.test">ifgen.struct.test module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.assert_line"><code class="docutils literal notranslate"><span class="pre">assert_line()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.unit_test_basic_method"><code class="docutils literal notranslate"><span class="pre">unit_test_basic_method()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.unit_test_body"><code class="docutils literal notranslate"><span class="pre">unit_test_body()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.test.unit_test_stream_tests"><code class="docutils literal notranslate"><span class="pre">unit_test_stream_tests()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct.util">ifgen.struct.util module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.util.struct_dependencies"><code class="docutils literal notranslate"><span class="pre">struct_dependencies()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.struct">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.create_struct"><code class="docutils literal notranslate"><span class="pre">create_struct()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.struct.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

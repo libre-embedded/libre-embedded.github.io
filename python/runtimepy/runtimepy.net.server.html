@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy.net.server package &#8212; runtimepy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.net.server';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="runtimepy.net.server.app package" href="runtimepy.net.server.app.html" />
+    <link rel="prev" title="runtimepy.net.http package" href="runtimepy.net.http.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.control.html">runtimepy.control package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.control.env.html">runtimepy.control.env package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.struct.html">runtimepy.net.arbiter.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.html.html">runtimepy.net.html package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html.bootstrap.html">runtimepy.net.html.bootstrap package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">runtimepy.net.server package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.scpi.html">runtimepy.net.tcp.scpi package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.udp.html">runtimepy.net.udp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.tftp.html">runtimepy.net.udp.tftp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.noise.html">runtimepy.noise package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.ui.html">runtimepy.ui package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/runtimepy.net.server.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>runtimepy.net.server package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server.html">runtimepy.net.server.html module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.html.get_html"><code class="docutils literal notranslate"><span class="pre">get_html()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.html.html_handler"><code class="docutils literal notranslate"><span class="pre">html_handler()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server.json">runtimepy.net.server.json module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.Encoder"><code class="docutils literal notranslate"><span class="pre">Encoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.Encoder.default"><code class="docutils literal notranslate"><span class="pre">Encoder.default()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.encode_json"><code class="docutils literal notranslate"><span class="pre">encode_json()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.json_handler"><code class="docutils literal notranslate"><span class="pre">json_handler()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.traverse_dict"><code class="docutils literal notranslate"><span class="pre">traverse_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server.markdown">runtimepy.net.server.markdown module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.markdown.markdown_for_dir"><code class="docutils literal notranslate"><span class="pre">markdown_for_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.add_path"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.add_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.add_redirect_path"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.add_redirect_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.apps"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.apps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.class_paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.class_paths</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.class_redirect_paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.class_redirect_paths</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.default_app"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.default_app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.favicon_data"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.favicon_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.get_handler"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.get_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.handle_command"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.handle_command()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.init"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.json_data"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.json_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.log_paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.log_paths()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.paths</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.post_handler"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.post_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.redirect_to"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.redirect_to()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.render_markdown"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.render_markdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.render_markdown_file"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.render_markdown_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.try_file"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.try_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.try_redirect"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.try_redirect()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.package_data_dir"><code class="docutils literal notranslate"><span class="pre">package_data_dir()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="runtimepy-net-server-package">
+<h1>runtimepy.net.server package<a class="headerlink" href="#runtimepy-net-server-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.env.html">runtimepy.net.server.app.env package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.env.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.env.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.env.html#module-runtimepy.net.server.app.env.modal">runtimepy.net.server.app.env.modal module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.env.html#module-runtimepy.net.server.app.env.settings">runtimepy.net.server.app.env.settings module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.env.html#module-runtimepy.net.server.app.env.widgets">runtimepy.net.server.app.env.widgets module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.env.html#module-runtimepy.net.server.app.env">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.base">runtimepy.net.server.app.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.base.WebApplication"><code class="docutils literal notranslate"><span class="pre">WebApplication</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.base.WebApplication.populate"><code class="docutils literal notranslate"><span class="pre">WebApplication.populate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.base.WebApplication.ui_classes"><code class="docutils literal notranslate"><span class="pre">WebApplication.ui_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.base.WebApplication.worker_classes"><code class="docutils literal notranslate"><span class="pre">WebApplication.worker_classes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.create">runtimepy.net.server.app.create module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.create.config_param"><code class="docutils literal notranslate"><span class="pre">config_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.create.create_app"><code class="docutils literal notranslate"><span class="pre">create_app()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.create.create_cacheable_app"><code class="docutils literal notranslate"><span class="pre">create_cacheable_app()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.elements">runtimepy.net.server.app.elements module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.elements.kind"><code class="docutils literal notranslate"><span class="pre">kind()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.files">runtimepy.net.server.app.files module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.files.set_text_to_file"><code class="docutils literal notranslate"><span class="pre">set_text_to_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.files.set_text_to_kind"><code class="docutils literal notranslate"><span class="pre">set_text_to_kind()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.landing_page">runtimepy.net.server.app.landing_page module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.landing_page.landing_page"><code class="docutils literal notranslate"><span class="pre">landing_page()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.placeholder">runtimepy.net.server.app.placeholder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.placeholder.DummyTab"><code class="docutils literal notranslate"><span class="pre">DummyTab</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.placeholder.DummyTab.compose"><code class="docutils literal notranslate"><span class="pre">DummyTab.compose()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.placeholder.dummy_tabs"><code class="docutils literal notranslate"><span class="pre">dummy_tabs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.placeholder.under_construction"><code class="docutils literal notranslate"><span class="pre">under_construction()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.pyodide">runtimepy.net.server.app.pyodide module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.pyodide.add_pyodide_js"><code class="docutils literal notranslate"><span class="pre">add_pyodide_js()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.sound">runtimepy.net.server.app.sound module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.sound.SoundTab"><code class="docutils literal notranslate"><span class="pre">SoundTab</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.sound.SoundTab.compose"><code class="docutils literal notranslate"><span class="pre">SoundTab.compose()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app.tab">runtimepy.net.server.app.tab module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.tab.Tab"><code class="docutils literal notranslate"><span class="pre">Tab</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.tab.Tab.compose"><code class="docutils literal notranslate"><span class="pre">Tab.compose()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.tab.Tab.entry"><code class="docutils literal notranslate"><span class="pre">Tab.entry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.tab.Tab.init"><code class="docutils literal notranslate"><span class="pre">Tab.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.tab.Tab.write_js"><code class="docutils literal notranslate"><span class="pre">Tab.write_js()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.app.html#module-runtimepy.net.server.app">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.launch_browser"><code class="docutils literal notranslate"><span class="pre">launch_browser()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.app.html#runtimepy.net.server.app.setup"><code class="docutils literal notranslate"><span class="pre">setup()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.struct.html#module-runtimepy.net.server.struct">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState"><code class="docutils literal notranslate"><span class="pre">UiState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState.frame_period_ms"><code class="docutils literal notranslate"><span class="pre">UiState.frame_period_ms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState.init_env"><code class="docutils literal notranslate"><span class="pre">UiState.init_env()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState.json_metrics"><code class="docutils literal notranslate"><span class="pre">UiState.json_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState.poll"><code class="docutils literal notranslate"><span class="pre">UiState.poll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState.singleton"><code class="docutils literal notranslate"><span class="pre">UiState.singleton()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState.time_ms"><code class="docutils literal notranslate"><span class="pre">UiState.time_ms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html#runtimepy.net.server.struct.UiState.use_psutil"><code class="docutils literal notranslate"><span class="pre">UiState.use_psutil</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.websocket.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.websocket.html#module-runtimepy.net.server.websocket.state">runtimepy.net.server.websocket.state module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState"><code class="docutils literal notranslate"><span class="pre">TabState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.add_logger"><code class="docutils literal notranslate"><span class="pre">TabState.add_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.callbacks"><code class="docutils literal notranslate"><span class="pre">TabState.callbacks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.clear_loggers"><code class="docutils literal notranslate"><span class="pre">TabState.clear_loggers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.clear_telemetry"><code class="docutils literal notranslate"><span class="pre">TabState.clear_telemetry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.create"><code class="docutils literal notranslate"><span class="pre">TabState.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.frame"><code class="docutils literal notranslate"><span class="pre">TabState.frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.latest_ui_values"><code class="docutils literal notranslate"><span class="pre">TabState.latest_ui_values</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.points"><code class="docutils literal notranslate"><span class="pre">TabState.points</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.primitives"><code class="docutils literal notranslate"><span class="pre">TabState.primitives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.shown"><code class="docutils literal notranslate"><span class="pre">TabState.shown</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.tab_logger"><code class="docutils literal notranslate"><span class="pre">TabState.tab_logger</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.server.websocket.html#module-runtimepy.net.server.websocket">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyDataWebsocketConnection"><code class="docutils literal notranslate"><span class="pre">RuntimepyDataWebsocketConnection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.async_init"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.async_init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.command"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.command</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.disable_extra"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.disable_extra()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.env"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.id_responses"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.id_responses</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.ids_waiting"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.ids_waiting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.init"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.list_handler"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.list_handler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.logger"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.markdown"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.markdown</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.outgoing_commands"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.outgoing_commands</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.poll_connection_metrics"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.poll_connection_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.poll_governor"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.poll_governor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.processor"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.processor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.remote_environments"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.remote_environments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.remote_meta"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.remote_meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.send_interfaces"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.send_interfaces</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.tab_sender"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.tab_sender()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.tabs"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.tabs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.ui_time"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.ui_time</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-runtimepy.net.server.html">
+<span id="runtimepy-net-server-html-module"></span><h2>runtimepy.net.server.html module<a class="headerlink" href="#module-runtimepy.net.server.html" title="Link to this heading">#</a></h2>
+<p>A module implementing HTML interfaces for web applications.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.server.html.get_html">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.html.</span></span><span class="sig-name descname"><span class="pre">get_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Html</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/html.html#get_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.html.get_html" title="Link to this definition">#</a></dt>
+<dd><p>Get a default HTML document.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.server.html.html_handler">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.html.</span></span><span class="sig-name descname"><span class="pre">html_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">apps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/html.html#html_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.html.html_handler" title="Link to this definition">#</a></dt>
+<dd><p>Render an HTML document in response to an HTTP request.</p>
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.server.json">
+<span id="runtimepy-net-server-json-module"></span><h2>runtimepy.net.server.json module<a class="headerlink" href="#module-runtimepy.net.server.json" title="Link to this heading">#</a></h2>
+<p>A module implementing basic JSON-object response handling.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.server.json.Encoder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.json.</span></span><span class="sig-name descname"><span class="pre">Encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipkeys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_circular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/server/json.html#Encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.json.Encoder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">JSONEncoder</span></code></p>
+<p>A custom JSON encoder.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.json.Encoder.default">
+<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/server/json.html#Encoder.default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.json.Encoder.default" title="Link to this definition">#</a></dt>
+<dd><p>A simple override for default encoding behavior.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.server.json.encode_json">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.json.</span></span><span class="sig-name descname"><span class="pre">encode_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/json.html#encode_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.json.encode_json" title="Link to this definition">#</a></dt>
+<dd><p>Encode a JSON message response.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.server.json.json_handler">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.json.</span></span><span class="sig-name descname"><span class="pre">json_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/json.html#json_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.json.json_handler" title="Link to this definition">#</a></dt>
+<dd><p>Create an HTTP response from some JSON object data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.server.json.traverse_dict">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.json.</span></span><span class="sig-name descname"><span class="pre">traverse_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/json.html#traverse_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.json.traverse_dict" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to traverse a dictionary by path names.</p>
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.server.markdown">
+<span id="runtimepy-net-server-markdown-module"></span><h2>runtimepy.net.server.markdown module<a class="headerlink" href="#module-runtimepy.net.server.markdown" title="Link to this heading">#</a></h2>
+<p>A module implementing web server markdown interfaces.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.server.markdown.markdown_for_dir">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.markdown.</span></span><span class="sig-name descname"><span class="pre">markdown_for_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_links</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/markdown.html#markdown_for_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.markdown.markdown_for_dir" title="Link to this definition">#</a></dt>
+<dd><p>Get markdown data for a directory.</p>
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.server">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.net.server" title="Link to this heading">#</a></h2>
+<p>A module implementing a server interface for this package.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.</span></span><span class="sig-name descname"><span class="pre">RuntimepyServerConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Transport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.protocol.QueueProtocol" title="runtimepy.net.tcp.protocol.QueueProtocol"><span class="pre">QueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.tcp.http.html#runtimepy.net.tcp.http.HttpConnection" title="runtimepy.net.tcp.http.HttpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">HttpConnection</span></code></a></p>
+<p>A class implementing a server-connection interface for this package.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.add_path">
+<span class="sig-name descname"><span class="pre">add_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">front</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.add_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.add_path" title="Link to this definition">#</a></dt>
+<dd><p>Add a path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.add_redirect_path">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add_redirect_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">src_parts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.add_redirect_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.add_redirect_path" title="Link to this definition">#</a></dt>
+<dd><p>Add a redirect path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.apps">
+<span class="sig-name descname"><span class="pre">apps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.apps" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.class_paths">
+<span class="sig-name descname"><span class="pre">class_paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[PosixPath('.'),</span> <span class="pre">PosixPath('/home/vkottler/src/libre-embedded/runtimepy/runtimepy/data')]</span></em><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.class_paths" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.class_redirect_paths">
+<span class="sig-name descname"><span class="pre">class_redirect_paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.class_redirect_paths" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.default_app">
+<span class="sig-name descname"><span class="pre">default_app</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">Html</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.default_app" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.favicon_data">
+<span class="sig-name descname"><span class="pre">favicon_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.favicon_data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.get_handler">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.get_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.get_handler" title="Link to this definition">#</a></dt>
+<dd><p>Handle GET requests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.handle_command">
+<span class="sig-name descname"><span class="pre">handle_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.handle_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.handle_command" title="Link to this definition">#</a></dt>
+<dd><p>Handle a command request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.json_data">
+<span class="sig-name descname"><span class="pre">json_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'test':</span> <span class="pre">{'a':</span> <span class="pre">1,</span> <span class="pre">'b':</span> <span class="pre">2,</span> <span class="pre">'c':</span> <span class="pre">3}}</span></em><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.json_data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.log_paths">
+<span class="sig-name descname"><span class="pre">log_paths</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.log_paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.log_paths" title="Link to this definition">#</a></dt>
+<dd><p>Log search paths.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.paths">
+<span class="sig-name descname"><span class="pre">paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.paths" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.post_handler">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">post_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.post_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.post_handler" title="Link to this definition">#</a></dt>
+<dd><p>Handle POST requests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.redirect_to">
+<span class="sig-name descname"><span class="pre">redirect_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HTTPStatus</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">HTTPStatus.TEMPORARY_REDIRECT</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.redirect_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.redirect_to" title="Link to this definition">#</a></dt>
+<dd><p>Handle responding with redirection status.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.render_markdown">
+<span class="sig-name descname"><span class="pre">render_markdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.render_markdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.render_markdown" title="Link to this definition">#</a></dt>
+<dd><p>Return rendered markdown content.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.render_markdown_file">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">render_markdown_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.render_markdown_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.render_markdown_file" title="Link to this definition">#</a></dt>
+<dd><p>Render a markdown file as HTML and return the result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.try_file">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">try_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.try_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.try_file" title="Link to this definition">#</a></dt>
+<dd><p>Try serving this path as a file directly from the file-system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.server.RuntimepyServerConnection.try_redirect">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">try_redirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#RuntimepyServerConnection.try_redirect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.RuntimepyServerConnection.try_redirect" title="Link to this definition">#</a></dt>
+<dd><p>Try handling any HTTP redirect rules.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.server.package_data_dir">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.net.server.</span></span><span class="sig-name descname"><span class="pre">package_data_dir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server.html#package_data_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.server.package_data_dir" title="Link to this definition">#</a></dt>
+<dd><p>Get this package’s data directory.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="runtimepy.net.http.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">runtimepy.net.http package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="runtimepy.net.server.app.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">runtimepy.net.server.app package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server.html">runtimepy.net.server.html module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.html.get_html"><code class="docutils literal notranslate"><span class="pre">get_html()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.html.html_handler"><code class="docutils literal notranslate"><span class="pre">html_handler()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server.json">runtimepy.net.server.json module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.Encoder"><code class="docutils literal notranslate"><span class="pre">Encoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.Encoder.default"><code class="docutils literal notranslate"><span class="pre">Encoder.default()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.encode_json"><code class="docutils literal notranslate"><span class="pre">encode_json()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.json_handler"><code class="docutils literal notranslate"><span class="pre">json_handler()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.json.traverse_dict"><code class="docutils literal notranslate"><span class="pre">traverse_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server.markdown">runtimepy.net.server.markdown module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.markdown.markdown_for_dir"><code class="docutils literal notranslate"><span class="pre">markdown_for_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.server">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.add_path"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.add_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.add_redirect_path"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.add_redirect_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.apps"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.apps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.class_paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.class_paths</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.class_redirect_paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.class_redirect_paths</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.default_app"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.default_app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.favicon_data"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.favicon_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.get_handler"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.get_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.handle_command"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.handle_command()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.init"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.json_data"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.json_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.log_paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.log_paths()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.paths"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.paths</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.post_handler"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.post_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.redirect_to"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.redirect_to()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.render_markdown"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.render_markdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.render_markdown_file"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.render_markdown_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.try_file"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.try_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.RuntimepyServerConnection.try_redirect"><code class="docutils literal notranslate"><span class="pre">RuntimepyServerConnection.try_redirect()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.server.package_data_dir"><code class="docutils literal notranslate"><span class="pre">package_data_dir()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

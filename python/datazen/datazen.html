@@ -1,0 +1,1225 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>datazen package &#8212; datazen  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'datazen';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="datazen.classes package" href="datazen.classes.html" />
+    <link rel="prev" title="datazen" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="datazen  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="datazen  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">datazen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html">datazen.classes package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.commands.html">datazen.commands package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.enums.html">datazen.enums package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html">datazen.environment package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/datazen.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>datazen package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.app">datazen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.compile">datazen.compile module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.compile.get_compile_output"><code class="docutils literal notranslate"><span class="pre">get_compile_output()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.compile.str_compile"><code class="docutils literal notranslate"><span class="pre">str_compile()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.compile.write_dir"><code class="docutils literal notranslate"><span class="pre">write_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.configs">datazen.configs module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.configs.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.entry">datazen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.fingerprinting">datazen.fingerprinting module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.apply_barriers"><code class="docutils literal notranslate"><span class="pre">apply_barriers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.build_fingerprint"><code class="docutils literal notranslate"><span class="pre">build_fingerprint()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.get_comment_data"><code class="docutils literal notranslate"><span class="pre">get_comment_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.resolve_encapsulation"><code class="docutils literal notranslate"><span class="pre">resolve_encapsulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.load">datazen.load module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.LoadedFiles"><code class="docutils literal notranslate"><span class="pre">LoadedFiles</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.LoadedFiles.file_data"><code class="docutils literal notranslate"><span class="pre">LoadedFiles.file_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.LoadedFiles.files"><code class="docutils literal notranslate"><span class="pre">LoadedFiles.files</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.data_added"><code class="docutils literal notranslate"><span class="pre">data_added()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.load_dir"><code class="docutils literal notranslate"><span class="pre">load_dir()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.load_dir_only"><code class="docutils literal notranslate"><span class="pre">load_dir_only()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.load_files"><code class="docutils literal notranslate"><span class="pre">load_files()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.meld_and_resolve"><code class="docutils literal notranslate"><span class="pre">meld_and_resolve()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.parsing">datazen.parsing module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.dedup_dict_lists"><code class="docutils literal notranslate"><span class="pre">dedup_dict_lists()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.set_file_hash"><code class="docutils literal notranslate"><span class="pre">set_file_hash()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.template_preprocessor_factory"><code class="docutils literal notranslate"><span class="pre">template_preprocessor_factory()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.paths">datazen.paths module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.advance_dict_by_path"><code class="docutils literal notranslate"><span class="pre">advance_dict_by_path()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.format_resolve_delims"><code class="docutils literal notranslate"><span class="pre">format_resolve_delims()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.get_path_list"><code class="docutils literal notranslate"><span class="pre">get_path_list()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.resolve_dir"><code class="docutils literal notranslate"><span class="pre">resolve_dir()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.unflatten_dict"><code class="docutils literal notranslate"><span class="pre">unflatten_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.walk_with_excludes"><code class="docutils literal notranslate"><span class="pre">walk_with_excludes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.schemas">datazen.schemas module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.add_global_schemas"><code class="docutils literal notranslate"><span class="pre">add_global_schemas()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.inject_custom_schemas"><code class="docutils literal notranslate"><span class="pre">inject_custom_schemas()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.load_types"><code class="docutils literal notranslate"><span class="pre">load_types()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.remove_global_schemas"><code class="docutils literal notranslate"><span class="pre">remove_global_schemas()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.validate"><code class="docutils literal notranslate"><span class="pre">validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.targets">datazen.targets module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.parse_targets"><code class="docutils literal notranslate"><span class="pre">parse_targets()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.resolve_dep_data"><code class="docutils literal notranslate"><span class="pre">resolve_dep_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.resolve_target_data"><code class="docutils literal notranslate"><span class="pre">resolve_target_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.resolve_target_list"><code class="docutils literal notranslate"><span class="pre">resolve_target_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.templates">datazen.templates module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.templates.environment"><code class="docutils literal notranslate"><span class="pre">environment()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.templates.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.templates.update_cache_primitives"><code class="docutils literal notranslate"><span class="pre">update_cache_primitives()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.variables">datazen.variables module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.variables.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.to_private"><code class="docutils literal notranslate"><span class="pre">to_private()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="datazen-package">
+<h1>datazen package<a class="headerlink" href="#datazen-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="datazen.classes.html">datazen.classes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html#module-datazen.classes.data_repository">datazen.classes.data_repository module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.data_repository.DataRepository"><code class="docutils literal notranslate"><span class="pre">DataRepository</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.data_repository.DataRepository.loaded"><code class="docutils literal notranslate"><span class="pre">DataRepository.loaded()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.data_repository.DataRepository.meld"><code class="docutils literal notranslate"><span class="pre">DataRepository.meld()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html#module-datazen.classes.file_info_cache">datazen.classes.file_info_cache module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache"><code class="docutils literal notranslate"><span class="pre">FileInfoCache</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.check_hit"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.check_hit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.clean"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.clean()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.describe"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.get_data"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.get_hashes"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.get_hashes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.get_loaded"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.get_loaded()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.load"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.FileInfoCache.write"><code class="docutils literal notranslate"><span class="pre">FileInfoCache.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.cmp_loaded_count"><code class="docutils literal notranslate"><span class="pre">cmp_loaded_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.cmp_loaded_count_from_set"><code class="docutils literal notranslate"><span class="pre">cmp_loaded_count_from_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.cmp_total_loaded"><code class="docutils literal notranslate"><span class="pre">cmp_total_loaded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.copy"><code class="docutils literal notranslate"><span class="pre">copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.meld"><code class="docutils literal notranslate"><span class="pre">meld()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.remove_missing_hashed_files"><code class="docutils literal notranslate"><span class="pre">remove_missing_hashed_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.remove_missing_loaded_files"><code class="docutils literal notranslate"><span class="pre">remove_missing_loaded_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.sync_cache_data"><code class="docutils literal notranslate"><span class="pre">sync_cache_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.file_info_cache.time_str"><code class="docutils literal notranslate"><span class="pre">time_str()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html#module-datazen.classes.target_resolver">datazen.classes.target_resolver module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.target_resolver.TargetResolver"><code class="docutils literal notranslate"><span class="pre">TargetResolver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.target_resolver.TargetResolver.clear"><code class="docutils literal notranslate"><span class="pre">TargetResolver.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.target_resolver.TargetResolver.get_target"><code class="docutils literal notranslate"><span class="pre">TargetResolver.get_target()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.target_resolver.TargetResolver.register_group"><code class="docutils literal notranslate"><span class="pre">TargetResolver.register_group()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html#module-datazen.classes.task_data_cache">datazen.classes.task_data_cache module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.task_data_cache.TaskDataCache"><code class="docutils literal notranslate"><span class="pre">TaskDataCache</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.task_data_cache.TaskDataCache.clean"><code class="docutils literal notranslate"><span class="pre">TaskDataCache.clean()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.task_data_cache.TaskDataCache.load"><code class="docutils literal notranslate"><span class="pre">TaskDataCache.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.classes.html#datazen.classes.task_data_cache.TaskDataCache.save"><code class="docutils literal notranslate"><span class="pre">TaskDataCache.save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html#module-datazen.classes.valid_dict">datazen.classes.valid_dict module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.classes.html#datazen.classes.valid_dict.ValidDict"><code class="docutils literal notranslate"><span class="pre">ValidDict</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.classes.html#module-datazen.classes">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datazen.commands.html">datazen.commands package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datazen.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.commands.html#module-datazen.commands.compile">datazen.commands.compile module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.commands.html#datazen.commands.compile.cmd_compile"><code class="docutils literal notranslate"><span class="pre">cmd_compile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.commands.html#module-datazen.commands.render">datazen.commands.render module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.commands.html#datazen.commands.render.cmd_render"><code class="docutils literal notranslate"><span class="pre">cmd_render()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.commands.html#datazen.commands.render.str_render"><code class="docutils literal notranslate"><span class="pre">str_render()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.commands.html#module-datazen.commands">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datazen.enums.html">datazen.enums package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datazen.enums.html#module-datazen.enums">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.enums.html#datazen.enums.DataType"><code class="docutils literal notranslate"><span class="pre">DataType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.enums.html#datazen.enums.DataType.CONFIG"><code class="docutils literal notranslate"><span class="pre">DataType.CONFIG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.enums.html#datazen.enums.DataType.SCHEMA"><code class="docutils literal notranslate"><span class="pre">DataType.SCHEMA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.enums.html#datazen.enums.DataType.SCHEMA_TYPES"><code class="docutils literal notranslate"><span class="pre">DataType.SCHEMA_TYPES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.enums.html#datazen.enums.DataType.TEMPLATE"><code class="docutils literal notranslate"><span class="pre">DataType.TEMPLATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.enums.html#datazen.enums.DataType.VARIABLE"><code class="docutils literal notranslate"><span class="pre">DataType.VARIABLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datazen.environment.html">datazen.environment package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.base">datazen.environment.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.add_dir"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.add_dir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.add_dirs"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.add_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.add_namespace"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.add_namespace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.get_data"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.get_namespace"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.get_namespace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.get_to_load"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.get_to_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.get_valid"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.get_valid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.set_valid"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.set_valid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.unload_all"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.unload_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.BaseEnvironment.update_load_state"><code class="docutils literal notranslate"><span class="pre">BaseEnvironment.update_load_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.Task.name"><code class="docutils literal notranslate"><span class="pre">Task.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.Task.slug"><code class="docutils literal notranslate"><span class="pre">Task.slug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.Task.variant"><code class="docutils literal notranslate"><span class="pre">Task.variant</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.TaskResult"><code class="docutils literal notranslate"><span class="pre">TaskResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.TaskResult.fresh"><code class="docutils literal notranslate"><span class="pre">TaskResult.fresh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.TaskResult.log"><code class="docutils literal notranslate"><span class="pre">TaskResult.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.TaskResult.success"><code class="docutils literal notranslate"><span class="pre">TaskResult.success</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.TaskResult.time_ns"><code class="docutils literal notranslate"><span class="pre">TaskResult.time_ns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.TaskResult.with_time"><code class="docutils literal notranslate"><span class="pre">TaskResult.with_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.base.dep_slug_unwrap"><code class="docutils literal notranslate"><span class="pre">dep_slug_unwrap()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.command">datazen.environment.command module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.command.CommandEnvironment"><code class="docutils literal notranslate"><span class="pre">CommandEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.command.CommandEnvironment.valid_command"><code class="docutils literal notranslate"><span class="pre">CommandEnvironment.valid_command()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.compile">datazen.environment.compile module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.compile.CompileEnvironment"><code class="docutils literal notranslate"><span class="pre">CompileEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.compile.CompileEnvironment.valid_compile"><code class="docutils literal notranslate"><span class="pre">CompileEnvironment.valid_compile()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.config">datazen.environment.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.config.ConfigEnvironment"><code class="docutils literal notranslate"><span class="pre">ConfigEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.config.ConfigEnvironment.add_config_dirs"><code class="docutils literal notranslate"><span class="pre">ConfigEnvironment.add_config_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.config.ConfigEnvironment.load_configs"><code class="docutils literal notranslate"><span class="pre">ConfigEnvironment.load_configs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.group">datazen.environment.group module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.group.GroupEnvironment"><code class="docutils literal notranslate"><span class="pre">GroupEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.group.GroupEnvironment.valid_group"><code class="docutils literal notranslate"><span class="pre">GroupEnvironment.valid_group()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.integrated">datazen.environment.integrated module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.Environment"><code class="docutils literal notranslate"><span class="pre">Environment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.Environment.command"><code class="docutils literal notranslate"><span class="pre">Environment.command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.Environment.compile"><code class="docutils literal notranslate"><span class="pre">Environment.compile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.Environment.execute"><code class="docutils literal notranslate"><span class="pre">Environment.execute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.Environment.execute_targets"><code class="docutils literal notranslate"><span class="pre">Environment.execute_targets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.Environment.group"><code class="docutils literal notranslate"><span class="pre">Environment.group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.Environment.render"><code class="docutils literal notranslate"><span class="pre">Environment.render()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.integrated.from_manifest"><code class="docutils literal notranslate"><span class="pre">from_manifest()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.manifest">datazen.environment.manifest module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment.default_target"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment.default_target()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment.load_dirs"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment.load_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment.load_manifest"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment.load_manifest()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment.load_manifest_reent"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment.load_manifest_reent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment.path_fields"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment.path_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment.targets_with_paths"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment.targets_with_paths</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.ManifestEnvironment.update_task_dirs"><code class="docutils literal notranslate"><span class="pre">ManifestEnvironment.update_task_dirs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.get_manifest_schema"><code class="docutils literal notranslate"><span class="pre">get_manifest_schema()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.get_output_dir"><code class="docutils literal notranslate"><span class="pre">get_output_dir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.set_output_dir"><code class="docutils literal notranslate"><span class="pre">set_output_dir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.update_path_relativity"><code class="docutils literal notranslate"><span class="pre">update_path_relativity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest.validate_manifest"><code class="docutils literal notranslate"><span class="pre">validate_manifest()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.manifest_cache">datazen.environment.manifest_cache module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.cached_enforce_schemas"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.cached_enforce_schemas()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.cached_load_configs"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.cached_load_configs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.cached_load_schemas"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.cached_load_schemas()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.cached_load_templates"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.cached_load_templates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.cached_load_variables"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.cached_load_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.clean_cache"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.clean_cache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.describe_cache"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.describe_cache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.get_new_loaded"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.get_new_loaded()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.load_manifest_with_cache"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.load_manifest_with_cache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.restore_cache"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.restore_cache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.ManifestCacheEnvironment.write_cache"><code class="docutils literal notranslate"><span class="pre">ManifestCacheEnvironment.write_cache()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.manifest_cache.manifest_cache_dir"><code class="docutils literal notranslate"><span class="pre">manifest_cache_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.render">datazen.environment.render module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.RenderEnvironment"><code class="docutils literal notranslate"><span class="pre">RenderEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.RenderEnvironment.perform_render"><code class="docutils literal notranslate"><span class="pre">RenderEnvironment.perform_render()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.RenderEnvironment.store_render"><code class="docutils literal notranslate"><span class="pre">RenderEnvironment.store_render()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.RenderEnvironment.valid_render"><code class="docutils literal notranslate"><span class="pre">RenderEnvironment.valid_render()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.get_render_children"><code class="docutils literal notranslate"><span class="pre">get_render_children()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.get_render_str"><code class="docutils literal notranslate"><span class="pre">get_render_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.indent_str"><code class="docutils literal notranslate"><span class="pre">indent_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.render.render_name_to_key"><code class="docutils literal notranslate"><span class="pre">render_name_to_key()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.schema">datazen.environment.schema module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.schema.SchemaEnvironment"><code class="docutils literal notranslate"><span class="pre">SchemaEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.schema.SchemaEnvironment.add_schema_dirs"><code class="docutils literal notranslate"><span class="pre">SchemaEnvironment.add_schema_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.schema.SchemaEnvironment.add_schema_type_dirs"><code class="docutils literal notranslate"><span class="pre">SchemaEnvironment.add_schema_type_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.schema.SchemaEnvironment.enforce_schemas"><code class="docutils literal notranslate"><span class="pre">SchemaEnvironment.enforce_schemas()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.schema.SchemaEnvironment.load_schema_types"><code class="docutils literal notranslate"><span class="pre">SchemaEnvironment.load_schema_types()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.schema.SchemaEnvironment.load_schemas"><code class="docutils literal notranslate"><span class="pre">SchemaEnvironment.load_schemas()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.task">datazen.environment.task module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.already_satisfied"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.already_satisfied()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.clean_cache"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.clean_cache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.get_dep_data"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.get_dep_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.get_manifest_entry"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.get_manifest_entry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.handle_task"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.handle_task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.init_cache"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.init_cache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.is_resolved"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.is_resolved()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.is_task_new"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.is_task_new()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.push_dep"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.push_dep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.resolve"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.resolve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.resolve_dependencies"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.resolve_dependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.task_data"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.task_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.valid_noop"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.valid_noop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.TaskEnvironment.write_cache"><code class="docutils literal notranslate"><span class="pre">TaskEnvironment.write_cache()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.get_dep_list"><code class="docutils literal notranslate"><span class="pre">get_dep_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.task.get_path"><code class="docutils literal notranslate"><span class="pre">get_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.template">datazen.environment.template module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.template.TemplateEnvironment"><code class="docutils literal notranslate"><span class="pre">TemplateEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.template.TemplateEnvironment.add_template_dirs"><code class="docutils literal notranslate"><span class="pre">TemplateEnvironment.add_template_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.template.TemplateEnvironment.load_templates"><code class="docutils literal notranslate"><span class="pre">TemplateEnvironment.load_templates()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment.variable">datazen.environment.variable module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.variable.VariableEnvironment"><code class="docutils literal notranslate"><span class="pre">VariableEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.variable.VariableEnvironment.add_variable_dirs"><code class="docutils literal notranslate"><span class="pre">VariableEnvironment.add_variable_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.variable.VariableEnvironment.load_variables"><code class="docutils literal notranslate"><span class="pre">VariableEnvironment.load_variables()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datazen.environment.html#module-datazen.environment">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.EnvironmentNamespace"><code class="docutils literal notranslate"><span class="pre">EnvironmentNamespace</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.EnvironmentNamespace.add_dir"><code class="docutils literal notranslate"><span class="pre">EnvironmentNamespace.add_dir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.EnvironmentNamespace.add_dirs"><code class="docutils literal notranslate"><span class="pre">EnvironmentNamespace.add_dirs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.EnvironmentNamespace.get_to_load"><code class="docutils literal notranslate"><span class="pre">EnvironmentNamespace.get_to_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.EnvironmentNamespace.unload"><code class="docutils literal notranslate"><span class="pre">EnvironmentNamespace.unload()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.EnvironmentNamespace.unload_all"><code class="docutils literal notranslate"><span class="pre">EnvironmentNamespace.unload_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="datazen.environment.html#datazen.environment.EnvironmentNamespace.update_load_state"><code class="docutils literal notranslate"><span class="pre">EnvironmentNamespace.update_load_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="datazen.environment.html#datazen.environment.clone"><code class="docutils literal notranslate"><span class="pre">clone()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-datazen.app">
+<span id="datazen-app-module"></span><h2>datazen.app module<a class="headerlink" href="#module-datazen.app" title="Link to this heading">#</a></h2>
+<p>datazen - This package’s command-line entry-point application.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.app.add_app_args">
+<span class="sig-prename descclassname"><span class="pre">datazen.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/datazen/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.app.add_app_args" title="Link to this definition">#</a></dt>
+<dd><p>Add application-specific arguments to the command-line parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.app.entry">
+<span class="sig-prename descclassname"><span class="pre">datazen.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/datazen/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.app.entry" title="Link to this definition">#</a></dt>
+<dd><p>Execute the requested task.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.compile">
+<span id="datazen-compile-module"></span><h2>datazen.compile module<a class="headerlink" href="#module-datazen.compile" title="Link to this heading">#</a></h2>
+<p>datazen - An interface for turning a dictionary into various serialized forms.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.compile.get_compile_output">
+<span class="sig-prename descclassname"><span class="pre">datazen.compile.</span></span><span class="sig-name descname"><span class="pre">get_compile_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'yaml'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/compile.html#get_compile_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.compile.get_compile_output" title="Link to this definition">#</a></dt>
+<dd><p>Determine the output path and type of a compile target, from the target’s
+data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.compile.str_compile">
+<span class="sig-prename descclassname"><span class="pre">datazen.compile.</span></span><span class="sig-name descname"><span class="pre">str_compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">configs:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any],</span> <span class="pre">data_type:</span> <span class="pre">str,</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.compile</span> <span class="pre">(WARNING)&gt;,</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/datazen/compile.html#str_compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.compile.str_compile" title="Link to this definition">#</a></dt>
+<dd><p>Serialize dictionary data into the String-form of a specific,
+serializeable type.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.compile.write_dir">
+<span class="sig-prename descclassname"><span class="pre">datazen.compile.</span></span><span class="sig-name descname"><span class="pre">write_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'json'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/datazen/compile.html#write_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.compile.write_dir" title="Link to this definition">#</a></dt>
+<dd><p>Write dictionary data to the file-system.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.configs">
+<span id="datazen-configs-module"></span><h2>datazen.configs module<a class="headerlink" href="#module-datazen.configs" title="Link to this heading">#</a></h2>
+<p>datazen - Top-level APIs for loading and interacting with configuration data.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.configs.load">
+<span class="sig-prename descclassname"><span class="pre">datazen.configs.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#datazen.load.LoadedFiles" title="datazen.load.LoadedFiles"><span class="pre">LoadedFiles</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">LoadResult</span></span></span><a class="reference internal" href="_modules/datazen/configs.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.configs.load" title="Link to this definition">#</a></dt>
+<dd><p>Load configuration data from a list of directories.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.entry">
+<span id="datazen-entry-module"></span><h2>datazen.entry module<a class="headerlink" href="#module-datazen.entry" title="Link to this heading">#</a></h2>
+<p>This package’s command-line entry-point (boilerplate).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.entry.main">
+<span class="sig-prename descclassname"><span class="pre">datazen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/datazen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.entry.main" title="Link to this definition">#</a></dt>
+<dd><p>Program entry-point.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.fingerprinting">
+<span id="datazen-fingerprinting-module"></span><h2>datazen.fingerprinting module<a class="headerlink" href="#module-datazen.fingerprinting" title="Link to this heading">#</a></h2>
+<p>datazen - Reading and writing a known header signature to output files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.fingerprinting.apply_barriers">
+<span class="sig-prename descclassname"><span class="pre">datazen.fingerprinting.</span></span><span class="sig-name descname"><span class="pre">apply_barriers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comment_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/datazen/fingerprinting.html#apply_barriers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.fingerprinting.apply_barriers" title="Link to this definition">#</a></dt>
+<dd><p>Optionally add decoration to the comment lines by adding a barrier at
+the beginning and end.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.fingerprinting.build_fingerprint">
+<span class="sig-prename descclassname"><span class="pre">datazen.fingerprinting.</span></span><span class="sig-name descname"><span class="pre">build_fingerprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'='</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/datazen/fingerprinting.html#build_fingerprint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.fingerprinting.build_fingerprint" title="Link to this definition">#</a></dt>
+<dd><p>Build a String that should be prepended to the final file output for
+user awareness and automated interpretation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.fingerprinting.get_comment_data">
+<span class="sig-prename descclassname"><span class="pre">datazen.fingerprinting.</span></span><span class="sig-name descname"><span class="pre">get_comment_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/fingerprinting.html#get_comment_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.fingerprinting.get_comment_data" title="Link to this definition">#</a></dt>
+<dd><p>Get tuples (key-value pairs) of data to write into the file fingerprint.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.fingerprinting.resolve_encapsulation">
+<span class="sig-prename descclassname"><span class="pre">datazen.fingerprinting.</span></span><span class="sig-name descname"><span class="pre">resolve_encapsulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comment_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/datazen/fingerprinting.html#resolve_encapsulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.fingerprinting.resolve_encapsulation" title="Link to this definition">#</a></dt>
+<dd><p>Turn the requested line data into something that can be embedded in the
+target file type.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.load">
+<span id="datazen-load-module"></span><h2>datazen.load module<a class="headerlink" href="#module-datazen.load" title="Link to this heading">#</a></h2>
+<p>datazen - APIs for loading data from directory trees.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="datazen.load.LoadedFiles">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">datazen.load.</span></span><span class="sig-name descname"><span class="pre">LoadedFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datazen/load.html#LoadedFiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.load.LoadedFiles" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A collection of data for files loaded at runtime (or, a continuation of
+this information loaded from a cache).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="datazen.load.LoadedFiles.file_data">
+<span class="sig-name descname"><span class="pre">file_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#datazen.load.LoadedFiles.file_data" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="datazen.load.LoadedFiles.files">
+<span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#datazen.load.LoadedFiles.files" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.load.data_added">
+<span class="sig-prename descclassname"><span class="pre">datazen.load.</span></span><span class="sig-name descname"><span class="pre">data_added</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/load.html#data_added"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.load.data_added" title="Link to this definition">#</a></dt>
+<dd><p>Inject a key-value pair into a dictionary, in a context.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.load.load_dir">
+<span class="sig-prename descclassname"><span class="pre">datazen.load.</span></span><span class="sig-name descname"><span class="pre">load_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path:</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None,</span> <span class="pre">existing_data:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any],</span> <span class="pre">variables:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">loads:</span> <span class="pre">~datazen.load.LoadedFiles</span> <span class="pre">=</span> <span class="pre">(None,</span> <span class="pre">None),</span> <span class="pre">expect_overwrite:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">are_templates:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.load</span> <span class="pre">(WARNING)&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">LoadResult</span></span></span><a class="reference internal" href="_modules/datazen/load.html#load_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.load.load_dir" title="Link to this definition">#</a></dt>
+<dd><p>Load a directory tree into a dictionary, optionally meld.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.load.load_dir_only">
+<span class="sig-prename descclassname"><span class="pre">datazen.load.</span></span><span class="sig-name descname"><span class="pre">load_dir_only</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path:</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_overwrite:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">are_templates:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.load</span> <span class="pre">(WARNING)&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">LoadResult</span></span></span><a class="reference internal" href="_modules/datazen/load.html#load_dir_only"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.load.load_dir_only" title="Link to this definition">#</a></dt>
+<dd><p>A convenient wrapper for loading just directory data from a path without
+worrying about melding data, resolving variables, enforcing schemas, etc.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.load.load_files">
+<span class="sig-prename descclassname"><span class="pre">datazen.load.</span></span><span class="sig-name descname"><span class="pre">load_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meld_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">are_templates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/load.html#load_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.load.load_files" title="Link to this definition">#</a></dt>
+<dd><p>Load files into a dictionary and return a list of the files that are
+new or had hash mismatches.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.load.meld_and_resolve">
+<span class="sig-prename descclassname"><span class="pre">datazen.load.</span></span><span class="sig-name descname"><span class="pre">meld_and_resolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">existing_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">globals_added</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/datazen/load.html#meld_and_resolve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.load.meld_and_resolve" title="Link to this definition">#</a></dt>
+<dd><p>Meld dictionary data from a file into an existing dictionary, assume
+existing data is a template and attempt to resolve variables.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.parsing">
+<span id="datazen-parsing-module"></span><h2>datazen.parsing module<a class="headerlink" href="#module-datazen.parsing" title="Link to this heading">#</a></h2>
+<p>datazen - APIs for loading raw data from files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.parsing.dedup_dict_lists">
+<span class="sig-prename descclassname"><span class="pre">datazen.parsing.</span></span><span class="sig-name descname"><span class="pre">dedup_dict_lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/parsing.html#dedup_dict_lists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.parsing.dedup_dict_lists" title="Link to this definition">#</a></dt>
+<dd><p>Finds list elements in a dictionary and removes duplicate entries, mutates
+the original list.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.parsing.load">
+<span class="sig-prename descclassname"><span class="pre">datazen.parsing.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path:</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None,</span> <span class="pre">variables:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any],</span> <span class="pre">dict_to_update:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any],</span> <span class="pre">expect_overwrite:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">is_template:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.parsing</span> <span class="pre">(WARNING)&gt;,</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">LoadResult</span></span></span><a class="reference internal" href="_modules/datazen/parsing.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.parsing.load" title="Link to this definition">#</a></dt>
+<dd><p>Load raw file data and meld it into an existing dictionary. Update
+the result as if it’s a template using the provided variables.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.parsing.set_file_hash">
+<span class="sig-prename descclassname"><span class="pre">datazen.parsing.</span></span><span class="sig-name descname"><span class="pre">set_file_hash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hashes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/datazen/parsing.html#set_file_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.parsing.set_file_hash" title="Link to this definition">#</a></dt>
+<dd><p>Evaluate a hash dictionary and update it on a miss.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.parsing.template_preprocessor_factory">
+<span class="sig-prename descclassname"><span class="pre">datazen.parsing.</span></span><span class="sig-name descname"><span class="pre">template_preprocessor_factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ExitStack</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">TextIO</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">StringIO</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TextIO</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">StringIO</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/parsing.html#template_preprocessor_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.parsing.template_preprocessor_factory" title="Link to this definition">#</a></dt>
+<dd><p>Create a stream-processing function for data decoding.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.paths">
+<span id="datazen-paths-module"></span><h2>datazen.paths module<a class="headerlink" href="#module-datazen.paths" title="Link to this heading">#</a></h2>
+<p>datazen - APIs for working with file paths.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.paths.advance_dict_by_path">
+<span class="sig-prename descclassname"><span class="pre">datazen.paths.</span></span><span class="sig-name descname"><span class="pre">advance_dict_by_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/paths.html#advance_dict_by_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.paths.advance_dict_by_path" title="Link to this definition">#</a></dt>
+<dd><p>Given a dictionary and a list of directory names, return the child
+dictionary advanced by each key, in order, from the provided data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.paths.format_resolve_delims">
+<span class="sig-prename descclassname"><span class="pre">datazen.paths.</span></span><span class="sig-name descname"><span class="pre">format_resolve_delims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim_replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'_'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/datazen/paths.html#format_resolve_delims"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.paths.format_resolve_delims" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to resolve a format String with data, but handle replacements with
+custom delimeters correctly.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.paths.get_path_list">
+<span class="sig-prename descclassname"><span class="pre">datazen.paths.</span></span><span class="sig-name descname"><span class="pre">get_path_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/paths.html#get_path_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.paths.get_path_list" title="Link to this definition">#</a></dt>
+<dd><p>From a root directory and a child path, compute the list of directories,
+in order, mapping the root to the child.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.paths.resolve_dir">
+<span class="sig-prename descclassname"><span class="pre">datazen.paths.</span></span><span class="sig-name descname"><span class="pre">resolve_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/datazen/paths.html#resolve_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.paths.resolve_dir" title="Link to this definition">#</a></dt>
+<dd><p>Turn directory data into an absolute path, optionally from a relative
+base.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.paths.unflatten_dict">
+<span class="sig-prename descclassname"><span class="pre">datazen.paths.</span></span><span class="sig-name descname"><span class="pre">unflatten_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/paths.html#unflatten_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.paths.unflatten_dict" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to unflatten dictionary data based on String keys and a delimeter.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.paths.walk_with_excludes">
+<span class="sig-prename descclassname"><span class="pre">datazen.paths.</span></span><span class="sig-name descname"><span class="pre">walk_with_excludes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excludes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/paths.html#walk_with_excludes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.paths.walk_with_excludes" title="Link to this definition">#</a></dt>
+<dd><p>Behaves like os.walk but attempts to skip iterations that would enter
+directories we want to exclude (and thus not traverse).</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.schemas">
+<span id="datazen-schemas-module"></span><h2>datazen.schemas module<a class="headerlink" href="#module-datazen.schemas" title="Link to this heading">#</a></h2>
+<p>datazen - Top-level APIs for loading and interacting with schema definitions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.schemas.add_global_schemas">
+<span class="sig-prename descclassname"><span class="pre">datazen.schemas.</span></span><span class="sig-name descname"><span class="pre">add_global_schemas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">schema_data:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]],</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.schemas</span> <span class="pre">(WARNING)&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/datazen/schemas.html#add_global_schemas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.schemas.add_global_schemas" title="Link to this definition">#</a></dt>
+<dd><p>Add schema-type registrations, globally.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.schemas.inject_custom_schemas">
+<span class="sig-prename descclassname"><span class="pre">datazen.schemas.</span></span><span class="sig-name descname"><span class="pre">inject_custom_schemas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">schema_data:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]],</span> <span class="pre">should_inject:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.schemas</span> <span class="pre">(WARNING)&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/schemas.html#inject_custom_schemas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.schemas.inject_custom_schemas" title="Link to this definition">#</a></dt>
+<dd><p>Allow the user to more easily control adding and removing global schema
+definitions.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.schemas.load">
+<span class="sig-prename descclassname"><span class="pre">datazen.schemas.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">directories:</span> <span class="pre">~typing.Iterable[~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None],</span> <span class="pre">require_all:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">loads:</span> <span class="pre">~datazen.load.LoadedFiles</span> <span class="pre">=</span> <span class="pre">(None,</span> <span class="pre">None),</span> <span class="pre">cls:</span> <span class="pre">~typing.Type[~vcorelib.schemas.base.SchemaMap]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'vcorelib.schemas.CerberusSchemaMap'&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SchemaMap</span></span></span><a class="reference internal" href="_modules/datazen/schemas.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.schemas.load" title="Link to this definition">#</a></dt>
+<dd><p>Load schemas from a list of directories.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.schemas.load_types">
+<span class="sig-prename descclassname"><span class="pre">datazen.schemas.</span></span><span class="sig-name descname"><span class="pre">load_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#datazen.load.LoadedFiles" title="datazen.load.LoadedFiles"><span class="pre">LoadedFiles</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/schemas.html#load_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.schemas.load_types" title="Link to this definition">#</a></dt>
+<dd><p>Load schema types and optionally register them.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.schemas.remove_global_schemas">
+<span class="sig-prename descclassname"><span class="pre">datazen.schemas.</span></span><span class="sig-name descname"><span class="pre">remove_global_schemas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">schema_data:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]],</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.schemas</span> <span class="pre">(WARNING)&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/datazen/schemas.html#remove_global_schemas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.schemas.remove_global_schemas" title="Link to this definition">#</a></dt>
+<dd><p>Remove schema-type registrations by key name.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.schemas.validate">
+<span class="sig-prename descclassname"><span class="pre">datazen.schemas.</span></span><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">schema_data:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~vcorelib.schemas.base.Schema],</span> <span class="pre">data:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any],</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;Logger</span> <span class="pre">datazen.schemas</span> <span class="pre">(WARNING)&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/datazen/schemas.html#validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.schemas.validate" title="Link to this definition">#</a></dt>
+<dd><p>For every top-level key in the schema data, attempt to validate the
+provided data.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.targets">
+<span id="datazen-targets-module"></span><h2>datazen.targets module<a class="headerlink" href="#module-datazen.targets" title="Link to this heading">#</a></h2>
+<p>datazen - An interface for parsing and matching targets.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.targets.parse_targets">
+<span class="sig-prename descclassname"><span class="pre">datazen.targets.</span></span><span class="sig-name descname"><span class="pre">parse_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/targets.html#parse_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.targets.parse_targets" title="Link to this definition">#</a></dt>
+<dd><p>From a list of target structures, parse them into a dictionary with keys
+as target names and data initialization to support future interaction.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.targets.resolve_dep_data">
+<span class="sig-prename descclassname"><span class="pre">datazen.targets.</span></span><span class="sig-name descname"><span class="pre">resolve_dep_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/targets.html#resolve_dep_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.targets.resolve_dep_data" title="Link to this definition">#</a></dt>
+<dd><p>Implements the business logic for applying match data to manifest entries.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.targets.resolve_target_data">
+<span class="sig-prename descclassname"><span class="pre">datazen.targets.</span></span><span class="sig-name descname"><span class="pre">resolve_target_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/targets.html#resolve_target_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.targets.resolve_target_data" title="Link to this definition">#</a></dt>
+<dd><p>Resolve matched-target data into a target’s data from a manifest.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.targets.resolve_target_list">
+<span class="sig-prename descclassname"><span class="pre">datazen.targets.</span></span><span class="sig-name descname"><span class="pre">resolve_target_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/targets.html#resolve_target_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.targets.resolve_target_list" title="Link to this definition">#</a></dt>
+<dd><p>Resovle matched-target data into a list form of target data from a
+manifest.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.templates">
+<span id="datazen-templates-module"></span><h2>datazen.templates module<a class="headerlink" href="#module-datazen.templates" title="Link to this heading">#</a></h2>
+<p>datazen - Top-level APIs for loading and interacting with templates.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.templates.environment">
+<span class="sig-prename descclassname"><span class="pre">datazen.templates.</span></span><span class="sig-name descname"><span class="pre">environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auto_reload:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoescape_kwargs:</span> <span class="pre">~typing.Dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~typing.Any]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lstrip_blocks:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_blocks:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">undefined:</span> <span class="pre">~typing.Type[~jinja2.runtime.Undefined]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'jinja2.runtime.StrictUndefined'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Environment</span></span></span><a class="reference internal" href="_modules/datazen/templates.html#environment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.templates.environment" title="Link to this definition">#</a></dt>
+<dd><p>Create a jinja environment with some sane defaults.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.templates.load">
+<span class="sig-prename descclassname"><span class="pre">datazen.templates.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template_dirs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#datazen.load.LoadedFiles" title="datazen.load.LoadedFiles"><span class="pre">LoadedFiles</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Template</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/datazen/templates.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.templates.load" title="Link to this definition">#</a></dt>
+<dd><p>Load jinja2 templates from a list of directories where templates can be
+found.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.templates.update_cache_primitives">
+<span class="sig-prename descclassname"><span class="pre">datazen.templates.</span></span><span class="sig-name descname"><span class="pre">update_cache_primitives</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#datazen.load.LoadedFiles" title="datazen.load.LoadedFiles"><span class="pre">LoadedFiles</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/datazen/templates.html#update_cache_primitives"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.templates.update_cache_primitives" title="Link to this definition">#</a></dt>
+<dd><p>From a directory path, update the ‘loaded_list’ and ‘hashes’ primitives
+that belong to an upstream cache.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen.variables">
+<span id="datazen-variables-module"></span><h2>datazen.variables module<a class="headerlink" href="#module-datazen.variables" title="Link to this heading">#</a></h2>
+<p>datazen - Top-level APIs for loading and interacting with variables.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.variables.load">
+<span class="sig-prename descclassname"><span class="pre">datazen.variables.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#datazen.load.LoadedFiles" title="datazen.load.LoadedFiles"><span class="pre">LoadedFiles</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">LoadResult</span></span></span><a class="reference internal" href="_modules/datazen/variables.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.variables.load" title="Link to this definition">#</a></dt>
+<dd><p>Load variable data from a list of directories.</p>
+</dd></dl>
+
+</section>
+<section id="module-datazen">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-datazen" title="Link to this heading">#</a></h2>
+<p>Useful defaults and other package metadata.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="datazen.to_private">
+<span class="sig-prename descclassname"><span class="pre">datazen.</span></span><span class="sig-name descname"><span class="pre">to_private</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/datazen.html#to_private"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#datazen.to_private" title="Link to this definition">#</a></dt>
+<dd><p>Convert some input to a ‘private’ String.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">datazen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="datazen.classes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">datazen.classes package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.app">datazen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.compile">datazen.compile module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.compile.get_compile_output"><code class="docutils literal notranslate"><span class="pre">get_compile_output()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.compile.str_compile"><code class="docutils literal notranslate"><span class="pre">str_compile()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.compile.write_dir"><code class="docutils literal notranslate"><span class="pre">write_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.configs">datazen.configs module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.configs.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.entry">datazen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.fingerprinting">datazen.fingerprinting module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.apply_barriers"><code class="docutils literal notranslate"><span class="pre">apply_barriers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.build_fingerprint"><code class="docutils literal notranslate"><span class="pre">build_fingerprint()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.get_comment_data"><code class="docutils literal notranslate"><span class="pre">get_comment_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.fingerprinting.resolve_encapsulation"><code class="docutils literal notranslate"><span class="pre">resolve_encapsulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.load">datazen.load module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.LoadedFiles"><code class="docutils literal notranslate"><span class="pre">LoadedFiles</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.LoadedFiles.file_data"><code class="docutils literal notranslate"><span class="pre">LoadedFiles.file_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.LoadedFiles.files"><code class="docutils literal notranslate"><span class="pre">LoadedFiles.files</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.data_added"><code class="docutils literal notranslate"><span class="pre">data_added()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.load_dir"><code class="docutils literal notranslate"><span class="pre">load_dir()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.load_dir_only"><code class="docutils literal notranslate"><span class="pre">load_dir_only()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.load_files"><code class="docutils literal notranslate"><span class="pre">load_files()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.load.meld_and_resolve"><code class="docutils literal notranslate"><span class="pre">meld_and_resolve()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.parsing">datazen.parsing module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.dedup_dict_lists"><code class="docutils literal notranslate"><span class="pre">dedup_dict_lists()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.set_file_hash"><code class="docutils literal notranslate"><span class="pre">set_file_hash()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.parsing.template_preprocessor_factory"><code class="docutils literal notranslate"><span class="pre">template_preprocessor_factory()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.paths">datazen.paths module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.advance_dict_by_path"><code class="docutils literal notranslate"><span class="pre">advance_dict_by_path()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.format_resolve_delims"><code class="docutils literal notranslate"><span class="pre">format_resolve_delims()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.get_path_list"><code class="docutils literal notranslate"><span class="pre">get_path_list()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.resolve_dir"><code class="docutils literal notranslate"><span class="pre">resolve_dir()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.unflatten_dict"><code class="docutils literal notranslate"><span class="pre">unflatten_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.paths.walk_with_excludes"><code class="docutils literal notranslate"><span class="pre">walk_with_excludes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.schemas">datazen.schemas module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.add_global_schemas"><code class="docutils literal notranslate"><span class="pre">add_global_schemas()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.inject_custom_schemas"><code class="docutils literal notranslate"><span class="pre">inject_custom_schemas()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.load_types"><code class="docutils literal notranslate"><span class="pre">load_types()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.remove_global_schemas"><code class="docutils literal notranslate"><span class="pre">remove_global_schemas()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.schemas.validate"><code class="docutils literal notranslate"><span class="pre">validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.targets">datazen.targets module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.parse_targets"><code class="docutils literal notranslate"><span class="pre">parse_targets()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.resolve_dep_data"><code class="docutils literal notranslate"><span class="pre">resolve_dep_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.resolve_target_data"><code class="docutils literal notranslate"><span class="pre">resolve_target_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.targets.resolve_target_list"><code class="docutils literal notranslate"><span class="pre">resolve_target_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.templates">datazen.templates module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.templates.environment"><code class="docutils literal notranslate"><span class="pre">environment()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.templates.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.templates.update_cache_primitives"><code class="docutils literal notranslate"><span class="pre">update_cache_primitives()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen.variables">datazen.variables module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.variables.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-datazen">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen.to_private"><code class="docutils literal notranslate"><span class="pre">to_private()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>vmklib package &#8212; vmklib  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vmklib';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vmklib.tasks package" href="vmklib.tasks.html" />
+    <link rel="prev" title="vmklib" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="vmklib  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="vmklib  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">vmklib package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vmklib.tasks.html">vmklib.tasks package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.mixins.html">vmklib.tasks.mixins package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.node.html">vmklib.tasks.node package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.python.html">vmklib.tasks.python package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/vmklib.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>vmklib package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib.app">vmklib.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.build_makefile"><code class="docutils literal notranslate"><span class="pre">build_makefile()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.initialize_task_manager"><code class="docutils literal notranslate"><span class="pre">initialize_task_manager()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.project"><code class="docutils literal notranslate"><span class="pre">project()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib.entry">vmklib.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib.util">vmklib.util module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.util.to_slug"><code class="docutils literal notranslate"><span class="pre">to_slug()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="vmklib-package">
+<h1>vmklib package<a class="headerlink" href="#vmklib-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vmklib.tasks.html">vmklib.tasks package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.mixins.html">vmklib.tasks.mixins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.mixins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.mixins.html#module-vmklib.tasks.mixins.concrete">vmklib.tasks.mixins.concrete module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.mixins.html#module-vmklib.tasks.mixins.curl">vmklib.tasks.mixins.curl module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.mixins.html#module-vmklib.tasks.mixins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.node.html">vmklib.tasks.node package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.node.html#module-vmklib.tasks.node">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.python.html">vmklib.tasks.python package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.build">vmklib.tasks.python.build module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.datazen">vmklib.tasks.python.datazen module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.docs">vmklib.tasks.python.docs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.lint">vmklib.tasks.python.lint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.package">vmklib.tasks.python.package module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.release">vmklib.tasks.python.release module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.sa">vmklib.tasks.python.sa module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.test">vmklib.tasks.python.test module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python.yaml">vmklib.tasks.python.yaml module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.python.html#module-vmklib.tasks.python">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#module-vmklib.tasks.args">vmklib.tasks.args module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.args.environ_fallback"><code class="docutils literal notranslate"><span class="pre">environ_fallback()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.args.environ_fallback_split"><code class="docutils literal notranslate"><span class="pre">environ_fallback_split()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#module-vmklib.tasks.clean">vmklib.tasks.clean module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.clean.Clean"><code class="docutils literal notranslate"><span class="pre">Clean</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.clean.Clean.run"><code class="docutils literal notranslate"><span class="pre">Clean.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#module-vmklib.tasks.github">vmklib.tasks.github module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.github.ensure_api_token"><code class="docutils literal notranslate"><span class="pre">ensure_api_token()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.github.repo_url"><code class="docutils literal notranslate"><span class="pre">repo_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#module-vmklib.tasks.release">vmklib.tasks.release module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.release.GithubRelease"><code class="docutils literal notranslate"><span class="pre">GithubRelease</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.release.GithubRelease.create_release"><code class="docutils literal notranslate"><span class="pre">GithubRelease.create_release()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.release.GithubRelease.release"><code class="docutils literal notranslate"><span class="pre">GithubRelease.release()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.release.GithubRelease.run"><code class="docutils literal notranslate"><span class="pre">GithubRelease.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.release.GithubRelease.upload_release_asset"><code class="docutils literal notranslate"><span class="pre">GithubRelease.upload_release_asset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#module-vmklib.tasks.venv">vmklib.tasks.venv module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.venv.RequirementsInstaller"><code class="docutils literal notranslate"><span class="pre">RequirementsInstaller</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.venv.RequirementsInstaller.run"><code class="docutils literal notranslate"><span class="pre">RequirementsInstaller.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.venv.Venv"><code class="docutils literal notranslate"><span class="pre">Venv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.venv.Venv.run"><code class="docutils literal notranslate"><span class="pre">Venv.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.venv.Venv.run_enter"><code class="docutils literal notranslate"><span class="pre">Venv.run_enter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.venv.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vmklib.tasks.html#module-vmklib.tasks">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.VmklibBase"><code class="docutils literal notranslate"><span class="pre">VmklibBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.VmklibBase.build_dir"><code class="docutils literal notranslate"><span class="pre">VmklibBase.build_dir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="vmklib.tasks.html#vmklib.tasks.VmklibBase.default_requirements"><code class="docutils literal notranslate"><span class="pre">VmklibBase.default_requirements</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-vmklib.app">
+<span id="vmklib-app-module"></span><h2>vmklib.app module<a class="headerlink" href="#module-vmklib.app" title="Link to this heading">#</a></h2>
+<p>vmklib - This package’s command-line entry-point application.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.app.add_app_args">
+<span class="sig-prename descclassname"><span class="pre">vmklib.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vmklib/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.app.add_app_args" title="Link to this definition">#</a></dt>
+<dd><p>Add application-specific arguments to the command-line parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.app.build_makefile">
+<span class="sig-prename descclassname"><span class="pre">vmklib.app.</span></span><span class="sig-name descname"><span class="pre">build_makefile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vmklib/app.html#build_makefile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.app.build_makefile" title="Link to this definition">#</a></dt>
+<dd><p>Build a temporary makefile and return the path.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.app.entry">
+<span class="sig-prename descclassname"><span class="pre">vmklib.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vmklib/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.app.entry" title="Link to this definition">#</a></dt>
+<dd><p>Execute the requested task.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.app.get_data">
+<span class="sig-prename descclassname"><span class="pre">vmklib.app.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vmklib/app.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.app.get_data" title="Link to this definition">#</a></dt>
+<dd><p>Load configuration data if it can be found.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.app.initialize_task_manager">
+<span class="sig-prename descclassname"><span class="pre">vmklib.app.</span></span><span class="sig-name descname"><span class="pre">initialize_task_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TaskManager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_register</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vmklib/app.html#initialize_task_manager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.app.initialize_task_manager" title="Link to this definition">#</a></dt>
+<dd><p>Load internal and external tasks to the task manager.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.app.project">
+<span class="sig-prename descclassname"><span class="pre">vmklib.app.</span></span><span class="sig-name descname"><span class="pre">project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vmklib/app.html#project"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.app.project" title="Link to this definition">#</a></dt>
+<dd><p>If the project name wasn’t provided, guess that it’s either the name
+of the parent directory, or that name as a slug.</p>
+</dd></dl>
+
+</section>
+<section id="module-vmklib.entry">
+<span id="vmklib-entry-module"></span><h2>vmklib.entry module<a class="headerlink" href="#module-vmklib.entry" title="Link to this heading">#</a></h2>
+<p>This package’s command-line entry-point (boilerplate).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.entry.main">
+<span class="sig-prename descclassname"><span class="pre">vmklib.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vmklib/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.entry.main" title="Link to this definition">#</a></dt>
+<dd><p>Program entry-point.</p>
+</dd></dl>
+
+</section>
+<section id="module-vmklib.util">
+<span id="vmklib-util-module"></span><h2>vmklib.util module<a class="headerlink" href="#module-vmklib.util" title="Link to this heading">#</a></h2>
+<p>An interface exposing miscellaneous utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="vmklib.util.to_slug">
+<span class="sig-prename descclassname"><span class="pre">vmklib.util.</span></span><span class="sig-name descname"><span class="pre">to_slug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vmklib/util.html#to_slug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vmklib.util.to_slug" title="Link to this definition">#</a></dt>
+<dd><p>Convert a string to an import slug.</p>
+</dd></dl>
+
+</section>
+<section id="module-vmklib">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vmklib" title="Link to this heading">#</a></h2>
+<p>Useful defaults and other package metadata.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">vmklib</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vmklib.tasks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">vmklib.tasks package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib.app">vmklib.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.build_makefile"><code class="docutils literal notranslate"><span class="pre">build_makefile()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.initialize_task_manager"><code class="docutils literal notranslate"><span class="pre">initialize_task_manager()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.app.project"><code class="docutils literal notranslate"><span class="pre">project()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib.entry">vmklib.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib.util">vmklib.util module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib.util.to_slug"><code class="docutils literal notranslate"><span class="pre">to_slug()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vmklib">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

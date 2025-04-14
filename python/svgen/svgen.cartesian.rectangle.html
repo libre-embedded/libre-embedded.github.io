@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>svgen.cartesian.rectangle package &#8212; svgen  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'svgen.cartesian.rectangle';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="svgen.color package" href="svgen.color.html" />
+    <link rel="prev" title="svgen.cartesian package" href="svgen.cartesian.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="svgen  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="svgen  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="svgen.html">svgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html">svgen.attribute package</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="svgen.cartesian.html">svgen.cartesian package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">svgen.cartesian.rectangle package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.color.html">svgen.color package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.theme.html">svgen.color.theme package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.element.html">svgen.element package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html.html">svgen.element.html package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.mixins.html">svgen.element.mixins package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.generation.html">svgen.generation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html">svgen.shapes package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/svgen.cartesian.rectangle.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>svgen.cartesian.rectangle package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.cartesian.rectangle.corner">svgen.cartesian.rectangle.corner module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar"><code class="docutils literal notranslate"><span class="pre">CornerScalar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.from_origin"><code class="docutils literal notranslate"><span class="pre">CornerScalar.from_origin</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.horizontal"><code class="docutils literal notranslate"><span class="pre">CornerScalar.horizontal</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.vector"><code class="docutils literal notranslate"><span class="pre">CornerScalar.vector</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.vertical"><code class="docutils literal notranslate"><span class="pre">CornerScalar.vertical</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner"><code class="docutils literal notranslate"><span class="pre">RectangleCorner</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_LEFT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.BOTTOM_LEFT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_RIGHT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.BOTTOM_RIGHT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.TOP_LEFT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.TOP_LEFT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.TOP_RIGHT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.TOP_RIGHT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.horizontal"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.horizontal</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_bottom"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_bottom</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_left"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_right"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_top"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_top</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.origin()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin_dx"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.origin_dx</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin_dy"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.origin_dy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vector_dx"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.vector_dx</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vector_dy"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.vector_dy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vertical"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.vertical</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.cartesian.rectangle.grid">svgen.cartesian.rectangle.grid module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid"><code class="docutils literal notranslate"><span class="pre">RectangleGrid</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.adjust"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.adjust()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.box"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.box()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.boxes"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.boxes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.columns"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.columns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.enumerate_boxes"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.enumerate_boxes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.points"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.points</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.rect"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.rect</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.rows"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.rows</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.translate"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.translate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.x_scale"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.x_scale</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.y_scale"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.y_scale</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleIndex"><code class="docutils literal notranslate"><span class="pre">RectangleIndex</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleIndex.column"><code class="docutils literal notranslate"><span class="pre">RectangleIndex.column</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleIndex.row"><code class="docutils literal notranslate"><span class="pre">RectangleIndex.row</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.cartesian.rectangle">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle"><code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.bottom_left"><code class="docutils literal notranslate"><span class="pre">Rectangle.bottom_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.bottom_right"><code class="docutils literal notranslate"><span class="pre">Rectangle.bottom_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.center"><code class="docutils literal notranslate"><span class="pre">Rectangle.center</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.centered"><code class="docutils literal notranslate"><span class="pre">Rectangle.centered()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.corner"><code class="docutils literal notranslate"><span class="pre">Rectangle.corner()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.create"><code class="docutils literal notranslate"><span class="pre">Rectangle.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.dimensions"><code class="docutils literal notranslate"><span class="pre">Rectangle.dimensions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.from_center"><code class="docutils literal notranslate"><span class="pre">Rectangle.from_center()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.height"><code class="docutils literal notranslate"><span class="pre">Rectangle.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.location"><code class="docutils literal notranslate"><span class="pre">Rectangle.location</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.origin"><code class="docutils literal notranslate"><span class="pre">Rectangle.origin</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.scale"><code class="docutils literal notranslate"><span class="pre">Rectangle.scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.scale_whole"><code class="docutils literal notranslate"><span class="pre">Rectangle.scale_whole()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.square"><code class="docutils literal notranslate"><span class="pre">Rectangle.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.to_square"><code class="docutils literal notranslate"><span class="pre">Rectangle.to_square()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.top_left"><code class="docutils literal notranslate"><span class="pre">Rectangle.top_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.top_right"><code class="docutils literal notranslate"><span class="pre">Rectangle.top_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.translate"><code class="docutils literal notranslate"><span class="pre">Rectangle.translate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.width"><code class="docutils literal notranslate"><span class="pre">Rectangle.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="svgen-cartesian-rectangle-package">
+<h1>svgen.cartesian.rectangle package<a class="headerlink" href="#svgen-cartesian-rectangle-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-svgen.cartesian.rectangle.corner">
+<span id="svgen-cartesian-rectangle-corner-module"></span><h2>svgen.cartesian.rectangle.corner module<a class="headerlink" href="#module-svgen.cartesian.rectangle.corner" title="Link to this heading">#</a></h2>
+<p>A module for working with corners of rectangles.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.CornerScalar">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.cartesian.rectangle.corner.</span></span><span class="sig-name descname"><span class="pre">CornerScalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/corner.html#CornerScalar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.corner.CornerScalar" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A collection of attributes for a rectangle’s corner.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.CornerScalar.from_origin">
+<span class="sig-name descname"><span class="pre">from_origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.CornerScalar.from_origin" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.CornerScalar.horizontal">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">horizontal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.CornerScalar.horizontal" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this vector is horizontal.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.CornerScalar.vector">
+<span class="sig-name descname"><span class="pre">vector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.CornerScalar.vector" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.CornerScalar.vertical">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertical</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.CornerScalar.vertical" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this vector is vertical.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.cartesian.rectangle.corner.</span></span><span class="sig-name descname"><span class="pre">RectangleCorner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/corner.html#RectangleCorner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration of the corners of a rectangle.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_LEFT">
+<span class="sig-name descname"><span class="pre">BOTTOM_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((0.0,</span> <span class="pre">1.0),</span> <span class="pre">(1.0,</span> <span class="pre">0.0))</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_LEFT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_RIGHT">
+<span class="sig-name descname"><span class="pre">BOTTOM_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((1.0,</span> <span class="pre">1.0),</span> <span class="pre">(0.0,</span> <span class="pre">-1.0))</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_RIGHT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.TOP_LEFT">
+<span class="sig-name descname"><span class="pre">TOP_LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((0.0,</span> <span class="pre">0.0),</span> <span class="pre">(0.0,</span> <span class="pre">1.0))</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.TOP_LEFT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.TOP_RIGHT">
+<span class="sig-name descname"><span class="pre">TOP_RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((1.0,</span> <span class="pre">0.0),</span> <span class="pre">(-1.0,</span> <span class="pre">0.0))</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.TOP_RIGHT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.horizontal">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">horizontal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.horizontal" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this vector is horizontal.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.on_bottom">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">on_bottom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_bottom" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this corner is on the bottom side.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.on_left">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">on_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_left" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this corner is on the left side.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.on_right">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">on_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_right" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this corner is on the right side.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.on_top">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">on_top</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_top" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this corner is on the top side.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.origin">
+<span class="sig-name descname"><span class="pre">origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions" title="svgen.cartesian.Dimensions"><span class="pre">Dimensions</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/corner.html#RectangleCorner.origin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin" title="Link to this definition">#</a></dt>
+<dd><p>Get the specific corner from a rectangular object.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.origin_dx">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">origin_dx</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin_dx" title="Link to this definition">#</a></dt>
+<dd><p>Get the ‘x’ component of this corner.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.origin_dy">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">origin_dy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin_dy" title="Link to this definition">#</a></dt>
+<dd><p>Get the ‘y’ component of this corner.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.vector_dx">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vector_dx</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vector_dx" title="Link to this definition">#</a></dt>
+<dd><p>Get the ‘x’ component of this corner.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.vector_dy">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vector_dy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vector_dy" title="Link to this definition">#</a></dt>
+<dd><p>Get the ‘x’ component of this corner.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.corner.RectangleCorner.vertical">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vertical</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vertical" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this vector is vertical.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-svgen.cartesian.rectangle.grid">
+<span id="svgen-cartesian-rectangle-grid-module"></span><h2>svgen.cartesian.rectangle.grid module<a class="headerlink" href="#module-svgen.cartesian.rectangle.grid" title="Link to this heading">#</a></h2>
+<p>A module implementing grid interfaces for rectangles.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.cartesian.rectangle.grid.</span></span><span class="sig-name descname"><span class="pre">RectangleGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/grid.html#RectangleGrid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A class for locating points within a rectangle.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.adjust">
+<span class="sig-name descname"><span class="pre">adjust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.grid.RectangleGrid" title="svgen.cartesian.rectangle.grid.RectangleGrid"><span class="pre">RectangleGrid</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/grid.html#RectangleGrid.adjust"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.adjust" title="Link to this definition">#</a></dt>
+<dd><p>Create a new grid from new parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.box">
+<span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/grid.html#RectangleGrid.box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.box" title="Link to this definition">#</a></dt>
+<dd><p>Get a rectangle object from provided coordinates.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.boxes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boxes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.boxes" title="Link to this definition">#</a></dt>
+<dd><p>Iterate over boxes belonging to this grid.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.columns">
+<span class="sig-name descname"><span class="pre">columns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.columns" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.enumerate_boxes">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enumerate_boxes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#svgen.cartesian.rectangle.grid.RectangleIndex" title="svgen.cartesian.rectangle.grid.RectangleIndex"><span class="pre">RectangleIndex</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.enumerate_boxes" title="Link to this definition">#</a></dt>
+<dd><p>Iterate over boxes belonging to this grid.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.points">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">points</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.points" title="Link to this definition">#</a></dt>
+<dd><p>Iterate over points in the grid.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.rect">
+<span class="sig-name descname"><span class="pre">rect</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.rect" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.rows">
+<span class="sig-name descname"><span class="pre">rows</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.rows" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.grid.RectangleGrid" title="svgen.cartesian.rectangle.grid.RectangleGrid"><span class="pre">RectangleGrid</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/grid.html#RectangleGrid.translate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.translate" title="Link to this definition">#</a></dt>
+<dd><p>Translate this rectangle grid.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.x_scale">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x_scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.x_scale" title="Link to this definition">#</a></dt>
+<dd><p>Get the scalar value for ‘x’ coordinates.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleGrid.y_scale">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y_scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleGrid.y_scale" title="Link to this definition">#</a></dt>
+<dd><p>Get the scalar value for ‘y’ coordinates.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleIndex">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.cartesian.rectangle.grid.</span></span><span class="sig-name descname"><span class="pre">RectangleIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/cartesian/rectangle/grid.html#RectangleIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleIndex" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>An index into a rectangle grid.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleIndex.column">
+<span class="sig-name descname"><span class="pre">column</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleIndex.column" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.grid.RectangleIndex.row">
+<span class="sig-name descname"><span class="pre">row</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.grid.RectangleIndex.row" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-svgen.cartesian.rectangle">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-svgen.cartesian.rectangle" title="Link to this heading">#</a></h2>
+<p>svgen - A module for interacting with rectangular entities.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.cartesian.rectangle.</span></span><span class="sig-name descname"><span class="pre">Rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions" title="svgen.cartesian.Dimensions"><span class="pre">Dimensions</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">False,</span> <span class="pre">-1)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A definition of a rectangle.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.bottom_left">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.bottom_left" title="Link to this definition">#</a></dt>
+<dd><p>Get the bottom left corner point.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.bottom_right">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.bottom_right" title="Link to this definition">#</a></dt>
+<dd><p>Get the bottom right corner point.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.center">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.center" title="Link to this definition">#</a></dt>
+<dd><p>Get the center location of this rectangle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.centered">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">centered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">square</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.centered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.centered" title="Link to this definition">#</a></dt>
+<dd><p>Create a centered rectangle from another rectangle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.corner">
+<span class="sig-name descname"><span class="pre">corner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.cartesian.rectangle.corner.RectangleCorner" title="svgen.cartesian.rectangle.corner.RectangleCorner"><span class="pre">RectangleCorner</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.corner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.corner" title="Link to this definition">#</a></dt>
+<dd><p>Get a specific corner of a rectangle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.create">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">False,</span> <span class="pre">-1)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.create" title="Link to this definition">#</a></dt>
+<dd><p>Create a rectangle from simple parameters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.dimensions">
+<span class="sig-name descname"><span class="pre">dimensions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.Dimensions" title="svgen.cartesian.Dimensions"><span class="pre">Dimensions</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.dimensions" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.from_center">
+<span class="sig-name descname"><span class="pre">from_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">square</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.from_center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.from_center" title="Link to this definition">#</a></dt>
+<dd><p>Create a new rectangle from this instance’s center.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.height">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.height" title="Link to this definition">#</a></dt>
+<dd><p>Get the height of this rectangle..</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.location">
+<span class="sig-name descname"><span class="pre">location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.location" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.origin">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.origin" title="Link to this definition">#</a></dt>
+<dd><p>Get the origin location for this rectangle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.scale" title="Link to this definition">#</a></dt>
+<dd><p>Scale this rectangle’s width and height.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.scale_whole">
+<span class="sig-name descname"><span class="pre">scale_whole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.scale_whole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.scale_whole" title="Link to this definition">#</a></dt>
+<dd><p>Scale width and height of this rectangle equally.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.square">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.square" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this rectangle is square.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.to_square">
+<span class="sig-name descname"><span class="pre">to_square</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.to_square"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.to_square" title="Link to this definition">#</a></dt>
+<dd><p>Convert this rectangle to a square.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.top_left">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.top_left" title="Link to this definition">#</a></dt>
+<dd><p>Get the top left corner point.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.top_right">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.top_right" title="Link to this definition">#</a></dt>
+<dd><p>Get the top right corner point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">move</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></span><a class="reference internal" href="_modules/svgen/cartesian/rectangle.html#Rectangle.translate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.translate" title="Link to this definition">#</a></dt>
+<dd><p>Move a rectangle by a given translation.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.cartesian.rectangle.Rectangle.width">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.cartesian.rectangle.Rectangle.width" title="Link to this definition">#</a></dt>
+<dd><p>Get the width of this rectangle.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="svgen.cartesian.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">svgen.cartesian package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="svgen.color.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">svgen.color package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.cartesian.rectangle.corner">svgen.cartesian.rectangle.corner module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar"><code class="docutils literal notranslate"><span class="pre">CornerScalar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.from_origin"><code class="docutils literal notranslate"><span class="pre">CornerScalar.from_origin</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.horizontal"><code class="docutils literal notranslate"><span class="pre">CornerScalar.horizontal</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.vector"><code class="docutils literal notranslate"><span class="pre">CornerScalar.vector</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.CornerScalar.vertical"><code class="docutils literal notranslate"><span class="pre">CornerScalar.vertical</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner"><code class="docutils literal notranslate"><span class="pre">RectangleCorner</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_LEFT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.BOTTOM_LEFT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.BOTTOM_RIGHT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.BOTTOM_RIGHT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.TOP_LEFT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.TOP_LEFT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.TOP_RIGHT"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.TOP_RIGHT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.horizontal"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.horizontal</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_bottom"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_bottom</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_left"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_right"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.on_top"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.on_top</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.origin()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin_dx"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.origin_dx</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.origin_dy"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.origin_dy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vector_dx"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.vector_dx</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vector_dy"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.vector_dy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.corner.RectangleCorner.vertical"><code class="docutils literal notranslate"><span class="pre">RectangleCorner.vertical</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.cartesian.rectangle.grid">svgen.cartesian.rectangle.grid module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid"><code class="docutils literal notranslate"><span class="pre">RectangleGrid</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.adjust"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.adjust()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.box"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.box()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.boxes"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.boxes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.columns"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.columns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.enumerate_boxes"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.enumerate_boxes</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.points"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.points</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.rect"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.rect</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.rows"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.rows</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.translate"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.translate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.x_scale"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.x_scale</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleGrid.y_scale"><code class="docutils literal notranslate"><span class="pre">RectangleGrid.y_scale</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleIndex"><code class="docutils literal notranslate"><span class="pre">RectangleIndex</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleIndex.column"><code class="docutils literal notranslate"><span class="pre">RectangleIndex.column</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.grid.RectangleIndex.row"><code class="docutils literal notranslate"><span class="pre">RectangleIndex.row</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.cartesian.rectangle">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle"><code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.bottom_left"><code class="docutils literal notranslate"><span class="pre">Rectangle.bottom_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.bottom_right"><code class="docutils literal notranslate"><span class="pre">Rectangle.bottom_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.center"><code class="docutils literal notranslate"><span class="pre">Rectangle.center</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.centered"><code class="docutils literal notranslate"><span class="pre">Rectangle.centered()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.corner"><code class="docutils literal notranslate"><span class="pre">Rectangle.corner()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.create"><code class="docutils literal notranslate"><span class="pre">Rectangle.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.dimensions"><code class="docutils literal notranslate"><span class="pre">Rectangle.dimensions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.from_center"><code class="docutils literal notranslate"><span class="pre">Rectangle.from_center()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.height"><code class="docutils literal notranslate"><span class="pre">Rectangle.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.location"><code class="docutils literal notranslate"><span class="pre">Rectangle.location</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.origin"><code class="docutils literal notranslate"><span class="pre">Rectangle.origin</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.scale"><code class="docutils literal notranslate"><span class="pre">Rectangle.scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.scale_whole"><code class="docutils literal notranslate"><span class="pre">Rectangle.scale_whole()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.square"><code class="docutils literal notranslate"><span class="pre">Rectangle.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.to_square"><code class="docutils literal notranslate"><span class="pre">Rectangle.to_square()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.top_left"><code class="docutils literal notranslate"><span class="pre">Rectangle.top_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.top_right"><code class="docutils literal notranslate"><span class="pre">Rectangle.top_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.translate"><code class="docutils literal notranslate"><span class="pre">Rectangle.translate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.cartesian.rectangle.Rectangle.width"><code class="docutils literal notranslate"><span class="pre">Rectangle.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

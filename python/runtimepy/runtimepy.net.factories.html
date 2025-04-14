@@ -1,0 +1,1346 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy.net.factories package &#8212; runtimepy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.net.factories';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="runtimepy.net.html package" href="runtimepy.net.html.html" />
+    <link rel="prev" title="runtimepy.net.arbiter.tcp package" href="runtimepy.net.arbiter.tcp.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.control.html">runtimepy.control package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.control.env.html">runtimepy.control.env package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.struct.html">runtimepy.net.arbiter.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">runtimepy.net.factories package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.html.html">runtimepy.net.html package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html.bootstrap.html">runtimepy.net.html.bootstrap package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.scpi.html">runtimepy.net.tcp.scpi package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.udp.html">runtimepy.net.udp package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.tftp.html">runtimepy.net.udp.tftp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.noise.html">runtimepy.noise package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.ui.html">runtimepy.ui package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/runtimepy.net.factories.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>runtimepy.net.factories package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.factories">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection"><code class="docutils literal notranslate"><span class="pre">HttpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.expecting_response"><code class="docutils literal notranslate"><span class="pre">HttpConnection.expecting_response</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.get_handler"><code class="docutils literal notranslate"><span class="pre">HttpConnection.get_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.get_log_prefix"><code class="docutils literal notranslate"><span class="pre">HttpConnection.get_log_prefix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.handlers"><code class="docutils literal notranslate"><span class="pre">HttpConnection.handlers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.identity"><code class="docutils literal notranslate"><span class="pre">HttpConnection.identity</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.init"><code class="docutils literal notranslate"><span class="pre">HttpConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">HttpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.post_handler"><code class="docutils literal notranslate"><span class="pre">HttpConnection.post_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.process_binary"><code class="docutils literal notranslate"><span class="pre">HttpConnection.process_binary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.request"><code class="docutils literal notranslate"><span class="pre">HttpConnection.request()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.request_json"><code class="docutils literal notranslate"><span class="pre">HttpConnection.request_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.async_init"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.async_init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.disable_extra"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.disable_extra()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.init"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.poll_connection_metrics"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.poll_connection_metrics</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.poll_governor"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.poll_governor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.send_interfaces"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.send_interfaces</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.tab_sender"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.tab_sender()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.tabs"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.tabs</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.ui_time"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.ui_time</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketJson"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketJson</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketJson.kind"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketJson.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection"><code class="docutils literal notranslate"><span class="pre">TcpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.app"><code class="docutils literal notranslate"><span class="pre">TcpConnection.app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.close"><code class="docutils literal notranslate"><span class="pre">TcpConnection.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">TcpConnection.create_connection()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">TcpConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.get_log_prefix"><code class="docutils literal notranslate"><span class="pre">TcpConnection.get_log_prefix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.is_ssl"><code class="docutils literal notranslate"><span class="pre">TcpConnection.is_ssl</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">TcpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.log_prefix"><code class="docutils literal notranslate"><span class="pre">TcpConnection.log_prefix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.restart"><code class="docutils literal notranslate"><span class="pre">TcpConnection.restart()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.send_binary"><code class="docutils literal notranslate"><span class="pre">TcpConnection.send_binary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.send_text"><code class="docutils literal notranslate"><span class="pre">TcpConnection.send_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.serve"><code class="docutils literal notranslate"><span class="pre">TcpConnection.serve()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.uses_binary_tx_queue"><code class="docutils literal notranslate"><span class="pre">TcpConnection.uses_binary_tx_queue</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.uses_text_tx_queue"><code class="docutils literal notranslate"><span class="pre">TcpConnection.uses_text_tx_queue</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory.client"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory.kind"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory.kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory.server_task"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory.server_task()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpEcho"><code class="docutils literal notranslate"><span class="pre">TcpEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpEcho.kind"><code class="docutils literal notranslate"><span class="pre">TcpEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessage"><code class="docutils literal notranslate"><span class="pre">TcpMessage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessage.kind"><code class="docutils literal notranslate"><span class="pre">TcpMessage.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessageEcho"><code class="docutils literal notranslate"><span class="pre">TcpMessageEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessageEcho.kind"><code class="docutils literal notranslate"><span class="pre">TcpMessageEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpNull"><code class="docutils literal notranslate"><span class="pre">TcpNull</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpNull.kind"><code class="docutils literal notranslate"><span class="pre">TcpNull.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection"><code class="docutils literal notranslate"><span class="pre">UdpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.close"><code class="docutils literal notranslate"><span class="pre">UdpConnection.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">UdpConnection.create_connection()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">UdpConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.latest_rx_address"><code class="docutils literal notranslate"><span class="pre">UdpConnection.latest_rx_address</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">UdpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.process_datagram"><code class="docutils literal notranslate"><span class="pre">UdpConnection.process_datagram()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.restart"><code class="docutils literal notranslate"><span class="pre">UdpConnection.restart()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.send_binary"><code class="docutils literal notranslate"><span class="pre">UdpConnection.send_binary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.send_text"><code class="docutils literal notranslate"><span class="pre">UdpConnection.send_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.sendto"><code class="docutils literal notranslate"><span class="pre">UdpConnection.sendto()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.set_remote_address"><code class="docutils literal notranslate"><span class="pre">UdpConnection.set_remote_address()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.should_connect"><code class="docutils literal notranslate"><span class="pre">UdpConnection.should_connect</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.uses_binary_tx_queue"><code class="docutils literal notranslate"><span class="pre">UdpConnection.uses_binary_tx_queue</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.uses_text_tx_queue"><code class="docutils literal notranslate"><span class="pre">UdpConnection.uses_text_tx_queue</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnectionFactory"><code class="docutils literal notranslate"><span class="pre">UdpConnectionFactory</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnectionFactory.client"><code class="docutils literal notranslate"><span class="pre">UdpConnectionFactory.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnectionFactory.kind"><code class="docutils literal notranslate"><span class="pre">UdpConnectionFactory.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpEcho"><code class="docutils literal notranslate"><span class="pre">UdpEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpEcho.kind"><code class="docutils literal notranslate"><span class="pre">UdpEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessage"><code class="docutils literal notranslate"><span class="pre">UdpMessage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessage.kind"><code class="docutils literal notranslate"><span class="pre">UdpMessage.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessageEcho"><code class="docutils literal notranslate"><span class="pre">UdpMessageEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessageEcho.kind"><code class="docutils literal notranslate"><span class="pre">UdpMessageEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpNull"><code class="docutils literal notranslate"><span class="pre">UdpNull</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpNull.kind"><code class="docutils literal notranslate"><span class="pre">UdpNull.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.app"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.client"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.close"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_connection()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.serve"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.serve()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.server_handler"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.server_handler()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory.client"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory.kind"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory.kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory.server_task"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory.server_task()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketEcho"><code class="docutils literal notranslate"><span class="pre">WebsocketEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketEcho.kind"><code class="docutils literal notranslate"><span class="pre">WebsocketEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketNull"><code class="docutils literal notranslate"><span class="pre">WebsocketNull</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketNull.kind"><code class="docutils literal notranslate"><span class="pre">WebsocketNull.kind</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="runtimepy-net-factories-package">
+<h1>runtimepy.net.factories package<a class="headerlink" href="#runtimepy-net-factories-package" title="Link to this heading">#</a></h1>
+<section id="module-runtimepy.net.factories">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.net.factories" title="Link to this heading">#</a></h2>
+<p>A module aggregating commonly used connection factory classes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">HttpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Transport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.protocol.QueueProtocol" title="runtimepy.net.tcp.protocol.QueueProtocol"><span class="pre">QueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.connection.TcpConnection" title="runtimepy.net.tcp.connection.TcpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">TcpConnection</span></code></a></p>
+<p>A class implementing a basic HTTP interface.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.expecting_response">
+<span class="sig-name descname"><span class="pre">expecting_response</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.expecting_response" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.get_handler">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection.get_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.get_handler" title="Link to this definition">#</a></dt>
+<dd><p>Sample handler.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.get_log_prefix">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_log_prefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_ssl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection.get_log_prefix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.get_log_prefix" title="Link to this definition">#</a></dt>
+<dd><p>Get a logging prefix for this instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.handlers">
+<span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">HTTPMethod</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.handlers" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.identity">
+<span class="sig-name descname"><span class="pre">identity</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'runtimepy/5.11.5'</span></em><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.identity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.log_alias">
+<span class="sig-name descname"><span class="pre">log_alias</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HTTP'</span></em><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.log_alias" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.post_handler">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">post_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection.post_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.post_handler" title="Link to this definition">#</a></dt>
+<dd><p>Sample handler.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.process_binary">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection.process_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.process_binary" title="Link to this definition">#</a></dt>
+<dd><p>Process a binary frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.request">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader" title="runtimepy.net.http.response.ResponseHeader"><span class="pre">ResponseHeader</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection.request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.request" title="Link to this definition">#</a></dt>
+<dd><p>Make an HTTP request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.HttpConnection.request_json">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">request_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.http.html#runtimepy.net.http.header.RequestHeader" title="runtimepy.net.http.header.RequestHeader"><span class="pre">RequestHeader</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/http.html#HttpConnection.request_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.HttpConnection.request_json" title="Link to this definition">#</a></dt>
+<dd><p>Perform a request and convert the response to a data structure by
+decoding it as JSON.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">RuntimepyWebsocketConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ClientConnection</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ServerConnection</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/server/websocket.html#RuntimepyWebsocketConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.tcp.html#runtimepy.net.arbiter.tcp.json.WebsocketJsonMessageConnection" title="runtimepy.net.arbiter.tcp.json.WebsocketJsonMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebsocketJsonMessageConnection</span></code></a></p>
+<p>A class implementing a package-specific WebSocket connection.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.async_init">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">async_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/websocket.html#RuntimepyWebsocketConnection.async_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.async_init" title="Link to this definition">#</a></dt>
+<dd><p>A runtime initialization routine (executes during ‘process’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.disable_extra">
+<span class="sig-name descname"><span class="pre">disable_extra</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/websocket.html#RuntimepyWebsocketConnection.disable_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.disable_extra" title="Link to this definition">#</a></dt>
+<dd><p>Additional tasks to perform when disabling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/websocket.html#RuntimepyWebsocketConnection.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.init" title="Link to this definition">#</a></dt>
+<dd><p>Initialize this instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.poll_connection_metrics">
+<span class="sig-name descname"><span class="pre">poll_connection_metrics</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.poll_connection_metrics" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.poll_governor">
+<span class="sig-name descname"><span class="pre">poll_governor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">RateLimiter</span></em><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.poll_governor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.send_interfaces">
+<span class="sig-name descname"><span class="pre">send_interfaces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.send_interfaces" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.tab_sender">
+<span class="sig-name descname"><span class="pre">tab_sender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/server/websocket.html#RuntimepyWebsocketConnection.tab_sender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.tab_sender" title="Link to this definition">#</a></dt>
+<dd><p>Get a tab message-sending interface.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.tabs">
+<span class="sig-name descname"><span class="pre">tabs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState" title="runtimepy.net.server.websocket.state.TabState"><span class="pre">TabState</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.tabs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketConnection.ui_time">
+<span class="sig-name descname"><span class="pre">ui_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.ui_time" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketJson">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">RuntimepyWebsocketJson</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#RuntimepyWebsocketJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketJson" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.websocket.WebsocketConnectionFactory" title="runtimepy.net.arbiter.websocket.WebsocketConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebsocketConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection" title="runtimepy.net.server.websocket.RuntimepyWebsocketConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection</span></code></a>]</p>
+<p>WebSocket JSON-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.RuntimepyWebsocketJson.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.RuntimepyWebsocketJson.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection" title="runtimepy.net.server.websocket.RuntimepyWebsocketConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">TcpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Transport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.protocol.QueueProtocol" title="runtimepy.net.tcp.protocol.QueueProtocol"><span class="pre">QueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin" title="runtimepy.net.mixin.TransportMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransportMixin</span></code></a></p>
+<p>A TCP connection interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.app">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serving_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager" title="runtimepy.net.manager.ConnectionManager"><span class="pre">ConnectionManager</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.app" title="Link to this definition">#</a></dt>
+<dd><p>Run an application that serves new connections.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.close">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.close" title="Link to this definition">#</a></dt>
+<dd><p>Close this connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.create_connection">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.backoff.ExponentialBackoff" title="runtimepy.net.backoff.ExponentialBackoff"><span class="pre">ExponentialBackoff</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.create_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.create_connection" title="Link to this definition">#</a></dt>
+<dd><p>Create a TCP connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.create_pair">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serve_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'127.0.0.1'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.create_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.create_pair" title="Link to this definition">#</a></dt>
+<dd><p>Create a connection pair.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.get_log_prefix">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_log_prefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_ssl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.get_log_prefix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.get_log_prefix" title="Link to this definition">#</a></dt>
+<dd><p>Get a logging prefix for this instance.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.is_ssl">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_ssl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.is_ssl" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this connection uses SSL.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.log_alias">
+<span class="sig-name descname"><span class="pre">log_alias</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TCP'</span></em><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.log_alias" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.log_prefix">
+<span class="sig-name descname"><span class="pre">log_prefix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.log_prefix" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.restart">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.restart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.restart" title="Link to this definition">#</a></dt>
+<dd><p>Reset necessary underlying state for this connection to ‘process’
+again.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.send_binary">
+<span class="sig-name descname"><span class="pre">send_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytearray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">memoryview</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.send_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.send_binary" title="Link to this definition">#</a></dt>
+<dd><p>Enqueue a binary message tos end.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.send_text">
+<span class="sig-name descname"><span class="pre">send_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.send_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.send_text" title="Link to this definition">#</a></dt>
+<dd><p>Enqueue a text message to send.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.serve">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/tcp/connection.html#TcpConnection.serve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.serve" title="Link to this definition">#</a></dt>
+<dd><p>Serve incoming connections.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.uses_binary_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_binary_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.uses_binary_tx_queue" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnection.uses_text_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_text_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.factories.TcpConnection.uses_text_tx_queue" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnectionFactory">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">TcpConnectionFactory</span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/tcp.html#TcpConnectionFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnectionFactory" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.factory.html#runtimepy.net.arbiter.factory.connection.ConnectionFactory" title="runtimepy.net.arbiter.factory.connection.ConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConnectionFactory</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>A class implementing a basic TCP connection factory.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnectionFactory.client">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><span class="pre">Connection</span></a></span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/tcp.html#TcpConnectionFactory.client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnectionFactory.client" title="Link to this definition">#</a></dt>
+<dd><p>Create a client connection.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnectionFactory.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.net.factories.TcpConnectionFactory.kind" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpConnectionFactory.server_task">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">server_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager" title="runtimepy.net.manager.ConnectionManager"><span class="pre">ConnectionManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">started_sem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Semaphore</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/tcp.html#TcpConnectionFactory.server_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpConnectionFactory.server_task" title="Link to this definition">#</a></dt>
+<dd><p>Create a task that will run a connection server.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpEcho">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">TcpEcho</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#TcpEcho"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpEcho" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.tcp.html#runtimepy.net.arbiter.tcp.TcpConnectionFactory" title="runtimepy.net.arbiter.tcp.TcpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TcpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.connection.EchoTcpConnection" title="runtimepy.net.tcp.connection.EchoTcpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoTcpConnection</span></code></a>]</p>
+<p>TCP echo-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpEcho.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.TcpEcho.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.connection.EchoTcpConnection" title="runtimepy.net.tcp.connection.EchoTcpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoTcpConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpMessage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">TcpMessage</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#TcpMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpMessage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.tcp.html#runtimepy.net.arbiter.tcp.TcpConnectionFactory" title="runtimepy.net.arbiter.tcp.TcpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TcpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.TcpPrefixedMessageConnection" title="runtimepy.net.stream.TcpPrefixedMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">TcpPrefixedMessageConnection</span></code></a>]</p>
+<p>TCP message-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpMessage.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.TcpMessage.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.TcpPrefixedMessageConnection" title="runtimepy.net.stream.TcpPrefixedMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">TcpPrefixedMessageConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpMessageEcho">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">TcpMessageEcho</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#TcpMessageEcho"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpMessageEcho" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.tcp.html#runtimepy.net.arbiter.tcp.TcpConnectionFactory" title="runtimepy.net.arbiter.tcp.TcpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TcpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.EchoTcpMessageConnection" title="runtimepy.net.stream.EchoTcpMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoTcpMessageConnection</span></code></a>]</p>
+<p>TCP message-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpMessageEcho.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.TcpMessageEcho.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.EchoTcpMessageConnection" title="runtimepy.net.stream.EchoTcpMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoTcpMessageConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpNull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">TcpNull</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#TcpNull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.TcpNull" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.tcp.html#runtimepy.net.arbiter.tcp.TcpConnectionFactory" title="runtimepy.net.arbiter.tcp.TcpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TcpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.connection.NullTcpConnection" title="runtimepy.net.tcp.connection.NullTcpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullTcpConnection</span></code></a>]</p>
+<p>TCP null-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.TcpNull.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.TcpNull.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.tcp.html#runtimepy.net.tcp.connection.NullTcpConnection" title="runtimepy.net.tcp.connection.NullTcpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullTcpConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">UdpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.protocol.UdpQueueProtocol" title="runtimepy.net.udp.protocol.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin" title="runtimepy.net.mixin.TransportMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransportMixin</span></code></a></p>
+<p>A UDP connection interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.close">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.close" title="Link to this definition">#</a></dt>
+<dd><p>Close this connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.create_connection">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.create_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.create_connection" title="Link to this definition">#</a></dt>
+<dd><p>Create a UDP connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.create_pair">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_pair</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.create_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.create_pair" title="Link to this definition">#</a></dt>
+<dd><p>Create a connection pair.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.latest_rx_address">
+<span class="sig-name descname"><span class="pre">latest_rx_address</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.latest_rx_address" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.log_alias">
+<span class="sig-name descname"><span class="pre">log_alias</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UDP'</span></em><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.log_alias" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.process_datagram">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.process_datagram" title="Link to this definition">#</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.restart">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.restart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.restart" title="Link to this definition">#</a></dt>
+<dd><p>Reset necessary underlying state for this connection to ‘process’
+again.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.send_binary">
+<span class="sig-name descname"><span class="pre">send_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytearray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">memoryview</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.send_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.send_binary" title="Link to this definition">#</a></dt>
+<dd><p>Enqueue a binary message to send.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.send_text">
+<span class="sig-name descname"><span class="pre">send_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.send_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.send_text" title="Link to this definition">#</a></dt>
+<dd><p>Enqueue a text message to send.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.sendto">
+<span class="sig-name descname"><span class="pre">sendto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.sendto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.sendto" title="Link to this definition">#</a></dt>
+<dd><p>Send to a specific address.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.set_remote_address">
+<span class="sig-name descname"><span class="pre">set_remote_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.set_remote_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.set_remote_address" title="Link to this definition">#</a></dt>
+<dd><p>Set a new remote address. Note that this doesn’t interact with or
+attempt to ‘connect’ the underlying socket. That should be done at
+creation time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.should_connect">
+<span class="sig-name descname"><span class="pre">should_connect</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.should_connect" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.uses_binary_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_binary_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.uses_binary_tx_queue" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnection.uses_text_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_text_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.factories.UdpConnection.uses_text_tx_queue" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnectionFactory">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">UdpConnectionFactory</span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/udp.html#UdpConnectionFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnectionFactory" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.factory.html#runtimepy.net.arbiter.factory.connection.ConnectionFactory" title="runtimepy.net.arbiter.factory.connection.ConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConnectionFactory</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>A class implementing a basic UDP connection factory.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnectionFactory.client">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><span class="pre">Connection</span></a></span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/udp.html#UdpConnectionFactory.client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpConnectionFactory.client" title="Link to this definition">#</a></dt>
+<dd><p>Create a client connection.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpConnectionFactory.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.net.factories.UdpConnectionFactory.kind" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpEcho">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">UdpEcho</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#UdpEcho"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpEcho" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.udp.UdpConnectionFactory" title="runtimepy.net.arbiter.udp.UdpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.connection.EchoUdpConnection" title="runtimepy.net.udp.connection.EchoUdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoUdpConnection</span></code></a>]</p>
+<p>UDP echo-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpEcho.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.UdpEcho.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.connection.EchoUdpConnection" title="runtimepy.net.udp.connection.EchoUdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoUdpConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpMessage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">UdpMessage</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#UdpMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpMessage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.udp.UdpConnectionFactory" title="runtimepy.net.arbiter.udp.UdpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.UdpPrefixedMessageConnection" title="runtimepy.net.stream.UdpPrefixedMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpPrefixedMessageConnection</span></code></a>]</p>
+<p>UDP message-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpMessage.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.UdpMessage.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.UdpPrefixedMessageConnection" title="runtimepy.net.stream.UdpPrefixedMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpPrefixedMessageConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpMessageEcho">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">UdpMessageEcho</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#UdpMessageEcho"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpMessageEcho" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.udp.UdpConnectionFactory" title="runtimepy.net.arbiter.udp.UdpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.EchoUdpMessageConnection" title="runtimepy.net.stream.EchoUdpMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoUdpMessageConnection</span></code></a>]</p>
+<p>UDP echo-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpMessageEcho.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.UdpMessageEcho.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.stream.html#runtimepy.net.stream.EchoUdpMessageConnection" title="runtimepy.net.stream.EchoUdpMessageConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoUdpMessageConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpNull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">UdpNull</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#UdpNull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.UdpNull" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.udp.UdpConnectionFactory" title="runtimepy.net.arbiter.udp.UdpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.connection.NullUdpConnection" title="runtimepy.net.udp.connection.NullUdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullUdpConnection</span></code></a>]</p>
+<p>UDP null-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.UdpNull.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.UdpNull.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.connection.NullUdpConnection" title="runtimepy.net.udp.connection.NullUdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullUdpConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">WebsocketConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ClientConnection</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ServerConnection</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a></p>
+<p>A simple websocket connection interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection.app">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager" title="runtimepy.net.manager.ConnectionManager"><span class="pre">ConnectionManager</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serving_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Server</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection.app" title="Link to this definition">#</a></dt>
+<dd><p>Run a WebSocket-server application.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection.client">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection.client" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for connecting a client.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection.close">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection.close" title="Link to this definition">#</a></dt>
+<dd><p>Close this connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection.create_connection">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.create_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection.create_connection" title="Link to this definition">#</a></dt>
+<dd><p>Connect a client to an endpoint.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection.create_pair">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serve_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.create_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection.create_pair" title="Link to this definition">#</a></dt>
+<dd><p>Obtain a connected pair of WebsocketConnection objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection.serve">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager" title="runtimepy.net.manager.ConnectionManager"><span class="pre">ConnectionManager</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Server</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.serve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection.serve" title="Link to this definition">#</a></dt>
+<dd><p>Serve a WebSocket server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnection.server_handler">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">server_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager" title="runtimepy.net.manager.ConnectionManager"><span class="pre">ConnectionManager</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ServerConnection</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.server_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnection.server_handler" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for passing in a websocket handler and initializing a
+connection.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnectionFactory">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">WebsocketConnectionFactory</span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/websocket.html#WebsocketConnectionFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnectionFactory" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.factory.html#runtimepy.net.arbiter.factory.connection.ConnectionFactory" title="runtimepy.net.arbiter.factory.connection.ConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConnectionFactory</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>A class implementing a basic WebSocket connection factory.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnectionFactory.client">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><span class="pre">Connection</span></a></span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/websocket.html#WebsocketConnectionFactory.client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnectionFactory.client" title="Link to this definition">#</a></dt>
+<dd><p>Create a client connection.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnectionFactory.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnectionFactory.kind" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketConnectionFactory.server_task">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">server_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager" title="runtimepy.net.manager.ConnectionManager"><span class="pre">ConnectionManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">started_sem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Semaphore</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/arbiter/websocket.html#WebsocketConnectionFactory.server_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketConnectionFactory.server_task" title="Link to this definition">#</a></dt>
+<dd><p>Create a task that will run a connection server.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketEcho">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">WebsocketEcho</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#WebsocketEcho"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketEcho" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.websocket.WebsocketConnectionFactory" title="runtimepy.net.arbiter.websocket.WebsocketConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebsocketConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.websocket.html#runtimepy.net.websocket.connection.EchoWebsocketConnection" title="runtimepy.net.websocket.connection.EchoWebsocketConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoWebsocketConnection</span></code></a>]</p>
+<p>WebSocket echo-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketEcho.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.WebsocketEcho.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.websocket.html#runtimepy.net.websocket.connection.EchoWebsocketConnection" title="runtimepy.net.websocket.connection.EchoWebsocketConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoWebsocketConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketNull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.factories.</span></span><span class="sig-name descname"><span class="pre">WebsocketNull</span></span><a class="reference internal" href="_modules/runtimepy/net/factories.html#WebsocketNull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.factories.WebsocketNull" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.websocket.WebsocketConnectionFactory" title="runtimepy.net.arbiter.websocket.WebsocketConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebsocketConnectionFactory</span></code></a>[<a class="reference internal" href="runtimepy.net.websocket.html#runtimepy.net.websocket.connection.NullWebsocketConnection" title="runtimepy.net.websocket.connection.NullWebsocketConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullWebsocketConnection</span></code></a>]</p>
+<p>WebSocket null-connection factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.factories.WebsocketNull.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#runtimepy.net.factories.WebsocketNull.kind" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="runtimepy.net.websocket.html#runtimepy.net.websocket.connection.NullWebsocketConnection" title="runtimepy.net.websocket.connection.NullWebsocketConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullWebsocketConnection</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="runtimepy.net.arbiter.tcp.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">runtimepy.net.arbiter.tcp package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="runtimepy.net.html.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">runtimepy.net.html package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.factories">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection"><code class="docutils literal notranslate"><span class="pre">HttpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.expecting_response"><code class="docutils literal notranslate"><span class="pre">HttpConnection.expecting_response</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.get_handler"><code class="docutils literal notranslate"><span class="pre">HttpConnection.get_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.get_log_prefix"><code class="docutils literal notranslate"><span class="pre">HttpConnection.get_log_prefix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.handlers"><code class="docutils literal notranslate"><span class="pre">HttpConnection.handlers</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.identity"><code class="docutils literal notranslate"><span class="pre">HttpConnection.identity</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.init"><code class="docutils literal notranslate"><span class="pre">HttpConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">HttpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.post_handler"><code class="docutils literal notranslate"><span class="pre">HttpConnection.post_handler()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.process_binary"><code class="docutils literal notranslate"><span class="pre">HttpConnection.process_binary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.request"><code class="docutils literal notranslate"><span class="pre">HttpConnection.request()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.HttpConnection.request_json"><code class="docutils literal notranslate"><span class="pre">HttpConnection.request_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.async_init"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.async_init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.disable_extra"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.disable_extra()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.init"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.poll_connection_metrics"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.poll_connection_metrics</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.poll_governor"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.poll_governor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.send_interfaces"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.send_interfaces</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.tab_sender"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.tab_sender()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.tabs"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.tabs</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketConnection.ui_time"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketConnection.ui_time</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketJson"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketJson</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.RuntimepyWebsocketJson.kind"><code class="docutils literal notranslate"><span class="pre">RuntimepyWebsocketJson.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection"><code class="docutils literal notranslate"><span class="pre">TcpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.app"><code class="docutils literal notranslate"><span class="pre">TcpConnection.app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.close"><code class="docutils literal notranslate"><span class="pre">TcpConnection.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">TcpConnection.create_connection()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">TcpConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.get_log_prefix"><code class="docutils literal notranslate"><span class="pre">TcpConnection.get_log_prefix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.is_ssl"><code class="docutils literal notranslate"><span class="pre">TcpConnection.is_ssl</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">TcpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.log_prefix"><code class="docutils literal notranslate"><span class="pre">TcpConnection.log_prefix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.restart"><code class="docutils literal notranslate"><span class="pre">TcpConnection.restart()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.send_binary"><code class="docutils literal notranslate"><span class="pre">TcpConnection.send_binary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.send_text"><code class="docutils literal notranslate"><span class="pre">TcpConnection.send_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.serve"><code class="docutils literal notranslate"><span class="pre">TcpConnection.serve()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.uses_binary_tx_queue"><code class="docutils literal notranslate"><span class="pre">TcpConnection.uses_binary_tx_queue</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnection.uses_text_tx_queue"><code class="docutils literal notranslate"><span class="pre">TcpConnection.uses_text_tx_queue</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory.client"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory.kind"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory.kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpConnectionFactory.server_task"><code class="docutils literal notranslate"><span class="pre">TcpConnectionFactory.server_task()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpEcho"><code class="docutils literal notranslate"><span class="pre">TcpEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpEcho.kind"><code class="docutils literal notranslate"><span class="pre">TcpEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessage"><code class="docutils literal notranslate"><span class="pre">TcpMessage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessage.kind"><code class="docutils literal notranslate"><span class="pre">TcpMessage.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessageEcho"><code class="docutils literal notranslate"><span class="pre">TcpMessageEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpMessageEcho.kind"><code class="docutils literal notranslate"><span class="pre">TcpMessageEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpNull"><code class="docutils literal notranslate"><span class="pre">TcpNull</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.TcpNull.kind"><code class="docutils literal notranslate"><span class="pre">TcpNull.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection"><code class="docutils literal notranslate"><span class="pre">UdpConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.close"><code class="docutils literal notranslate"><span class="pre">UdpConnection.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">UdpConnection.create_connection()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">UdpConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.latest_rx_address"><code class="docutils literal notranslate"><span class="pre">UdpConnection.latest_rx_address</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.log_alias"><code class="docutils literal notranslate"><span class="pre">UdpConnection.log_alias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.process_datagram"><code class="docutils literal notranslate"><span class="pre">UdpConnection.process_datagram()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.restart"><code class="docutils literal notranslate"><span class="pre">UdpConnection.restart()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.send_binary"><code class="docutils literal notranslate"><span class="pre">UdpConnection.send_binary()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.send_text"><code class="docutils literal notranslate"><span class="pre">UdpConnection.send_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.sendto"><code class="docutils literal notranslate"><span class="pre">UdpConnection.sendto()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.set_remote_address"><code class="docutils literal notranslate"><span class="pre">UdpConnection.set_remote_address()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.should_connect"><code class="docutils literal notranslate"><span class="pre">UdpConnection.should_connect</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.uses_binary_tx_queue"><code class="docutils literal notranslate"><span class="pre">UdpConnection.uses_binary_tx_queue</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnection.uses_text_tx_queue"><code class="docutils literal notranslate"><span class="pre">UdpConnection.uses_text_tx_queue</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnectionFactory"><code class="docutils literal notranslate"><span class="pre">UdpConnectionFactory</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnectionFactory.client"><code class="docutils literal notranslate"><span class="pre">UdpConnectionFactory.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpConnectionFactory.kind"><code class="docutils literal notranslate"><span class="pre">UdpConnectionFactory.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpEcho"><code class="docutils literal notranslate"><span class="pre">UdpEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpEcho.kind"><code class="docutils literal notranslate"><span class="pre">UdpEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessage"><code class="docutils literal notranslate"><span class="pre">UdpMessage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessage.kind"><code class="docutils literal notranslate"><span class="pre">UdpMessage.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessageEcho"><code class="docutils literal notranslate"><span class="pre">UdpMessageEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpMessageEcho.kind"><code class="docutils literal notranslate"><span class="pre">UdpMessageEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpNull"><code class="docutils literal notranslate"><span class="pre">UdpNull</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.UdpNull.kind"><code class="docutils literal notranslate"><span class="pre">UdpNull.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.app"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.client"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.close"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_connection()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.serve"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.serve()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnection.server_handler"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.server_handler()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory.client"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory.client()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory.kind"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory.kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketConnectionFactory.server_task"><code class="docutils literal notranslate"><span class="pre">WebsocketConnectionFactory.server_task()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketEcho"><code class="docutils literal notranslate"><span class="pre">WebsocketEcho</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketEcho.kind"><code class="docutils literal notranslate"><span class="pre">WebsocketEcho.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketNull"><code class="docutils literal notranslate"><span class="pre">WebsocketNull</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.factories.WebsocketNull.kind"><code class="docutils literal notranslate"><span class="pre">WebsocketNull.kind</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

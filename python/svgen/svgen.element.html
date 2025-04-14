@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>svgen.element package &#8212; svgen  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'svgen.element';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="svgen.element.html package" href="svgen.element.html.html" />
+    <link rel="prev" title="svgen.color.theme package" href="svgen.color.theme.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="svgen  documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="svgen  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="svgen.html">svgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html">svgen.attribute package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.cartesian.html">svgen.cartesian package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.rectangle.html">svgen.cartesian.rectangle package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.color.html">svgen.color package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.theme.html">svgen.color.theme package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">svgen.element package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html.html">svgen.element.html package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.mixins.html">svgen.element.mixins package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.generation.html">svgen.generation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html">svgen.shapes package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/svgen.element.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>svgen.element package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.circle">svgen.element.circle module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.center"><code class="docutils literal notranslate"><span class="pre">Circle.center</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.centered"><code class="docutils literal notranslate"><span class="pre">Circle.centered()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.create"><code class="docutils literal notranslate"><span class="pre">Circle.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.radius"><code class="docutils literal notranslate"><span class="pre">Circle.radius</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.scale"><code class="docutils literal notranslate"><span class="pre">Circle.scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.translate"><code class="docutils literal notranslate"><span class="pre">Circle.translate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.line">svgen.element.line module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.Line"><code class="docutils literal notranslate"><span class="pre">Line</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.Line.create"><code class="docutils literal notranslate"><span class="pre">Line.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.Line.translate"><code class="docutils literal notranslate"><span class="pre">Line.translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.rect">svgen.element.rect module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.bottom_left"><code class="docutils literal notranslate"><span class="pre">Rect.bottom_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.bottom_right"><code class="docutils literal notranslate"><span class="pre">Rect.bottom_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.centered"><code class="docutils literal notranslate"><span class="pre">Rect.centered()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.corner"><code class="docutils literal notranslate"><span class="pre">Rect.corner()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.create"><code class="docutils literal notranslate"><span class="pre">Rect.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.grid"><code class="docutils literal notranslate"><span class="pre">Rect.grid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.height"><code class="docutils literal notranslate"><span class="pre">Rect.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.scale"><code class="docutils literal notranslate"><span class="pre">Rect.scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.scale_whole"><code class="docutils literal notranslate"><span class="pre">Rect.scale_whole()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.square"><code class="docutils literal notranslate"><span class="pre">Rect.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.to_square"><code class="docutils literal notranslate"><span class="pre">Rect.to_square()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.top_left"><code class="docutils literal notranslate"><span class="pre">Rect.top_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.top_right"><code class="docutils literal notranslate"><span class="pre">Rect.top_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.translate"><code class="docutils literal notranslate"><span class="pre">Rect.translate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.width"><code class="docutils literal notranslate"><span class="pre">Rect.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.svg">svgen.element.svg module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.svg.Svg"><code class="docutils literal notranslate"><span class="pre">Svg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.svg.add_background_grid"><code class="docutils literal notranslate"><span class="pre">add_background_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.text">svgen.element.text module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.text.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.text.Text.has_dimensions"><code class="docutils literal notranslate"><span class="pre">Text.has_dimensions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.add_attribute"><code class="docutils literal notranslate"><span class="pre">Element.add_attribute()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.add_class"><code class="docutils literal notranslate"><span class="pre">Element.add_class()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.closing"><code class="docutils literal notranslate"><span class="pre">Element.closing()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.encode"><code class="docutils literal notranslate"><span class="pre">Element.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.encode_str"><code class="docutils literal notranslate"><span class="pre">Element.encode_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.style"><code class="docutils literal notranslate"><span class="pre">Element.style</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.xml"><code class="docutils literal notranslate"><span class="pre">Element.xml</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="svgen-element-package">
+<h1>svgen.element package<a class="headerlink" href="#svgen-element-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="svgen.element.html.html">svgen.element.html package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html.html#module-svgen.element.html">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html.html#svgen.element.html.Html"><code class="docutils literal notranslate"><span class="pre">Html</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html.html#svgen.element.html.Html.render"><code class="docutils literal notranslate"><span class="pre">Html.render()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html.html#svgen.element.html.div"><code class="docutils literal notranslate"><span class="pre">div()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="svgen.element.mixins.html">svgen.element.mixins package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.mixins.html#module-svgen.element.mixins">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.FillColorMixin"><code class="docutils literal notranslate"><span class="pre">FillColorMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.FillColorMixin.assign_fill_color"><code class="docutils literal notranslate"><span class="pre">FillColorMixin.assign_fill_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.FillColorMixin.fill_color"><code class="docutils literal notranslate"><span class="pre">FillColorMixin.fill_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.FillColorMixin.has_fill_color"><code class="docutils literal notranslate"><span class="pre">FillColorMixin.has_fill_color</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RadiusXyMixin"><code class="docutils literal notranslate"><span class="pre">RadiusXyMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RadiusXyMixin.radius_xy_attributes"><code class="docutils literal notranslate"><span class="pre">RadiusXyMixin.radius_xy_attributes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RectangularMixin"><code class="docutils literal notranslate"><span class="pre">RectangularMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RectangularMixin.has_dimensions"><code class="docutils literal notranslate"><span class="pre">RectangularMixin.has_dimensions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RectangularMixin.rect_attributes"><code class="docutils literal notranslate"><span class="pre">RectangularMixin.rect_attributes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-svgen.element.circle">
+<span id="svgen-element-circle-module"></span><h2>svgen.element.circle module<a class="headerlink" href="#module-svgen.element.circle" title="Link to this heading">#</a></h2>
+<p>svgen - A module for the ‘circle’ element.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.element.circle.Circle">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.element.circle.</span></span><span class="sig-name descname"><span class="pre">Circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.circle.Circle" title="svgen.cartesian.circle.Circle"><span class="pre">Circle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/element/circle.html#Circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.circle.Circle" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#svgen.element.Element" title="svgen.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>A class for circle elements.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.circle.Circle.center">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.element.circle.Circle.center" title="Link to this definition">#</a></dt>
+<dd><p>Get this circle’s center.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.circle.Circle.centered">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">centered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">box</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox" title="svgen.attribute.viewbox.ViewBox"><span class="pre">ViewBox</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.rectangle.html#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fill'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.circle.Circle" title="svgen.element.circle.Circle"><span class="pre">Circle</span></a></span></span><a class="reference internal" href="_modules/svgen/element/circle.html#Circle.centered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.circle.Circle.centered" title="Link to this definition">#</a></dt>
+<dd><p>From a viewBox, create a circle that is centered with an appropriately
+scaled radius.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.circle.Circle.create">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fill'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.circle.Circle" title="svgen.element.circle.Circle"><span class="pre">Circle</span></a></span></span><a class="reference internal" href="_modules/svgen/element/circle.html#Circle.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.circle.Circle.create" title="Link to this definition">#</a></dt>
+<dd><p>Create a circle from a point and radius.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.circle.Circle.radius">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.element.circle.Circle.radius" title="Link to this definition">#</a></dt>
+<dd><p>Get this circle’s radius.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.circle.Circle.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.circle.Circle" title="svgen.element.circle.Circle"><span class="pre">Circle</span></a></span></span><a class="reference internal" href="_modules/svgen/element/circle.html#Circle.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.circle.Circle.scale" title="Link to this definition">#</a></dt>
+<dd><p>Scale this circle’s radius.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.circle.Circle.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">move</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.circle.Circle" title="svgen.element.circle.Circle"><span class="pre">Circle</span></a></span></span><a class="reference internal" href="_modules/svgen/element/circle.html#Circle.translate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.circle.Circle.translate" title="Link to this definition">#</a></dt>
+<dd><p>Move this circle by a given translation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-svgen.element.line">
+<span id="svgen-element-line-module"></span><h2>svgen.element.line module<a class="headerlink" href="#module-svgen.element.line" title="Link to this heading">#</a></h2>
+<p>svgen - A module for the ‘line’ element.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.element.line.Line">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.element.line.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/element/line.html#Line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.line.Line" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#svgen.element.Element" title="svgen.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>A definition of a line.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.line.Line.create">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.line.Line" title="svgen.element.line.Line"><span class="pre">Line</span></a></span></span><a class="reference internal" href="_modules/svgen/element/line.html#Line.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.line.Line.create" title="Link to this definition">#</a></dt>
+<dd><p>Create a line.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.line.Line.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">move</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.line.Line" title="svgen.element.line.Line"><span class="pre">Line</span></a></span></span><a class="reference internal" href="_modules/svgen/element/line.html#Line.translate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.line.Line.translate" title="Link to this definition">#</a></dt>
+<dd><p>Move a rectangle by a given translation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.element.line.line">
+<span class="sig-prename descclassname"><span class="pre">svgen.element.line.</span></span><span class="sig-name descname"><span class="pre">line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.line.Line" title="svgen.element.line.Line"><span class="pre">Line</span></a></span></span><a class="reference internal" href="_modules/svgen/element/line.html#line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.line.line" title="Link to this definition">#</a></dt>
+<dd><p>Create a line.</p>
+</dd></dl>
+
+</section>
+<section id="module-svgen.element.rect">
+<span id="svgen-element-rect-module"></span><h2>svgen.element.rect module<a class="headerlink" href="#module-svgen.element.rect" title="Link to this heading">#</a></h2>
+<p>svgen - A module for the ‘rect’ element.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.element.rect.</span></span><span class="sig-name descname"><span class="pre">Rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.rectangle.html#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.FillColorMixin" title="svgen.element.mixins.FillColorMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">FillColorMixin</span></code></a>, <a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RectangularMixin" title="svgen.element.mixins.RectangularMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RectangularMixin</span></code></a>, <a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RadiusXyMixin" title="svgen.element.mixins.RadiusXyMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RadiusXyMixin</span></code></a></p>
+<p>A class for rect elements.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.bottom_left">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.element.rect.Rect.bottom_left" title="Link to this definition">#</a></dt>
+<dd><p>Get the bottom left corner point.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.bottom_right">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bottom_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.element.rect.Rect.bottom_right" title="Link to this definition">#</a></dt>
+<dd><p>Get the bottom right corner point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.centered">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">centered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">box</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox" title="svgen.attribute.viewbox.ViewBox"><span class="pre">ViewBox</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.rectangle.html#svgen.cartesian.rectangle.Rectangle" title="svgen.cartesian.rectangle.Rectangle"><span class="pre">Rectangle</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.color.html#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fill'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">square</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.rect.Rect" title="svgen.element.rect.Rect"><span class="pre">Rect</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.centered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.centered" title="Link to this definition">#</a></dt>
+<dd><p>From a viewBox, created a centered-and-scaled rectangle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.corner">
+<span class="sig-name descname"><span class="pre">corner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.rectangle.html#svgen.cartesian.rectangle.corner.RectangleCorner" title="svgen.cartesian.rectangle.corner.RectangleCorner"><span class="pre">RectangleCorner</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.corner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.corner" title="Link to this definition">#</a></dt>
+<dd><p>Get a specific corner of a rectangle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.create">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">False,</span> <span class="pre">-1)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.rect.Rect" title="svgen.element.rect.Rect"><span class="pre">Rect</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.create" title="Link to this definition">#</a></dt>
+<dd><p>Create a rectangle element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.grid">
+<span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="svgen.cartesian.rectangle.html#svgen.cartesian.rectangle.grid.RectangleGrid" title="svgen.cartesian.rectangle.grid.RectangleGrid"><span class="pre">RectangleGrid</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.grid" title="Link to this definition">#</a></dt>
+<dd><p>Create a grid from this rectangle.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.height">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.element.rect.Rect.height" title="Link to this definition">#</a></dt>
+<dd><p>Get the height of this rectangle element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.rect.Rect" title="svgen.element.rect.Rect"><span class="pre">Rect</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.scale" title="Link to this definition">#</a></dt>
+<dd><p>Scale this rectangle’s width and height.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.scale_whole">
+<span class="sig-name descname"><span class="pre">scale_whole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.rect.Rect" title="svgen.element.rect.Rect"><span class="pre">Rect</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.scale_whole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.scale_whole" title="Link to this definition">#</a></dt>
+<dd><p>Scale width and height of this rectangle equally.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.square">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.element.rect.Rect.square" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this rectangle is square.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.to_square">
+<span class="sig-name descname"><span class="pre">to_square</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.rect.Rect" title="svgen.element.rect.Rect"><span class="pre">Rect</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.to_square"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.to_square" title="Link to this definition">#</a></dt>
+<dd><p>Convert this rectangle to a square.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.top_left">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.element.rect.Rect.top_left" title="Link to this definition">#</a></dt>
+<dd><p>Get the top left corner point.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.top_right">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">top_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point" title="svgen.cartesian.point.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#svgen.element.rect.Rect.top_right" title="Link to this definition">#</a></dt>
+<dd><p>Get the top right corner point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">move</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation" title="svgen.cartesian.mutate.Translation"><span class="pre">Translation</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.element.rect.Rect" title="svgen.element.rect.Rect"><span class="pre">Rect</span></a></span></span><a class="reference internal" href="_modules/svgen/element/rect.html#Rect.translate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.rect.Rect.translate" title="Link to this definition">#</a></dt>
+<dd><p>Move this rectangle by a given translation.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.rect.Rect.width">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.element.rect.Rect.width" title="Link to this definition">#</a></dt>
+<dd><p>Get the width of this rectangle element.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-svgen.element.svg">
+<span id="svgen-element-svg-module"></span><h2>svgen.element.svg module<a class="headerlink" href="#module-svgen.element.svg" title="Link to this heading">#</a></h2>
+<p>svgen - A module for the ‘svg’ element.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.element.svg.Svg">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.element.svg.</span></span><span class="sig-name descname"><span class="pre">Svg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viewbox</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox" title="svgen.attribute.viewbox.ViewBox"><span class="pre">ViewBox</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">document</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/element/svg.html#Svg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.svg.Svg" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#svgen.element.Element" title="svgen.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>A class for svg elements.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="svgen.element.svg.add_background_grid">
+<span class="sig-prename descclassname"><span class="pre">svgen.element.svg.</span></span><span class="sig-name descname"><span class="pre">add_background_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">svg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.element.svg.Svg" title="svgen.element.svg.Svg"><span class="pre">Svg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/element/svg.html#add_background_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.svg.add_background_grid" title="Link to this definition">#</a></dt>
+<dd><p>Add background and grid objects to an svg element, if they’re specified
+in their respective configurations.</p>
+</dd></dl>
+
+</section>
+<section id="module-svgen.element.text">
+<span id="svgen-element-text-module"></span><h2>svgen.element.text module<a class="headerlink" href="#module-svgen.element.text" title="Link to this heading">#</a></h2>
+<p>A module for the ‘text’ element.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.element.text.Text">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.element.text.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.element.rect.Rect" title="svgen.element.rect.Rect"><span class="pre">Rect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/element/text.html#Text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.text.Text" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.FillColorMixin" title="svgen.element.mixins.FillColorMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">FillColorMixin</span></code></a>, <a class="reference internal" href="svgen.element.mixins.html#svgen.element.mixins.RectangularMixin" title="svgen.element.mixins.RectangularMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RectangularMixin</span></code></a></p>
+<p>A class for text elements</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="svgen.element.text.Text.has_dimensions">
+<span class="sig-name descname"><span class="pre">has_dimensions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#svgen.element.text.Text.has_dimensions" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-svgen.element">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-svgen.element" title="Link to this heading">#</a></h2>
+<p>svgen - Common interfaces and assets for SVG elements.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="svgen.element.Element">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.element.</span></span><span class="sig-name descname"><span class="pre">Element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrib</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#svgen.element.Element" title="svgen.element.Element"><span class="pre">Element</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_no_end_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preformatted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/element.html#Element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.Element" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A basic interface for an SVG element.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.Element.add_attribute">
+<span class="sig-name descname"><span class="pre">add_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.attribute.html#svgen.attribute.Attribute" title="svgen.attribute.Attribute"><span class="pre">Attribute</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/svgen/element.html#Element.add_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.Element.add_attribute" title="Link to this definition">#</a></dt>
+<dd><p>Add an attribute to this element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.Element.add_class">
+<span class="sig-name descname"><span class="pre">add_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/svgen/element.html#Element.add_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.Element.add_class" title="Link to this definition">#</a></dt>
+<dd><p>Add a class string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.Element.closing">
+<span class="sig-name descname"><span class="pre">closing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/svgen/element.html#Element.closing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.Element.closing" title="Link to this definition">#</a></dt>
+<dd><p>Create a string to close this element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.Element.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quote</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&quot;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newlines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/element.html#Element.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.Element.encode" title="Link to this definition">#</a></dt>
+<dd><p>Encode this element to a string stream.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="svgen.element.Element.encode_str">
+<span class="sig-name descname"><span class="pre">encode_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quote</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&quot;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newlines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/svgen/element.html#Element.encode_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.element.Element.encode_str" title="Link to this definition">#</a></dt>
+<dd><p>Encode this element to a string.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.Element.style">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.style.Style" title="svgen.attribute.style.Style"><span class="pre">Style</span></a></em><a class="headerlink" href="#svgen.element.Element.style" title="Link to this definition">#</a></dt>
+<dd><p>Get the style attribute for this element.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="svgen.element.Element.xml">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xml</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Element</span></em><a class="headerlink" href="#svgen.element.Element.xml" title="Link to this definition">#</a></dt>
+<dd><p>Get this element as an xml element.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="svgen.color.theme.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">svgen.color.theme package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="svgen.element.html.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">svgen.element.html package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.circle">svgen.element.circle module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.center"><code class="docutils literal notranslate"><span class="pre">Circle.center</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.centered"><code class="docutils literal notranslate"><span class="pre">Circle.centered()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.create"><code class="docutils literal notranslate"><span class="pre">Circle.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.radius"><code class="docutils literal notranslate"><span class="pre">Circle.radius</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.scale"><code class="docutils literal notranslate"><span class="pre">Circle.scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.circle.Circle.translate"><code class="docutils literal notranslate"><span class="pre">Circle.translate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.line">svgen.element.line module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.Line"><code class="docutils literal notranslate"><span class="pre">Line</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.Line.create"><code class="docutils literal notranslate"><span class="pre">Line.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.Line.translate"><code class="docutils literal notranslate"><span class="pre">Line.translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.line.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.rect">svgen.element.rect module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.bottom_left"><code class="docutils literal notranslate"><span class="pre">Rect.bottom_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.bottom_right"><code class="docutils literal notranslate"><span class="pre">Rect.bottom_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.centered"><code class="docutils literal notranslate"><span class="pre">Rect.centered()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.corner"><code class="docutils literal notranslate"><span class="pre">Rect.corner()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.create"><code class="docutils literal notranslate"><span class="pre">Rect.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.grid"><code class="docutils literal notranslate"><span class="pre">Rect.grid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.height"><code class="docutils literal notranslate"><span class="pre">Rect.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.scale"><code class="docutils literal notranslate"><span class="pre">Rect.scale()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.scale_whole"><code class="docutils literal notranslate"><span class="pre">Rect.scale_whole()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.square"><code class="docutils literal notranslate"><span class="pre">Rect.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.to_square"><code class="docutils literal notranslate"><span class="pre">Rect.to_square()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.top_left"><code class="docutils literal notranslate"><span class="pre">Rect.top_left</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.top_right"><code class="docutils literal notranslate"><span class="pre">Rect.top_right</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.translate"><code class="docutils literal notranslate"><span class="pre">Rect.translate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.rect.Rect.width"><code class="docutils literal notranslate"><span class="pre">Rect.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.svg">svgen.element.svg module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.svg.Svg"><code class="docutils literal notranslate"><span class="pre">Svg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.svg.add_background_grid"><code class="docutils literal notranslate"><span class="pre">add_background_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element.text">svgen.element.text module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.text.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.text.Text.has_dimensions"><code class="docutils literal notranslate"><span class="pre">Text.has_dimensions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.element">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.add_attribute"><code class="docutils literal notranslate"><span class="pre">Element.add_attribute()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.add_class"><code class="docutils literal notranslate"><span class="pre">Element.add_class()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.closing"><code class="docutils literal notranslate"><span class="pre">Element.closing()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.encode"><code class="docutils literal notranslate"><span class="pre">Element.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.encode_str"><code class="docutils literal notranslate"><span class="pre">Element.encode_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.style"><code class="docutils literal notranslate"><span class="pre">Element.style</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.element.Element.xml"><code class="docutils literal notranslate"><span class="pre">Element.xml</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
