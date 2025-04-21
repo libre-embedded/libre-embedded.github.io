@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=3.2.1
-    hash=13cfc4801a19254834415bc27d87e762
+    hash=1ca87ec4e6a8246bd931d4e8503bab02
     =====================================
 -->
 
@@ -19,7 +19,7 @@
 *Libre Embedded Engineering Technologies LLC* is an engineering consultancy
 and product development company.
 
-([site](https://libre-embedded.com), [source](https://github.com/libre-embedded))
+([website](https://libre-embedded.com), [source](https://github.com/libre-embedded))
 
 ### Contact
 
