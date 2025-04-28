@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>runtimepy.net.html.bootstrap &#8212; runtimepy  documentation</title>
+    <title>runtimepy.net.html.bootstrap &#8212; documentation</title>
   
   
   
@@ -40,6 +40,7 @@
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/runtimepy/net/html/bootstrap';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -135,8 +136,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -376,27 +377,65 @@ document.write(`
 
 
 
+<span class="n">BOOTSTRAP_ICONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;bootstrap-icons.min.css&quot;</span>
+
+
+<div class="viewcode-block" id="bootstrap_icons_url_base">
+<a class="viewcode-back" href="../../../../runtimepy.net.html.bootstrap.html#runtimepy.net.html.bootstrap.bootstrap_icons_url_base">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bootstrap_icons_url_base</span><span class="p">(</span><span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ICONS_VERSION</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a base URL for bootstrap icon dependencies.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">CDN</span><span class="si">}</span><span class="s2">/npm/bootstrap-icons@</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">/font&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="bootstrap_icons_url">
+<a class="viewcode-back" href="../../../../runtimepy.net.html.bootstrap.html#runtimepy.net.html.bootstrap.bootstrap_icons_url">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bootstrap_icons_url</span><span class="p">(</span><span class="n">online</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ICONS_VERSION</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a URL for bootstrap-icons CSS.&quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">BOOTSTRAP_ICONS_FILE</span>
+    <span class="k">if</span> <span class="n">online</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">bootstrap_icons_url_base</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span> <span class="o">+</span> <span class="n">path</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/static/css&quot;</span> <span class="o">+</span> <span class="n">path</span>
+
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+
+<span class="n">BOOTSTRAP_CSS_FILE</span> <span class="o">=</span> <span class="s2">&quot;bootstrap.min.css&quot;</span>
+
+
+<div class="viewcode-block" id="bootsrap_css_url">
+<a class="viewcode-back" href="../../../../runtimepy.net.html.bootstrap.html#runtimepy.net.html.bootstrap.bootsrap_css_url">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bootsrap_css_url</span><span class="p">(</span><span class="n">online</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">BOOTSTRAP_VERSION</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a URL for bootstrap&#39;s CSS.&quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/css/&quot;</span> <span class="o">+</span> <span class="n">BOOTSTRAP_CSS_FILE</span>
+    <span class="k">if</span> <span class="n">online</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">CDN</span><span class="si">}</span><span class="s2">/npm/bootstrap@</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">/dist&quot;</span> <span class="o">+</span> <span class="n">path</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/static&quot;</span> <span class="o">+</span> <span class="n">path</span>
+
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+
 <div class="viewcode-block" id="add_bootstrap_css">
 <a class="viewcode-back" href="../../../../runtimepy.net.html.bootstrap.html#runtimepy.net.html.bootstrap.add_bootstrap_css">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">add_bootstrap_css</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_bootstrap_css</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">online</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add boostrap CSS sources as a child of element.&quot;&quot;&quot;</span>
 
     <span class="n">div</span><span class="p">(</span>
         <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;link&quot;</span><span class="p">,</span>
         <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="p">,</span>
-        <span class="n">href</span><span class="o">=</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">CDN</span><span class="si">}</span><span class="s2">/npm/&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;bootstrap-icons@</span><span class="si">{</span><span class="n">ICONS_VERSION</span><span class="si">}</span><span class="s2">/font/bootstrap-icons.min.css&quot;</span>
-        <span class="p">),</span>
+        <span class="n">href</span><span class="o">=</span><span class="n">bootstrap_icons_url</span><span class="p">(</span><span class="n">online</span><span class="p">),</span>
         <span class="n">parent</span><span class="o">=</span><span class="n">element</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">div</span><span class="p">(</span>
         <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;link&quot;</span><span class="p">,</span>
-        <span class="n">href</span><span class="o">=</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">CDN</span><span class="si">}</span><span class="s2">/npm/bootstrap&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;@</span><span class="si">{</span><span class="n">BOOTSTRAP_VERSION</span><span class="si">}</span><span class="s2">/dist/css/bootstrap.min.css&quot;</span>
-        <span class="p">),</span>
+        <span class="n">href</span><span class="o">=</span><span class="n">bootsrap_css_url</span><span class="p">(</span><span class="n">online</span><span class="p">),</span>
         <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="p">,</span>
         <span class="n">crossorigin</span><span class="o">=</span><span class="s2">&quot;anonymous&quot;</span><span class="p">,</span>
         <span class="n">parent</span><span class="o">=</span><span class="n">element</span><span class="p">,</span>
@@ -404,17 +443,32 @@ document.write(`
 
 
 
+<span class="n">BOOTSTRAP_JS_FILE</span> <span class="o">=</span> <span class="s2">&quot;bootstrap.bundle.min.js&quot;</span>
+
+
+<div class="viewcode-block" id="bootstrap_js_url">
+<a class="viewcode-back" href="../../../../runtimepy.net.html.bootstrap.html#runtimepy.net.html.bootstrap.bootstrap_js_url">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bootstrap_js_url</span><span class="p">(</span><span class="n">online</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">BOOTSTRAP_VERSION</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get bootstrap&#39;s JavaScript URL.&quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/js/&quot;</span> <span class="o">+</span> <span class="n">BOOTSTRAP_JS_FILE</span>
+    <span class="k">if</span> <span class="n">online</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://cdn.jsdelivr.net/npm/bootstrap@</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">/dist&quot;</span> <span class="o">+</span> <span class="n">path</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/static&quot;</span> <span class="o">+</span> <span class="n">path</span>
+
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+
 <div class="viewcode-block" id="add_bootstrap_js">
 <a class="viewcode-back" href="../../../../runtimepy.net.html.bootstrap.html#runtimepy.net.html.bootstrap.add_bootstrap_js">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">add_bootstrap_js</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_bootstrap_js</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">online</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add bootstrap JavaScript as a child of element.&quot;&quot;&quot;</span>
 
     <span class="n">div</span><span class="p">(</span>
         <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;script&quot;</span><span class="p">,</span>
-        <span class="n">src</span><span class="o">=</span><span class="p">(</span>
-            <span class="s2">&quot;https://cdn.jsdelivr.net/npm/bootstrap&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;@</span><span class="si">{</span><span class="n">BOOTSTRAP_VERSION</span><span class="si">}</span><span class="s2">/dist/js/bootstrap.bundle.min.js&quot;</span>
-        <span class="p">),</span>
+        <span class="n">src</span><span class="o">=</span><span class="n">bootstrap_js_url</span><span class="p">(</span><span class="n">online</span><span class="p">),</span>
         <span class="n">crossorigin</span><span class="o">=</span><span class="s2">&quot;anonymous&quot;</span><span class="p">,</span>
         <span class="n">parent</span><span class="o">=</span><span class="n">element</span><span class="p">,</span>
     <span class="p">)</span></div>

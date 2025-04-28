@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>runtimepy.net.html &#8212; runtimepy  documentation</title>
+    <title>runtimepy.net.html &#8212; documentation</title>
   
   
   
@@ -40,6 +40,7 @@
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/runtimepy/net/html';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -135,8 +136,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -431,11 +432,11 @@ document.write(`
 
 <div class="viewcode-block" id="common_css">
 <a class="viewcode-back" href="../../../runtimepy.net.html.html#runtimepy.net.html.common_css">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">common_css</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="n">Html</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">common_css</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="n">Html</span><span class="p">,</span> <span class="n">online</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add common CSS to an HTML document.&quot;&quot;&quot;</span>
 
     <span class="n">append_kind</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">head</span><span class="p">,</span> <span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;css&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;style&quot;</span><span class="p">)</span>
-    <span class="n">add_bootstrap_css</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">head</span><span class="p">)</span>
+    <span class="n">add_bootstrap_css</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">head</span><span class="p">,</span> <span class="n">online</span><span class="p">)</span>
     <span class="n">append_kind</span><span class="p">(</span>
         <span class="n">document</span><span class="o">.</span><span class="n">head</span><span class="p">,</span> <span class="s2">&quot;main&quot;</span><span class="p">,</span> <span class="s2">&quot;bootstrap_extra&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;css&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;style&quot;</span>
     <span class="p">)</span></div>
@@ -445,7 +446,10 @@ document.write(`
 <div class="viewcode-block" id="full_markdown_page">
 <a class="viewcode-back" href="../../../runtimepy.net.html.html#runtimepy.net.html.full_markdown_page">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">full_markdown_page</span><span class="p">(</span>
-    <span class="n">document</span><span class="p">:</span> <span class="n">Html</span><span class="p">,</span> <span class="n">markdown</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">uri_query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">document</span><span class="p">:</span> <span class="n">Html</span><span class="p">,</span>
+    <span class="n">markdown</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">uri_query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">online</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Render a full markdown HTML app.&quot;&quot;&quot;</span>
 
@@ -476,7 +480,7 @@ document.write(`
 
     <span class="c1"># JavaScript.</span>
     <span class="n">append_kind</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="s2">&quot;util&quot;</span><span class="p">,</span> <span class="s2">&quot;markdown_page&quot;</span><span class="p">)</span>
-    <span class="n">add_bootstrap_js</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">)</span></div>
+    <span class="n">add_bootstrap_js</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="n">online</span><span class="p">)</span></div>
 
 
 

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vcorelib.io.archive &#8212; vcorelib  documentation</title>
+    <title>vcorelib.io.archive &#8212; documentation</title>
   
   
   
@@ -40,6 +40,7 @@
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/vcorelib/io/archive';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -135,8 +136,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="vcorelib  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="vcorelib  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -353,7 +354,11 @@ document.write(`
 <div class="viewcode-block" id="extractall">
 <a class="viewcode-back" href="../../../vcorelib.io.archive.html#vcorelib.io.archive.extractall">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">extractall</span><span class="p">(</span>
-    <span class="n">src</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="n">_Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">extract_kwargs</span>
+    <span class="n">src</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span>
+    <span class="n">dst</span><span class="p">:</span> <span class="n">_Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">tar_filter</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tar&quot;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">extract_kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Attempt to extract an arbitrary archive to a destination. Return whether or</span>
@@ -375,7 +380,7 @@ document.write(`
         <span class="c1"># Extract the tar archive.</span>
         <span class="k">if</span> <span class="n">ext</span> <span class="ow">is</span> <span class="n">FileExtension</span><span class="o">.</span><span class="n">TAR</span><span class="p">:</span>
             <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">src</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
-                <span class="n">safe_extract</span><span class="p">(</span><span class="n">tar</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="o">**</span><span class="n">extract_kwargs</span><span class="p">)</span>
+                <span class="n">safe_extract</span><span class="p">(</span><span class="n">tar</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">tar_filter</span><span class="p">,</span> <span class="o">**</span><span class="n">extract_kwargs</span><span class="p">)</span>
             <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
 
         <span class="c1"># Extract the ZIP archive.</span>
