@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>runtimepy.telemetry package &#8212; runtimepy  documentation</title>
+    <title>runtimepy.telemetry package &#8212; docs</title>
   
   
   
@@ -16,37 +16,42 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=1019e16c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.telemetry';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="runtimepy.tui package" href="runtimepy.tui.html" />
     <link rel="prev" title="runtimepy.task.trig package" href="runtimepy.task.trig.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -62,19 +67,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -82,7 +76,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -90,8 +83,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -107,7 +100,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -136,25 +130,21 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark pst-js-only" alt="docs - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -255,9 +245,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -340,7 +335,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -354,25 +349,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -454,7 +441,7 @@ document.write(`
 <p>A module implementing a simple telemetry sample interface.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetry">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetry</span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetry" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetry</span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetry" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.udp.UdpConnectionFactory" title="runtimepy.net.arbiter.udp.UdpConnectionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnectionFactory</span></code></a>[<a class="reference internal" href="#runtimepy.telemetry.sample.SampleTelemetryTransceiver" title="runtimepy.telemetry.sample.SampleTelemetryTransceiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleTelemetryTransceiver</span></code></a>]</p>
 <p>A sample telemetry sending-and-receiving connection factory.</p>
 <dl class="py attribute">
@@ -467,7 +454,7 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryPeriodic">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryPeriodic</span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryPeriodic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryPeriodic" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryPeriodic</span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryPeriodic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryPeriodic" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.task.TaskFactory" title="runtimepy.net.arbiter.task.TaskFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaskFactory</span></code></a>[<a class="reference internal" href="#runtimepy.telemetry.sample.SampleTelemetryTask" title="runtimepy.telemetry.sample.SampleTelemetryTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleTelemetryTask</span></code></a>]</p>
 <p>A sample-task application factory.</p>
 <dl class="py attribute">
@@ -480,12 +467,12 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryStruct">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryStruct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryStruct" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryStruct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryStruct" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.struct.html#runtimepy.net.arbiter.struct.TimestampedStruct" title="runtimepy.net.arbiter.struct.TimestampedStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimestampedStruct</span></code></a></p>
 <p>A sample telemetry struct.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryStruct.byte_order">
-<span class="sig-name descname"><span class="pre">byte_order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryStruct.byte_order" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">byte_order</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryStruct.byte_order" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -498,41 +485,41 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryTask">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics" title="runtimepy.metrics.task.PeriodicTaskMetrics"><span class="pre">PeriodicTaskMetrics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'period'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics" title="runtimepy.metrics.task.PeriodicTaskMetrics"><span class="pre">PeriodicTaskMetrics</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_controls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'period'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.task.ArbiterTask" title="runtimepy.net.arbiter.task.ArbiterTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArbiterTask</span></code></a>, <a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.async_command.AsyncCommandProcessingMixin" title="runtimepy.mixins.async_command.AsyncCommandProcessingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin</span></code></a></p>
 <p>A sample telemetry task.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryTask.dispatch">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.dispatch" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.dispatch" title="Link to this definition">#</a></dt>
 <dd><p>Dispatch an iteration of this task.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryTask.flush_count">
-<span class="sig-name descname"><span class="pre">flush_count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a></em><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.flush_count" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">flush_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a></span><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.flush_count" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryTask.init">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.info.AppInfo" title="runtimepy.net.arbiter.info.AppInfo"><span class="pre">AppInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTask.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.init" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.info.AppInfo" title="runtimepy.net.arbiter.info.AppInfo"><span class="pre">AppInfo</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTask.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.init" title="Link to this definition">#</a></dt>
 <dd><p>Initialize this task with application information.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryTask.rx_conn">
-<span class="sig-name descname"><span class="pre">rx_conn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.telemetry.sample.SampleTelemetryTransceiver" title="runtimepy.telemetry.sample.SampleTelemetryTransceiver"><span class="pre">SampleTelemetryTransceiver</span></a></em><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.rx_conn" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">rx_conn</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.telemetry.sample.SampleTelemetryTransceiver" title="runtimepy.telemetry.sample.SampleTelemetryTransceiver"><span class="pre">SampleTelemetryTransceiver</span></a></span><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.rx_conn" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryTask.tx_conn">
-<span class="sig-name descname"><span class="pre">tx_conn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.telemetry.sample.SampleTelemetryTransceiver" title="runtimepy.telemetry.sample.SampleTelemetryTransceiver"><span class="pre">SampleTelemetryTransceiver</span></a></em><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.tx_conn" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">tx_conn</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.telemetry.sample.SampleTelemetryTransceiver" title="runtimepy.telemetry.sample.SampleTelemetryTransceiver"><span class="pre">SampleTelemetryTransceiver</span></a></span><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTask.tx_conn" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.telemetry.sample.SampleTelemetryTransceiver">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryTransceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.protocol.UdpQueueProtocol" title="runtimepy.net.udp.protocol.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTransceiver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTransceiver" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTelemetryTransceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.udp.html#runtimepy.net.udp.protocol.UdpQueueProtocol" title="runtimepy.net.udp.protocol.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry/sample.html#SampleTelemetryTransceiver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.sample.SampleTelemetryTransceiver" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="runtimepy.net.arbiter.struct.html#runtimepy.net.arbiter.struct.UdpStructTransceiver" title="runtimepy.net.arbiter.struct.UdpStructTransceiver"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpStructTransceiver</span></code></a>[<a class="reference internal" href="#runtimepy.telemetry.sample.SampleTelemetryStruct" title="runtimepy.telemetry.sample.SampleTelemetryStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleTelemetryStruct</span></code></a>]</p>
 <p>A sample telemetry sending connection.</p>
 <dl class="py method">
@@ -555,17 +542,17 @@ document.write(`
 <p>A module implementing a telemetry interface.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.telemetry.MessageType">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.</span></span><span class="sig-name descname"><span class="pre">MessageType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry.html#MessageType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.MessageType" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.telemetry.</span></span><span class="sig-name descname"><span class="pre">MessageType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/telemetry.html#MessageType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.telemetry.MessageType" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum" title="runtimepy.enum.registry.RuntimeIntEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeIntEnum</span></code></a></p>
 <p>An enumeration of viable message types.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.telemetry.MessageType.PROTOCOL_DATA">
-<span class="sig-name descname"><span class="pre">PROTOCOL_DATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#runtimepy.telemetry.MessageType.PROTOCOL_DATA" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PROTOCOL_DATA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#runtimepy.telemetry.MessageType.PROTOCOL_DATA" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.telemetry.MessageType.PROTOCOL_META">
-<span class="sig-name descname"><span class="pre">PROTOCOL_META</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#runtimepy.telemetry.MessageType.PROTOCOL_META" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PROTOCOL_META</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#runtimepy.telemetry.MessageType.PROTOCOL_META" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -609,14 +596,16 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.telemetry.sample">runtimepy.telemetry.sample module</a><ul class="nav section-nav flex-column">
@@ -680,7 +669,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>
@@ -704,8 +693,8 @@ By Libre Embedded
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

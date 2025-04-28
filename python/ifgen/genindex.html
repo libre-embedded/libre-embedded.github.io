@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; ifgen  documentation</title>
+    <title>Index &#8212; docs</title>
   
   
   
@@ -15,35 +15,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=52cfd690"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="4.7.7" />
   </head>
   
   
@@ -59,19 +64,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -79,7 +73,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -87,8 +80,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -106,7 +99,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -135,25 +129,21 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="ifgen  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="ifgen  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark pst-js-only" alt="docs - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="ifgen.html">ifgen package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
@@ -166,6 +156,10 @@
 <li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -191,9 +185,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -228,7 +227,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -242,24 +241,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -343,6 +334,8 @@ document.write(`
 </li>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.alternates">alternates (ifgen.svd.model.derived.DerivedMixin property)</a>
 </li>
+      <li><a href="ifgen.generation.html#ifgen.generation.interface.apply_cpp_namespace">apply_cpp_namespace() (in module ifgen.generation.interface)</a>
+</li>
       <li><a href="ifgen.svd.group.html#ifgen.svd.group.enums.as_alnum">as_alnum() (in module ifgen.svd.group.enums)</a>
 </li>
       <li><a href="ifgen.struct.html#ifgen.struct.test.assert_line">assert_line() (in module ifgen.struct.test)</a>
@@ -350,8 +343,6 @@ document.write(`
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.assign_cpu">assign_cpu() (ifgen.svd.model.SvdModel method)</a>
 </li>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.assign_device">assign_device() (ifgen.svd.model.SvdModel method)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.assignment">assignment() (in module ifgen.struct.methods.swap)</a>
 </li>
       <li><a href="ifgen.html#ifgen.paths.audit_init_file">audit_init_file() (in module ifgen.paths)</a>
 </li>
@@ -405,7 +396,7 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register.c_type">c_type (ifgen.svd.model.peripheral.Register property)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Language.cfg_dir_name">cfg_dir_name (ifgen.environment.Language property)</a>
+      <li><a href="ifgen.html#ifgen.enums.Language.cfg_dir_name">cfg_dir_name (ifgen.enums.Language property)</a>
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.check_custom_type">check_custom_type() (ifgen.generation.interface.GenerateTask method)</a>
 </li>
@@ -425,13 +416,15 @@ document.write(`
 </li>
       <li><a href="ifgen.commands.html#ifgen.commands.all.commands">commands() (in module ifgen.commands.all)</a>
 </li>
+      <li><a href="ifgen.common.html#ifgen.common.common_endianness">common_endianness() (in module ifgen.common)</a>
+</li>
       <li><a href="ifgen.config.html#ifgen.config.Config">Config (class in ifgen.config)</a>
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.config">config (ifgen.generation.interface.GenerateTask property)</a>
 </li>
       <li><a href="ifgen.environment.html#ifgen.environment.Directories.config_parts">config_parts (ifgen.environment.Directories attribute)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Language.CPP">CPP (ifgen.environment.Language attribute)</a>
+      <li><a href="ifgen.html#ifgen.enums.Language.CPP">CPP (ifgen.enums.Language attribute)</a>
 </li>
       <li><a href="ifgen.enum.html#ifgen.enum.header.cpp_enum_neader">cpp_enum_neader() (in module ifgen.enum.header)</a>
 </li>
@@ -442,6 +435,8 @@ document.write(`
       <li><a href="ifgen.struct.python.html#ifgen.struct.python.cpp_ns_final">cpp_ns_final() (in module ifgen.struct.python)</a>
 </li>
       <li><a href="ifgen.struct.html#ifgen.struct.header.cpp_struct_header">cpp_struct_header() (in module ifgen.struct.header)</a>
+</li>
+      <li><a href="ifgen.plugins.struct_receiver.html#ifgen.plugins.struct_receiver.cpp_struct_receiver">cpp_struct_receiver() (in module ifgen.plugins.struct_receiver)</a>
 </li>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.cpu.Cpu">Cpu (class in ifgen.svd.model.cpu)</a>
 </li>
@@ -467,20 +462,18 @@ document.write(`
         <li><a href="ifgen.enum.html#ifgen.enum.test.create_enum_test">(in module ifgen.enum.test)</a>
 </li>
       </ul></li>
+      <li><a href="ifgen.html#ifgen.paths.create_formatter">create_formatter() (in module ifgen.paths)</a>
+</li>
       <li><a href="ifgen.struct.html#ifgen.struct.create_struct">create_struct() (in module ifgen.struct)</a>
 </li>
-      <li><a href="ifgen.struct.html#ifgen.struct.create_struct_source">create_struct_source() (in module ifgen.struct)</a>
-
-      <ul>
-        <li><a href="ifgen.struct.html#ifgen.struct.source.create_struct_source">(in module ifgen.struct.source)</a>
-</li>
-      </ul></li>
       <li><a href="ifgen.struct.html#ifgen.struct.create_struct_test">create_struct_test() (in module ifgen.struct)</a>
 
       <ul>
         <li><a href="ifgen.struct.html#ifgen.struct.test.create_struct_test">(in module ifgen.struct.test)</a>
 </li>
       </ul></li>
+      <li><a href="ifgen.html#ifgen.enums.Generator.CUSTOM">CUSTOM (ifgen.enums.Generator attribute)</a>
+</li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.custom_include">custom_include() (ifgen.generation.interface.GenerateTask method)</a>
 </li>
   </ul></td>
@@ -491,11 +484,7 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.html#ifgen.schemas.IfgenDictCodec.data">data (ifgen.schemas.IfgenDictCodec attribute)</a>
 </li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.decode.decode_method">decode_method() (in module ifgen.struct.methods.decode)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.decode_primitive_swap">decode_primitive_swap() (in module ifgen.struct.methods.swap)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.decode_swapped_method">decode_swapped_method() (in module ifgen.struct.methods.swap)</a>
+      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.decode_endian">decode_endian() (in module ifgen.struct.methods)</a>
 </li>
       <li><a href="ifgen.html#ifgen.schemas.IfgenDictCodec.default_schemas">default_schemas (ifgen.schemas.IfgenDictCodec attribute)</a>
 </li>
@@ -535,17 +524,27 @@ document.write(`
 </li>
       <li><a href="ifgen.environment.html#ifgen.environment.Directories">Directories (class in ifgen.environment)</a>
 </li>
+      <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.directories">directories (ifgen.environment.IfgenEnvironment attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.encode.encode_method">encode_method() (in module ifgen.struct.methods.encode)</a>
+      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.encode_endian">encode_endian() (in module ifgen.struct.methods)</a>
 </li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.encode_primitive_swap">encode_primitive_swap() (in module ifgen.struct.methods.swap)</a>
+      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.endian_str">endian_str() (in module ifgen.struct.methods)</a>
 </li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.encode_swapped_method">encode_swapped_method() (in module ifgen.struct.methods.swap)</a>
+      <li><a href="ifgen.common.html#ifgen.common.endianness_enum">endianness_enum() (in module ifgen.common)</a>
+</li>
+      <li><a href="ifgen.common.html#ifgen.common.endianness_float">endianness_float() (in module ifgen.common)</a>
+</li>
+      <li><a href="ifgen.common.html#ifgen.common.endianness_integral">endianness_integral() (in module ifgen.common)</a>
+</li>
+      <li><a href="ifgen.common.html#ifgen.common.endianness_native">endianness_native() (in module ifgen.common)</a>
+</li>
+      <li><a href="ifgen.common.html#ifgen.common.endianness_single">endianness_single() (in module ifgen.common)</a>
 </li>
       <li><a href="ifgen.struct.html#ifgen.struct.header.enforce_expected_size">enforce_expected_size() (in module ifgen.struct.header)</a>
 </li>
@@ -559,12 +558,12 @@ document.write(`
       </ul></li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.enum">enum() (ifgen.generation.interface.GenerateTask method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.enum.html#ifgen.enum.common.enum_from_string">enum_from_string() (in module ifgen.enum.common)</a>
 </li>
       <li><a href="ifgen.enum.html#ifgen.enum.map.enum_from_string_map">enum_from_string_map() (in module ifgen.enum.map)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.enum.html#ifgen.enum.header.enum_header">enum_header() (in module ifgen.enum.header)</a>
 </li>
       <li><a href="ifgen.enum.html#ifgen.enum.header.enum_line">enum_line() (in module ifgen.enum.header)</a>
@@ -581,7 +580,7 @@ document.write(`
 </li>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.enum.EnumeratedValues">EnumeratedValues (class in ifgen.svd.model.enum)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Generator.ENUMS">ENUMS (ifgen.environment.Generator attribute)</a>
+      <li><a href="ifgen.html#ifgen.enums.Generator.ENUMS">ENUMS (ifgen.enums.Generator attribute)</a>
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.env">env (ifgen.generation.interface.GenerateTask attribute)</a>
 </li>
@@ -615,9 +614,11 @@ document.write(`
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.generate_configs">generate_configs() (ifgen.svd.task.SvdProcessingTask method)</a>
 </li>
+      <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.generated">generated (ifgen.environment.IfgenEnvironment attribute)</a>
+</li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask">GenerateTask (class in ifgen.generation.interface)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Generator">Generator (class in ifgen.environment)</a>
+      <li><a href="ifgen.html#ifgen.enums.Generator">Generator (class in ifgen.enums)</a>
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.generator">generator (ifgen.generation.interface.GenerateTask attribute)</a>
 
@@ -645,6 +646,8 @@ document.write(`
 </li>
       <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_protocol">get_protocol() (ifgen.environment.IfgenEnvironment method)</a>
 </li>
+      <li><a href="ifgen.plugins.struct_receiver.html#ifgen.plugins.struct_receiver.get_receiver_struct_names">get_receiver_struct_names() (in module ifgen.plugins.struct_receiver)</a>
+</li>
       <li><a href="ifgen.svd.html#ifgen.svd.string.get_string_values">get_string_values() (in module ifgen.svd.string)</a>
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.get_values">get_values() (ifgen.svd.string.StringKeyValueMixin class method)</a>
@@ -669,12 +672,14 @@ document.write(`
       </ul></li>
       <li><a href="ifgen.svd.group.html#ifgen.svd.group.enums.handle_duplicate">handle_duplicate() (in module ifgen.svd.group.enums)</a>
 </li>
-      <li><a href="ifgen.svd.group.html#ifgen.svd.group.enums.handle_enum_name">handle_enum_name() (in module ifgen.svd.group.enums)</a>
+      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.handle_endian">handle_endian() (in module ifgen.struct.methods)</a>
 </li>
-      <li><a href="ifgen.svd.group.html#ifgen.svd.group.handle_group">handle_group() (in module ifgen.svd.group)</a>
+      <li><a href="ifgen.svd.group.html#ifgen.svd.group.enums.handle_enum_name">handle_enum_name() (in module ifgen.svd.group.enums)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ifgen.svd.group.html#ifgen.svd.group.handle_group">handle_group() (in module ifgen.svd.group)</a>
+</li>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.handle_interrupt">handle_interrupt() (ifgen.svd.model.peripheral.Peripheral method)</a>
 </li>
       <li><a href="ifgen.svd.group.html#ifgen.svd.group.fields.handle_item">handle_item() (in module ifgen.svd.group.fields)</a>
@@ -689,7 +694,7 @@ document.write(`
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.has_instances">has_instances() (ifgen.generation.interface.GenerateTask method)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Language.header_suffix">header_suffix (ifgen.environment.Language property)</a>
+      <li><a href="ifgen.html#ifgen.enums.Language.header_suffix">header_suffix (ifgen.enums.Language property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -704,7 +709,7 @@ document.write(`
         <li><a href="ifgen.html#module-ifgen">module</a>
 </li>
       </ul></li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Generator.IFGEN">IFGEN (ifgen.environment.Generator attribute)</a>
+      <li><a href="ifgen.html#ifgen.enums.Generator.IFGEN">IFGEN (ifgen.enums.Generator attribute)</a>
 </li>
       <li>
     ifgen.app
@@ -819,6 +824,13 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    ifgen.enums
+
+      <ul>
+        <li><a href="ifgen.html#module-ifgen.enums">module</a>
+</li>
+      </ul></li>
+      <li>
     ifgen.environment
 
       <ul>
@@ -882,6 +894,20 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    ifgen.plugins
+
+      <ul>
+        <li><a href="ifgen.plugins.html#module-ifgen.plugins">module</a>
+</li>
+      </ul></li>
+      <li>
+    ifgen.plugins.struct_receiver
+
+      <ul>
+        <li><a href="ifgen.plugins.struct_receiver.html#module-ifgen.plugins.struct_receiver">module</a>
+</li>
+      </ul></li>
+      <li>
     ifgen.schemas
 
       <ul>
@@ -923,20 +949,8 @@ document.write(`
         <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.common">module</a>
 </li>
       </ul></li>
-      <li>
-    ifgen.struct.methods.decode
-
-      <ul>
-        <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.decode">module</a>
-</li>
-      </ul></li>
-      <li>
-    ifgen.struct.methods.encode
-
-      <ul>
-        <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.encode">module</a>
-</li>
-      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     ifgen.struct.methods.fields
 
@@ -944,8 +958,6 @@ document.write(`
         <li><a href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     ifgen.struct.methods.fields.common
 
@@ -968,24 +980,10 @@ document.write(`
 </li>
       </ul></li>
       <li>
-    ifgen.struct.methods.swap
-
-      <ul>
-        <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.swap">module</a>
-</li>
-      </ul></li>
-      <li>
     ifgen.struct.python
 
       <ul>
         <li><a href="ifgen.struct.python.html#module-ifgen.struct.python">module</a>
-</li>
-      </ul></li>
-      <li>
-    ifgen.struct.source
-
-      <ul>
-        <li><a href="ifgen.struct.html#module-ifgen.struct.source">module</a>
 </li>
       </ul></li>
       <li>
@@ -1155,9 +1153,13 @@ document.write(`
 </li>
       <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment">IfgenEnvironment (class in ifgen.environment)</a>
 </li>
+      <li><a href="ifgen.generation.html#ifgen.generation.interface.ifndef_guard">ifndef_guard() (in module ifgen.generation.interface)</a>
+</li>
       <li><a href="ifgen.config.html#ifgen.config.Config.init">init() (ifgen.config.Config method)</a>
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.instance">instance (ifgen.generation.interface.GenerateTask attribute)</a>
+</li>
+      <li><a href="ifgen.plugins.html#ifgen.plugins.internal_plugin_entry">internal_plugin_entry() (in module ifgen.plugins)</a>
 </li>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.interrupt.Interrupt">Interrupt (class in ifgen.svd.model.interrupt)</a>
 </li>
@@ -1197,7 +1199,7 @@ document.write(`
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ifgen.environment.html#ifgen.environment.Language">Language (class in ifgen.environment)</a>
+      <li><a href="ifgen.html#ifgen.enums.Language">Language (class in ifgen.enums)</a>
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.language">language (ifgen.generation.interface.GenerateTask attribute)</a>
 </li>
@@ -1269,6 +1271,8 @@ document.write(`
 </li>
         <li><a href="ifgen.enum.html#module-ifgen.enum.test">ifgen.enum.test</a>
 </li>
+        <li><a href="ifgen.html#module-ifgen.enums">ifgen.enums</a>
+</li>
         <li><a href="ifgen.environment.html#module-ifgen.environment">ifgen.environment</a>
 </li>
         <li><a href="ifgen.environment.html#module-ifgen.environment.field">ifgen.environment.field</a>
@@ -1287,6 +1291,10 @@ document.write(`
 </li>
         <li><a href="ifgen.html#module-ifgen.paths">ifgen.paths</a>
 </li>
+        <li><a href="ifgen.plugins.html#module-ifgen.plugins">ifgen.plugins</a>
+</li>
+        <li><a href="ifgen.plugins.struct_receiver.html#module-ifgen.plugins.struct_receiver">ifgen.plugins.struct_receiver</a>
+</li>
         <li><a href="ifgen.html#module-ifgen.schemas">ifgen.schemas</a>
 </li>
         <li><a href="ifgen.struct.html#module-ifgen.struct">ifgen.struct</a>
@@ -1299,10 +1307,6 @@ document.write(`
 </li>
         <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.common">ifgen.struct.methods.common</a>
 </li>
-        <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.decode">ifgen.struct.methods.decode</a>
-</li>
-        <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.encode">ifgen.struct.methods.encode</a>
-</li>
         <li><a href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields">ifgen.struct.methods.fields</a>
 </li>
         <li><a href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields.common">ifgen.struct.methods.fields.common</a>
@@ -1311,11 +1315,7 @@ document.write(`
 </li>
         <li><a href="ifgen.struct.methods.fields.html#module-ifgen.struct.methods.fields.setter">ifgen.struct.methods.fields.setter</a>
 </li>
-        <li><a href="ifgen.struct.methods.html#module-ifgen.struct.methods.swap">ifgen.struct.methods.swap</a>
-</li>
         <li><a href="ifgen.struct.python.html#module-ifgen.struct.python">ifgen.struct.python</a>
-</li>
-        <li><a href="ifgen.struct.html#module-ifgen.struct.source">ifgen.struct.source</a>
 </li>
         <li><a href="ifgen.struct.html#module-ifgen.struct.stream">ifgen.struct.stream</a>
 </li>
@@ -1378,20 +1378,14 @@ document.write(`
         <li><a href="ifgen.svd.model.html#ifgen.svd.model.derived.DerivedMixin.name">(ifgen.svd.model.derived.DerivedMixin property)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.namespace">namespace() (ifgen.generation.interface.GenerateTask method)</a>
 
       <ul>
         <li><a href="ifgen.svd.model.html#ifgen.svd.model.SvdModel.namespace">(ifgen.svd.model.SvdModel method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.common.native_decode">native_decode() (in module ifgen.struct.methods.common)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.common.native_encode">native_encode() (in module ifgen.struct.methods.common)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.no_swap">no_swap() (in module ifgen.struct.methods.swap)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -1442,16 +1436,18 @@ document.write(`
       </ul></li>
       <li><a href="ifgen.struct.methods.fields.html#ifgen.struct.methods.fields.common.possible_array_arg">possible_array_arg() (in module ifgen.struct.methods.fields.common)</a>
 </li>
+      <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.preprocessors">preprocessors (ifgen.environment.IfgenEnvironment attribute)</a>
+</li>
       <li><a href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.process">process() (ifgen.svd.task.SvdProcessingTask method)</a>
 </li>
       <li><a href="ifgen.svd.group.html#ifgen.svd.group.fields.process_bit_fields">process_bit_fields() (in module ifgen.svd.group.fields)</a>
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.cpu.process_cpu">process_cpu() (in module ifgen.svd.cpu)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.svd.html#ifgen.svd.device.process_device">process_device() (in module ifgen.svd.device)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.environment.html#ifgen.environment.field.process_field">process_field() (in module ifgen.environment.field)</a>
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.peripherals.process_peripheral">process_peripheral() (in module ifgen.svd.peripherals)</a>
@@ -1468,11 +1464,13 @@ document.write(`
         <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.prune_empty">(ifgen.environment.IfgenEnvironment method)</a>
 </li>
       </ul></li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Language.PYTHON">PYTHON (ifgen.environment.Language attribute)</a>
+      <li><a href="ifgen.html#ifgen.enums.Language.PYTHON">PYTHON (ifgen.enums.Language attribute)</a>
 </li>
       <li><a href="ifgen.generation.python.html#ifgen.generation.python.python_class">python_class() (in module ifgen.generation.python)</a>
 </li>
       <li><a href="ifgen.struct.python.html#ifgen.struct.python.python_dependencies">python_dependencies() (in module ifgen.struct.python)</a>
+</li>
+      <li><a href="ifgen.generation.python.html#ifgen.generation.python.python_docstring">python_docstring() (in module ifgen.generation.python)</a>
 </li>
       <li><a href="ifgen.enum.python.html#ifgen.enum.python.python_enum_header">python_enum_header() (in module ifgen.enum.python)</a>
 </li>
@@ -1487,6 +1485,8 @@ document.write(`
       <li><a href="ifgen.struct.python.html#ifgen.struct.python.python_struct_fields">python_struct_fields() (in module ifgen.struct.python)</a>
 </li>
       <li><a href="ifgen.struct.python.html#ifgen.struct.python.python_struct_header">python_struct_header() (in module ifgen.struct.python)</a>
+</li>
+      <li><a href="ifgen.plugins.struct_receiver.html#ifgen.plugins.struct_receiver.python_struct_receiver">python_struct_receiver() (in module ifgen.plugins.struct_receiver)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1512,10 +1512,10 @@ document.write(`
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.register_processors">register_processors() (in module ifgen.svd)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.registers">registers (ifgen.svd.model.peripheral.Peripheral attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.rel_include">rel_include() (ifgen.environment.IfgenEnvironment method)</a>
 </li>
       <li><a href="ifgen.svd.group.html#ifgen.svd.group.enums.remove_common_prefixes">remove_common_prefixes() (in module ifgen.svd.group.enums)</a>
@@ -1525,6 +1525,8 @@ document.write(`
       <li><a href="ifgen.environment.html#ifgen.environment.padding.PaddingManager.reset">reset() (ifgen.environment.padding.PaddingManager method)</a>
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.resolve_description">resolve_description() (ifgen.generation.interface.GenerateTask method)</a>
+</li>
+      <li><a href="ifgen.generation.html#ifgen.generation.resolve_generators">resolve_generators() (in module ifgen.generation)</a>
 </li>
       <li><a href="ifgen.svd.group.html#ifgen.svd.group.base.PeripheralGroup.root">root (ifgen.svd.group.base.PeripheralGroup attribute)</a>
 
@@ -1548,7 +1550,7 @@ document.write(`
 </li>
       <li><a href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.size">size() (ifgen.environment.IfgenEnvironment method)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Language.slug">slug (ifgen.environment.Language property)</a>
+      <li><a href="ifgen.html#ifgen.enums.Language.slug">slug (ifgen.enums.Language property)</a>
 </li>
       <li><a href="ifgen.environment.html#ifgen.environment.Directories.source">source (ifgen.environment.Directories attribute)</a>
 </li>
@@ -1556,7 +1558,7 @@ document.write(`
 </li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.source_path">source_path (ifgen.generation.interface.GenerateTask property)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Language.source_suffix">source_suffix (ifgen.environment.Language property)</a>
+      <li><a href="ifgen.html#ifgen.enums.Language.source_suffix">source_suffix (ifgen.enums.Language property)</a>
 </li>
       <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.span_method">span_method() (in module ifgen.struct.methods)</a>
 </li>
@@ -1586,23 +1588,19 @@ document.write(`
         <li><a href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin.string_keys">(ifgen.svd.string.StringKeyValueMixin class method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.enum.html#ifgen.enum.common.string_to_enum_function">string_to_enum_function() (in module ifgen.enum.common)</a>
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.string.StringKeyVal">StringKeyVal (class in ifgen.svd.string)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ifgen.svd.html#ifgen.svd.string.StringKeyValueMixin">StringKeyValueMixin (class in ifgen.svd.string)</a>
 </li>
       <li><a href="ifgen.enum.python.html#ifgen.enum.python.strip_t_suffix">strip_t_suffix() (in module ifgen.enum.python)</a>
 </li>
       <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.struct_buffer_method">struct_buffer_method() (in module ifgen.struct.methods)</a>
 </li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.decode.struct_decode">struct_decode() (in module ifgen.struct.methods.decode)</a>
-</li>
       <li><a href="ifgen.struct.html#ifgen.struct.util.struct_dependencies">struct_dependencies() (in module ifgen.struct.util)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.encode.struct_encode">struct_encode() (in module ifgen.struct.methods.encode)</a>
 </li>
       <li><a href="ifgen.struct.html#ifgen.struct.header.struct_fields">struct_fields() (in module ifgen.struct.header)</a>
 
@@ -1624,7 +1622,7 @@ document.write(`
 </li>
       <li><a href="ifgen.struct.html#ifgen.struct.stream.struct_stream_methods">struct_stream_methods() (in module ifgen.struct.stream)</a>
 </li>
-      <li><a href="ifgen.environment.html#ifgen.environment.Generator.STRUCTS">STRUCTS (ifgen.environment.Generator attribute)</a>
+      <li><a href="ifgen.html#ifgen.enums.Generator.STRUCTS">STRUCTS (ifgen.enums.Generator attribute)</a>
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask.svd">svd() (ifgen.svd.task.SvdProcessingTask static method)</a>
 </li>
@@ -1636,13 +1634,9 @@ document.write(`
 </li>
       <li><a href="ifgen.svd.html#ifgen.svd.task.SvdProcessingTask">SvdProcessingTask (class in ifgen.svd.task)</a>
 </li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.swap_enum">swap_enum() (in module ifgen.struct.methods.swap)</a>
+      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.common.swap_fields">swap_fields() (in module ifgen.struct.methods.common)</a>
 </li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.swap_fields">swap_fields() (in module ifgen.struct.methods.swap)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap_method">swap_method() (in module ifgen.struct.methods)</a>
-</li>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.swap_struct">swap_struct() (in module ifgen.struct.methods.swap)</a>
+      <li><a href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.system_width_bits">system_width_bits (ifgen.svd.model.peripheral.Peripheral attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1660,8 +1654,6 @@ document.write(`
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.swap.to_integral">to_integral() (in module ifgen.struct.methods.swap)</a>
-</li>
       <li><a href="ifgen.generation.html#ifgen.generation.json.to_json_method">to_json_method() (in module ifgen.generation.json)</a>
 </li>
       <li><a href="ifgen.svd.group.html#ifgen.svd.group.enums.translate_enums">translate_enums() (in module ifgen.svd.group.enums)</a>
@@ -1704,12 +1696,10 @@ document.write(`
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ifgen.struct.methods.html#ifgen.struct.methods.common.wrapper_method">wrapper_method() (in module ifgen.struct.methods.common)</a>
+      <li><a href="ifgen.generation.python.html#ifgen.generation.python.write_imports">write_imports() (in module ifgen.generation.python)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ifgen.generation.python.html#ifgen.generation.python.write_imports">write_imports() (in module ifgen.generation.python)</a>
-</li>
       <li><a href="ifgen.generation.html#ifgen.generation.interface.GenerateTask.write_includes">write_includes() (ifgen.generation.interface.GenerateTask method)</a>
 </li>
   </ul></td>
@@ -1753,7 +1743,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>
@@ -1777,8 +1767,8 @@ By Libre Embedded
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

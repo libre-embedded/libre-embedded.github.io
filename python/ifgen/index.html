@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ifgen &#8212; ifgen  documentation</title>
+    <title>ifgen (4.7.7) &#8212; docs</title>
   
   
   
@@ -16,36 +16,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=52cfd690"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ifgen package" href="ifgen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="4.7.7" />
   </head>
   
   
@@ -61,19 +66,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -81,7 +75,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -89,8 +82,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -108,7 +101,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -137,25 +131,21 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="ifgen  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="ifgen  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark pst-js-only" alt="docs - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="ifgen.html">ifgen package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
@@ -168,6 +158,10 @@
 <li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -193,9 +187,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -278,7 +277,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -292,25 +291,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -321,11 +314,27 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ifgen</h1>
+    <h1>ifgen (4.7.7)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ifgen (4.7.7)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -335,10 +344,81 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ifgen">
-<h1>ifgen<a class="headerlink" href="#ifgen" title="Link to this heading">#</a></h1>
+  <!--
+    =====================================
+    generator=datazen
+    version=3.2.4
+    hash=df2ec1e9f8a5bdf2800776d7cefec700
+    =====================================
+-->
+<section id="ifgen-4-7-7">
+<h1>ifgen (<a class="reference external" href="https://pypi.org/project/ifgen/">4.7.7</a>)<a class="headerlink" href="#ifgen-4-7-7" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/ifgen/"><img alt="python" src="https://img.shields.io/pypi/pyversions/ifgen.svg" /></a>
+<img alt="Build Status" src="https://github.com/libre-embedded/ifgen/workflows/Python%20Package/badge.svg" />
+<a class="reference external" href="https://codecov.io/github/libre-embedded/ifgen"><img alt="codecov" src="https://codecov.io/gh/libre-embedded/ifgen/branch/master/graphs/badge.svg?branch=master" /></a>
+<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/ifgen" />
+<img alt="Dependents (via libraries.io)" src="https://img.shields.io/librariesio/dependents/pypi/ifgen" /></p>
+<p><em>An interface generator for distributed computing.</em></p>
+<p>Consider <a class="reference external" href="https://github.com/sponsors/libre-embedded">sponsoring development</a>.</p>
+<p>(<a class="reference external" href="https://libre-embedded.github.io/python/ifgen">interface documentation</a>)</p>
+<section id="python-version-support">
+<h2>Python Version Support<a class="headerlink" href="#python-version-support" title="Link to this heading">#</a></h2>
+<p>This package is tested with the following Python minor versions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3.13/"><code class="docutils literal notranslate"><span class="pre">python3.13</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.14/"><code class="docutils literal notranslate"><span class="pre">python3.14</span></code></a></p></li>
+</ul>
+</section>
+<section id="platform-support">
+<h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading">#</a></h2>
+<p>This package is tested on the following platforms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">macos-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">windows-latest</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+</section>
+<section id="command-line-options">
+<h1>Command-line Options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/ig -h
+
+usage: ig [-h] [--version] [-v] [-q] [--curses] [--no-uvloop] [-C DIR]
+          {gen,svd,noop} ...
+
+An interface generator for distributed computing.
+
+options:
+  -h, --help      show this help message and exit
+  --version       show program&#39;s version number and exit
+  -v, --verbose   set to increase logging verbosity
+  -q, --quiet     set to reduce output
+  --curses        whether or not to use curses.wrapper when starting
+  --no-uvloop     whether or not to disable uvloop as event loop driver
+  -C, --dir DIR   execute from a specific directory
+
+commands:
+  {gen,svd,noop}  set of available commands
+    gen           generate interfaces
+    svd           process CMSIS-SVD files
+    noop          command stub (does nothing)
+
+</pre></div>
+</div>
+</section>
+<section id="internal-dependency-graph">
+<h1>Internal Dependency Graph<a class="headerlink" href="#internal-dependency-graph" title="Link to this heading">#</a></h1>
+<p>A coarse view of the internal structure and scale of
+<code class="docutils literal notranslate"><span class="pre">ifgen</span></code>’s source.
+Generated using <a class="reference external" href="https://github.com/thebjorn/pydeps">pydeps</a> (via
+<code class="docutils literal notranslate"><span class="pre">mk</span> <span class="pre">python-deps</span></code>).</p>
+<p><img alt="ifgen's Dependency Graph" src="_images/pydeps.svg" /></p>
+</section>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ifgen.html">ifgen package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.html#subpackages">Subpackages</a><ul>
@@ -387,11 +467,15 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.plugins.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.plugins.html#module-ifgen.plugins">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.header">ifgen.struct.header module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.source">ifgen.struct.source module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.stream">ifgen.struct.stream module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.test">ifgen.struct.test module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.util">ifgen.struct.util module</a></li>
@@ -422,9 +506,29 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.html#module-ifgen.enums">ifgen.enums module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.CUSTOM"><code class="docutils literal notranslate"><span class="pre">Generator.CUSTOM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.enums.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.html#module-ifgen.paths">ifgen.paths module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.paths.create_formatter"><code class="docutils literal notranslate"><span class="pre">create_formatter()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.html#module-ifgen.schemas">ifgen.schemas module</a><ul>
@@ -440,7 +544,6 @@ document.write(`
 </li>
 </ul>
 </div>
-</section>
 
 
                 </article>
@@ -469,6 +572,31 @@ document.write(`
             
             
               
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ifgen (4.7.7)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -488,7 +616,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>
@@ -512,8 +640,8 @@ By Libre Embedded
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

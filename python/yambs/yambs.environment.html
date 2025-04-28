@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>yambs.environment package &#8212; yambs  documentation</title>
+    <title>yambs.environment package &#8212; docs</title>
   
   
   
@@ -36,11 +36,12 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=dfd5ee0e"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'yambs.environment';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="yambs.generate package" href="yambs.generate.html" />
@@ -136,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="yambs  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="yambs  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -154,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="yambs.html">yambs package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
@@ -330,6 +331,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.environment.native">yambs.environment.native module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.generate"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.generate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.populate_sources"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.populate_sources()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.render"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.render()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.write_app_rules"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_app_rules()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.write_compile_line"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_compile_line()</span></code></a></li>
@@ -377,13 +379,19 @@ document.write(`
 <p>A module implementing a native-build environment.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.environment.native.</span></span><span class="sig-name descname"><span class="pre">NativeBuildEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.native.Native" title="yambs.config.native.Native"><span class="pre">Native</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yambs.environment.native.</span></span><span class="sig-name descname"><span class="pre">NativeBuildEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.native.Native" title="yambs.config.native.Native"><span class="pre">Native</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
 <p>A class implementing a native-build environment.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.generate">
 <span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.generate" title="Link to this definition">#</a></dt>
 <dd><p>Generate ninja files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.populate_sources">
+<span class="sig-name descname"><span class="pre">populate_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.populate_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.populate_sources" title="Link to this definition">#</a></dt>
+<dd><p>Populate instance metadata about source files.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -430,7 +438,7 @@ document.write(`
 <p>A module implementing a build environment state manager.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="yambs.environment.BuildEnvironment">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.environment.</span></span><span class="sig-name descname"><span class="pre">BuildEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.Config" title="yambs.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment.html#BuildEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.BuildEnvironment" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yambs.environment.</span></span><span class="sig-name descname"><span class="pre">BuildEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.Config" title="yambs.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment.html#BuildEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.BuildEnvironment" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
 <p>A class implementing a simple build environment.</p>
 <dl class="py method">
@@ -451,12 +459,12 @@ should be excluded.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="yambs.environment.SourceSets">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.environment.</span></span><span class="sig-name descname"><span class="pre">SourceSets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment.html#SourceSets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.SourceSets" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yambs.environment.</span></span><span class="sig-name descname"><span class="pre">SourceSets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment.html#SourceSets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.SourceSets" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A structure for managing different kinds of source paths.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="yambs.environment.SourceSets.apps">
-<span class="sig-name descname"><span class="pre">apps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#yambs.environment.SourceSets.apps" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">apps</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#yambs.environment.SourceSets.apps" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
@@ -474,7 +482,7 @@ should be excluded.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="yambs.environment.SourceSets.regular">
-<span class="sig-name descname"><span class="pre">regular</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#yambs.environment.SourceSets.regular" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">regular</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#yambs.environment.SourceSets.regular" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -538,6 +546,7 @@ should be excluded.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.environment.native">yambs.environment.native module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.generate"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.generate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.populate_sources"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.populate_sources()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.render"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.render()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.write_app_rules"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_app_rules()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.environment.native.NativeBuildEnvironment.write_compile_line"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_compile_line()</span></code></a></li>
@@ -588,7 +597,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

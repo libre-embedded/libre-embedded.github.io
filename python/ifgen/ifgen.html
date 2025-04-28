@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ifgen package &#8212; ifgen  documentation</title>
+    <title>ifgen package &#8212; docs</title>
   
   
   
@@ -16,37 +16,42 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=52cfd690"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ifgen';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ifgen.commands package" href="ifgen.commands.html" />
-    <link rel="prev" title="ifgen" href="index.html" />
+    <link rel="prev" title="ifgen (4.7.7)" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="4.7.7" />
   </head>
   
   
@@ -62,19 +67,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -82,7 +76,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -90,8 +83,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -107,7 +100,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -136,25 +130,21 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="ifgen  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="ifgen  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark pst-js-only" alt="docs - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">ifgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
@@ -167,6 +157,10 @@
 <li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -192,9 +186,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -277,7 +276,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -291,25 +290,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -343,9 +334,29 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.enums">ifgen.enums module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.CUSTOM"><code class="docutils literal notranslate"><span class="pre">Generator.CUSTOM</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.paths">ifgen.paths module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.create_formatter"><code class="docutils literal notranslate"><span class="pre">create_formatter()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.schemas">ifgen.schemas module</a><ul class="nav section-nav flex-column">
@@ -395,8 +406,14 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ifgen.common.html">ifgen.common package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.common.html#module-ifgen.common">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.common_endianness"><code class="docutils literal notranslate"><span class="pre">common_endianness()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.create_common"><code class="docutils literal notranslate"><span class="pre">create_common()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.create_common_test"><code class="docutils literal notranslate"><span class="pre">create_common_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_enum"><code class="docutils literal notranslate"><span class="pre">endianness_enum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_float"><code class="docutils literal notranslate"><span class="pre">endianness_float()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_integral"><code class="docutils literal notranslate"><span class="pre">endianness_integral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_native"><code class="docutils literal notranslate"><span class="pre">endianness_native()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_single"><code class="docutils literal notranslate"><span class="pre">endianness_single()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -488,13 +505,9 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories.test_dir"><code class="docutils literal notranslate"><span class="pre">Directories.test_dir</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.directories"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.directories</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.generated"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.generated</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_dirs"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_dirs()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_enum"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_enum()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_protocol"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_protocol()</span></code></a></li>
@@ -502,18 +515,10 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.is_struct"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.is_struct()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.make_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_path()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.make_test_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_test_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.preprocessors"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.preprocessors</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.prune_empty"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.prune_empty()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.rel_include"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.rel_include()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.size"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.size()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.runtime_enum_data"><code class="docutils literal notranslate"><span class="pre">runtime_enum_data()</span></code></a></li>
@@ -567,6 +572,8 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.TypeLookup.name"><code class="docutils literal notranslate"><span class="pre">TypeLookup.name</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.apply_cpp_namespace"><code class="docutils literal notranslate"><span class="pre">apply_cpp_namespace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.ifndef_guard"><code class="docutils literal notranslate"><span class="pre">ifndef_guard()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation.json">ifgen.generation.json module</a><ul>
@@ -582,6 +589,21 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.resolve_generators"><code class="docutils literal notranslate"><span class="pre">resolve_generators()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.plugins.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.plugins.struct_receiver.html#module-ifgen.plugins.struct_receiver">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.plugins.html#module-ifgen.plugins">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.html#ifgen.plugins.internal_plugin_entry"><code class="docutils literal notranslate"><span class="pre">internal_plugin_entry()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -593,9 +615,6 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.bit">ifgen.struct.methods.bit module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.common">ifgen.struct.methods.common module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.decode">ifgen.struct.methods.decode module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.encode">ifgen.struct.methods.encode module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.swap">ifgen.struct.methods.swap module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods">Module contents</a></li>
 </ul>
 </li>
@@ -613,10 +632,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_header"><code class="docutils literal notranslate"><span class="pre">struct_header()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_instance"><code class="docutils literal notranslate"><span class="pre">struct_instance()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_line"><code class="docutils literal notranslate"><span class="pre">struct_line()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.source">ifgen.struct.source module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.source.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.stream">ifgen.struct.stream module</a><ul>
@@ -639,7 +654,6 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct"><code class="docutils literal notranslate"><span class="pre">create_struct()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
 </ul>
 </li>
@@ -754,8 +768,80 @@ document.write(`
 <p>This package’s command-line entry-point (boilerplate).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifgen.entry.main">
-<span class="sig-prename descclassname"><span class="pre">ifgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/ifgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.entry.main" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/ifgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.entry.main" title="Link to this definition">#</a></dt>
 <dd><p>Program entry-point.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.enums">
+<span id="ifgen-enums-module"></span><h2>ifgen.enums module<a class="headerlink" href="#module-ifgen.enums" title="Link to this heading">#</a></h2>
+<p>A module implementing enumerations used by this package.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.enums.Generator">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.enums.</span></span><span class="sig-name descname"><span class="pre">Generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/enums.html#Generator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.enums.Generator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>An enumeration declaring all valid kinds of generators.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'custom'</span></span><a class="headerlink" href="#ifgen.enums.Generator.CUSTOM" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.ENUMS">
+<span class="sig-name descname"><span class="pre">ENUMS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'enums'</span></span><a class="headerlink" href="#ifgen.enums.Generator.ENUMS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.IFGEN">
+<span class="sig-name descname"><span class="pre">IFGEN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ifgen'</span></span><a class="headerlink" href="#ifgen.enums.Generator.IFGEN" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.STRUCTS">
+<span class="sig-name descname"><span class="pre">STRUCTS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'structs'</span></span><a class="headerlink" href="#ifgen.enums.Generator.STRUCTS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.enums.Language">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.enums.</span></span><span class="sig-name descname"><span class="pre">Language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/enums.html#Language"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.enums.Language" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>An enumeration declaring output generation variants.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Language.CPP">
+<span class="sig-name descname"><span class="pre">CPP</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CPP'</span></span><a class="headerlink" href="#ifgen.enums.Language.CPP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Language.PYTHON">
+<span class="sig-name descname"><span class="pre">PYTHON</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Python'</span></span><a class="headerlink" href="#ifgen.enums.Language.PYTHON" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.cfg_dir_name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">cfg_dir_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#ifgen.enums.Language.cfg_dir_name" title="Link to this definition">#</a></dt>
+<dd><p>Get the configuration key for this language’s output configuration.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.header_suffix">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">header_suffix</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#ifgen.enums.Language.header_suffix" title="Link to this definition">#</a></dt>
+<dd><p>Get a header-file suffix for this language.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.slug">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">slug</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#ifgen.enums.Language.slug" title="Link to this definition">#</a></dt>
+<dd><p>Get a slug string.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.source_suffix">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">source_suffix</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#ifgen.enums.Language.source_suffix" title="Link to this definition">#</a></dt>
+<dd><p>Get a source-file suffix for this language.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -774,23 +860,29 @@ document.write(`
 <dd><p>Combine a root directory with a path if the path isn’t absolute.</p>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.paths.create_formatter">
+<span class="sig-prename descclassname"><span class="pre">ifgen.paths.</span></span><span class="sig-name descname"><span class="pre">create_formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/paths.html#create_formatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.paths.create_formatter" title="Link to this definition">#</a></dt>
+<dd><p>Create a formatting preprocessor that uses stdin/stdout of a subprocess.</p>
+</dd></dl>
+
 </section>
 <section id="module-ifgen.schemas">
 <span id="ifgen-schemas-module"></span><h2>ifgen.schemas module<a class="headerlink" href="#module-ifgen.schemas" title="Link to this heading">#</a></h2>
 <p>A module for working with schemas belonging to this package.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ifgen.schemas.IfgenDictCodec">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.schemas.</span></span><span class="sig-name descname"><span class="pre">IfgenDictCodec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/schemas.html#IfgenDictCodec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.schemas.</span></span><span class="sig-name descname"><span class="pre">IfgenDictCodec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/schemas.html#IfgenDictCodec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DictCodec</span></code></p>
 <p>A simple wrapper for package classes that want to implement DictCodec.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.schemas.IfgenDictCodec.data">
-<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.data" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.data" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.schemas.IfgenDictCodec.default_schemas">
-<span class="sig-name descname"><span class="pre">default_schemas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SchemaMap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'SvdConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Config':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_json_indent':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_bit_fields':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_volatile':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_description':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'BitField':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructField':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_expected_size':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'SvdInstanceConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_namespace':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructFieldAlternate':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructInstance':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Enum':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Struct':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.default_schemas" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">default_schemas</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SchemaMap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Config':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_namespace':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Struct':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_expected_size':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'BitField':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'SvdConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructField':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_volatile':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_bit_fields':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructInstance':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'StructFieldAlternate':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_json_indent':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Enum':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_description':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'SvdInstanceConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.default_schemas" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -819,7 +911,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ifgen</p>
+        <p class="prev-next-title">ifgen (4.7.7)</p>
       </div>
     </a>
     <a class="right-next"
@@ -838,14 +930,16 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
@@ -858,9 +952,29 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.enums">ifgen.enums module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.CUSTOM"><code class="docutils literal notranslate"><span class="pre">Generator.CUSTOM</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.paths">ifgen.paths module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.create_formatter"><code class="docutils literal notranslate"><span class="pre">create_formatter()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.schemas">ifgen.schemas module</a><ul class="nav section-nav flex-column">
@@ -896,7 +1010,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>
@@ -920,8 +1034,8 @@ By Libre Embedded
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

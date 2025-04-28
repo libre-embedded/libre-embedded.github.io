@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>File FdManager.cc &#8212; docs</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=59632855"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/file_src_io_FdManager.cc';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="root.html">Library API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_Coral.html">Namespace Coral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_Coral__Cobs.html">Namespace Coral::Cobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conceptCoral_1_1byte__size.html">Concept byte_size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conceptCoral_1_1ifgen__struct.html">Concept ifgen_struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structCoral_1_1BufferState.html">Struct BufferState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structCoral_1_1ElementCommandLineApp_1_1Command.html">Struct ElementCommandLineApp::Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structCoral_1_1PcBufferState.html">Struct PcBufferState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1BufferLogger.html">Template Class BufferLogger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1CircularBuffer.html">Template Class CircularBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1Cobs_1_1MessageDecoder.html">Template Class MessageDecoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1Cobs_1_1MessageEncoder.html">Class MessageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1ContextLock.html">Template Class ContextLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1ElementCommandLine.html">Template Class ElementCommandLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1ElementCommandLineApp.html">Template Class ElementCommandLineApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1FdManager.html">Class FdManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1FdPrintfLogger.html">Class FdPrintfLogger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1FullDuplexBuffer.html">Template Class FullDuplexBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1HasLogInterface.html">Template Class HasLogInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1LogInterface.html">Template Class LogInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1MessageBuffer.html">Template Class MessageBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1MessageBuffer_1_1MessageContext.html">Class MessageBuffer::MessageContext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1NoopLock.html">Class NoopLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1PcBuffer.html">Template Class PcBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1PcBufferReader.html">Template Class PcBufferReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1PcBufferWriter.html">Template Class PcBufferWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1PrintfLogger.html">Class PrintfLogger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classCoral_1_1StringCommandProcessor.html">Template Class StringCommandProcessor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classSampleFdBuffer.html">Class SampleFdBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_Result_8h_1a004e977d8511f5ccc2f9e91f885e2d1f.html">Enum Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_test__message__buffer_8cc_1a107208ed3433a36df2458f4e6d59acf1.html">Enum TestEnum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__string__command__processor_8cc_1a31e077b8b481526512e8987e137cc198.html">Function command_handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_file__descriptors_8cc_1aabb3431c6e8849b127313c2274de247d.html">Function Coral::close_fds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_Encoder_8cc_1a20c15f73144017df0e8eac3affd746d6.html">Function Coral::Cobs::next_zero_distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_debug_8cc_1a38f7c5e822333fbe36d36b2232632c7a.html">Function Coral::dump_buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_file__descriptors_8cc_1ae8390009336d46f56613e6b3d2824d84.html">Function Coral::dump_fd_status_flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_file__descriptors_8cc_1a20863b5699239262fa1297ad1d5ca027.html">Function Coral::fd_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_file__descriptors_8cc_1a2e7668db1a51e7e97f3d08984335ffe5.html">Function Coral::fd_set_blocking_state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_Result_8h_1ae8b9cb8d7442f3b252f8af32dbe9a36e.html">Function Coral::from_string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_file__descriptors_8cc_1ac7d177fade26e123113db196df84e89e.html">Function Coral::get_file_fd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_text_8cc_1ada9b1035fb453552619f046c9185215e.html">Function Coral::get_stdout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1a6996dd19f378722c1a8f3f8636f7b025.html">Template Function Coral::handle_endian(T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1a8b87f3adfb77e14274c7111ae5f55e50.html">Template Function Coral::handle_endian(T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1a71d9700443aa3179cb23d1e62ce5e8a6.html">Template Function Coral::handle_endian(T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1afa9d04e505375164ba3b9c5061dcda17.html">Template Function Coral::handle_endian(T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1ab8dda55219293ac92ce0beba3a230847.html">Template Function Coral::handle_endian(T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1a8b725b2c103e603eaeeacf4ba320615e.html">Template Function Coral::handle_endian(T)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1a0fc61ff7f31ebe4899328030ce360733.html">Template Function Coral::handle_endian_p(T *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1a896b1f4eb8d24f69c68042645f1438b0.html">Template Function Coral::handle_endian_p(T *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1af18daa75d54b4bb05df1388ebf821acc.html">Template Function Coral::handle_endian_p(T *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1aa2834a3ac42a800f7a286893b1c4d146.html">Template Function Coral::handle_endian_p(T *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1af590d2ca88bdca34cc24f0cc880c49f2.html">Template Function Coral::handle_endian_p(T *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_generated_2ifgen_2common_8h_1aef63a84299605e90906f21bc21b318cd.html">Template Function Coral::handle_endian_p(T *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PcBuffer_8h_1aaf54acc753503bf87e7b367f53f19619.html">Template Function Coral::operator&lt;&lt;(std::basic_ostream&lt;element_t&gt;&amp;, PcBuffer&lt;depth, element_t, alignment, Lock&gt;&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_Result_8h_1a63168396b7f59c541036cd2c5ba1c164.html">Function Coral::operator&lt;&lt;(std::ostream&amp;, Result)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PcBuffer_8h_1ac48c3c9dab039ed8d174325dce1ca8db.html">Template Function Coral::operator&gt;&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_text_8h_1a584e3beaec01b36d1ac7c69b96dec225.html">Template Function Coral::populate_flag_strs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_text_8cc_1a7a52ee7f9ac571f8bb7d058bede7c856.html">Function Coral::print_verb_name_condition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_debug_8h_1a7bfcbb5d53372d87036d6c3489063148.html">Template Function Coral::register_message_validator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PrintfLogger_8cc_1ad2e6086bfc73f74bb059336e9a1922f0.html">Function Coral::stderr_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_Result_8h_1a1de616fbc3797fb6bf3e0f1e35635fb9.html">Function Coral::to_string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__decoder_8cc_1a685d4a9cae0c320c5b9ec3e389c3c235.html">Function decoder_scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__encoder_8cc_1a3958b97f4da047ac0ce3937f1c81af32.html">Function encoder_scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__message__buffer_8cc_1ab9bb29a596b5fc7aaaf78a6e3dcfc609.html">Template Function loopback_test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__decoder_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__encode__decode_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__encoder_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__full__duplex__buffer_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__message__buffer_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__pc__buffer_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line__app_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__string__command__processor_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__common_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__fd_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main(void)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_result_8h_1a20d28a9aa5f9be06773461416c95fa3e.html">Function operator!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__message__buffer_8cc_1a6b14f096f779f37a3cced93e3d0e6b57.html">Function operator&lt;&lt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line__app_8cc_1ab8377dd1fffd49a8bdb15733096661fd.html">Function register_commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__message__buffer_8cc_1ab9e00b12f573196b641ba0adb9437bcc.html">Template Function struct_test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line__app_8cc_1a1e9aaad7d376a81630725e0320cfc951.html">Function test1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line__app_8cc_1ae5c7570411189e7db353d6e087d90438.html">Function test2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__pc__buffer_8cc_1a5c14d4aea6e3d954bd5f21308bb5ea8e.html">Function test_alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__pc__buffer_8cc_1a645dbc20d7154660fa12f98c5f4a9f9e.html">Function test_basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1aa20344907a395b6ab8406c64dd7031ae.html">Function test_bools_basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__decoder_8cc_1a179aad06d461688af7cbb8e05fb720b1.html">Function test_decoder_contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1a8696d0e2afaa9726b68879f271125a3d.html">Function test_doubles_basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__pc__buffer_8cc_1a2bca2628644493bd57d2835672ccebcf.html">Function test_drop_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a58938e446cd3da3a4575e526f5fb44d0.html">Function test_fail_if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1aa5b6ad5941656725a59236a264acbde8.html">Function test_fail_if_not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1aa2a666017f40a738d7603a6f7115653c.html">Function test_first_arg_bool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1af4c2589f3a080fe180b2508d6563a438.html">Function test_first_arg_float_second_not_float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1a464489c621e0a6bde8755ff14a492dbd.html">Function test_first_arg_int_second_not_int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1a64d9e28b4e604a6401eb9c2ecf55037b.html">Function test_first_arg_not_bool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__command__line_8cc_1a99ad085405f3b213c79e0ce40aaa22c4.html">Function test_ints_basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1aefbcbdb2387a2e1dc46bb1b60c48a973.html">Function test_log_fail_if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1ae16b3efac58229d291af14242e09d862.html">Function test_log_fail_if_not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a51bcea8b82eb5d907745673ae0d01f24.html">Function test_log_success_if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a34c59e51c8985eed0bc4639630501041.html">Function test_log_success_if_not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a8e84ee5309210db523c53f3adde1bb7f.html">Function test_logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__pc__buffer_8cc_1a293d8ccb571124546d0c2c8ce8b725e3.html">Function test_n_push_pop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a9cf56f87e8630f7f27ff49151eae0ed7.html">Function test_result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a0acfb5c0e4b40c0a2e8e2730867d54d4.html">Function test_return_if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a501684a224dfa7ab69d704fdcedeb31c.html">Function test_return_if_not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a9bc8f7ea2066b91ab4d8f45d3b1f3368.html">Function test_return_val_if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a8a684c02c293ece2e41cfd907659738d.html">Function test_return_val_if_not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__pc__buffer_8cc_1a53db552028114fa14bea1bc61a17a86a.html">Function test_stream_interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__encode__decode_8cc_1a2f4704c5848338921d8cf4cafbcef3f2.html">Function test_string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a29f72f332f96462d98c1034c0e72d663.html">Function test_success_if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__logger_8cc_1a201795cf5c6b6db012f5f81226e15f3c.html">Function test_success_if_not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__encoder_8cc_1a739ab474147c310bb7679fa832623268.html">Function test_zero_distances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__cobs__encoder_8cc_1aad155e574930e588a56223f1f12a9910.html">Function verify_encode_result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_test__cobs__encoder_8cc_1ac714a2b4f10a1cb64f44a5517819e9cc.html">Variable buffer_size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_test__message__buffer_8cc_1ac714a2b4f10a1cb64f44a5517819e9cc.html">Variable buffer_size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_Encoder_8h_1ab76de6a37231fb07a1a2e1d0629098eb.html">Variable Coral::Cobs::zero_pointer_max</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_BufferLogger_8h_1a727765a4a924d2b833a9c45f472e91bb.html">Variable Coral::default_buffer_depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_generated_2ifgen_2common_8h_1afe02e48fc90f9b20fcc9c0d07c71afc0.html">Variable Coral::default_endian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_StringCommandProcessor_8h_1a7906c0744d99d4db49a6c710694d55f7.html">Variable Coral::default_max_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_CommandLineApp_8h_1a69c49506fee6251fa71349fd408261d3.html">Variable Coral::default_max_commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_CommandLineApp_8h_1afa03255eb739b63d4e71a3baa29f2e64.html">Variable Coral::default_max_line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_file__descriptors_8h_1a9e6f106573afd2daffcdc3c8a1d12795.html">Variable Coral::default_open_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_Result_8h_1acb3bbf0f2fffb9ca94ed412c822a4909.html">Variable Coral::Result_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_PrintfLogger_8cc_1a212e0e67a6ba1839584be9d7f2d876b9.html">Variable Coral::static_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_file__descriptors_8cc_1ad454ab7c767194e5a00e10c22f960bb6.html">Variable Coral::status_flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_apps_2buffer_2common_8h_1abc5e03c76d615c1e9bb84a9e54837a28.html">Variable depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_apps_2cli_2common_8h_1abc5e03c76d615c1e9bb84a9e54837a28.html">Variable depth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_apps_2cli_2common_8h_1af11325f669d59c0c788b7592126ad38f.html">Variable logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_test__cobs__decoder_8cc_1afa2c7e29f828f4503eee25c551456f6f.html">Variable message_mtu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_test__cobs__encode__decode_8cc_1afa2c7e29f828f4503eee25c551456f6f.html">Variable message_mtu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_test__string__command__processor_8cc_1a7a0115d3c31ef3657b197ace2c06496e.html">Variable processed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_test__command__line_8cc_1a0376be5904d0dd864b7d97c9ce1295ab.html">Variable value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_Result_8h_1a35971ba56e092133ce1b1c595c705943.html">Define CORAL_ENUMS_RESULT_H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_generated_2ifgen_2common_8h_1a4ad12764f02f3b9342ae7a9a3e4ef1bd.html">Define CORAL_IFGEN_COMMON_H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1aca73ea8432a2fdc0d36bb89ba7ec7077.html">Define CORAL_LOGGER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_BufferState_8h_1a7dbfd7b05eae9fb255a54e7c1fe7916c.html">Define CORAL_STRUCTS_BUFFERSTATE_H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1abb508ea8227673f419e9fe3a86c30d8e.html">Define FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1ae3789f5c0a5250f7559b7511047a0da5.html">Define FailIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1aec87bc459c41828293ef66b3db580d56.html">Define FailIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1aee4a648cb055164e4a18720beca0ecc3.html">Define LogErrno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a070fcda62788a4a0ff6eaae7dd3086a6.html">Define LogErrnoIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1abb5186a9ff2aa8d7fd7c240459dd712f.html">Define LogErrnoIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1ab941f28e0d5dba9d8698b6e3c09a8d77.html">Define LogErrnoReturnIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1ab0f3daeffb41871471138f8e038e2631.html">Define LogErrnoReturnIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1aa1c3e8649364d6aed57c2a227e69f6e2.html">Define LogFailIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a1fa752b7b888febb2700dae78924fa5a.html">Define LogFailIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a53b3d33b5dab19d89947da57c9ce2b65.html">Define LogIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a59e6dc36b50b4a5d6a5d327fd4096884.html">Define LogIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a1ba435111633dea99da1a1475082d6be.html">Define LogReturnIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a21ed1e7a0984c2a9a3a8831c25aec5e5.html">Define LogReturnIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a0d2dc0261d62102461f0dc569ce11bab.html">Define LogReturnValIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a70947bf6099d5d1f98fb7ca659add792.html">Define LogReturnValIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1a1da3d945fdb47967ce1cca04334276e3.html">Define LogSuccessIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_macros_8h_1afb7f5fbfecde364d3b672600600a34aa.html">Define LogSuccessIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1aa90cac659d18e8ef6294c7ae337f6b58.html">Define SUCCESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1a1bda900fb598628ab23145dd2f705117.html">Define SuccessIf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1aff6f2ef2c3743600faa4e40a9baa0ae7.html">Define SuccessIfNot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1a1a1ab9f4c7c1552a3d9f33c98726aad1.html">Define ToBool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_result_8h_1aa5259cba139d0f0a12036ae36ff53bd6.html">Define ToResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__pc__buffer_8cc_1a1a2742dddce05aecdbf05beeabf2df16.html">Typedef Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_apps_2cli_2common_8h_1a24a2c059d9bad49e0b28c7cd41e8bccd.html">Typedef Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__message__buffer_8cc_1a21606c03f5b99e58ba33bea444372cae.html">Typedef CircBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__command__line__app_8cc_1ac8f583605470f2f15d3c8f211d08f4cb.html">Typedef CommandLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1a2aa0048a4bbb687520b2df1160ef1a45.html">Typedef Coral::byte_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1a5b7259d3f4b159a8cd51406f9be00b33.html">Typedef Coral::byte_istream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1aa9e7c68043d0f02016a7521e0c9d8066.html">Typedef Coral::byte_ostream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1adf468c36abe7a738e5a2ca4d8abb42e3.html">Typedef Coral::byte_span</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1a26c77e7b72162fe642df35345ae16925.html">Typedef Coral::byte_spanbuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1a19c8692c911630be8da880f959f2ea98.html">Typedef Coral::byte_spanstream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_PcBuffer_8h_1a455f4655232fa64d9b0922bb91fe7b3d.html">Typedef Coral::ByteBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_PcBuffer_8h_1a5f111459b8554da754ec7570f3226d75.html">Typedef Coral::CharBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_CommandLine_8h_1a46502fc91fb1f383212d304ac4b32631.html">Typedef Coral::CommandLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_CommandLineApp_8h_1abdef741f0e87331adc5e83798bf2b419.html">Typedef Coral::CommandLineApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1a81fb89fefcd0b1fde1675d4505d32609.html">Typedef Coral::enum_id_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_file__descriptors_8h_1aa0d914ece98df71d2e96474f60c7c170.html">Typedef Coral::FdMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_generated_2ifgen_2common_8h_1a93c968e9560499bcd03c9583f05bcbbd.html">Typedef Coral::struct_id_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_PcBuffer_8h_1a204869aa21ecfa7cb625cfc8ed9bb282.html">Typedef Coral::WcharBuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__cobs__decoder_8cc_1a38a94fee14f312e1bc3da8eecac173f3.html">Typedef Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__cobs__encode__decode_8cc_1a38a94fee14f312e1bc3da8eecac173f3.html">Typedef Decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_apps_2buffer_2common_8h_1a31a1930d9b81305c19df735420d77ee2.html">Typedef element_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__cobs__encode__decode_8cc_1adfe7c3681b9d985241ce4021a99f0449.html">Typedef Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__cobs__decoder_8cc_1a59e294c9e6c80c42259cf27172eea846.html">Typedef PcBuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_test__cobs__encode__decode_8cc_1a59e294c9e6c80c42259cf27172eea846.html">Typedef PcBuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_apps_2cli_2common_8h_1a31b02ee424c0e66a396f2fea73b0c995.html">Typedef Processor</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/generated/file_src_io_FdManager.cc.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>File FdManager.cc</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-src-io-fdmanager-cc">Definition (<code class="docutils literal notranslate"><span class="pre">src/io/FdManager.cc</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#includes">Includes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="file-fdmanager-cc">
+<span id="file-src-io-fdmanager-cc"></span><h1>File FdManager.cc<a class="headerlink" href="#file-fdmanager-cc" title="Link to this heading">#</a></h1>
+<p>↰ <a class="reference internal" href="dir_src_io.html#dir-src-io"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">src/io</span></code>)</p>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-src-io-fdmanager-cc" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">src/io/FdManager.cc</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
+<li><p><a class="reference internal" href="#namespaces" id="id3">Namespaces</a></p></li>
+</ul>
+</nav>
+<section id="definition-src-io-fdmanager-cc">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">src/io/FdManager.cc</span></code>)<a class="headerlink" href="#definition-src-io-fdmanager-cc" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_src_io_FdManager.cc.html">Program Listing for File FdManager.cc</a></li>
+</ul>
+</div>
+</section>
+<section id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FdManager.h</span></code> (<a class="reference internal" href="file_src_io_FdManager.h.html#file-src-io-fdmanager-h"><span class="std std-ref">File FdManager.h</span></a>)</p></li>
+</ul>
+</section>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="namespace_Coral.html#namespace-coral"><span class="std std-ref">Namespace Coral</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-src-io-fdmanager-cc">Definition (<code class="docutils literal notranslate"><span class="pre">src/io/FdManager.cc</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#includes">Includes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Libre Embedded
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Libre Embedded.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

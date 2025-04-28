@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>yambs.commands package &#8212; yambs  documentation</title>
+    <title>yambs.commands package &#8212; docs</title>
   
   
   
@@ -36,11 +36,12 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=dfd5ee0e"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'yambs.commands';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="yambs.config package" href="yambs.config.html" />
@@ -136,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="yambs  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="yambs  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -154,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="yambs.html">yambs package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
@@ -364,6 +365,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.native.native_cmd"><code class="docutils literal notranslate"><span class="pre">native_cmd()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.commands.native_manifest">yambs.commands.native_manifest module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.native_manifest.add_native_manifest_cmd"><code class="docutils literal notranslate"><span class="pre">add_native_manifest_cmd()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.native_manifest.native_manifest_cmd"><code class="docutils literal notranslate"><span class="pre">native_manifest_cmd()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.commands.uf2conv">yambs.commands.uf2conv module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.uf2conv.add_uf2conv_cmd"><code class="docutils literal notranslate"><span class="pre">add_uf2conv_cmd()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.uf2conv.error"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
@@ -392,7 +398,7 @@ document.write(`
 <p>A module aggregating package commands.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="yambs.commands.all.commands">
-<span class="sig-prename descclassname"><span class="pre">yambs.commands.all.</span></span><span class="sig-name descname"><span class="pre">commands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ArgumentParser</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/commands/all.html#commands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.commands.all.commands" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">yambs.commands.all.</span></span><span class="sig-name descname"><span class="pre">commands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ArgumentParser</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/commands/all.html#commands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.commands.all.commands" title="Link to this definition">#</a></dt>
 <dd><p>Get this package’s commands.</p>
 </dd></dl>
 
@@ -511,6 +517,22 @@ document.write(`
 </dd></dl>
 
 </section>
+<section id="module-yambs.commands.native_manifest">
+<span id="yambs-commands-native-manifest-module"></span><h2>yambs.commands.native_manifest module<a class="headerlink" href="#module-yambs.commands.native_manifest" title="Link to this heading">#</a></h2>
+<p>An entry-point for the ‘native_manifest’ command.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.commands.native_manifest.add_native_manifest_cmd">
+<span class="sig-prename descclassname"><span class="pre">yambs.commands.native_manifest.</span></span><span class="sig-name descname"><span class="pre">add_native_manifest_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/commands/native_manifest.html#add_native_manifest_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.commands.native_manifest.add_native_manifest_cmd" title="Link to this definition">#</a></dt>
+<dd><p>Add native_manifest-command arguments to its parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.commands.native_manifest.native_manifest_cmd">
+<span class="sig-prename descclassname"><span class="pre">yambs.commands.native_manifest.</span></span><span class="sig-name descname"><span class="pre">native_manifest_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/yambs/commands/native_manifest.html#native_manifest_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.commands.native_manifest.native_manifest_cmd" title="Link to this definition">#</a></dt>
+<dd><p>Execute the native_manifest command.</p>
+</dd></dl>
+
+</section>
 <section id="module-yambs.commands.uf2conv">
 <span id="yambs-commands-uf2conv-module"></span><h2>yambs.commands.uf2conv module<a class="headerlink" href="#module-yambs.commands.uf2conv" title="Link to this heading">#</a></h2>
 <p>Based on:
@@ -623,6 +645,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.native.native_cmd"><code class="docutils literal notranslate"><span class="pre">native_cmd()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.commands.native_manifest">yambs.commands.native_manifest module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.native_manifest.add_native_manifest_cmd"><code class="docutils literal notranslate"><span class="pre">add_native_manifest_cmd()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.native_manifest.native_manifest_cmd"><code class="docutils literal notranslate"><span class="pre">native_manifest_cmd()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.commands.uf2conv">yambs.commands.uf2conv module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.uf2conv.add_uf2conv_cmd"><code class="docutils literal notranslate"><span class="pre">add_uf2conv_cmd()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.commands.uf2conv.error"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
@@ -654,7 +681,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

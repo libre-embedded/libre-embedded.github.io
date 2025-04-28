@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>runtimepy.net.server.app.env.tab.html &#8212; runtimepy  documentation</title>
+    <title>runtimepy.net.server.app.env.tab.html &#8212; docs</title>
   
   
   
@@ -15,35 +15,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../../../../../_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="../../../../../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../../../../../_static/documentation_options.js?v=1019e16c"></script>
+    <script src="../../../../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/runtimepy/net/server/app/env/tab/html';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -59,19 +64,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../../../../../search.html"
       method="get">
@@ -79,7 +73,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -87,8 +80,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -106,7 +99,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -135,25 +129,21 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="runtimepy  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="runtimepy  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark pst-js-only" alt="docs - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../../runtimepy.html">runtimepy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../../runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -254,9 +244,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -291,7 +286,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -305,24 +300,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -389,10 +376,18 @@ document.write(`
         <span class="n">parent</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-line-color&quot;</span><span class="p">,</span>
         <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;activity&quot;</span><span class="p">,</span>
-        <span class="n">icon_classes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;fs-5&quot;</span><span class="p">],</span>
+        <span class="n">icon_classes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;border-0&quot;</span><span class="p">,</span> <span class="s2">&quot;fs-5&quot;</span><span class="p">],</span>
         <span class="n">tooltip</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Change line color for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;d-none&quot;</span><span class="p">,</span> <span class="s2">&quot;p-1&quot;</span><span class="p">)</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+        <span class="s2">&quot;d-none&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;p-0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ps-2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pe-2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;border-bottom-0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;border-primary-subtle&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">button</span></div>
 
@@ -440,7 +435,7 @@ document.write(`
 
         <span class="n">div</span><span class="p">(</span>
             <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0&quot;</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0 pe-2&quot;</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Current value of &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
@@ -466,7 +461,7 @@ document.write(`
 
         <span class="c1"># Add boolean/bit toggle button.</span>
         <span class="n">is_bit</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">width</span> <span class="o">==</span> <span class="mi">1</span>
-        <span class="n">kind_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;bit&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_bit</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;bits&#39;</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">where_str</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">kind_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;bit&amp;nbsp;&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_bit</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;bits&#39;</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">where_str</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
 
         <span class="n">name_td</span> <span class="o">=</span> <span class="n">create_name_td</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
@@ -483,7 +478,7 @@ document.write(`
 
         <span class="n">div</span><span class="p">(</span>
             <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0&quot;</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0 pe-2&quot;</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Current value of &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
@@ -495,7 +490,7 @@ document.write(`
             <span class="n">text</span><span class="o">=</span><span class="n">kind_str</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Field position for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; within underlying primitive.&quot;</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-info-emphasis text-nowrap p-0 ps-1 pe-1&quot;</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-code text-nowrap p-0 ps-2 pe-1&quot;</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 
@@ -505,9 +500,19 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create the channel table.&quot;&quot;&quot;</span>
 
         <span class="n">table</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;table-container&quot;</span><span class="p">)</span>
+            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                <span class="s2">&quot;flex-shrink-0&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;overflow-x-scroll&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;overscroll-behavior-x-none&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
         <span class="p">)</span>
-        <span class="n">table</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">TEXT</span><span class="p">)</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;table&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;table-hover&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mb-0&quot;</span><span class="p">,</span>
+            <span class="n">TEXT</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="n">header</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;thead&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">table</span><span class="p">)</span>
         <span class="n">body</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tbody&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">table</span><span class="p">)</span>
@@ -518,11 +523,8 @@ document.write(`
         <span class="c1"># Table for channels.</span>
         <span class="n">env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">env</span>
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
-            <span class="n">row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-                <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span>
-                <span class="n">parent</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-                <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-                <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-row border-start border-end&quot;</span><span class="p">,</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                <span class="s2">&quot;channel-row&quot;</span><span class="p">,</span> <span class="s2">&quot;border-start&quot;</span><span class="p">,</span> <span class="s2">&quot;border-end&quot;</span>
             <span class="p">)</span>
 
             <span class="n">plot_checkbox</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -558,9 +560,12 @@ document.write(`
     <span class="k">def</span><span class="w"> </span><span class="nf">_compose_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compose plot elements.&quot;&quot;&quot;</span>
 
-        <span class="n">plot_container</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-            <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;w-100 h-100 border-start position-relative&quot;</span><span class="p">,</span>
+        <span class="n">plot_container</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;w-100&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;h-100&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;position-relative&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;logo-outline-background&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Plot.</span>
@@ -599,28 +604,60 @@ document.write(`
         <span class="n">vert_container</span> <span class="o">=</span> <span class="n">flex</span><span class="p">(</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">,</span>
             <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;column&quot;</span><span class="p">,</span>
+            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;form&quot;</span><span class="p">,</span>
+            <span class="n">autocomplete</span><span class="o">=</span><span class="s2">&quot;off&quot;</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">vert_container</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;channel-column&quot;</span><span class="p">,</span> <span class="s2">&quot;collapse&quot;</span><span class="p">,</span> <span class="s2">&quot;show&quot;</span><span class="p">)</span>
+        <span class="n">vert_container</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;channel-column&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-grow-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-shrink-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;collapse&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;show&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overflow-y-scroll&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overflow-x-hidden&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overscroll-behavior-none&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
 
-        <span class="n">input_box</span><span class="p">(</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">box</span> <span class="o">=</span> <span class="n">input_box</span><span class="p">(</span>
             <span class="n">vert_container</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
             <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;help&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Send a string command via this environment.&quot;</span><span class="p">,</span>
+            <span class="n">placement</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
             <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">),</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span>
+            <span class="n">spellcheck</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
         <span class="p">)</span>
+
+        <span class="n">label</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-top-0&quot;</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-top-0&quot;</span><span class="p">)</span>
 
         <span class="c1"># Text area.</span>
         <span class="n">logs</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
             <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;textarea&quot;</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">vert_container</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;form-floating&quot;</span><span class="p">),</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;form-control rounded-0 </span><span class="si">{</span><span class="n">TEXT</span><span class="si">}</span><span class="s2"> text-body-emphasis text-logs&quot;</span>
-            <span class="p">),</span>
             <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;logs&quot;</span><span class="p">),</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Text logs for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
+        <span class="n">logs</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;form-control&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rounded-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;text-logs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;p-2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overscroll-behavior-none&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="n">logs</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;readonly&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">buttons</span><span class="p">:</span>
+            <span class="n">centered_markdown</span><span class="p">(</span>
+                <span class="n">vert_container</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_action_markdown</span><span class="p">(),</span>
+                <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;border-bottom&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;border-end&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;bg-gradient-tertiary-left-right&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">channel_table</span><span class="p">(</span><span class="n">vert_container</span><span class="p">)</span>
 
@@ -630,13 +667,16 @@ document.write(`
             <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
             <span class="s2">&quot;border-top&quot;</span><span class="p">,</span>
             <span class="s2">&quot;border-end&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bg-gradient-tertiary-to-bottom&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Divider.</span>
-        <span class="n">div</span><span class="p">(</span>
-            <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;divider&quot;</span><span class="p">),</span>
-            <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;vertical-divider border-start bg-dark-subtle&quot;</span><span class="p">,</span>
+        <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;divider&quot;</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;vertical-divider&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-grow-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-shrink-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bg-dark-subtle&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_compose_plot</span><span class="p">(</span><span class="n">container</span><span class="p">)</span></div>
@@ -680,7 +720,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>
@@ -704,8 +744,8 @@ By Libre Embedded
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

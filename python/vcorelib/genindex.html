@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; vcorelib  documentation</title>
+    <title>Index &#8212; docs</title>
   
   
   
@@ -15,35 +15,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=1024c4e8"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="3.7.0" />
   </head>
   
   
@@ -59,19 +64,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -79,7 +73,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -87,8 +80,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -106,7 +99,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -135,25 +129,21 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="vcorelib  documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="vcorelib  documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark pst-js-only" alt="docs - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="vcorelib.html">vcorelib package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.args.html">vcorelib.args package</a></li>
@@ -163,6 +153,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -195,9 +186,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -232,7 +228,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -246,24 +242,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -382,6 +370,8 @@ document.write(`
         <li><a href="vcorelib.dict.html#vcorelib.dict.codec.JsonCodec.asdict">(vcorelib.dict.codec.JsonCodec method)</a>
 </li>
       </ul></li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus">AsyncMessageBus (class in vcorelib.io.bus)</a>
+</li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.edge.GraphEdge.attrs">attrs (vcorelib.graph.edge.GraphEdge attribute)</a>
 </li>
       <li><a href="vcorelib.math.analysis.html#vcorelib.math.analysis.weighted.WeightedAverage.average">average() (vcorelib.math.analysis.weighted.WeightedAverage method)</a>
@@ -708,6 +698,8 @@ document.write(`
 </li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.edge.GraphEdge.dst_port">dst_port (vcorelib.graph.edge.GraphEdge attribute)</a>
 </li>
+      <li><a href="vcorelib.target.html#vcorelib.target.resolver.TargetResolver.dynamic">dynamic (vcorelib.target.resolver.TargetResolver attribute)</a>
+</li>
       <li><a href="vcorelib.target.html#vcorelib.target.evaluation.TargetInterface.dynamic_end">dynamic_end (vcorelib.target.evaluation.TargetInterface attribute)</a>
 </li>
       <li><a href="vcorelib.target.html#vcorelib.target.evaluation.TargetInterface.dynamic_start">dynamic_start (vcorelib.target.evaluation.TargetInterface attribute)</a>
@@ -744,6 +736,12 @@ document.write(`
 </li>
       <li><a href="vcorelib.io.arbiter.html#vcorelib.io.arbiter.directory.DataArbiterDirectories.encode_directory_async">encode_directory_async() (vcorelib.io.arbiter.directory.DataArbiterDirectories method)</a>
 </li>
+      <li><a href="vcorelib.io.html#vcorelib.io.encode_if_different">encode_if_different() (in module vcorelib.io)</a>
+
+      <ul>
+        <li><a href="vcorelib.io.arbiter.html#vcorelib.io.arbiter.encode_if_different">(in module vcorelib.io.arbiter)</a>
+</li>
+      </ul></li>
       <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_ini">encode_ini() (in module vcorelib.io.encode)</a>
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_json">encode_json() (in module vcorelib.io.encode)</a>
@@ -752,10 +750,10 @@ document.write(`
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_toml">encode_toml() (in module vcorelib.io.encode)</a>
 </li>
-      <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_yaml">encode_yaml() (in module vcorelib.io.encode)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_yaml">encode_yaml() (in module vcorelib.io.encode)</a>
+</li>
       <li><a href="vcorelib.io.html#vcorelib.io.mapping.DataHandle.encoder">encoder (vcorelib.io.mapping.DataHandle attribute)</a>
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.ends">ends() (vcorelib.io.file_writer.IndentedFileWriter method)</a>
@@ -862,14 +860,14 @@ document.write(`
         <li><a href="vcorelib.math.analysis.html#vcorelib.math.analysis.buffer.FloatBuffer">(class in vcorelib.math.analysis.buffer)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.logging.html#vcorelib.logging.forward_flags">forward_flags() (in module vcorelib.logging)</a>
 
       <ul>
         <li><a href="vcorelib.logging.html#vcorelib.logging.args.forward_flags">(in module vcorelib.logging.args)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.logging.html#vcorelib.logging.forward_logging_flags">forward_logging_flags() (in module vcorelib.logging)</a>
 
       <ul>
@@ -924,6 +922,12 @@ document.write(`
         <li><a href="vcorelib.io.html#vcorelib.io.types.FileExtension.from_path">(vcorelib.io.types.FileExtension static method)</a>
 </li>
         <li><a href="vcorelib.schemas.html#vcorelib.schemas.base.Schema.from_path">(vcorelib.schemas.base.Schema class method)</a>
+</li>
+      </ul></li>
+      <li><a href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.from_path_if_different">from_path_if_different() (vcorelib.io.file_writer.IndentedFileWriter static method)</a>
+
+      <ul>
+        <li><a href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.from_path_if_different">(vcorelib.io.IndentedFileWriter static method)</a>
 </li>
       </ul></li>
       <li><a href="vcorelib.math.analysis.rate.html#vcorelib.math.analysis.rate.limiter.RateLimiter.from_s">from_s() (vcorelib.math.analysis.rate.limiter.RateLimiter static method)</a>
@@ -1040,13 +1044,15 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.port.PortType.INOUT">INOUT (vcorelib.graph.port.PortType attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.graph.html#vcorelib.graph.port.PortManager.inout_labels">inout_labels() (vcorelib.graph.port.PortManager method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.graph.html#vcorelib.graph.port.PortType.INPUT">INPUT (vcorelib.graph.port.PortType attribute)</a>
 </li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.port.PortManager.input_labels">input_labels() (vcorelib.graph.port.PortManager method)</a>
+</li>
+      <li><a href="vcorelib.graph.html#vcorelib.graph.port.PortManager.inputs">inputs (vcorelib.graph.port.PortManager attribute)</a>
 </li>
       <li><a href="vcorelib.script.html#vcorelib.script.invoke_script">invoke_script() (in module vcorelib.script)</a>
 </li>
@@ -1188,6 +1194,8 @@ document.write(`
         <li><a href="vcorelib.logging.html#vcorelib.logging.list.ListLogger">(class in vcorelib.logging.list)</a>
 </li>
       </ul></li>
+      <li><a href="vcorelib.target.html#vcorelib.target.resolver.TargetResolver.literals">literals (vcorelib.target.resolver.TargetResolver attribute)</a>
+</li>
       <li><a href="vcorelib.io.html#vcorelib.io.cache.FlatDirectoryCache.load">load() (vcorelib.io.cache.FlatDirectoryCache method)</a>
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.cache.FlatDirectoryCache.load_directory">load_directory() (vcorelib.io.cache.FlatDirectoryCache method)</a>
@@ -1200,10 +1208,10 @@ document.write(`
 </li>
       <li><a href="vcorelib.schemas.html#vcorelib.schemas.base.SchemaMap.load_package">load_package() (vcorelib.schemas.base.SchemaMap method)</a>
 </li>
-      <li><a href="vcorelib.dict.html#vcorelib.dict.cache.JsonCache.loaded">loaded() (vcorelib.dict.cache.JsonCache method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="vcorelib.dict.html#vcorelib.dict.cache.JsonCache.loaded">loaded() (vcorelib.dict.cache.JsonCache method)</a>
+</li>
       <li><a href="vcorelib.dict.html#vcorelib.dict.cache.JsonCache.loaded_async">loaded_async() (vcorelib.dict.cache.JsonCache method)</a>
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.LoadResult">LoadResult (class in vcorelib.io)</a>
@@ -1371,6 +1379,8 @@ document.write(`
         <li><a href="vcorelib.io.arbiter.html#module-vcorelib.io.arbiter.directory">vcorelib.io.arbiter.directory</a>
 </li>
         <li><a href="vcorelib.io.archive.html#module-vcorelib.io.archive">vcorelib.io.archive</a>
+</li>
+        <li><a href="vcorelib.io.bus.html#module-vcorelib.io.bus">vcorelib.io.bus</a>
 </li>
         <li><a href="vcorelib.io.html#module-vcorelib.io.cache">vcorelib.io.cache</a>
 </li>
@@ -1603,6 +1613,8 @@ document.write(`
 </li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.port.PortManager.output_labels">output_labels() (vcorelib.graph.port.PortManager method)</a>
 </li>
+      <li><a href="vcorelib.graph.html#vcorelib.graph.port.PortManager.outputs">outputs (vcorelib.graph.port.PortManager attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -1773,13 +1785,19 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.dict.html#vcorelib.dict.MergeStrategy.RECURSIVE">RECURSIVE (vcorelib.dict.MergeStrategy attribute)</a>
 </li>
-      <li><a href="vcorelib.target.html#vcorelib.target.resolver.TargetResolver.register">register() (vcorelib.target.resolver.TargetResolver method)</a>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.register">register() (vcorelib.io.bus.AsyncMessageBus method)</a>
 
       <ul>
+        <li><a href="vcorelib.target.html#vcorelib.target.resolver.TargetResolver.register">(vcorelib.target.resolver.TargetResolver method)</a>
+</li>
         <li><a href="vcorelib.task.html#vcorelib.task.manager.TaskManager.register">(vcorelib.task.manager.TaskManager method)</a>
 </li>
       </ul></li>
       <li><a href="vcorelib.paths.html#vcorelib.paths.find.register_file_finder">register_file_finder() (in module vcorelib.paths.find)</a>
+</li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.register_ro">register_ro() (vcorelib.io.bus.AsyncMessageBus method)</a>
+</li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.register_scoped_ro">register_scoped_ro() (vcorelib.io.bus.AsyncMessageBus method)</a>
 </li>
       <li><a href="vcorelib.task.html#vcorelib.task.manager.TaskManager.register_to">register_to() (vcorelib.task.manager.TaskManager method)</a>
 </li>
@@ -1789,6 +1807,8 @@ document.write(`
         <li><a href="vcorelib.paths.html#vcorelib.paths.base.rel">(in module vcorelib.paths.base)</a>
 </li>
       </ul></li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.remove_scoped_ro">remove_scoped_ro() (vcorelib.io.bus.AsyncMessageBus method)</a>
+</li>
       <li><a href="vcorelib.paths.html#vcorelib.paths.info.FileChangeEvent.REMOVED">REMOVED (vcorelib.paths.info.FileChangeEvent attribute)</a>
 
       <ul>
@@ -1985,6 +2005,10 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.target.html#vcorelib.target.evaluation.TargetInterface.segment_count">segment_count() (vcorelib.target.evaluation.TargetInterface class method)</a>
 </li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.send">send() (vcorelib.io.bus.AsyncMessageBus method)</a>
+</li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.send_ro">send_ro() (vcorelib.io.bus.AsyncMessageBus method)</a>
+</li>
       <li><a href="vcorelib.io.html#vcorelib.io.Serializable">Serializable (class in vcorelib.io)</a>
 
       <ul>
@@ -2019,14 +2043,14 @@ document.write(`
 </li>
       <li><a href="vcorelib.math.html#vcorelib.math.keeper.TimeKeeper.simulated">simulated() (vcorelib.math.keeper.TimeKeeper method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.math.html#vcorelib.math.simulated_time">simulated_time() (in module vcorelib.math)</a>
 
       <ul>
         <li><a href="vcorelib.math.html#vcorelib.math.time.simulated_time">(in module vcorelib.math.time)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.math.html#vcorelib.math.SimulatedTime">SimulatedTime (class in vcorelib.math)</a>
 
       <ul>
@@ -2179,6 +2203,8 @@ document.write(`
         <li><a href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.temporary">(vcorelib.io.IndentedFileWriter static method)</a>
 </li>
       </ul></li>
+      <li><a href="vcorelib.paths.html#vcorelib.paths.context.text_stream_if_different">text_stream_if_different() (in module vcorelib.paths.context)</a>
+</li>
       <li><a href="vcorelib.io.html#vcorelib.io.LoadResult.time_ns">time_ns (vcorelib.io.LoadResult attribute)</a>
 
       <ul>
@@ -2187,14 +2213,14 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.math.html#vcorelib.math.keeper.TimeKeeper">TimeKeeper (class in vcorelib.math.keeper)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.math.html#vcorelib.math.Timer">Timer (class in vcorelib.math)</a>
 
       <ul>
         <li><a href="vcorelib.math.html#vcorelib.math.time.Timer">(class in vcorelib.math.time)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.io.html#vcorelib.io.abc.Serializable.to_file">to_file() (vcorelib.io.abc.Serializable method)</a>
 
       <ul>
@@ -2474,6 +2500,13 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    vcorelib.io.bus
+
+      <ul>
+        <li><a href="vcorelib.io.bus.html#module-vcorelib.io.bus">module</a>
+</li>
+      </ul></li>
+      <li>
     vcorelib.io.cache
 
       <ul>
@@ -2564,6 +2597,8 @@ document.write(`
         <li><a href="vcorelib.math.html#module-vcorelib.math">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     vcorelib.math.analysis
 
@@ -2571,8 +2606,6 @@ document.write(`
         <li><a href="vcorelib.math.analysis.html#module-vcorelib.math.analysis">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     vcorelib.math.analysis.average
 
@@ -2874,14 +2907,14 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.io.html#vcorelib.io.file_writer.CommentStyle.wrap">wrap() (vcorelib.io.file_writer.CommentStyle method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.write">write() (vcorelib.io.file_writer.IndentedFileWriter method)</a>
 
       <ul>
         <li><a href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.write">(vcorelib.io.IndentedFileWriter method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.graph.html#vcorelib.graph.edge.write_attributes">write_attributes() (in module vcorelib.graph.edge)</a>
 </li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.write_indent">write_indent() (in module vcorelib.graph)</a>
@@ -2893,6 +2926,8 @@ document.write(`
 </li>
       </ul></li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.edge.write_node_id">write_node_id() (in module vcorelib.graph.edge)</a>
+</li>
+      <li><a href="vcorelib.paths.html#vcorelib.paths.context.write_text_if_different">write_text_if_different() (in module vcorelib.paths.context)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2961,7 +2996,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>
@@ -2985,8 +3020,8 @@ By Libre Embedded
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
