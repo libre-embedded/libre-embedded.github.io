@@ -419,6 +419,7 @@ document.write(`
 
         <span class="n">data</span><span class="p">[</span><span class="n">META_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s2">&quot;id_primitive&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_primitive</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="s2">&quot;byte_order&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">byte_order</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
             <span class="s2">&quot;alias&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">alias</span><span class="p">,</span>
         <span class="p">}</span>
@@ -438,7 +439,7 @@ document.write(`
         <span class="n">json_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
             <span class="p">{</span>
                 <span class="n">name</span><span class="p">:</span> <span class="n">_cast</span><span class="p">(</span><span class="n">_JsonValue</span><span class="p">,</span> <span class="n">val</span><span class="o">.</span><span class="n">asdict</span><span class="p">())</span>
-                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
                 <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="n">enum_ids</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">json_obj</span>
             <span class="p">}</span>
         <span class="p">)</span>
@@ -447,7 +448,7 @@ document.write(`
         <span class="n">build</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span>
             <span class="n">_Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">_JsonObject</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
         <span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">FieldSpec</span><span class="p">):</span>
                 <span class="n">build</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">asdict</span><span class="p">())</span>
             <span class="k">else</span><span class="p">:</span>
@@ -487,7 +488,9 @@ document.write(`
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
                 <span class="n">build</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="n">FieldSpec</span><span class="p">(</span>
-                        <span class="n">item</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;kind&quot;</span><span class="p">],</span> <span class="n">enum</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;enum&quot;</span><span class="p">)</span>
+                        <span class="n">item</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                        <span class="n">item</span><span class="p">[</span><span class="s2">&quot;kind&quot;</span><span class="p">],</span>
+                        <span class="n">enum</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;enum&quot;</span><span class="p">),</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
@@ -499,6 +502,7 @@ document.write(`
             <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
             <span class="n">build</span><span class="o">=</span><span class="n">build</span><span class="p">,</span>
             <span class="n">identifier</span><span class="o">=</span><span class="n">_cast</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">META_KEY</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]),</span>
+            <span class="n">identifier_primitive</span><span class="o">=</span><span class="n">_cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">META_KEY</span><span class="p">][</span><span class="s2">&quot;id_primitive&quot;</span><span class="p">]),</span>
             <span class="n">byte_order</span><span class="o">=</span><span class="n">_cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">META_KEY</span><span class="p">][</span><span class="s2">&quot;byte_order&quot;</span><span class="p">]),</span>
             <span class="n">alias</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">META_KEY</span><span class="p">][</span><span class="s2">&quot;alias&quot;</span><span class="p">],</span>  <span class="c1"># type: ignore</span>
             <span class="n">serializables</span><span class="o">=</span><span class="n">serializables</span><span class="p">,</span>

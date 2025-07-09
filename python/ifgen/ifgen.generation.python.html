@@ -44,7 +44,7 @@
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ifgen.struct package" href="ifgen.struct.html" />
+    <link rel="next" title="ifgen.plugins package" href="ifgen.plugins.html" />
     <link rel="prev" title="ifgen.generation package" href="ifgen.generation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,6 +168,10 @@
 <li class="toctree-l2"><a class="reference internal" href="ifgen.environment.html">ifgen.environment package</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="ifgen.generation.html">ifgen.generation package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">ifgen.generation.python package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -335,6 +339,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.generation.python">Module contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_class"><code class="docutils literal notranslate"><span class="pre">python_class()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_docstring"><code class="docutils literal notranslate"><span class="pre">python_docstring()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_function"><code class="docutils literal notranslate"><span class="pre">python_function()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_imports"><code class="docutils literal notranslate"><span class="pre">python_imports()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.write_imports"><code class="docutils literal notranslate"><span class="pre">write_imports()</span></code></a></li>
@@ -360,6 +365,12 @@ document.write(`
 <dt class="sig sig-object py" id="ifgen.generation.python.python_class">
 <span class="sig-prename descclassname"><span class="pre">ifgen.generation.python.</span></span><span class="sig-name descname"><span class="pre">python_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_empty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/generation/python.html#python_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.generation.python.python_class" title="Link to this definition">#</a></dt>
 <dd><p>Write class definition contents.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.generation.python.python_docstring">
+<span class="sig-prename descclassname"><span class="pre">ifgen.generation.python.</span></span><span class="sig-name descname"><span class="pre">python_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">docstrings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/generation/python.html#python_docstring"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.generation.python.python_docstring" title="Link to this definition">#</a></dt>
+<dd><p>Write docstring data.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -404,11 +415,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="ifgen.struct.html"
+       href="ifgen.plugins.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ifgen.struct package</p>
+        <p class="prev-next-title">ifgen.plugins package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -430,6 +441,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.generation.python">Module contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_class"><code class="docutils literal notranslate"><span class="pre">python_class()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_docstring"><code class="docutils literal notranslate"><span class="pre">python_docstring()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_function"><code class="docutils literal notranslate"><span class="pre">python_function()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.python_imports"><code class="docutils literal notranslate"><span class="pre">python_imports()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.generation.python.write_imports"><code class="docutils literal notranslate"><span class="pre">write_imports()</span></code></a></li>

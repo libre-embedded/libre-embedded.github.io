@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -299,9 +300,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span> <span class="k">as</span> <span class="n">_contextmanager</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">re</span><span class="w"> </span><span class="kn">import</span> <span class="nb">compile</span> <span class="k">as</span> <span class="n">_compile</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Set</span> <span class="k">as</span> <span class="n">_Set</span>
 
 <span class="n">DEFAULT_DELIM</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
 <span class="n">CPP_DELIM</span> <span class="o">=</span> <span class="s2">&quot;::&quot;</span>
@@ -320,8 +319,8 @@ document.write(`
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this namespace.&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">names</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">names</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">delim</span> <span class="o">=</span> <span class="n">delim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="s2">&quot;Namespace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent</span>
 
@@ -359,7 +358,7 @@ document.write(`
 <a class="viewcode-back" href="../../../vcorelib.namespace.html#vcorelib.namespace.base.Namespace.length_sorted_suggestions">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">length_sorted_suggestions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get suggestions (based on data) sorted by length.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">suggestions</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span></div>
 

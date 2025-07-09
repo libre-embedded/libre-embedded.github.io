@@ -170,6 +170,10 @@
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -334,8 +338,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.common">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.common_endianness"><code class="docutils literal notranslate"><span class="pre">common_endianness()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.create_common"><code class="docutils literal notranslate"><span class="pre">create_common()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.create_common_test"><code class="docutils literal notranslate"><span class="pre">create_common_test()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_enum"><code class="docutils literal notranslate"><span class="pre">endianness_enum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_float"><code class="docutils literal notranslate"><span class="pre">endianness_float()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_integral"><code class="docutils literal notranslate"><span class="pre">endianness_integral()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_native"><code class="docutils literal notranslate"><span class="pre">endianness_native()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_single"><code class="docutils literal notranslate"><span class="pre">endianness_single()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -355,6 +365,12 @@ document.write(`
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ifgen.common" title="Link to this heading">#</a></h2>
 <p>A module for generating shared headers and sources.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="ifgen.common.common_endianness">
+<span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">common_endianness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#common_endianness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.common_endianness" title="Link to this definition">#</a></dt>
+<dd><p>Write endianness-related content.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="ifgen.common.create_common">
 <span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">create_common</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#create_common"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.create_common" title="Link to this definition">#</a></dt>
 <dd><p>Create a unit test for the enum string-conversion methods.</p>
@@ -364,6 +380,36 @@ document.write(`
 <dt class="sig sig-object py" id="ifgen.common.create_common_test">
 <span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">create_common_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.GenerateTask" title="ifgen.generation.interface.GenerateTask"><span class="pre">GenerateTask</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#create_common_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.create_common_test" title="Link to this definition">#</a></dt>
 <dd><p>Create a unit test for the enum string-conversion methods.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.common.endianness_enum">
+<span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">endianness_enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#endianness_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.endianness_enum" title="Link to this definition">#</a></dt>
+<dd><p>Add methods for enum types that require swapping.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.common.endianness_float">
+<span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">endianness_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#endianness_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.endianness_float" title="Link to this definition">#</a></dt>
+<dd><p>Add methods for floating-point types that require swapping.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.common.endianness_integral">
+<span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">endianness_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#endianness_integral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.endianness_integral" title="Link to this definition">#</a></dt>
+<dd><p>Add methods for integral types that require swapping.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.common.endianness_native">
+<span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">endianness_native</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#endianness_native"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.endianness_native" title="Link to this definition">#</a></dt>
+<dd><p>Add methods for native endianness (no swap).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.common.endianness_single">
+<span class="sig-prename descclassname"><span class="pre">ifgen.common.</span></span><span class="sig-name descname"><span class="pre">endianness_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IndentedFileWriter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/common.html#endianness_single"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.common.endianness_single" title="Link to this definition">#</a></dt>
+<dd><p>Add methods for byte-sized primitives.</p>
 </dd></dl>
 
 </section>
@@ -415,8 +461,14 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.common">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.common_endianness"><code class="docutils literal notranslate"><span class="pre">common_endianness()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.create_common"><code class="docutils literal notranslate"><span class="pre">create_common()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.create_common_test"><code class="docutils literal notranslate"><span class="pre">create_common_test()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_enum"><code class="docutils literal notranslate"><span class="pre">endianness_enum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_float"><code class="docutils literal notranslate"><span class="pre">endianness_float()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_integral"><code class="docutils literal notranslate"><span class="pre">endianness_integral()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_native"><code class="docutils literal notranslate"><span class="pre">endianness_native()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.common.endianness_single"><code class="docutils literal notranslate"><span class="pre">endianness_single()</span></code></a></li>
 </ul>
 </li>
 </ul>

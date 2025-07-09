@@ -170,6 +170,10 @@
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -344,9 +348,29 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.enums">ifgen.enums module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.CUSTOM"><code class="docutils literal notranslate"><span class="pre">Generator.CUSTOM</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.paths">ifgen.paths module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.create_formatter"><code class="docutils literal notranslate"><span class="pre">create_formatter()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.schemas">ifgen.schemas module</a><ul class="nav section-nav flex-column">
@@ -396,8 +420,14 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ifgen.common.html">ifgen.common package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.common.html#module-ifgen.common">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.common_endianness"><code class="docutils literal notranslate"><span class="pre">common_endianness()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.create_common"><code class="docutils literal notranslate"><span class="pre">create_common()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.create_common_test"><code class="docutils literal notranslate"><span class="pre">create_common_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_enum"><code class="docutils literal notranslate"><span class="pre">endianness_enum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_float"><code class="docutils literal notranslate"><span class="pre">endianness_float()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_integral"><code class="docutils literal notranslate"><span class="pre">endianness_integral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_native"><code class="docutils literal notranslate"><span class="pre">endianness_native()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.common.html#ifgen.common.endianness_single"><code class="docutils literal notranslate"><span class="pre">endianness_single()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -489,12 +519,6 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Directories.test_dir"><code class="docutils literal notranslate"><span class="pre">Directories.test_dir</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_dirs"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_dirs()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.get_enum"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_enum()</span></code></a></li>
@@ -506,15 +530,6 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.prune_empty"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.prune_empty()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.rel_include"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.rel_include()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.IfgenEnvironment.size"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.size()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.environment.html#ifgen.environment.runtime_enum_data"><code class="docutils literal notranslate"><span class="pre">runtime_enum_data()</span></code></a></li>
@@ -568,6 +583,8 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.TypeLookup.name"><code class="docutils literal notranslate"><span class="pre">TypeLookup.name</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.apply_cpp_namespace"><code class="docutils literal notranslate"><span class="pre">apply_cpp_namespace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.interface.ifndef_guard"><code class="docutils literal notranslate"><span class="pre">ifndef_guard()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation.json">ifgen.generation.json module</a><ul>
@@ -583,6 +600,21 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.generation.html#ifgen.generation.resolve_generators"><code class="docutils literal notranslate"><span class="pre">resolve_generators()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.plugins.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.plugins.struct_receiver.html#module-ifgen.plugins.struct_receiver">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.plugins.html#module-ifgen.plugins">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.html#ifgen.plugins.internal_plugin_entry"><code class="docutils literal notranslate"><span class="pre">internal_plugin_entry()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -594,9 +626,6 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.bit">ifgen.struct.methods.bit module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.common">ifgen.struct.methods.common module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.decode">ifgen.struct.methods.decode module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.encode">ifgen.struct.methods.encode module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods.swap">ifgen.struct.methods.swap module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.html#module-ifgen.struct.methods">Module contents</a></li>
 </ul>
 </li>
@@ -614,10 +643,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_header"><code class="docutils literal notranslate"><span class="pre">struct_header()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_instance"><code class="docutils literal notranslate"><span class="pre">struct_instance()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.header.struct_line"><code class="docutils literal notranslate"><span class="pre">struct_line()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.source">ifgen.struct.source module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.source.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.stream">ifgen.struct.stream module</a><ul>
@@ -640,7 +665,6 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct"><code class="docutils literal notranslate"><span class="pre">create_struct()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct_source"><code class="docutils literal notranslate"><span class="pre">create_struct_source()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html#ifgen.struct.create_struct_test"><code class="docutils literal notranslate"><span class="pre">create_struct_test()</span></code></a></li>
 </ul>
 </li>
@@ -755,8 +779,80 @@ document.write(`
 <p>This package’s command-line entry-point (boilerplate).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifgen.entry.main">
-<span class="sig-prename descclassname"><span class="pre">ifgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/ifgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.entry.main" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/ifgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.entry.main" title="Link to this definition">#</a></dt>
 <dd><p>Program entry-point.</p>
+</dd></dl>
+
+</section>
+<section id="module-ifgen.enums">
+<span id="ifgen-enums-module"></span><h2>ifgen.enums module<a class="headerlink" href="#module-ifgen.enums" title="Link to this heading">#</a></h2>
+<p>A module implementing enumerations used by this package.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.enums.Generator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.enums.</span></span><span class="sig-name descname"><span class="pre">Generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/enums.html#Generator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.enums.Generator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>An enumeration declaring all valid kinds of generators.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'custom'</span></em><a class="headerlink" href="#ifgen.enums.Generator.CUSTOM" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.ENUMS">
+<span class="sig-name descname"><span class="pre">ENUMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'enums'</span></em><a class="headerlink" href="#ifgen.enums.Generator.ENUMS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.IFGEN">
+<span class="sig-name descname"><span class="pre">IFGEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ifgen'</span></em><a class="headerlink" href="#ifgen.enums.Generator.IFGEN" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Generator.STRUCTS">
+<span class="sig-name descname"><span class="pre">STRUCTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'structs'</span></em><a class="headerlink" href="#ifgen.enums.Generator.STRUCTS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ifgen.enums.Language">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.enums.</span></span><span class="sig-name descname"><span class="pre">Language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/enums.html#Language"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.enums.Language" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>An enumeration declaring output generation variants.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Language.CPP">
+<span class="sig-name descname"><span class="pre">CPP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CPP'</span></em><a class="headerlink" href="#ifgen.enums.Language.CPP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.enums.Language.PYTHON">
+<span class="sig-name descname"><span class="pre">PYTHON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Python'</span></em><a class="headerlink" href="#ifgen.enums.Language.PYTHON" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.cfg_dir_name">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cfg_dir_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ifgen.enums.Language.cfg_dir_name" title="Link to this definition">#</a></dt>
+<dd><p>Get the configuration key for this language’s output configuration.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.header_suffix">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">header_suffix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ifgen.enums.Language.header_suffix" title="Link to this definition">#</a></dt>
+<dd><p>Get a header-file suffix for this language.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.slug">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">slug</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ifgen.enums.Language.slug" title="Link to this definition">#</a></dt>
+<dd><p>Get a slug string.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ifgen.enums.Language.source_suffix">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_suffix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ifgen.enums.Language.source_suffix" title="Link to this definition">#</a></dt>
+<dd><p>Get a source-file suffix for this language.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -775,6 +871,12 @@ document.write(`
 <dd><p>Combine a root directory with a path if the path isn’t absolute.</p>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="ifgen.paths.create_formatter">
+<span class="sig-prename descclassname"><span class="pre">ifgen.paths.</span></span><span class="sig-name descname"><span class="pre">create_formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/paths.html#create_formatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.paths.create_formatter" title="Link to this definition">#</a></dt>
+<dd><p>Create a formatting preprocessor that uses stdin/stdout of a subprocess.</p>
+</dd></dl>
+
 </section>
 <section id="module-ifgen.schemas">
 <span id="ifgen-schemas-module"></span><h2>ifgen.schemas module<a class="headerlink" href="#module-ifgen.schemas" title="Link to this heading">#</a></h2>
@@ -786,7 +888,7 @@ document.write(`
 <p>A simple wrapper for package classes that want to implement DictCodec.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.schemas.IfgenDictCodec.data">
-<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.data" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifgen.schemas.IfgenDictCodec.data" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -859,9 +961,29 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.enums">ifgen.enums module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.CUSTOM"><code class="docutils literal notranslate"><span class="pre">Generator.CUSTOM</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.enums.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.paths">ifgen.paths module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.paths.create_formatter"><code class="docutils literal notranslate"><span class="pre">create_formatter()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ifgen.schemas">ifgen.schemas module</a><ul class="nav section-nav flex-column">

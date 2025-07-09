@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -305,13 +309,6 @@ document.write(`
 
 <span class="n">StructMap</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 <span class="n">StructField</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-<span class="n">DEFAULT_STRUCT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s2">&quot;methods&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s2">&quot;unit_test&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">}</span>
 
 
 <div class="viewcode-block" id="parse_offset">
@@ -363,8 +360,6 @@ document.write(`
     <span class="c1"># Too difficult due to padding (may need to comment out). Padding within</span>
     <span class="c1"># a cluster isn&#39;t currently handled.</span>
     <span class="c1"># cluster_struct[&quot;expected_size&quot;] = size</span>
-
-    <span class="n">cluster_struct</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">DEFAULT_STRUCT</span><span class="p">)</span>
 
     <span class="n">raw_name</span> <span class="o">=</span> <span class="n">sanitize_name</span><span class="p">(</span><span class="n">cluster</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 

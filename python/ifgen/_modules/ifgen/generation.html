@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -292,33 +296,64 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">import_module</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">getLogger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing.pool</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPool</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.names</span><span class="w"> </span><span class="kn">import</span> <span class="n">import_str_and_item</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_common</span><span class="p">,</span> <span class="n">create_common_test</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_enum</span><span class="p">,</span> <span class="n">create_enum_source</span><span class="p">,</span> <span class="n">create_enum_test</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.environment</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">IfgenEnvironment</span><span class="p">,</span> <span class="n">Language</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">Language</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.environment</span><span class="w"> </span><span class="kn">import</span> <span class="n">IfgenEnvironment</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">InstanceGenerator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">internal_plugin_entry</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.struct</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">create_struct</span><span class="p">,</span>
-    <span class="n">create_struct_source</span><span class="p">,</span>
     <span class="n">create_struct_test</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">GENERATORS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Generator</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">InstanceGenerator</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">Generator</span><span class="o">.</span><span class="n">STRUCTS</span><span class="p">:</span> <span class="p">[</span>
-        <span class="n">create_struct</span><span class="p">,</span>
-        <span class="n">create_struct_test</span><span class="p">,</span>
-        <span class="n">create_struct_source</span><span class="p">,</span>
-    <span class="p">],</span>
+<span class="n">CodeGenerators</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Generator</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">InstanceGenerator</span><span class="p">]]</span>
+<span class="n">GENERATORS</span><span class="p">:</span> <span class="n">CodeGenerators</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Generator</span><span class="o">.</span><span class="n">STRUCTS</span><span class="p">:</span> <span class="p">[</span><span class="n">create_struct</span><span class="p">,</span> <span class="n">create_struct_test</span><span class="p">],</span>
     <span class="n">Generator</span><span class="o">.</span><span class="n">ENUMS</span><span class="p">:</span> <span class="p">[</span><span class="n">create_enum</span><span class="p">,</span> <span class="n">create_enum_test</span><span class="p">,</span> <span class="n">create_enum_source</span><span class="p">],</span>
-    <span class="n">Generator</span><span class="o">.</span><span class="n">IFGEN</span><span class="p">:</span> <span class="p">[</span><span class="n">create_common</span><span class="p">,</span> <span class="n">create_common_test</span><span class="p">],</span>
+    <span class="n">Generator</span><span class="o">.</span><span class="n">IFGEN</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="n">Generator</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">:</span> <span class="p">[</span><span class="n">internal_plugin_entry</span><span class="p">],</span>
 <span class="p">}</span>
 <span class="n">LOG</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="resolve_generators">
+<a class="viewcode-back" href="../../ifgen.generation.html#ifgen.generation.resolve_generators">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">resolve_generators</span><span class="p">(</span><span class="n">env</span><span class="p">:</span> <span class="n">IfgenEnvironment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CodeGenerators</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Populate any custom generator interfaces defined in the configuration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">root_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="n">generators</span> <span class="o">=</span> <span class="n">GENERATORS</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;common&quot;</span><span class="p">]:</span>
+        <span class="n">generators</span><span class="p">[</span><span class="n">Generator</span><span class="o">.</span><span class="n">IFGEN</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">create_common</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;common_test&quot;</span><span class="p">]:</span>
+        <span class="n">generators</span><span class="p">[</span><span class="n">Generator</span><span class="o">.</span><span class="n">IFGEN</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">create_common_test</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">custom</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;plugins&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">module</span><span class="p">,</span> <span class="n">app</span> <span class="o">=</span> <span class="n">import_str_and_item</span><span class="p">(</span><span class="n">custom</span><span class="p">)</span>
+        <span class="n">generators</span><span class="p">[</span><span class="n">Generator</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="nb">getattr</span><span class="p">(</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">),</span> <span class="n">app</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">generators</span></div>
+
 
 
 <div class="viewcode-block" id="generate">
@@ -334,7 +369,7 @@ document.write(`
 
     <span class="k">with</span> <span class="n">ThreadPool</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">languages</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">generator</span><span class="p">,</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">GENERATORS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">generator</span><span class="p">,</span> <span class="n">methods</span> <span class="ow">in</span> <span class="n">resolve_generators</span><span class="p">(</span><span class="n">env</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
                     <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
                         <span class="n">method</span><span class="p">,</span>

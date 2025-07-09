@@ -535,7 +535,6 @@ document.write(`
             <span class="n">kwargs</span> <span class="o">=</span> <span class="n">dict_resolve_env_vars</span><span class="p">(</span>
                 <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span> <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_ports</span>  <span class="c1"># type: ignore</span>
             <span class="p">)</span>
-            <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;markdown&quot;</span><span class="p">,</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;markdown&quot;</span><span class="p">))</span>
 
             <span class="k">assert</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory_client</span><span class="p">(</span>
                 <span class="n">factory</span><span class="p">,</span>
@@ -544,6 +543,9 @@ document.write(`
                 <span class="n">defer</span><span class="o">=</span><span class="n">client</span><span class="p">[</span><span class="s2">&quot;defer&quot;</span><span class="p">],</span>
                 <span class="c1"># Perform some known fixes for common keyword arguments.</span>
                 <span class="o">**</span><span class="n">fix_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">),</span>
+                <span class="n">views</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;views&quot;</span><span class="p">),</span>
+                <span class="n">markdown</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;markdown&quot;</span><span class="p">),</span>
+                <span class="n">buttons</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;buttons&quot;</span><span class="p">,</span> <span class="p">[]),</span>
             <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Couldn&#39;t register client &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">factory</span><span class="si">}</span><span class="s2">)!&quot;</span>
 
         <span class="c1"># Register servers.</span>
@@ -608,7 +610,10 @@ document.write(`
             <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span>
             <span class="k">assert</span> <span class="s2">&quot;root&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span>
-            <span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">root</span></div>
+            <span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">root</span>
+
+        <span class="c1"># Register commands.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">commands</span></div>
 </div>
 
 

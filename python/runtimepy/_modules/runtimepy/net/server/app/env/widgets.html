@@ -366,6 +366,7 @@ document.write(`
     <span class="n">ChannelCommandProcessor</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">RuntimeEnum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.html.bootstrap</span><span class="w"> </span><span class="kn">import</span> <span class="n">icon_str</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.html.bootstrap.elements</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">flex</span><span class="p">,</span>
     <span class="n">input_box</span><span class="p">,</span>
@@ -379,7 +380,9 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_checkbox</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a checkbox for individual channel plot status.&quot;&quot;&quot;</span>
 
-    <span class="n">container</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-center p-0&quot;</span><span class="p">)</span>
+    <span class="n">container</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-center p-0 fs-5&quot;</span><span class="p">)</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Enable plotting channel &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
 
     <span class="n">set_tooltip</span><span class="p">(</span>
         <span class="n">div</span><span class="p">(</span>
@@ -388,10 +391,11 @@ document.write(`
             <span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
             <span class="nb">id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;plot-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
             <span class="n">allow_no_end_tag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;form-check-input&quot;</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">),</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;form-check-input rounded-0&quot;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
         <span class="p">),</span>
-        <span class="sa">f</span><span class="s2">&quot;Enable plotting channel &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="p">,</span>
         <span class="n">placement</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
     <span class="p">)</span></div>
 
@@ -402,7 +406,10 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">select_element</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Element</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a select element.&quot;&quot;&quot;</span>
 
-    <span class="n">select</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;select&quot;</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;form-select m-1&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">select</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;select&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">select</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+        <span class="s2">&quot;form-select&quot;</span><span class="p">,</span> <span class="s2">&quot;rounded-0&quot;</span><span class="p">,</span> <span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span> <span class="s2">&quot;border-bottom-0&quot;</span>
+    <span class="p">)</span>
     <span class="k">if</span> <span class="s2">&quot;title&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="n">select</span><span class="p">[</span><span class="s2">&quot;aria-label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">select</span></div>
@@ -413,7 +420,7 @@ document.write(`
 <a class="viewcode-back" href="../../../../../../runtimepy.net.server.app.env.html#runtimepy.net.server.app.env.widgets.enum_dropdown">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">enum_dropdown</span><span class="p">(</span>
     <span class="n">parent</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">enum</span><span class="p">:</span> <span class="n">RuntimeEnum</span><span class="p">,</span> <span class="n">current</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bool</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Element</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement a drop down for enumeration options.&quot;&quot;&quot;</span>
 
     <span class="n">select</span> <span class="o">=</span> <span class="n">select_element</span><span class="p">(</span>
@@ -425,11 +432,32 @@ document.write(`
     <span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">opt</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;option&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">val</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">select</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">current</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
-            <span class="n">opt</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">)</span></div>
+            <span class="n">opt</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">select</span></div>
 
 
 
-<span class="n">TABLE_BUTTON_CLASSES</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;p-1&quot;</span><span class="p">,</span> <span class="s2">&quot;pt-2&quot;</span><span class="p">)</span>
+<span class="n">TABLE_BUTTON_CLASSES</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span> <span class="s2">&quot;border-bottom-0&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="views_dropdown">
+<a class="viewcode-back" href="../../../../../../runtimepy.net.server.app.env.html#runtimepy.net.server.app.env.widgets.views_dropdown">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">views_dropdown</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="n">ChannelCommandProcessor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dropdown menu for channel environment views.&quot;&quot;&quot;</span>
+
+    <span class="n">select</span> <span class="o">=</span> <span class="n">select_element</span><span class="p">(</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span>
+            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0 channel-views-min-width&quot;</span>
+        <span class="p">),</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;filter-view&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Canonical channel filters.&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-end-0&quot;</span><span class="p">,</span> <span class="s2">&quot;w-100&quot;</span><span class="p">)</span>
+    <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;option&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">select</span><span class="p">)</span>
+    <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;option&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;^$&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;hide&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">select</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">command</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;option&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">select</span><span class="p">)</span></div>
+
 
 
 <div class="viewcode-block" id="channel_table_header">
@@ -441,71 +469,50 @@ document.write(`
 
     <span class="n">env</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">env</span>
 
-    <span class="c1"># Add header.</span>
-    <span class="n">header_row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-        <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;border-start border-end&quot;</span>
-    <span class="p">)</span>
-    <span class="k">for</span> <span class="n">heading</span><span class="p">,</span> <span class="n">desc</span> <span class="ow">in</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s2">&quot;plot&quot;</span><span class="p">,</span> <span class="s2">&quot;Toggle plotting for channels.&quot;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Channel names.&quot;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;Channel values.&quot;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;ctl&quot;</span><span class="p">,</span> <span class="s2">&quot;Type-specific channel controls.&quot;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;Channel types.&quot;</span><span class="p">),</span>
-    <span class="p">]:</span>
-        <span class="n">set_tooltip</span><span class="p">(</span>
-            <span class="n">div</span><span class="p">(</span>
-                <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span>
-                <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="p">,</span>
-                <span class="n">parent</span><span class="o">=</span><span class="n">header_row</span><span class="p">,</span>
-                <span class="n">text</span><span class="o">=</span><span class="n">heading</span><span class="p">,</span>
-                <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-secondary p-1&quot;</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">desc</span><span class="p">,</span>
-            <span class="n">placement</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-
     <span class="c1"># Add some controls.</span>
-    <span class="n">ctl_row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;border-start border-end&quot;</span><span class="p">)</span>
+    <span class="n">ctl_row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
+        <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
+        <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;bg-body-tertiary border-start border-end&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># Button for clearing plotted channels.</span>
     <span class="n">toggle_button</span><span class="p">(</span>
         <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">ctl_row</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-center p-0&quot;</span><span class="p">),</span>
         <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Clear plotted channels.&quot;</span><span class="p">,</span>
         <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;x-lg&quot;</span><span class="p">,</span>
+        <span class="n">placement</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;clear-plotted-channels&quot;</span><span class="p">,</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;pb-2&quot;</span><span class="p">)</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;button for clearing plotted channels&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
 
-    <span class="n">input_box</span><span class="p">(</span>
-        <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">ctl_row</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0 pb-1&quot;</span><span class="p">),</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">box</span> <span class="o">=</span> <span class="n">input_box</span><span class="p">(</span>
+        <span class="n">div</span><span class="p">(</span>
+            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">ctl_row</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0 border-end-0 channel-filter-min-width&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
         <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Channel name filter.&quot;</span><span class="p">,</span>
+        <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;.* ! @ $&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;channel-filter&quot;</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;funnel&quot;</span><span class="p">,</span>
+        <span class="n">spellcheck</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
     <span class="p">)</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span> <span class="s2">&quot;border-bottom-0&quot;</span><span class="p">)</span>
+    <span class="n">box</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span> <span class="s2">&quot;border-bottom-0&quot;</span><span class="p">,</span> <span class="s2">&quot;border-end-0&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Button for clearing plot points.</span>
-    <span class="n">toggle_button</span><span class="p">(</span>
-        <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">ctl_row</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0&quot;</span><span class="p">),</span>
-        <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;trash&quot;</span><span class="p">,</span>
-        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Clear all plot points.&quot;</span><span class="p">,</span>
-        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;clear-plotted-points&quot;</span><span class="p">,</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;pb-2&quot;</span><span class="p">)</span>
+    <span class="n">views_dropdown</span><span class="p">(</span><span class="n">ctl_row</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
 
-    <span class="n">cell</span> <span class="o">=</span> <span class="n">flex</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">ctl_row</span><span class="p">)</span>
-    <span class="n">cell</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;p-0&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Button for &#39;reset all defaults&#39; if this tab has more than one channel</span>
-    <span class="c1"># with a default value.</span>
-    <span class="k">if</span> <span class="n">env</span><span class="o">.</span><span class="n">num_defaults</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">toggle_button</span><span class="p">(</span>
-            <span class="n">cell</span><span class="p">,</span>
-            <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;set-defaults&quot;</span><span class="p">,</span>
-            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;arrow-counterclockwise&quot;</span><span class="p">,</span>
-            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Reset all channels to their default values.&quot;</span><span class="p">,</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+    <span class="n">cell</span> <span class="o">=</span> <span class="n">flex</span><span class="p">(</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">ctl_row</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
 
     <span class="c1"># Add a selection menu for custom commands.</span>
     <span class="n">select</span> <span class="o">=</span> <span class="n">select_element</span><span class="p">(</span>
         <span class="n">parent</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;custom-commands&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Custom command selector.&quot;</span>
     <span class="p">)</span>
+
     <span class="k">if</span> <span class="n">command</span><span class="o">.</span><span class="n">custom_commands</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">command</span><span class="o">.</span><span class="n">custom_commands</span><span class="p">:</span>
             <span class="n">opt</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;option&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">select</span><span class="p">)</span>
@@ -517,19 +524,86 @@ document.write(`
             <span class="n">cell</span><span class="p">,</span>
             <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;send&quot;</span><span class="p">,</span>
             <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;send-custom-commands&quot;</span><span class="p">,</span>
-            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Send selected command.&quot;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;send selected command button&quot;</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Send selected command (left dropdown).&quot;</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">div</span><span class="p">(</span>
-            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;option&quot;</span><span class="p">,</span>
-            <span class="n">parent</span><span class="o">=</span><span class="n">select</span><span class="p">,</span>
-            <span class="n">value</span><span class="o">=</span><span class="s2">&quot;noop&quot;</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;no custom commands&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;option&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">select</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;noop&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
         <span class="n">select</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Empty for now.</span>
-    <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">ctl_row</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0&quot;</span><span class="p">)</span></div>
+    <span class="c1"># Button for &#39;reset all defaults&#39; if this tab has more than one channel</span>
+    <span class="c1"># with a default value.</span>
+    <span class="k">if</span> <span class="n">env</span><span class="o">.</span><span class="n">num_defaults</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">toggle_button</span><span class="p">(</span>
+            <span class="n">cell</span><span class="p">,</span>
+            <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;set-defaults&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;arrow-counterclockwise&quot;</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Reset all channels to their default values.&quot;</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+
+    <span class="n">toggle_button</span><span class="p">(</span>
+        <span class="n">cell</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;eye-slash&quot;</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Toggle command channels.&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;toggle-command-channels&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;button for toggling command-channel visibility&quot;</span><span class="p">,</span>
+        <span class="n">icon_classes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;text-info-emphasis&quot;</span><span class="p">],</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+    <span class="n">toggle_button</span><span class="p">(</span>
+        <span class="n">cell</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;eye-slash-fill&quot;</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Toggle regular channels.&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;toggle-regular-channels&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;button for toggling regular-channel visibility&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+    <span class="n">toggle_button</span><span class="p">(</span>
+        <span class="n">cell</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;trash&quot;</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Clear all plot points.&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;clear-plotted-points&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;button for clearing plot point data&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;me-auto&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+
+    <span class="c1"># Add header.</span>
+    <span class="n">header_row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
+        <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
+        <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;border-end text-center bg-body-tertiary&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">icon_classes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;text-primary-emphasis&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">heading</span><span class="p">,</span> <span class="n">desc</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="p">(</span>
+            <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;activity&quot;</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">icon_classes</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Toggle plotting for channels.&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;pen&quot;</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">icon_classes</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; name&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Channel names.&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;database&quot;</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">icon_classes</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; value&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Channel values.&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;controller&quot;</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">icon_classes</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; controls&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Type-specific channel controls.&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;braces&quot;</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">icon_classes</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; type&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Channel types.&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">]:</span>
+        <span class="n">set_tooltip</span><span class="p">(</span>
+            <span class="n">div</span><span class="p">(</span>
+                <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span>
+                <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="p">,</span>
+                <span class="n">parent</span><span class="o">=</span><span class="n">header_row</span><span class="p">,</span>
+                <span class="n">text</span><span class="o">=</span><span class="n">heading</span><span class="p">,</span>
+                <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-secondary p-1 border-start text-nowrap&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;(column) &quot;</span> <span class="o">+</span> <span class="n">desc</span><span class="p">,</span>
+            <span class="n">placement</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
 
 
 
@@ -550,16 +624,17 @@ document.write(`
         <span class="s2">&quot;rounded-0&quot;</span><span class="p">,</span>
         <span class="s2">&quot;font-monospace&quot;</span><span class="p">,</span>
         <span class="s2">&quot;form-control&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;m-1&quot;</span><span class="p">,</span>
         <span class="s2">&quot;p-0&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ps-1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ps-2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;border-0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text-secondary-emphasis&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">toggle_button</span><span class="p">(</span>
         <span class="n">input_container</span><span class="p">,</span>
         <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;send&quot;</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Send command value for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;pt-0&quot;</span><span class="p">,</span> <span class="s2">&quot;pb-0&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">input_container</span></div>
 

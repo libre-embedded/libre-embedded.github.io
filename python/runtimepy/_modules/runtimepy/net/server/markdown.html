@@ -356,23 +356,113 @@ document.write(`
 
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mimetypes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">stat_result</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">cast</span>
 
 <span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">svgen.element.html</span><span class="w"> </span><span class="kn">import</span> <span class="n">div</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.file_writer</span><span class="w"> </span><span class="kn">import</span> <span class="n">IndentedFileWriter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.math.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">byte_count_str</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">rel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">_stats</span>
 
-<span class="n">LOGO_MARKDOWN</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;[![logo](https://libre-embedded.com/static/&quot;</span>
-    <span class="s2">&quot;png/chip-circle-bootstrap/128x128.png)](https://libre-embedded.com)&quot;</span>
-<span class="p">)</span>
+<span class="n">LOGO_MARKDOWN</span> <span class="o">=</span> <span class="s2">&quot;[![logo](/static/png/chip-circle-bootstrap/128x128.png)](/)&quot;</span>
+<span class="n">DIR_FILE</span> <span class="o">=</span> <span class="s2">&quot;dir.html&quot;</span>
+<span class="n">AUTOPLAY_PREVIEW_SIZE</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>  <span class="c1"># 100 MiB</span>
+
+
+<div class="viewcode-block" id="file_preview">
+<a class="viewcode-back" href="../../../../runtimepy.net.server.html#runtimepy.net.server.markdown.file_preview">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">file_preview</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">link</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">stat_result</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get possible preview text for a file.&quot;&quot;&quot;</span>
+
+    <span class="n">preview</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">preview</span>
+
+    <span class="n">mime</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">guess_type</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mime</span><span class="p">:</span>
+        <span class="c1"># Image previews.</span>
+        <span class="k">if</span> <span class="n">mime</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">):</span>
+            <span class="n">preview</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
+                <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;img&quot;</span><span class="p">,</span>
+                <span class="n">src</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">alt</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">link</span><span class="p">),</span>
+                <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;media-preview&quot;</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">encode_str</span><span class="p">(</span><span class="n">newlines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Video previews.</span>
+        <span class="k">elif</span> <span class="n">mime</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;video&quot;</span><span class="p">):</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;video&quot;</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;media-preview&quot;</span><span class="p">)</span>
+            <span class="n">elem</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;loop&quot;</span><span class="p">)</span>
+            <span class="n">elem</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;controls&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">stats</span><span class="o">.</span><span class="n">st_size</span> <span class="o">&lt;</span> <span class="n">AUTOPLAY_PREVIEW_SIZE</span><span class="p">:</span>
+                <span class="n">elem</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;autoplay&quot;</span><span class="p">)</span>
+
+            <span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">elem</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">mime</span><span class="p">)</span>
+
+            <span class="n">preview</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">encode_str</span><span class="p">(</span><span class="n">newlines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Audio previews.</span>
+        <span class="k">elif</span> <span class="n">mime</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;audio&quot;</span><span class="p">):</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">elem</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;controls&quot;</span><span class="p">)</span>
+            <span class="n">preview</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">encode_str</span><span class="p">(</span><span class="n">newlines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">preview</span></div>
+
+
+
+<div class="viewcode-block" id="write_markdown_dir">
+<a class="viewcode-back" href="../../../../runtimepy.net.server.html#runtimepy.net.server.markdown.write_markdown_dir">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">write_markdown_dir</span><span class="p">(</span>
+    <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">base</span><span class="p">:</span> <span class="n">Path</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write markdown contents for a single directory.&quot;&quot;&quot;</span>
+
+    <span class="n">curr_dir</span> <span class="o">=</span> <span class="n">rel</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;### `</span><span class="si">{</span><span class="n">base</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">curr_dir</span><span class="si">}</span><span class="s2">`&quot;</span>
+
+    <span class="c1"># Link to go up a directory.</span>
+    <span class="k">if</span> <span class="n">curr_dir</span> <span class="o">!=</span> <span class="n">Path</span><span class="p">():</span>
+        <span class="n">line</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ([..](/</span><span class="si">{</span><span class="n">curr_dir</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">DIR_FILE</span><span class="si">}</span><span class="s2">))&quot;</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;| name | size | preview |&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;|------|------|---------|&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()):</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">rel</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">)</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">curr</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">`&quot;</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">**&quot;</span>
+
+        <span class="n">stats</span> <span class="o">=</span> <span class="n">_stats</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">stats</span>
+        <span class="n">size_str</span> <span class="o">=</span> <span class="n">byte_count_str</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;| [</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">](/</span><span class="si">{</span><span class="n">curr</span><span class="si">}</span><span class="s2">) | </span><span class="si">{</span><span class="n">size_str</span><span class="si">}</span><span class="s2"> | &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_preview</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">curr</span><span class="p">,</span><span class="w"> </span><span class="n">stats</span><span class="p">)</span><span class="si">}</span><span class="s2"> |&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span></div>
+
 
 
 <div class="viewcode-block" id="markdown_for_dir">
 <a class="viewcode-back" href="../../../../runtimepy.net.server.html#runtimepy.net.server.markdown.markdown_for_dir">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">markdown_for_dir</span><span class="p">(</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">extra_links</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">paths_bases</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">Path</span><span class="p">]],</span>
+    <span class="n">extra_links</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get markdown data for a directory.&quot;&quot;&quot;</span>
 
@@ -383,24 +473,17 @@ document.write(`
 
         <span class="k">if</span> <span class="n">extra_links</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">apps</span> <span class="ow">in</span> <span class="n">extra_links</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;## </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
-                    <span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="n">apps</span><span class="p">:</span>
-                        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;* [</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">apps</span><span class="p">:</span>
+                    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;## </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+                        <span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="n">apps</span><span class="p">:</span>
+                            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;* [</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;## `</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">`&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;## directories&quot;</span><span class="p">)</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
 
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;* [..](..)&quot;</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="n">rel</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
-
-            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">curr</span><span class="si">}</span><span class="s2">`&quot;</span>
-            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">**&quot;</span>
-
-            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;* [</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">curr</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">path</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">paths_bases</span><span class="p">:</span>
+            <span class="n">write_markdown_dir</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
 
         <span class="n">result</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">StringIO</span><span class="p">,</span> <span class="n">writer</span><span class="o">.</span><span class="n">stream</span><span class="p">)</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 

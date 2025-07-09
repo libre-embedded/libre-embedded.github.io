@@ -283,7 +283,7 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">isclose</span><span class="p">,</span> <span class="n">radians</span><span class="p">,</span> <span class="n">sin</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Union</span>
 
 
@@ -302,7 +302,7 @@ document.write(`
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_degrees</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Angle&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an angle from a degree value.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Angle</span><span class="o">.</span><span class="n">from_radians</span><span class="p">(</span><span class="n">radians</span><span class="p">(</span><span class="n">val</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="n">Angle</span><span class="o">.</span><span class="n">from_radians</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">val</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="Angle.from_radians">
@@ -310,7 +310,7 @@ document.write(`
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_radians</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Angle&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an angle from a radian value.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Angle</span><span class="p">(</span><span class="n">degrees</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">val</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">val</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="n">Angle</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">val</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">val</span><span class="p">))</span></div>
 </div>
 
 
@@ -332,7 +332,7 @@ document.write(`
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Test if two translations are equivalent.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dx</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dx</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span> <span class="ow">and</span> <span class="n">isclose</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dx</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dx</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span> <span class="ow">and</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dy</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dy</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-12</span>
         <span class="p">)</span>
 
@@ -356,6 +356,25 @@ document.write(`
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">Translation</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">dx</span>
         <span class="k">return</span> <span class="n">Translation</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Translation.polar">
+<a class="viewcode-back" href="../../../svgen.cartesian.html#svgen.cartesian.mutate.Translation.polar">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">polar</span><span class="p">(</span>
+        <span class="n">count</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">ccw</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Translation&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a polar translation based on provided parameters.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">degrees</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ccw</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">Translation</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">*</span> <span class="n">radius</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">*</span> <span class="n">radius</span><span class="p">)</span></div>
 </div>
 
 

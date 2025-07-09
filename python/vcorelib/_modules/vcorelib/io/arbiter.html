@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -295,6 +296,10 @@ document.write(`
 <span class="sd">A module aggregating all data-arbiter capabilities.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="c1"># built-in</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.arbiter.context</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataArbiterContext</span>
 
@@ -307,6 +312,29 @@ document.write(`
 
 
 <span class="n">ARBITER</span> <span class="o">=</span> <span class="n">DataArbiter</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="encode_if_different">
+<a class="viewcode-back" href="../../../vcorelib.io.arbiter.html#vcorelib.io.encode_if_different">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_if_different</span><span class="p">(</span>
+    <span class="n">output</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">encode_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">decode_kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode a data file if its contents are different.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+        <span class="ow">and</span> <span class="n">data</span>
+        <span class="o">==</span> <span class="n">ARBITER</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">require_success</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">decode_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">ARBITER</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">output</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">encode_kwargs</span> <span class="k">if</span> <span class="n">encode_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{})</span>
+    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
 </pre></div>
 
                 </article>

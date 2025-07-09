@@ -372,6 +372,7 @@ document.write(`
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_exceptions</span> <span class="k">as</span> <span class="n">_log_exceptions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryMessage</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">websockets</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">websockets.asyncio.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClientConnection</span> <span class="k">as</span> <span class="n">_ClientConnection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">websockets.asyncio.server</span><span class="w"> </span><span class="kn">import</span> <span class="n">Server</span> <span class="k">as</span> <span class="n">_Server</span>
@@ -380,8 +381,9 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">websockets.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionClosed</span> <span class="k">as</span> <span class="n">_ConnectionClosed</span>
 
 <span class="c1"># internal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize_host</span> <span class="k">as</span> <span class="n">_normalize_host</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net</span><span class="w"> </span><span class="kn">import</span> <span class="n">sockname</span> <span class="k">as</span> <span class="n">_sockname</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryMessage</span><span class="p">,</span> <span class="n">Connection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">Connection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">EchoConnection</span> <span class="k">as</span> <span class="n">_EchoConnection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">NullConnection</span> <span class="k">as</span> <span class="n">_NullConnection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionManager</span> <span class="k">as</span> <span class="n">_ConnectionManager</span>
@@ -391,6 +393,20 @@ document.write(`
 <span class="n">ConnectionInit</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">_Awaitable</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span>
 <span class="n">V</span> <span class="o">=</span> <span class="n">_TypeVar</span><span class="p">(</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
 <span class="n">LOG</span> <span class="o">=</span> <span class="n">_getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="websocket_connect">
+<a class="viewcode-back" href="../../../../runtimepy.net.websocket.html#runtimepy.net.factories.websocket_connect">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">websocket_connect</span><span class="p">(</span><span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_ClientConnection</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Attempt to connect a websocket interface.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Defaults.</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;use_ssl&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;wss&quot;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">websockets</span><span class="p">,</span> <span class="s2">&quot;connect&quot;</span><span class="p">)(</span>  <span class="c1"># type: ignore</span>
+        <span class="n">uri</span><span class="p">,</span> <span class="o">**</span><span class="n">handle_possible_ssl</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="p">)</span></div>
+
 
 
 <div class="viewcode-block" id="WebsocketConnection">
@@ -406,7 +422,17 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this connection.&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="n">protocol</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">_getLogger</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;W </span><span class="si">{</span><span class="n">_normalize_host</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">local_address</span><span class="p">)</span><span class="si">}</span><span class="s2"> -&gt; &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_normalize_host</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">remote_address</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">),</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Store connection-instantiation arguments (for connection restarting).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conn_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_connection_closed</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">_Awaitable</span><span class="p">[</span><span class="n">V</span><span class="p">]</span>
@@ -435,7 +461,9 @@ document.write(`
 
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_send_binay_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">BinaryMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Send a binary message.&quot;&quot;&quot;</span>
-        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_connection_closed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_connection_closed</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>  <span class="c1"># type: ignore</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">tx</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
 <div class="viewcode-block" id="WebsocketConnection.close">
@@ -453,12 +481,33 @@ document.write(`
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Connect a client to an endpoint.&quot;&quot;&quot;</span>
 
-        <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;use_ssl&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;wss&quot;</span><span class="p">))</span>
+        <span class="n">inst</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="k">await</span> <span class="n">websocket_connect</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">markdown</span><span class="o">=</span><span class="n">markdown</span><span class="p">)</span>
 
-        <span class="n">protocol</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">websockets</span><span class="p">,</span> <span class="s2">&quot;connect&quot;</span><span class="p">)(</span>
-            <span class="n">uri</span><span class="p">,</span> <span class="o">**</span><span class="n">handle_possible_ssl</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">markdown</span><span class="o">=</span><span class="n">markdown</span><span class="p">)</span></div>
+        <span class="c1"># Stored for connection restart capability.</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">_uri</span> <span class="o">=</span> <span class="n">uri</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">_conn_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">inst</span></div>
+
+
+<div class="viewcode-block" id="WebsocketConnection.restart">
+<a class="viewcode-back" href="../../../../runtimepy.net.websocket.html#runtimepy.net.factories.WebsocketConnection.restart">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset necessary underlying state for this connection to &#39;process&#39;</span>
+<span class="sd">        again.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_uri</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">_suppress</span><span class="p">(</span><span class="ne">TimeoutError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="k">await</span> <span class="n">websocket_connect</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_uri</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_conn_kwargs</span>
+                <span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
 
 
 <div class="viewcode-block" id="WebsocketConnection.client">
@@ -475,7 +524,13 @@ document.write(`
         <span class="k">async</span> <span class="k">with</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">websockets</span><span class="p">,</span> <span class="s2">&quot;connect&quot;</span><span class="p">)(</span>
             <span class="n">uri</span><span class="p">,</span> <span class="o">**</span><span class="n">handle_possible_ssl</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="p">)</span> <span class="k">as</span> <span class="n">protocol</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="bp">cls</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">markdown</span><span class="o">=</span><span class="n">markdown</span><span class="p">)</span></div>
+            <span class="n">inst</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">markdown</span><span class="o">=</span><span class="n">markdown</span><span class="p">)</span>
+
+            <span class="c1"># Stored for connection restart capability.</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">_uri</span> <span class="o">=</span> <span class="n">uri</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">_conn_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+
+            <span class="k">yield</span> <span class="n">inst</span></div>
 
 
 <div class="viewcode-block" id="WebsocketConnection.server_handler">

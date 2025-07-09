@@ -355,6 +355,7 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span> <span class="k">as</span> <span class="n">_cast</span>
 
 <span class="c1"># third-party</span>
@@ -366,6 +367,12 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.mixins.regex</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegexMixin</span> <span class="k">as</span> <span class="n">_RegexMixin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.int</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsignedInt</span> <span class="k">as</span> <span class="n">_UnsignedInt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry.name</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegistryKey</span> <span class="k">as</span> <span class="n">_RegistryKey</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Controls</span><span class="p">,</span>
+    <span class="n">Controlslike</span><span class="p">,</span>
+    <span class="n">bit_slider</span><span class="p">,</span>
+    <span class="n">normalize_controls</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="BitFieldBase">
@@ -380,6 +387,8 @@ document.write(`
         <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">commandable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">controls</span><span class="p">:</span> <span class="n">Controlslike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">default</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this bit-field.&quot;&quot;&quot;</span>
 
@@ -387,6 +396,11 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">commandable</span> <span class="o">=</span> <span class="n">commandable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+
+        <span class="k">if</span> <span class="n">controls</span><span class="p">:</span>
+            <span class="n">controls</span> <span class="o">=</span> <span class="n">normalize_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">controls</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">Controls</span><span class="p">]</span> <span class="o">=</span> <span class="n">controls</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="n">default</span>
 
         <span class="c1"># Compute a bit-mask for this field.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
@@ -402,7 +416,7 @@ document.write(`
 
         <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
-        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="mi">8</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="mi">8</span><span class="p">)):</span>
             <span class="n">val</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
             <span class="k">if</span> <span class="n">val</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">shifted_mask</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;^&quot;</span>
@@ -459,11 +473,17 @@ document.write(`
         <span class="n">enum</span><span class="p">:</span> <span class="n">_RegistryKey</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">commandable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this bit-field.&quot;&quot;&quot;</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="n">raw</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">description</span>
+            <span class="n">raw</span><span class="p">,</span>
+            <span class="n">index</span><span class="p">,</span>
+            <span class="n">width</span><span class="p">,</span>
+            <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Verify bit-field parameters.</span>
@@ -481,6 +501,16 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_enum</span> <span class="o">=</span> <span class="n">enum</span>
 
+<div class="viewcode-block" id="BitField.set_slider">
+<a class="viewcode-back" href="../../../runtimepy.primitives.field.html#runtimepy.primitives.field.BitField.set_slider">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_slider</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;BitField&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set slider controls for this bit field.&quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">controls</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">controls</span> <span class="o">=</span> <span class="n">bit_slider</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
 <div class="viewcode-block" id="BitField.asdict">
 <a class="viewcode-back" href="../../../runtimepy.primitives.field.html#runtimepy.primitives.field.BitField.asdict">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_JsonObject</span><span class="p">:</span>
@@ -496,6 +526,10 @@ document.write(`
             <span class="n">result</span><span class="p">[</span><span class="s2">&quot;enum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enum</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">commandable</span><span class="p">:</span>
             <span class="n">result</span><span class="p">[</span><span class="s2">&quot;commandable&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">controls</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;controls&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">controls</span>  <span class="c1"># type: ignore</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span>
         <span class="k">return</span> <span class="n">result</span></div>
 </div>
 
@@ -514,6 +548,7 @@ document.write(`
         <span class="n">enum</span><span class="p">:</span> <span class="n">_RegistryKey</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">commandable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this bit flag.&quot;&quot;&quot;</span>
 
@@ -525,6 +560,7 @@ document.write(`
             <span class="n">enum</span><span class="o">=</span><span class="n">enum</span><span class="p">,</span>
             <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="BitFlag.clear">

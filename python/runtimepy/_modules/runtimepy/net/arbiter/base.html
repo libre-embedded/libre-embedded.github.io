@@ -378,6 +378,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.environment.command</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">clear_env</span><span class="p">,</span>
     <span class="n">env_json_data</span><span class="p">,</span>
+    <span class="n">global_commands</span><span class="p">,</span>
     <span class="n">register_env</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.arbiter.housekeeping</span><span class="w"> </span><span class="kn">import</span> <span class="n">housekeeping</span>
@@ -398,6 +399,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.server</span><span class="w"> </span><span class="kn">import</span> <span class="n">RuntimepyServerConnection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.subprocess.peer</span><span class="w"> </span><span class="kn">import</span> <span class="n">RuntimepyPeer</span> <span class="k">as</span> <span class="n">_RuntimepyPeer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.tui.mixin</span><span class="w"> </span><span class="kn">import</span> <span class="n">CursesWindow</span><span class="p">,</span> <span class="n">TuiMixin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.button</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActionButton</span>
 
 <span class="n">ServerTask</span> <span class="o">=</span> <span class="n">_Awaitable</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
 <span class="n">RuntimeProcessTask</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span>
@@ -505,6 +507,10 @@ document.write(`
         <span class="c1"># A copy of named port mappings (loaded via external config).</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ports</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commands</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buttons</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">ActionButton</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_init</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -512,6 +518,16 @@ document.write(`
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_register_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="n">_Connection</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform connection registration.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Handle views.</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+        <span class="c1"># Handle buttons.</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buttons</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buttons</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buttons</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_connections</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">connection</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">put_nowait</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
@@ -524,6 +540,8 @@ document.write(`
         <span class="n">connection</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="n">_Connection</span><span class="p">,</span> <span class="n">_Awaitable</span><span class="p">[</span><span class="n">_Connection</span><span class="p">]],</span>
         <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">views</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">buttons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ActionButton</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Attempt to register a connection object.&quot;&quot;&quot;</span>
 
@@ -531,6 +549,11 @@ document.write(`
 
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">):</span>
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespace</span><span class="p">(</span><span class="n">delim</span><span class="o">=</span><span class="n">delim</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">views</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">views</span>
+        <span class="k">if</span> <span class="n">buttons</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buttons</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">buttons</span>
 
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connections</span>
@@ -681,6 +704,11 @@ document.write(`
 
             <span class="c1"># Run initialization methods.</span>
             <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_apps_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inits</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+
+            <span class="c1"># Run commands.</span>
+            <span class="k">await</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">global_commands</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_commands</span><span class="p">)</span>
+
             <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="c1"># Get application methods.</span>
                 <span class="n">apps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apps</span>
@@ -838,7 +866,7 @@ document.write(`
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Run the application until the stop signal is set.&quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">run_handle_stop</span><span class="p">(</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">run_handle_stop</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">stop_sig</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">(</span>
                 <span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">,</span> <span class="n">check_connections</span><span class="o">=</span><span class="n">check_connections</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span>
@@ -846,7 +874,8 @@ document.write(`
             <span class="n">eloop</span><span class="o">=</span><span class="n">eloop</span><span class="p">,</span>
             <span class="n">signals</span><span class="o">=</span><span class="n">signals</span><span class="p">,</span>
             <span class="n">enable_uvloop</span><span class="o">=</span><span class="n">enable_uvloop</span><span class="p">,</span>
-        <span class="p">)</span></div>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">1</span></div>
 </div>
 
 </pre></div>

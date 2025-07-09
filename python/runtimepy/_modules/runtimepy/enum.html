@@ -426,7 +426,11 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_bools</span> <span class="o">=</span> <span class="n">_BooleanRegistry</span><span class="o">.</span><span class="n">bool_from_dict</span><span class="p">(</span>
                 <span class="n">_cast</span><span class="p">(</span><span class="n">_BoolMappingData</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
-            <span class="p">)</span></div>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;default&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_str</span><span class="p">(</span><span class="n">_cast</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]))</span></div>
 
 
 <div class="viewcode-block" id="RuntimeEnum.asdict">
@@ -439,6 +443,8 @@ document.write(`
             <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">),</span>
             <span class="s2">&quot;primitive&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">primitive</span><span class="p">,</span>
         <span class="p">}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_integer</span><span class="p">:</span>
             <span class="n">result</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_cast</span><span class="p">(</span><span class="n">_JsonValue</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ints</span><span class="o">.</span><span class="n">asdict</span><span class="p">())</span>
         <span class="k">else</span><span class="p">:</span>
@@ -562,11 +568,17 @@ document.write(`
 <div class="viewcode-block" id="RuntimeEnum.from_enum">
 <a class="viewcode-back" href="../../runtimepy.enum.html#runtimepy.enum.RuntimeEnum.from_enum">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">from_enum</span><span class="p">(</span><span class="n">enum</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">_IntEnum</span><span class="p">],</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RuntimeEnum&quot;</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_enum</span><span class="p">(</span>
+        <span class="n">enum</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">_IntEnum</span><span class="p">],</span>
+        <span class="n">identifier</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">default</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RuntimeEnum&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a runtime enumeration from an enum class.&quot;&quot;&quot;</span>
 
         <span class="n">data</span> <span class="o">=</span> <span class="n">RuntimeEnum</span><span class="o">.</span><span class="n">data_from_enum</span><span class="p">(</span><span class="n">enum</span><span class="p">)</span>
         <span class="n">data</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">identifier</span>
+        <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">default</span>
         <span class="k">return</span> <span class="n">RuntimeEnum</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 </div>
 

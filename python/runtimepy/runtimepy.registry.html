@@ -416,6 +416,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.name.NameRegistry.register_name"><code class="docutils literal notranslate"><span class="pre">NameRegistry.register_name()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.name.is_registry_key"><code class="docutils literal notranslate"><span class="pre">is_registry_key()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.registry">Module contents</a><ul class="nav section-nav flex-column">
@@ -427,6 +428,8 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.name_registry"><code class="docutils literal notranslate"><span class="pre">Registry.name_registry</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.register"><code class="docutils literal notranslate"><span class="pre">Registry.register()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.register_dict"><code class="docutils literal notranslate"><span class="pre">Registry.register_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.register_from_other"><code class="docutils literal notranslate"><span class="pre">Registry.register_from_other()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.registry_normalize"><code class="docutils literal notranslate"><span class="pre">Registry.registry_normalize()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.search"><code class="docutils literal notranslate"><span class="pre">Registry.search()</span></code></a></li>
 </ul>
 </li>
@@ -498,6 +501,12 @@ document.write(`
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.registry.name.is_registry_key">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.registry.name.</span></span><span class="sig-name descname"><span class="pre">is_registry_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/registry/name.html#is_registry_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.registry.name.is_registry_key" title="Link to this definition">#</a></dt>
+<dd><p>Determine if this data is a registry key.</p>
+</dd></dl>
+
 </section>
 <section id="module-runtimepy.registry">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.registry" title="Link to this heading">#</a></h2>
@@ -548,6 +557,18 @@ integer identifier.</p>
 <dt class="sig sig-object py" id="runtimepy.registry.Registry.register_dict">
 <span class="sig-name descname"><span class="pre">register_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/registry.html#Registry.register_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.registry.Registry.register_dict" title="Link to this definition">#</a></dt>
 <dd><p>Register a new item from dictionary data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.registry.Registry.register_from_other">
+<span class="sig-name descname"><span class="pre">register_from_other</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.registry.Registry" title="runtimepy.registry.Registry"><span class="pre">Registry</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/registry.html#Registry.register_from_other"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.registry.Registry.register_from_other" title="Link to this definition">#</a></dt>
+<dd><p>Register missing elements from another registry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.registry.Registry.registry_normalize">
+<span class="sig-name descname"><span class="pre">registry_normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/registry.html#Registry.registry_normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.registry.Registry.registry_normalize" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to get an item from a registry key.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -626,6 +647,7 @@ integer identifier.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.name.NameRegistry.register_name"><code class="docutils literal notranslate"><span class="pre">NameRegistry.register_name()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.name.is_registry_key"><code class="docutils literal notranslate"><span class="pre">is_registry_key()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.registry">Module contents</a><ul class="nav section-nav flex-column">
@@ -637,6 +659,8 @@ integer identifier.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.name_registry"><code class="docutils literal notranslate"><span class="pre">Registry.name_registry</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.register"><code class="docutils literal notranslate"><span class="pre">Registry.register()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.register_dict"><code class="docutils literal notranslate"><span class="pre">Registry.register_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.register_from_other"><code class="docutils literal notranslate"><span class="pre">Registry.register_from_other()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.registry_normalize"><code class="docutils literal notranslate"><span class="pre">Registry.registry_normalize()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.registry.Registry.search"><code class="docutils literal notranslate"><span class="pre">Registry.search()</span></code></a></li>
 </ul>
 </li>

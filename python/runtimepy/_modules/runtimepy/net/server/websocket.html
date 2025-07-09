@@ -359,6 +359,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.bus</span><span class="w"> </span><span class="kn">import</span> <span class="n">BUS</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.math</span><span class="w"> </span><span class="kn">import</span> <span class="n">RateLimiter</span><span class="p">,</span> <span class="n">metrics_time_ns</span><span class="p">,</span> <span class="n">to_nanos</span>
 
 <span class="c1"># internal</span>
@@ -449,6 +450,11 @@ document.write(`
 
         <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">ui_handler</span><span class="p">(</span><span class="n">outbox</span><span class="p">:</span> <span class="n">JsonMessage</span><span class="p">,</span> <span class="n">inbox</span><span class="p">:</span> <span class="n">JsonMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;A simple loopback handler.&quot;&quot;&quot;</span>
+
+            <span class="c1"># Handle bus messages.</span>
+            <span class="k">if</span> <span class="s2">&quot;bus&quot;</span> <span class="ow">in</span> <span class="n">inbox</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">BUS</span><span class="o">.</span><span class="n">send_ro</span><span class="p">(</span><span class="n">inbox</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">],</span> <span class="n">inbox</span><span class="p">[</span><span class="s2">&quot;bus&quot;</span><span class="p">])</span>
+                <span class="k">return</span>
 
             <span class="c1"># Handle frame messages.</span>
             <span class="k">if</span> <span class="s2">&quot;time&quot;</span> <span class="ow">in</span> <span class="n">inbox</span><span class="p">:</span>

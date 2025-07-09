@@ -363,6 +363,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryIO</span><span class="p">,</span> <span class="n">Callable</span>
 
 <span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryMessage</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.math</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics_time_ns</span>
 
 <span class="c1"># internal</span>
@@ -733,7 +734,7 @@ document.write(`
 <div class="viewcode-block" id="BaseTftpConnection.process_datagram">
 <a class="viewcode-back" href="../../../../../runtimepy.net.udp.tftp.html#runtimepy.net.udp.tftp.base.BaseTftpConnection.process_datagram">[docs]</a>
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_datagram</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">BinaryMessage</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Process a datagram.&quot;&quot;&quot;</span>
 

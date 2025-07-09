@@ -393,15 +393,24 @@ document.write(`
         <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span><span class="p">))</span></div>
 
 
+<div class="viewcode-block" id="IntegerBounds.create_bit">
+<a class="viewcode-back" href="../../../../runtimepy.primitives.types.html#runtimepy.primitives.types.bounds.IntegerBounds.create_bit">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_bit</span><span class="p">(</span><span class="n">bit_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">signed</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;IntegerBounds&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute maximum and minimum values given size and signedness.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">IntegerBounds</span><span class="p">(</span>
+            <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signed</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">bit_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)),</span>
+            <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">bit_count</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signed</span> <span class="k">else</span> <span class="n">bit_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="IntegerBounds.create">
 <a class="viewcode-back" href="../../../../runtimepy.primitives.types.html#runtimepy.primitives.types.bounds.IntegerBounds.create">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">byte_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">signed</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;IntegerBounds&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute maximum and minimum values given size and signedness.&quot;&quot;&quot;</span>
-
-        <span class="n">min_val</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signed</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">byte_count</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
-        <span class="n">width</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">byte_count</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signed</span> <span class="k">else</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">byte_count</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">IntegerBounds</span><span class="p">(</span><span class="n">min_val</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">width</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">IntegerBounds</span><span class="o">.</span><span class="n">create_bit</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">byte_count</span><span class="p">,</span> <span class="n">signed</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

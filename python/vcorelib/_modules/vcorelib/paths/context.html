@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -297,14 +298,17 @@ document.write(`
 
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExitStack</span><span class="p">,</span> <span class="n">contextmanager</span><span class="p">,</span> <span class="n">suppress</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span> <span class="k">as</span> <span class="n">_StringIO</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">chdir</span> <span class="k">as</span> <span class="n">_chdir</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">makedirs</span> <span class="k">as</span> <span class="n">_makedirs</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span> <span class="k">as</span> <span class="n">_Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTemporaryFile</span> <span class="k">as</span> <span class="n">_NamedTemporaryFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span> <span class="k">as</span> <span class="n">_Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TextIO</span> <span class="k">as</span> <span class="n">_TextIO</span>
 
 <span class="c1"># internal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_ENCODING</span> <span class="k">as</span> <span class="n">_DEFAULT_ENCODING</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pathlike</span> <span class="k">as</span> <span class="n">_Pathlike</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize</span> <span class="k">as</span> <span class="n">_normalize</span>
 
@@ -313,7 +317,7 @@ document.write(`
 <a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.context.in_dir">[docs]</a>
 <span class="nd">@contextmanager</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">in_dir</span><span class="p">(</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Path</span><span class="p">],</span> <span class="n">makedirs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">_Path</span><span class="p">,</span> <span class="n">makedirs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">_Path</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Change the current working directory as a context manager.&quot;&quot;&quot;</span>
 
@@ -362,7 +366,7 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">linked_to</span><span class="p">(</span>
     <span class="n">link</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span>
     <span class="n">target</span><span class="p">:</span> <span class="n">_Pathlike</span><span class="p">,</span>
-    <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Path</span><span class="p">],</span>
+    <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">_Path</span><span class="p">,</span>
     <span class="n">target_is_directory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">_Path</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Provide a symbolic link as a managed context.&quot;&quot;&quot;</span>
@@ -397,6 +401,57 @@ document.write(`
             <span class="c1"># Respect the &#39;delete&#39; argument.</span>
             <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;delete&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
                 <span class="n">path</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="write_text_if_different">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.context.write_text_if_different">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">write_text_if_different</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">_Path</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Writes the contents of a string stream if it differs from output path</span>
+<span class="sd">    data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">do_write</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">_DEFAULT_ENCODING</span><span class="p">)</span> <span class="k">as</span> <span class="n">path_fd</span><span class="p">:</span>
+            <span class="n">do_write</span> <span class="o">=</span> <span class="n">data</span> <span class="o">!=</span> <span class="n">path_fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">do_write</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="n">do_write</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">_DEFAULT_ENCODING</span><span class="p">)</span> <span class="k">as</span> <span class="n">path_fd</span><span class="p">:</span>
+            <span class="n">path_fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">do_write</span></div>
+
+
+
+<span class="n">TextPreprocessor</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="text_stream_if_different">
+<a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.context.text_stream_if_different">[docs]</a>
+<span class="nd">@contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">text_stream_if_different</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">_Path</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">:</span> <span class="n">TextPreprocessor</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">_TextIO</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Writes the contents of a string stream if it differs from output path</span>
+<span class="sd">    data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">_StringIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">stream</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">preprocessor</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">preprocessor</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="n">write_text_if_different</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span></div>
 
 </pre></div>
 

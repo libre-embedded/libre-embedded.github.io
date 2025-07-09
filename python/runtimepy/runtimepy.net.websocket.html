@@ -406,10 +406,12 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.close"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.close()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_connection()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.restart"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.restart()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.serve"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.serve()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.server_handler"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.server_handler()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.websocket_connect"><code class="docutils literal notranslate"><span class="pre">websocket_connect()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.websocket">Module contents</a><ul class="nav section-nav flex-column">
@@ -421,6 +423,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.close"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.close()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_connection()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.restart"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.restart()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.serve"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.serve()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.server_handler"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.server_handler()</span></code></a></li>
 </ul>
@@ -496,6 +499,13 @@ document.write(`
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.websocket.connection.WebsocketConnection.restart">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.restart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.websocket.connection.WebsocketConnection.restart" title="Link to this definition">#</a></dt>
+<dd><p>Reset necessary underlying state for this connection to ‘process’
+again.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.net.websocket.connection.WebsocketConnection.serve">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_sig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager" title="runtimepy.net.manager.ConnectionManager"><span class="pre">ConnectionManager</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Server</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.serve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.websocket.connection.WebsocketConnection.serve" title="Link to this definition">#</a></dt>
 <dd><p>Serve a WebSocket server.</p>
@@ -508,6 +518,12 @@ document.write(`
 connection.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.net.websocket.connection.websocket_connect">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.websocket.connection.</span></span><span class="sig-name descname"><span class="pre">websocket_connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ClientConnection</span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#websocket_connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.websocket.connection.websocket_connect" title="Link to this definition">#</a></dt>
+<dd><p>Attempt to connect a websocket interface.</p>
 </dd></dl>
 
 </section>
@@ -561,6 +577,13 @@ connection.</p>
 <dt class="sig sig-object py" id="runtimepy.net.websocket.WebsocketConnection.create_pair">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serve_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.create_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.websocket.WebsocketConnection.create_pair" title="Link to this definition">#</a></dt>
 <dd><p>Obtain a connected pair of WebsocketConnection objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.websocket.WebsocketConnection.restart">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/websocket/connection.html#WebsocketConnection.restart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.websocket.WebsocketConnection.restart" title="Link to this definition">#</a></dt>
+<dd><p>Reset necessary underlying state for this connection to ‘process’
+again.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -636,10 +659,12 @@ connection.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.close"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.close()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_connection()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.restart"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.restart()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.serve"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.serve()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.WebsocketConnection.server_handler"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.server_handler()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.connection.websocket_connect"><code class="docutils literal notranslate"><span class="pre">websocket_connect()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.net.websocket">Module contents</a><ul class="nav section-nav flex-column">
@@ -651,6 +676,7 @@ connection.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.close"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.close()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.create_connection"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_connection()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.create_pair"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.create_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.restart"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.restart()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.serve"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.serve()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.net.websocket.WebsocketConnection.server_handler"><code class="docutils literal notranslate"><span class="pre">WebsocketConnection.server_handler()</span></code></a></li>
 </ul>

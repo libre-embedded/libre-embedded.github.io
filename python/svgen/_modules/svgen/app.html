@@ -291,6 +291,7 @@ document.write(`
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenericStrDict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.dict.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_INCLUDES_KEY</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">svgen</span><span class="w"> </span><span class="kn">import</span> <span class="n">PKG_NAME</span>
@@ -362,7 +363,9 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Execute the requested task.&quot;&quot;&quot;</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">includes_key</span><span class="o">=</span><span class="n">DEFAULT_INCLUDES_KEY</span>
+        <span class="p">)</span>
     <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
         <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
 

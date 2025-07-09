@@ -354,6 +354,9 @@ document.write(`
 <span class="sd">A module implementing a channel-environment tab HTML interface.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="c1"># built-in</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
+
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.markdown</span><span class="w"> </span><span class="kn">import</span> <span class="n">MarkdownMixin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggerMixin</span>
@@ -382,16 +385,25 @@ document.write(`
         <span class="n">tabs</span><span class="p">:</span> <span class="n">TabbedContent</span><span class="p">,</span>
         <span class="n">icon</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;alarm&quot;</span><span class="p">,</span>
         <span class="n">markdown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this instance.&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="n">command</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_markdown</span><span class="p">(</span><span class="n">markdown</span><span class="o">=</span><span class="n">markdown</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="n">PKG_NAME</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">tabs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;env&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="n">icon</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">tabs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;env&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="n">icon</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="c1"># Logging.</span>
         <span class="n">LoggerMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">log_limiter</span> <span class="o">=</span> <span class="n">RateLimiter</span><span class="o">.</span><span class="n">from_s</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_limiter</span> <span class="o">=</span> <span class="n">RateLimiter</span><span class="o">.</span><span class="n">from_s</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_action_markdown</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get action-button markdown.&quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="n">StringIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">button</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">buttons</span><span class="p">:</span>
+                <span class="n">button</span><span class="o">.</span><span class="n">element</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span></div>
 
 </pre></div>
 

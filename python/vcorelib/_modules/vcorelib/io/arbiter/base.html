@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -299,7 +300,6 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
 
 <span class="c1"># third-party</span>
@@ -443,7 +443,7 @@ document.write(`
         <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>
-        <span class="n">files_loaded</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">files_loaded</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LoadResult</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Attempt to load data from a file using asyncio.&quot;&quot;&quot;</span>
@@ -475,7 +475,12 @@ document.write(`
                     <span class="c1"># Load the included file.</span>
                     <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
                         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode_async</span><span class="p">(</span>
-                            <span class="n">find_file</span><span class="p">(</span><span class="n">include</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                            <span class="n">find_file</span><span class="p">(</span>
+                                <span class="n">include</span><span class="p">,</span>
+                                <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                                <span class="n">include_cwd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="p">),</span>
                             <span class="n">logger</span><span class="p">,</span>
                             <span class="n">require_success</span><span class="o">=</span><span class="n">require_success</span><span class="p">,</span>
                             <span class="n">includes_key</span><span class="o">=</span><span class="n">includes_key</span><span class="p">,</span>
@@ -495,7 +500,12 @@ document.write(`
                     <span class="c1"># Load the included file.</span>
                     <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
                         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode_async</span><span class="p">(</span>
-                            <span class="n">find_file</span><span class="p">(</span><span class="n">include</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                            <span class="n">find_file</span><span class="p">(</span>
+                                <span class="n">include</span><span class="p">,</span>
+                                <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                                <span class="n">include_cwd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="p">),</span>
                             <span class="n">logger</span><span class="p">,</span>
                             <span class="n">require_success</span><span class="o">=</span><span class="n">require_success</span><span class="p">,</span>
                             <span class="n">includes_key</span><span class="o">=</span><span class="n">includes_key</span><span class="p">,</span>
@@ -532,7 +542,7 @@ document.write(`
         <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>
-        <span class="n">files_loaded</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">files_loaded</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LoadResult</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Attempt to load data from a file.&quot;&quot;&quot;</span>
@@ -564,7 +574,12 @@ document.write(`
                     <span class="c1"># Load the included file.</span>
                     <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
-                            <span class="n">find_file</span><span class="p">(</span><span class="n">include</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                            <span class="n">find_file</span><span class="p">(</span>
+                                <span class="n">include</span><span class="p">,</span>
+                                <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                                <span class="n">include_cwd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="p">),</span>
                             <span class="n">logger</span><span class="p">,</span>
                             <span class="n">require_success</span><span class="o">=</span><span class="n">require_success</span><span class="p">,</span>
                             <span class="n">includes_key</span><span class="o">=</span><span class="n">includes_key</span><span class="p">,</span>
@@ -575,8 +590,6 @@ document.write(`
                         <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
                         <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
                     <span class="p">)</span>
-                    <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
-                        <span class="n">files_loaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">include</span><span class="p">)</span>
 
                 <span class="k">for</span> <span class="n">include</span> <span class="ow">in</span> <span class="n">consume</span><span class="p">(</span>
                     <span class="n">result</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">includes_key</span><span class="si">}</span><span class="s2">_left&quot;</span><span class="p">,</span> <span class="p">[]</span>
@@ -584,7 +597,12 @@ document.write(`
                     <span class="c1"># Load the included file.</span>
                     <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
-                            <span class="n">find_file</span><span class="p">(</span><span class="n">include</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                            <span class="n">find_file</span><span class="p">(</span>
+                                <span class="n">include</span><span class="p">,</span>
+                                <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+                                <span class="n">include_cwd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="p">),</span>
                             <span class="n">logger</span><span class="p">,</span>
                             <span class="n">require_success</span><span class="o">=</span><span class="n">require_success</span><span class="p">,</span>
                             <span class="n">includes_key</span><span class="o">=</span><span class="n">includes_key</span><span class="p">,</span>
@@ -596,8 +614,6 @@ document.write(`
                         <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
                         <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
                     <span class="p">)</span>
-                    <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
-                        <span class="n">files_loaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">include</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Failed to decode &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>

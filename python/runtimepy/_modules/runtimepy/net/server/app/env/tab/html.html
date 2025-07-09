@@ -390,10 +390,18 @@ document.write(`
         <span class="n">parent</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-line-color&quot;</span><span class="p">,</span>
         <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;activity&quot;</span><span class="p">,</span>
-        <span class="n">icon_classes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;fs-5&quot;</span><span class="p">],</span>
+        <span class="n">icon_classes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;border-0&quot;</span><span class="p">,</span> <span class="s2">&quot;fs-5&quot;</span><span class="p">],</span>
         <span class="n">tooltip</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Change line color for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;d-none&quot;</span><span class="p">,</span> <span class="s2">&quot;p-1&quot;</span><span class="p">)</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+        <span class="s2">&quot;d-none&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;p-0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ps-2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pe-2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;border-bottom-0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;border-primary-subtle&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">button</span></div>
 
@@ -441,7 +449,7 @@ document.write(`
 
         <span class="n">div</span><span class="p">(</span>
             <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0&quot;</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0 pe-2&quot;</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Current value of &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
@@ -467,7 +475,7 @@ document.write(`
 
         <span class="c1"># Add boolean/bit toggle button.</span>
         <span class="n">is_bit</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">width</span> <span class="o">==</span> <span class="mi">1</span>
-        <span class="n">kind_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;bit&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_bit</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;bits&#39;</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">where_str</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">kind_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;bit&amp;nbsp;&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_bit</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;bits&#39;</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">where_str</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
 
         <span class="n">name_td</span> <span class="o">=</span> <span class="n">create_name_td</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
@@ -484,7 +492,7 @@ document.write(`
 
         <span class="n">div</span><span class="p">(</span>
             <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0&quot;</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-value p-0 pe-2&quot;</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Current value of &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
@@ -496,7 +504,7 @@ document.write(`
             <span class="n">text</span><span class="o">=</span><span class="n">kind_str</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Field position for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; within underlying primitive.&quot;</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-info-emphasis text-nowrap p-0 ps-1 pe-1&quot;</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;text-code text-nowrap p-0 ps-2 pe-1&quot;</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 
@@ -506,9 +514,19 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create the channel table.&quot;&quot;&quot;</span>
 
         <span class="n">table</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;table-container&quot;</span><span class="p">)</span>
+            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                <span class="s2">&quot;flex-shrink-0&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;overflow-x-scroll&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;overscroll-behavior-x-none&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
         <span class="p">)</span>
-        <span class="n">table</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">TEXT</span><span class="p">)</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;table&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;table-hover&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mb-0&quot;</span><span class="p">,</span>
+            <span class="n">TEXT</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="n">header</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;thead&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">table</span><span class="p">)</span>
         <span class="n">body</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tbody&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">table</span><span class="p">)</span>
@@ -519,11 +537,8 @@ document.write(`
         <span class="c1"># Table for channels.</span>
         <span class="n">env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">env</span>
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
-            <span class="n">row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-                <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span>
-                <span class="n">parent</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-                <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-                <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;channel-row border-start border-end&quot;</span><span class="p">,</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                <span class="s2">&quot;channel-row&quot;</span><span class="p">,</span> <span class="s2">&quot;border-start&quot;</span><span class="p">,</span> <span class="s2">&quot;border-end&quot;</span>
             <span class="p">)</span>
 
             <span class="n">plot_checkbox</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -559,9 +574,12 @@ document.write(`
     <span class="k">def</span><span class="w"> </span><span class="nf">_compose_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compose plot elements.&quot;&quot;&quot;</span>
 
-        <span class="n">plot_container</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-            <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;w-100 h-100 border-start position-relative&quot;</span><span class="p">,</span>
+        <span class="n">plot_container</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;w-100&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;h-100&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;position-relative&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;logo-outline-background&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Plot.</span>
@@ -600,28 +618,60 @@ document.write(`
         <span class="n">vert_container</span> <span class="o">=</span> <span class="n">flex</span><span class="p">(</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">,</span>
             <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;column&quot;</span><span class="p">,</span>
+            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;form&quot;</span><span class="p">,</span>
+            <span class="n">autocomplete</span><span class="o">=</span><span class="s2">&quot;off&quot;</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">vert_container</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;channel-column&quot;</span><span class="p">,</span> <span class="s2">&quot;collapse&quot;</span><span class="p">,</span> <span class="s2">&quot;show&quot;</span><span class="p">)</span>
+        <span class="n">vert_container</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;channel-column&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-grow-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-shrink-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;collapse&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;show&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overflow-y-scroll&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overflow-x-hidden&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overscroll-behavior-none&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
 
-        <span class="n">input_box</span><span class="p">(</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">box</span> <span class="o">=</span> <span class="n">input_box</span><span class="p">(</span>
             <span class="n">vert_container</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
             <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;help&quot;</span><span class="p">,</span>
             <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Send a string command via this environment.&quot;</span><span class="p">,</span>
+            <span class="n">placement</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
             <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">),</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span>
+            <span class="n">spellcheck</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
         <span class="p">)</span>
+
+        <span class="n">label</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-top-0&quot;</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-top-0&quot;</span><span class="p">)</span>
 
         <span class="c1"># Text area.</span>
         <span class="n">logs</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
             <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;textarea&quot;</span><span class="p">,</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">vert_container</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;form-floating&quot;</span><span class="p">),</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;form-control rounded-0 </span><span class="si">{</span><span class="n">TEXT</span><span class="si">}</span><span class="s2"> text-body-emphasis text-logs&quot;</span>
-            <span class="p">),</span>
             <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;logs&quot;</span><span class="p">),</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Text logs for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
+        <span class="n">logs</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;form-control&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rounded-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;text-logs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;border-top-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;p-2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overscroll-behavior-none&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="n">logs</span><span class="o">.</span><span class="n">booleans</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;readonly&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">buttons</span><span class="p">:</span>
+            <span class="n">centered_markdown</span><span class="p">(</span>
+                <span class="n">vert_container</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_action_markdown</span><span class="p">(),</span>
+                <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;border-bottom&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;border-end&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;bg-gradient-tertiary-left-right&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">channel_table</span><span class="p">(</span><span class="n">vert_container</span><span class="p">)</span>
 
@@ -631,13 +681,16 @@ document.write(`
             <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
             <span class="s2">&quot;border-top&quot;</span><span class="p">,</span>
             <span class="s2">&quot;border-end&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bg-gradient-tertiary-to-bottom&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Divider.</span>
-        <span class="n">div</span><span class="p">(</span>
-            <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;divider&quot;</span><span class="p">),</span>
-            <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;vertical-divider border-start bg-dark-subtle&quot;</span><span class="p">,</span>
+        <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_id</span><span class="p">(</span><span class="s2">&quot;divider&quot;</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+            <span class="s2">&quot;vertical-divider&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-grow-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-shrink-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;border-start&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bg-dark-subtle&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_compose_plot</span><span class="p">(</span><span class="n">container</span><span class="p">)</span></div>

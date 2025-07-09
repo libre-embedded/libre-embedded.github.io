@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -301,16 +302,14 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto</span> <span class="k">as</span> <span class="n">_auto</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">getLogger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span> <span class="k">as</span> <span class="n">_Any</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggerType</span>
 
 <span class="n">_LOG</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="n">GenericDict</span> <span class="o">=</span> <span class="n">_Dict</span><span class="p">[</span><span class="n">_Any</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span>
-<span class="n">GenericStrDict</span> <span class="o">=</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span>
+<span class="n">GenericDict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="n">_Any</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span>
+<span class="n">GenericStrDict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="consume">
@@ -388,7 +387,7 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">merge_recursive</span><span class="p">(</span>
     <span class="n">dict_a</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
     <span class="n">dict_b</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>
@@ -450,7 +449,7 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
     <span class="n">dict_a</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
     <span class="n">dict_b</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>
@@ -475,7 +474,7 @@ document.write(`
 <div class="viewcode-block" id="merge_dicts">
 <a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.merge_dicts">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">merge_dicts</span><span class="p">(</span>
-    <span class="n">dicts</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">GenericDict</span><span class="p">],</span>
+    <span class="n">dicts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">GenericDict</span><span class="p">],</span>
     <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>

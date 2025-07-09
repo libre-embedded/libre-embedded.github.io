@@ -418,6 +418,14 @@ document.write(`
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_singleton</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">cls</span><span class="o">.</span><span class="n">_singleton</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_singleton</span></div>
+
+
+<div class="viewcode-block" id="ProtocolFactory.id">
+<a class="viewcode-back" href="../../../runtimepy.codec.protocol.html#runtimepy.codec.protocol.ProtocolFactory.id">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get an integer identifier for this protocol factory.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">singleton</span><span class="p">()</span><span class="o">.</span><span class="n">id</span></div>
 </div>
 
 </pre></div>

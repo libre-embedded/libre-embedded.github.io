@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -291,6 +295,9 @@ document.write(`
 <span class="sd">A module for generating shared headers and sources.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">IndentedFileWriter</span>
+
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenerateTask</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.test</span><span class="w"> </span><span class="kn">import</span> <span class="n">unit_test_boilerplate</span>
@@ -309,6 +316,188 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="endianness_single">
+<a class="viewcode-back" href="../../ifgen.common.html#ifgen.common.endianness_single">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">endianness_single</span><span class="p">(</span><span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add methods for byte-sized primitives.&quot;&quot;&quot;</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;No action for byte-sized primitives.&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+        <span class="s2">&quot;template &lt;std::endian endianness, byte_size T&gt; &quot;</span>
+        <span class="s2">&quot;inline void handle_endian_p(T *)&quot;</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="k">pass</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+        <span class="s2">&quot;template &lt;std::endian endianness, byte_size T&gt; &quot;</span>
+        <span class="s2">&quot;inline T handle_endian(T elem)&quot;</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return elem;&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="endianness_native">
+<a class="viewcode-back" href="../../ifgen.common.html#ifgen.common.endianness_native">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">endianness_native</span><span class="p">(</span><span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add methods for native endianness (no swap).&quot;&quot;&quot;</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;No action if endianness is native.&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;std::endian endianness, std::integral T&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline void handle_endian_p(T *)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;requires(not byte_size&lt;T&gt;) &amp;&amp; &quot;</span>
+            <span class="s2">&quot;(endianness == std::endian::native)&quot;</span>
+        <span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="k">pass</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;std::endian endianness, std::integral T&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline T handle_endian(T elem)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;requires(not byte_size&lt;T&gt;) &amp;&amp; &quot;</span>
+            <span class="s2">&quot;(endianness == std::endian::native)&quot;</span>
+        <span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return elem;&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="endianness_integral">
+<a class="viewcode-back" href="../../ifgen.common.html#ifgen.common.endianness_integral">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">endianness_integral</span><span class="p">(</span><span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add methods for integral types that require swapping.&quot;&quot;&quot;</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Swap any integral type.&quot;</span><span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;std::endian endianness, std::integral T&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline T handle_endian(T elem)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;requires(not byte_size&lt;T&gt;) &amp;&amp; (endianness != std::endian::native)&quot;</span>
+        <span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return std::byteswap(elem);&quot;</span><span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;std::endian endianness, std::integral T&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline void handle_endian_p(T *elem)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;requires(not byte_size&lt;T&gt;) &amp;&amp; (endianness != std::endian::native)&quot;</span>
+        <span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;*elem = std::byteswap(*elem);&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="endianness_enum">
+<a class="viewcode-back" href="../../ifgen.common.html#ifgen.common.endianness_enum">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">endianness_enum</span><span class="p">(</span><span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add methods for enum types that require swapping.&quot;&quot;&quot;</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Handler for enum class types.&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;std::endian endianness, typename T&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline void handle_endian_p(T *elem)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;requires(std::is_enum_v&lt;T&gt;)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;using underlying = std::underlying_type_t&lt;T&gt;;&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;handle_endian_p&lt;endianness&gt;(&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;reinterpret_cast&lt;underlying *&gt;(elem));&quot;</span><span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;std::endian endianness, typename T&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline T handle_endian(T elem)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;requires(std::is_enum_v&lt;T&gt;)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return static_cast&lt;T&gt;(handle_endian&lt;endianness&gt;(&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;std::to_underlying(elem)));&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="endianness_float">
+<a class="viewcode-back" href="../../ifgen.common.html#ifgen.common.endianness_float">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">endianness_float</span><span class="p">(</span><span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add methods for floating-point types that require swapping.&quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">width</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;32&quot;</span><span class="p">,</span> <span class="s2">&quot;64&quot;</span><span class="p">]:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Handler for </span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">-bit float.&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;template &lt;std::endian endianness, std::floating_point T&gt;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline void handle_endian_p(T *elem)&quot;</span><span class="p">)</span>
+
+        <span class="n">prim</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;uint</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">_t&quot;</span>
+
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;requires(sizeof(T) == sizeof(</span><span class="si">{</span><span class="n">prim</span><span class="si">}</span><span class="s2">))&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;handle_endian_p&lt;endianness&gt;&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;(reinterpret_cast&lt;</span><span class="si">{</span><span class="n">prim</span><span class="si">}</span><span class="s2"> *&gt;(elem));&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;template &lt;std::endian endianness, std::floating_point T&gt;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline T handle_endian(T elem)&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;requires(sizeof(T) == sizeof(</span><span class="si">{</span><span class="n">prim</span><span class="si">}</span><span class="s2">))&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return std::bit_cast&lt;T&gt;(&quot;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="s2">&quot;handle_endian&lt;endianness&gt;&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;(std::bit_cast&lt;</span><span class="si">{</span><span class="n">prim</span><span class="si">}</span><span class="s2">&gt;(elem)));&quot;</span>
+                <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="common_endianness">
+<a class="viewcode-back" href="../../ifgen.common.html#ifgen.common.common_endianness">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">common_endianness</span><span class="p">(</span><span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write endianness-related content.&quot;&quot;&quot;</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Enforce that this isn&#39;t a mixed-endian system.&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;static_assert(std::endian::native == std::endian::big or&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;              std::endian::native == std::endian::little);&quot;</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">endian</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;struct&quot;</span><span class="p">][</span><span class="s2">&quot;default_endianness&quot;</span><span class="p">]</span>
+
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Default endianness configured.&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;static constexpr auto default_endian = std::endian::</span><span class="si">{</span><span class="n">endian</span><span class="si">}</span><span class="s2">;&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Detect primitives that don&#39;t need byte swapping.&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;typename T&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;concept byte_size = sizeof(T) == 1;&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+        <span class="n">endianness_single</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
+
+    <span class="n">endianness_native</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+
+    <span class="n">endianness_integral</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
+
+    <span class="n">endianness_float</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+
+    <span class="n">endianness_enum</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="create_common">
 <a class="viewcode-back" href="../../ifgen.common.html#ifgen.common.create_common">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_common</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -320,8 +509,9 @@ document.write(`
     <span class="n">streams</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">stream_implementation</span>
 
     <span class="n">includes</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;&lt;cstdint&gt;&quot;</span><span class="p">,</span>
         <span class="s2">&quot;&lt;bit&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;&lt;concepts&gt;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;&lt;cstdint&gt;&quot;</span><span class="p">,</span>
         <span class="s2">&quot;&lt;span&gt;&quot;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">streams</span> <span class="k">else</span> <span class="s2">&quot;&lt;spanstream&gt;&quot;</span><span class="p">,</span>
         <span class="s2">&quot;&lt;utility&gt;&quot;</span><span class="p">,</span>
     <span class="p">]</span>
@@ -331,25 +521,11 @@ document.write(`
         <span class="n">includes</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;&lt;streambuf&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;istream&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;ostream&gt;&quot;</span><span class="p">])</span>
 
     <span class="k">with</span> <span class="n">task</span><span class="o">.</span><span class="n">boilerplate</span><span class="p">(</span><span class="n">includes</span><span class="o">=</span><span class="n">includes</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Enforce that this isn&#39;t a mixed-endian system.&quot;</span><span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-            <span class="s2">&quot;static_assert(std::endian::native == std::endian::big or&quot;</span>
-        <span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-            <span class="s2">&quot;              std::endian::native == std::endian::little);&quot;</span>
-        <span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-
-        <span class="n">data</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span>
-
-        <span class="n">endian</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;struct&quot;</span><span class="p">][</span><span class="s2">&quot;default_endianness&quot;</span><span class="p">]</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Default endianness configured.&quot;</span><span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;static constexpr auto default_endian = std::endian::</span><span class="si">{</span><span class="n">endian</span><span class="si">}</span><span class="s2">;&quot;</span>
-        <span class="p">)</span>
+        <span class="n">common_endianness</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span>
 
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Configured primitives for identifiers.&quot;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;using struct_id_t = </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;struct&#39;</span><span class="p">][</span><span class="s1">&#39;id_underlying&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">;&quot;</span><span class="p">)</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;using enum_id_t = </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;enum&#39;</span><span class="p">][</span><span class="s1">&#39;id_underlying&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">;&quot;</span><span class="p">)</span>
 
@@ -376,7 +552,15 @@ document.write(`
             <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;using byte_spanbuf = std::basic_spanbuf&lt;std::byte&gt;;&quot;</span><span class="p">)</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
                 <span class="s2">&quot;using byte_spanstream = std::basic_spanstream&lt;std::byte&gt;;&quot;</span>
-            <span class="p">)</span></div>
+            <span class="p">)</span>
+
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Constraint for generated structs.&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;template &lt;typename T&gt;&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;concept ifgen_struct = requires&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">):</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;std::is_integral_v&lt;decltype(T::id)&gt;;&quot;</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;std::is_same_v&lt;decltype(T::size), std::size_t&gt;;&quot;</span><span class="p">)</span></div>
 
 </pre></div>
 

@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -355,21 +359,19 @@ document.write(`
             <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;(void)src;&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;codec&quot;</span><span class="p">]:</span>
-            <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
-                <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;src.swap();&quot;</span><span class="p">)</span>
-
+            <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Eventually, we could assign member values here.&quot;</span><span class="p">)</span>
 
             <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
                 <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nspaced</span><span class="si">}</span><span class="s2">::Buffer buffer;&quot;</span><span class="p">)</span>
                 <span class="n">assert_line</span><span class="p">(</span>
                     <span class="n">writer</span><span class="p">,</span>
-                    <span class="sa">f</span><span class="s2">&quot;src.encode(&amp;buffer, endianness) == </span><span class="si">{</span><span class="n">nspaced</span><span class="si">}</span><span class="s2">::size&quot;</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">&quot;src.encode&lt;endianness&gt;(&amp;buffer) == </span><span class="si">{</span><span class="n">nspaced</span><span class="si">}</span><span class="s2">::size&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
 
             <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nspaced</span><span class="si">}</span><span class="s2"> dst;&quot;</span><span class="p">)</span>
             <span class="n">assert_line</span><span class="p">(</span>
-                <span class="n">writer</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;dst.decode(&amp;buffer, endianness) == </span><span class="si">{</span><span class="n">nspaced</span><span class="si">}</span><span class="s2">::size&quot;</span>
+                <span class="n">writer</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;dst.decode&lt;endianness&gt;(&amp;buffer) == </span><span class="si">{</span><span class="n">nspaced</span><span class="si">}</span><span class="s2">::size&quot;</span>
             <span class="p">)</span>
             <span class="n">assert_line</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="s2">&quot;src == dst&quot;</span><span class="p">)</span>
 
@@ -398,8 +400,7 @@ document.write(`
             <span class="s2">&quot;std::endian::little&quot;</span><span class="p">,</span>
             <span class="s2">&quot;std::endian::big&quot;</span><span class="p">,</span>
         <span class="p">]:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="n">unit_test_method_name</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span>
-            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">);&quot;</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unit_test_method_name</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">task</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">&gt;();&quot;</span><span class="p">)</span>
 
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
 

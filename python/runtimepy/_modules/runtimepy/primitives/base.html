@@ -365,6 +365,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span> <span class="k">as</span> <span class="n">_TypeVar</span>
 
 <span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryMessage</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.math</span><span class="w"> </span><span class="kn">import</span> <span class="n">default_time_ns</span><span class="p">,</span> <span class="n">nano_str</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.math.keeper</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeSource</span>
 
@@ -456,7 +457,12 @@ document.write(`
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__copy__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Primitive[T]&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Make a copy of this primitive.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span>
+            <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">scaling</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scaling</span><span class="p">,</span>
+            <span class="n">time_source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_source</span><span class="p">,</span>
+        <span class="p">)</span>
 
 <div class="viewcode-block" id="Primitive.copy">
 <a class="viewcode-back" href="../../../runtimepy.primitives.html#runtimepy.primitives.base.Primitive.copy">[docs]</a>
@@ -630,7 +636,7 @@ document.write(`
 
 <div class="viewcode-block" id="Primitive.update">
 <a class="viewcode-back" href="../../../runtimepy.primitives.html#runtimepy.primitives.base.Primitive.update">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">byte_order</span><span class="p">:</span> <span class="n">_ByteOrder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">BinaryMessage</span><span class="p">,</span> <span class="n">byte_order</span><span class="p">:</span> <span class="n">_ByteOrder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Update this primitive from a bytes object.&quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">byte_order</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -665,7 +671,7 @@ document.write(`
 <div class="viewcode-block" id="Primitive.decode">
 <a class="viewcode-back" href="../../../runtimepy.primitives.html#runtimepy.primitives.base.Primitive.decode">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">byte_order</span><span class="p">:</span> <span class="n">_ByteOrder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">BinaryMessage</span><span class="p">,</span> <span class="n">byte_order</span><span class="p">:</span> <span class="n">_ByteOrder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Decode a primitive of this type from provided data.&quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">byte_order</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

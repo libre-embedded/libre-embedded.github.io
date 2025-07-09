@@ -364,7 +364,9 @@ document.write(`
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_ENCODING</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenericStrDict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">ARBITER</span><span class="p">,</span> <span class="n">JsonObject</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.bus</span><span class="w"> </span><span class="kn">import</span> <span class="n">BUS</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_TIME_FORMAT</span><span class="p">,</span> <span class="n">LoggerMixin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.math</span><span class="w"> </span><span class="kn">import</span> <span class="n">default_time_ns</span><span class="p">,</span> <span class="n">nano_str</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.names</span><span class="w"> </span><span class="kn">import</span> <span class="n">name_search</span>
@@ -377,6 +379,7 @@ document.write(`
     <span class="n">CommandHook</span><span class="p">,</span>
     <span class="n">EnvironmentMap</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.environment.command.result</span><span class="w"> </span><span class="kn">import</span> <span class="n">CommandResult</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParsedEvent</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_PATTERN</span>
 
@@ -629,6 +632,38 @@ document.write(`
 
 <span class="n">GLOBAL</span> <span class="o">=</span> <span class="n">GlobalEnvironment</span><span class="p">()</span>
 <span class="n">ENVIRONMENTS</span> <span class="o">=</span> <span class="n">GLOBAL</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">global_command</span><span class="p">(</span><span class="n">env</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CommandResult</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle a global command.&quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">env</span> <span class="ow">in</span> <span class="n">GLOBAL</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">GLOBAL</span><span class="p">[</span><span class="n">env</span><span class="p">]</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">GLOBAL</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+            <span class="s2">&quot;Couldn&#39;t run command env=&#39;</span><span class="si">%s</span><span class="s2">&#39; value=&#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">value</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">global_commands</span><span class="p">(</span><span class="o">*</span><span class="n">cmds</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle a global command.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">env</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">cmds</span><span class="p">:</span>
+        <span class="n">global_command</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">global_command_bus</span><span class="p">(</span><span class="n">payload</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle a bus message.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="s2">&quot;env&quot;</span> <span class="ow">in</span> <span class="n">payload</span> <span class="ow">and</span> <span class="s2">&quot;value&quot;</span> <span class="ow">in</span> <span class="n">payload</span><span class="p">:</span>
+        <span class="n">global_command</span><span class="p">(</span><span class="n">payload</span><span class="p">[</span><span class="s2">&quot;env&quot;</span><span class="p">],</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="s2">&quot;cmds&quot;</span> <span class="ow">in</span> <span class="n">payload</span><span class="p">:</span>
+        <span class="n">global_commands</span><span class="p">(</span><span class="o">*</span><span class="n">payload</span><span class="p">[</span><span class="s2">&quot;cmds&quot;</span><span class="p">])</span>
+
+
+<span class="n">BUS</span><span class="o">.</span><span class="n">register_ro</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">,</span> <span class="n">global_command_bus</span><span class="p">)</span>
+<span class="n">BUS</span><span class="o">.</span><span class="n">register_ro</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">global_command_bus</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="clear_env">

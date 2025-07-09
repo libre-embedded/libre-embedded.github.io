@@ -369,10 +369,12 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span> <span class="k">as</span> <span class="n">_TypeVar</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
 
+<span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryMessage</span>
+
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net</span><span class="w"> </span><span class="kn">import</span> <span class="n">sockname</span> <span class="k">as</span> <span class="n">_sockname</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.backoff</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExponentialBackoff</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryMessage</span> <span class="k">as</span> <span class="n">_BinaryMessage</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">Connection</span> <span class="k">as</span> <span class="n">_Connection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">EchoConnection</span> <span class="k">as</span> <span class="n">_EchoConnection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">NullConnection</span> <span class="k">as</span> <span class="n">_NullConnection</span>
@@ -448,7 +450,7 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if this connection uses SSL.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport</span><span class="o">.</span><span class="n">get_extra_info</span><span class="p">(</span><span class="s2">&quot;sslcontext&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_await_message</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_Union</span><span class="p">[</span><span class="n">_BinaryMessage</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_await_message</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_Union</span><span class="p">[</span><span class="n">BinaryMessage</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Await the next message. Return None on error or failure.&quot;&quot;&quot;</span>
 
         <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -465,7 +467,7 @@ document.write(`
 
 <div class="viewcode-block" id="TcpConnection.send_binary">
 <a class="viewcode-back" href="../../../../runtimepy.net.tcp.html#runtimepy.net.factories.TcpConnection.send_binary">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">send_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">_BinaryMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">BinaryMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Enqueue a binary message tos end.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">tx</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>

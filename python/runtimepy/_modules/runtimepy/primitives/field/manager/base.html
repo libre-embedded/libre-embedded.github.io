@@ -366,6 +366,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">ARBITER</span> <span class="k">as</span> <span class="n">_ARBITER</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">EncodeResult</span> <span class="k">as</span> <span class="n">_EncodeResult</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonObject</span> <span class="k">as</span> <span class="n">_JsonObject</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.namespace</span><span class="w"> </span><span class="kn">import</span> <span class="n">Namespace</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pathlike</span> <span class="k">as</span> <span class="n">_Pathlike</span>
 
 <span class="c1"># internal</span>
@@ -454,7 +455,12 @@ document.write(`
 
 <div class="viewcode-block" id="BitFieldsManagerBase.add">
 <a class="viewcode-back" href="../../../../../runtimepy.primitives.field.manager.html#runtimepy.primitives.field.manager.base.BitFieldsManagerBase.add">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="n">_BitFields</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">fields</span><span class="p">:</span> <span class="n">_BitFields</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">track</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add new bit-fields to manage.&quot;&quot;&quot;</span>
 
         <span class="c1"># Ensure that new fields can&#39;t be added after the current fields</span>
@@ -465,7 +471,12 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
 
         <span class="c1"># Register fields into the lookup structure.</span>
+        <span class="n">to_add</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">namespace</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">namespace</span><span class="o">.</span><span class="n">namespace</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">track</span><span class="o">=</span><span class="n">track</span><span class="p">)</span>
+                <span class="n">to_add</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span>
+
             <span class="n">ident</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">register_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="k">assert</span> <span class="n">ident</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Couldn&#39;t register bit-field &#39;</span><span class="si">{name}</span><span class="s2">&#39;!&quot;</span>
             <span class="k">assert</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="p">,</span> <span class="n">name</span>
@@ -473,7 +484,13 @@ document.write(`
 
             <span class="c1"># Also store the enum mapping.</span>
             <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">is_enum</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">enum_lookup</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enums</span><span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">enum</span><span class="p">]</span>
+                <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enums</span><span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">enum</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">enum_lookup</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">runtime</span>
+                <span class="k">if</span> <span class="n">runtime</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">runtime</span><span class="o">.</span><span class="n">default</span><span class="p">)</span>
+
+        <span class="c1"># Add possible namespaced-name mappings.</span>
+        <span class="n">fields</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">to_add</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">index</span></div>
 

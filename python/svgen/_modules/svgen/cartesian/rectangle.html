@@ -300,6 +300,18 @@ document.write(`
     <span class="n">dimensions</span><span class="p">:</span> <span class="n">Dimensions</span>
     <span class="n">location</span><span class="p">:</span> <span class="n">Point</span> <span class="o">=</span> <span class="n">DEFAULT</span>
 
+<div class="viewcode-block" id="Rectangle.contains">
+<a class="viewcode-back" href="../../../svgen.cartesian.rectangle.html#svgen.cartesian.rectangle.Rectangle.contains">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">Point</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if a point is within this rectangle.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span>
+            <span class="o">&lt;=</span> <span class="n">point</span><span class="o">.</span><span class="n">x</span>
+            <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="o">.</span><span class="n">width</span>
+        <span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">point</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="o">.</span><span class="n">height</span></div>
+
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if this rectangle is equivalent to another.&quot;&quot;&quot;</span>
 

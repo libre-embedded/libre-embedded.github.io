@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -298,23 +299,21 @@ document.write(`
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">Namespace</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span> <span class="k">as</span> <span class="n">_Callable</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span> <span class="k">as</span> <span class="n">_Sequence</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
 
 <span class="n">CommandFunction</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[</span><span class="n">Namespace</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span>
 <span class="n">CommandRegister</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[</span><span class="n">ArgumentParser</span><span class="p">],</span> <span class="n">CommandFunction</span><span class="p">]</span>
 
-<span class="n">CommandLoader</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[],</span> <span class="n">_Sequence</span><span class="p">[</span><span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">CommandRegister</span><span class="p">]]]</span>
+<span class="n">CommandLoader</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[],</span> <span class="n">_Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">CommandRegister</span><span class="p">]]]</span>
 
-<span class="n">CMDS</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CommandFunction</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">CMDS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CommandFunction</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
 
 <div class="viewcode-block" id="app_args">
 <a class="viewcode-back" href="../../vcorelib.args.html#vcorelib.args.app_args">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">app_args</span><span class="p">(</span>
-    <span class="n">command_loader</span><span class="p">:</span> <span class="n">CommandLoader</span><span class="p">,</span> <span class="n">commands</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CommandFunction</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">_Callable</span><span class="p">[[</span><span class="n">ArgumentParser</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span> <span class="n">CommandFunction</span><span class="p">]:</span>
+    <span class="n">command_loader</span><span class="p">:</span> <span class="n">CommandLoader</span><span class="p">,</span> <span class="n">commands</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CommandFunction</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">_Callable</span><span class="p">[[</span><span class="n">ArgumentParser</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span> <span class="n">CommandFunction</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a function that can be used to add sub-command processing to an</span>
 <span class="sd">    argument parser.</span>

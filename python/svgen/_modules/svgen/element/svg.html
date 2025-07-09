@@ -282,9 +282,6 @@ document.write(`
 <span class="sd">svgen - A module for the &#39;svg&#39; element.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># built-in</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
-
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenericStrDict</span>
 
@@ -306,7 +303,7 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct a new svg element (or document).&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">viewbox</span> <span class="o">=</span> <span class="n">viewbox</span>
-        <span class="n">attrs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Attribute</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">viewbox</span><span class="p">]</span>
+        <span class="n">attrs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Attribute</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">viewbox</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">document</span><span class="p">:</span>
             <span class="n">attrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">XMLNS</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">attrib</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">)</span></div>
@@ -325,7 +322,7 @@ document.write(`
 
     <span class="k">del</span> <span class="n">grid</span>
 
-    <span class="n">to_add</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Element</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">to_add</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Element</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c1"># Add a colored background rectangle, if at least &#39;color&#39; is specified.</span>
     <span class="k">if</span> <span class="s2">&quot;color&quot;</span> <span class="ow">in</span> <span class="n">background</span><span class="p">:</span>

@@ -385,6 +385,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">Double</span> <span class="k">as</span> <span class="n">_Double</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">Float</span> <span class="k">as</span> <span class="n">_Float</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.evaluation</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvalResult</span> <span class="k">as</span> <span class="n">_EvalResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.button</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActionButton</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controlslike</span>
 
 
@@ -426,8 +427,10 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">metrics</span>
 
         <span class="n">ChannelEnvironmentMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;views&quot;</span><span class="p">,</span> <span class="p">{}))</span>  <span class="c1"># type: ignore</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setup_level_channel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="n">ChannelCommandProcessor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ActionButton</span><span class="o">.</span><span class="n">from_top_level</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_task_metrics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">)</span>
 
         <span class="c1"># State.</span>

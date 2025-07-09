@@ -381,10 +381,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.int</span><span class="w"> </span><span class="kn">import</span> <span class="n">Uint64</span> <span class="k">as</span> <span class="n">_Uint64</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyPrimitiveType</span> <span class="k">as</span> <span class="n">_AnyPrimitiveType</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry.item</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegistryItem</span> <span class="k">as</span> <span class="n">_RegistryItem</span>
-
-<span class="n">Literal</span> <span class="o">=</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span>
-<span class="n">Default</span> <span class="o">=</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">Literal</span><span class="p">]</span>
-<span class="n">Controls</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Literal</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Literal</span><span class="p">]]</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controls</span><span class="p">,</span> <span class="n">Default</span>
 
 
 <div class="viewcode-block" id="Channel">

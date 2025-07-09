@@ -479,9 +479,10 @@ document.write(`
 
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">normalize_instance</span><span class="p">(</span>
-    <span class="n">value</span><span class="p">:</span> <span class="n">Primitivelike</span> <span class="o">|</span> <span class="n">AnyPrimitive</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AnyPrimitive</span><span class="p">:</span>
+<span class="n">PrimitiveInstancelike</span> <span class="o">=</span> <span class="n">_Union</span><span class="p">[</span><span class="n">Primitivelike</span><span class="p">,</span> <span class="n">AnyPrimitive</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_instance</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">PrimitiveInstancelike</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AnyPrimitive</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a new instance only if necessary.&quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Primitive</span><span class="p">):</span>

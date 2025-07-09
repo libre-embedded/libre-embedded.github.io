@@ -368,6 +368,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.arbiter.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">ServerTask</span> <span class="k">as</span> <span class="n">_ServerTask</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">Connection</span> <span class="k">as</span> <span class="n">_Connection</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionManager</span> <span class="k">as</span> <span class="n">_ConnectionManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.button</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActionButton</span>
 
 
 <div class="viewcode-block" id="ConnectionFactory">
@@ -457,12 +458,19 @@ document.write(`
         <span class="k">if</span> <span class="n">factory</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conn_factories</span><span class="p">:</span>
             <span class="n">factory_inst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conn_factories</span><span class="p">[</span><span class="n">factory</span><span class="p">]</span>
 
+            <span class="n">views</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;views&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="n">ActionButton</span><span class="o">.</span><span class="n">from_top_level</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;buttons&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+
             <span class="n">conn</span> <span class="o">=</span> <span class="n">factory_inst</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">defer</span><span class="p">:</span>
                 <span class="n">conn</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span>  <span class="c1"># type: ignore</span>
 
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">register_connection</span><span class="p">(</span>
-                <span class="n">conn</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_conn_names</span><span class="p">[</span><span class="n">factory_inst</span><span class="p">],</span> <span class="n">name</span>
+                <span class="n">conn</span><span class="p">,</span>
+                <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_conn_names</span><span class="p">[</span><span class="n">factory_inst</span><span class="p">],</span>
+                <span class="n">name</span><span class="p">,</span>
+                <span class="n">views</span><span class="o">=</span><span class="n">views</span><span class="p">,</span>
+                <span class="n">buttons</span><span class="o">=</span><span class="n">buttons</span><span class="p">,</span>
             <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">result</span></div>

@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -304,7 +305,6 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TextIO</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
 
 <span class="c1"># third-party</span>
@@ -498,7 +498,7 @@ document.write(`
 
 <div class="viewcode-block" id="LoadResult.require_success">
 <a class="viewcode-back" href="../../../vcorelib.io.html#vcorelib.io.types.LoadResult.require_success">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">require_success</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">require_success</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Raise a canonical exception if this result is a failure.&quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Couldn&#39;t load &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;!&quot;</span></div>
 
@@ -527,7 +527,7 @@ document.write(`
 
 
 
-<span class="n">EncodeResult</span> <span class="o">=</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+<span class="n">EncodeResult</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
 <span class="n">DataStream</span> <span class="o">=</span> <span class="n">_Union</span><span class="p">[</span><span class="n">TextIO</span><span class="p">,</span> <span class="n">StringIO</span><span class="p">]</span>
 <span class="n">StreamProcessor</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[</span><span class="n">DataStream</span><span class="p">],</span> <span class="n">DataStream</span><span class="p">]</span>
 <span class="n">DataDecoder</span> <span class="o">=</span> <span class="n">_Callable</span><span class="p">[[</span><span class="n">DataStream</span><span class="p">,</span> <span class="n">LoggerType</span><span class="p">],</span> <span class="n">LoadResult</span><span class="p">]</span>

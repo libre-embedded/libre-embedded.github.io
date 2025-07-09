@@ -359,8 +359,11 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="c1"># internal</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controls</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.types.bounds</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntegerBounds</span>
 
+<span class="n">Literal</span> <span class="o">=</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span>
+<span class="n">Default</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Literal</span><span class="p">]</span>
+<span class="n">Controls</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Literal</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Literal</span><span class="p">]]</span>
 <span class="n">DEFAULT_STEPS</span> <span class="o">=</span> <span class="mf">64.0</span>
 
 
@@ -382,6 +385,31 @@ document.write(`
         <span class="n">result</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">default</span>
 
     <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="bit_slider">
+<a class="viewcode-back" href="../../../runtimepy.ui.html#runtimepy.ui.controls.bit_slider">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bit_slider</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">signed</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Controls</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make a slider for an unsigned integer width.&quot;&quot;&quot;</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">IntegerBounds</span><span class="o">.</span><span class="n">create_bit</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">signed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">make_slider</span><span class="p">(</span><span class="n">bounds</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">bounds</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="signed_slider">
+<a class="viewcode-back" href="../../../runtimepy.ui.html#runtimepy.ui.controls.signed_slider">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">signed_slider</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Controls</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make a slider for an unsigned integer width.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">bit_slider</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="unsigned_slider">
+<a class="viewcode-back" href="../../../runtimepy.ui.html#runtimepy.ui.controls.unsigned_slider">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">unsigned_slider</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Controls</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make a slider for an unsigned integer width.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">bit_slider</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span></div>
 
 
 

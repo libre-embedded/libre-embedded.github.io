@@ -372,6 +372,7 @@ document.write(`
     <span class="n">enum_dropdown</span><span class="p">,</span>
     <span class="n">value_input_box</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controls</span><span class="p">,</span> <span class="n">Default</span>
 
 
 <div class="viewcode-block" id="get_channel_kind_str">
@@ -396,7 +397,7 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">default_button</span><span class="p">(</span>
     <span class="n">parent</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">chan</span><span class="p">:</span> <span class="n">AnyChannel</span><span class="p">,</span>
+    <span class="n">default</span><span class="p">:</span> <span class="n">Default</span><span class="p">,</span>
     <span class="o">*</span><span class="n">classes</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">front</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Element</span><span class="p">:</span>
@@ -406,12 +407,32 @@ document.write(`
         <span class="n">parent</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;arrow-counterclockwise&quot;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Reset &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; to default value &#39;</span><span class="si">{</span><span class="n">chan</span><span class="o">.</span><span class="n">default</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
-        <span class="n">value</span><span class="o">=</span><span class="n">chan</span><span class="o">.</span><span class="n">default</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Reset &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; to default value &#39;</span><span class="si">{</span><span class="n">default</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">default</span><span class="p">,</span>
         <span class="n">front</span><span class="o">=</span><span class="n">front</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;default-button&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">classes</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">button</span></div>
+
+
+
+<div class="viewcode-block" id="handle_controls">
+<a class="viewcode-back" href="../../../../../../../runtimepy.net.server.app.env.tab.html#runtimepy.net.server.app.env.tab.controls.handle_controls">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_controls</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">controls</span><span class="p">:</span> <span class="n">Controls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add control elements.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Determine if a slider should be created.</span>
+    <span class="k">if</span> <span class="s2">&quot;slider&quot;</span> <span class="ow">in</span> <span class="n">controls</span><span class="p">:</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">controls</span><span class="p">[</span><span class="s2">&quot;slider&quot;</span><span class="p">]</span>
+
+        <span class="n">slider</span><span class="p">(</span>
+            <span class="n">elem</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">],</span>  <span class="c1"># type: ignore</span>
+            <span class="n">elem</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">],</span>  <span class="c1"># type: ignore</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">elem</span><span class="p">[</span><span class="s2">&quot;step&quot;</span><span class="p">]),</span>  <span class="c1"># type: ignore</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Value control for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;bg-body&quot;</span><span class="p">,</span> <span class="s2">&quot;rounded-pill&quot;</span><span class="p">,</span> <span class="s2">&quot;me-2&quot;</span><span class="p">)</span></div>
 
 
 
@@ -434,12 +455,18 @@ document.write(`
         <span class="c1"># Add boolean/bit toggle button.</span>
         <span class="n">control</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0&quot;</span><span class="p">)</span>
 
+        <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">commandable</span><span class="p">:</span>
+            <span class="n">control</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-start-info-subtle&quot;</span><span class="p">)</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;channel-commandable&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;channel-regular&quot;</span><span class="p">)</span>
+
         <span class="n">chan_type</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
             <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span>
             <span class="n">text</span><span class="o">=</span><span class="n">get_channel_kind_str</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="n">enum</span><span class="p">),</span>
             <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Underlying primitive type for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
-            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0 ps-1 pe-1&quot;</span><span class="p">,</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;p-0 ps-2 pe-1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">control_added</span> <span class="o">=</span> <span class="kc">False</span>
@@ -448,50 +475,82 @@ document.write(`
             <span class="n">chan_type</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;fw-bold&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">commandable</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_boolean</span><span class="p">:</span>
-                <span class="n">enum_dropdown</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">enum</span><span class="p">,</span> <span class="n">cast</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">chan</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
-                <span class="n">control_added</span> <span class="o">=</span> <span class="kc">True</span>
-
-        <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_boolean</span><span class="p">:</span>
-            <span class="n">chan_type</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;text-primary-emphasis&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">commandable</span><span class="p">:</span>
-                <span class="n">button</span> <span class="o">=</span> <span class="n">toggle_button</span><span class="p">(</span>
-                    <span class="n">control</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Toggle &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+                <span class="n">enum_dropdown</span><span class="p">(</span>
+                    <span class="n">control</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">enum</span><span class="p">,</span> <span class="n">cast</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">chan</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                    <span class="s2">&quot;border-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text-secondary-emphasis&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pt-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pb-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;d-inline&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
-                <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;toggle-value&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+                <span class="n">control</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-end-info-subtle&quot;</span><span class="p">)</span>
                 <span class="n">control_added</span> <span class="o">=</span> <span class="kc">True</span>
 
                 <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="n">default_button</span><span class="p">(</span>
-                        <span class="n">control</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span> <span class="n">front</span><span class="o">=</span><span class="kc">False</span>
+                        <span class="n">control</span><span class="p">,</span>
+                        <span class="n">name</span><span class="p">,</span>
+                        <span class="n">chan</span><span class="o">.</span><span class="n">default</span><span class="p">,</span>
+                        <span class="s2">&quot;p-0&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;d-inline&quot;</span><span class="p">,</span>
+                        <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                        <span class="n">front</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_boolean</span><span class="p">:</span>
+            <span class="n">chan_type</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;text-primary&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">commandable</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="n">toggle_button</span><span class="p">(</span>
+                    <span class="n">control</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Toggle &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                    <span class="s2">&quot;toggle-value&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pt-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pb-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;fs-5&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;border-end-info-subtle&quot;</span><span class="p">,</span>
+                    <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">control_added</span> <span class="o">=</span> <span class="kc">True</span>
+
+                <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">default_button</span><span class="p">(</span>
+                        <span class="n">control</span><span class="p">,</span>
+                        <span class="n">name</span><span class="p">,</span>
+                        <span class="n">chan</span><span class="o">.</span><span class="n">default</span><span class="p">,</span>
+                        <span class="s2">&quot;p-0&quot;</span><span class="p">,</span>
+                        <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                        <span class="n">front</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                     <span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_float</span><span class="p">:</span>
             <span class="n">chan_type</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;text-secondary-emphasis&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">chan_type</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;text-primary&quot;</span><span class="p">)</span>
+            <span class="n">chan_type</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;text-primary-emphasis&quot;</span><span class="p">)</span>
 
         <span class="c1"># Input box with send button.</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">control_added</span> <span class="ow">and</span> <span class="n">chan</span><span class="o">.</span><span class="n">commandable</span><span class="p">:</span>
-            <span class="n">container</span> <span class="o">=</span> <span class="n">value_input_box</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span>
+            <span class="n">control</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-end-info-subtle&quot;</span><span class="p">)</span>
+
+            <span class="n">container</span> <span class="o">=</span> <span class="n">value_input_box</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                <span class="s2">&quot;justify-content-start&quot;</span>
+            <span class="p">)</span>
 
             <span class="c1"># Reset-to-default button if a default value exists.</span>
             <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">default_button</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">chan</span><span class="p">,</span> <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+                <span class="n">default_button</span><span class="p">(</span>
+                    <span class="n">container</span><span class="p">,</span>
+                    <span class="n">name</span><span class="p">,</span>
+                    <span class="n">chan</span><span class="o">.</span><span class="n">default</span><span class="p">,</span>
+                    <span class="s2">&quot;pt-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pb-0&quot;</span><span class="p">,</span>
+                    <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                    <span class="n">front</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
 
             <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">controls</span><span class="p">:</span>
-                <span class="c1"># Determine if a slider should be created.</span>
-                <span class="k">if</span> <span class="s2">&quot;slider&quot;</span> <span class="ow">in</span> <span class="n">chan</span><span class="o">.</span><span class="n">controls</span><span class="p">:</span>
-                    <span class="n">elem</span> <span class="o">=</span> <span class="n">chan</span><span class="o">.</span><span class="n">controls</span><span class="p">[</span><span class="s2">&quot;slider&quot;</span><span class="p">]</span>
-
-                    <span class="n">slider</span><span class="p">(</span>
-                        <span class="n">elem</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">],</span>  <span class="c1"># type: ignore</span>
-                        <span class="n">elem</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">],</span>  <span class="c1"># type: ignore</span>
-                        <span class="nb">int</span><span class="p">(</span><span class="n">elem</span><span class="p">[</span><span class="s2">&quot;step&quot;</span><span class="p">]),</span>  <span class="c1"># type: ignore</span>
-                        <span class="n">parent</span><span class="o">=</span><span class="n">container</span><span class="p">,</span>
-                        <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-                        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Value control for &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
-                        <span class="n">front</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                    <span class="p">)</span>
+                <span class="n">handle_controls</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">chan</span><span class="o">.</span><span class="n">controls</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_bit_field_controls</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -506,15 +565,73 @@ document.write(`
 
         <span class="n">field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">commandable</span><span class="p">:</span>
+            <span class="n">control</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-start-info-subtle&quot;</span><span class="p">)</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;channel-commandable&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">is_bit</span><span class="p">:</span>
+                <span class="n">control</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-end-info-subtle&quot;</span><span class="p">)</span>
+
             <span class="k">if</span> <span class="n">is_bit</span><span class="p">:</span>
                 <span class="n">button</span> <span class="o">=</span> <span class="n">toggle_button</span><span class="p">(</span>
                     <span class="n">control</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Toggle &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
                 <span class="p">)</span>
-                <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;toggle-value&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">)</span>
+                <span class="n">button</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                    <span class="s2">&quot;toggle-value&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pt-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pb-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;fs-5&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;border-start-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;border-end-info-subtle&quot;</span><span class="p">,</span>
+                    <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">default_button</span><span class="p">(</span>
+                        <span class="n">control</span><span class="p">,</span>
+                        <span class="n">name</span><span class="p">,</span>
+                        <span class="n">field</span><span class="o">.</span><span class="n">default</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+                        <span class="s2">&quot;p-0&quot;</span><span class="p">,</span>
+                        <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                        <span class="n">front</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">)</span>
+
             <span class="k">elif</span> <span class="n">enum</span><span class="p">:</span>
-                <span class="n">enum_dropdown</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">enum</span><span class="p">,</span> <span class="n">field</span><span class="p">())</span>
+                <span class="n">enum_dropdown</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">enum</span><span class="p">,</span> <span class="n">field</span><span class="p">())</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                    <span class="s2">&quot;border-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text-secondary-emphasis&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pt-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pb-0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;d-inline&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">default_button</span><span class="p">(</span>
+                        <span class="n">control</span><span class="p">,</span>
+                        <span class="n">name</span><span class="p">,</span>
+                        <span class="n">field</span><span class="o">.</span><span class="n">default</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+                        <span class="s2">&quot;p-0&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;d-inline&quot;</span><span class="p">,</span>
+                        <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                        <span class="n">front</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">value_input_box</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span></div>
+                <span class="n">container</span> <span class="o">=</span> <span class="n">value_input_box</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">control</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
+                    <span class="s2">&quot;justify-content-start&quot;</span>
+                <span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">default_button</span><span class="p">(</span>
+                        <span class="n">container</span><span class="p">,</span>
+                        <span class="n">name</span><span class="p">,</span>
+                        <span class="n">field</span><span class="o">.</span><span class="n">default</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+                        <span class="s2">&quot;pt-0&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;pb-0&quot;</span><span class="p">,</span>
+                        <span class="o">*</span><span class="n">TABLE_BUTTON_CLASSES</span><span class="p">,</span>
+                        <span class="n">front</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">controls</span><span class="p">:</span>
+                    <span class="n">handle_controls</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">controls</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;channel-regular&quot;</span><span class="p">)</span></div>
 
 </pre></div>
 

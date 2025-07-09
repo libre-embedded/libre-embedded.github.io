@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -312,7 +316,7 @@ document.write(`
 
     <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;# </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">imports</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">imports</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;from </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> import </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
@@ -339,6 +343,22 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="python_docstring">
+<a class="viewcode-back" href="../../../ifgen.generation.python.html#ifgen.generation.python.python_docstring">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">python_docstring</span><span class="p">(</span>
+    <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="o">*</span><span class="n">docstrings</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">empty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write docstring data.&quot;&quot;&quot;</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&quot;&quot;&quot;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">docstring</span> <span class="ow">in</span> <span class="n">docstrings</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">docstring</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&quot;&quot;&quot;&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">empty</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span></div>
+
+
+
 <div class="viewcode-block" id="python_class">
 <a class="viewcode-back" href="../../../ifgen.generation.python.html#ifgen.generation.python.python_class">[docs]</a>
 <span class="nd">@contextmanager</span>
@@ -358,8 +378,7 @@ document.write(`
 
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;&quot;&quot;</span><span class="si">{</span><span class="n">docstring</span><span class="si">}</span><span class="s1">&quot;&quot;&quot;&#39;</span><span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">python_docstring</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">docstring</span><span class="p">)</span>
         <span class="k">yield</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">final_empty</span><span class="p">)</span></div>
@@ -386,8 +405,7 @@ document.write(`
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;def </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">) -&gt; </span><span class="si">{</span><span class="n">return_type</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;&quot;&quot;</span><span class="si">{</span><span class="n">docstring</span><span class="si">}</span><span class="s1">&quot;&quot;&quot;&#39;</span><span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">python_docstring</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">docstring</span><span class="p">)</span>
         <span class="k">yield</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">final_empty</span><span class="p">)</span></div>

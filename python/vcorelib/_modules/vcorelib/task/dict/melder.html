@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -297,8 +298,6 @@ document.write(`
 
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span> <span class="k">as</span> <span class="n">_Any</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge</span><span class="p">,</span> <span class="n">merge_dicts</span>
@@ -320,7 +319,7 @@ document.write(`
 
         <span class="c1"># Forward the foreign argument to the ouput box (provided by the</span>
         <span class="c1"># caller).</span>
-        <span class="n">to_merge</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Dict</span><span class="p">[</span><span class="n">_Any</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">outbox</span><span class="p">]</span>
+        <span class="n">to_merge</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="n">_Any</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">outbox</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="p">[</span><span class="o">*</span><span class="n">args</span><span class="p">]:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
                 <span class="n">to_merge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>

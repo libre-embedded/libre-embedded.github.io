@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -300,12 +304,7 @@ document.write(`
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.svd.group.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">PeripheralGroup</span><span class="p">,</span> <span class="n">peripheral_groups</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.svd.group.fields</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">DEFAULT_STRUCT</span><span class="p">,</span>
-    <span class="n">EnumMap</span><span class="p">,</span>
-    <span class="n">StructMap</span><span class="p">,</span>
-    <span class="n">struct_fields</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.svd.group.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnumMap</span><span class="p">,</span> <span class="n">StructMap</span><span class="p">,</span> <span class="n">struct_fields</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.svd.model.peripheral</span><span class="w"> </span><span class="kn">import</span> <span class="n">Peripheral</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PeripheralGroup&quot;</span><span class="p">,</span> <span class="s2">&quot;peripheral_groups&quot;</span><span class="p">,</span> <span class="s2">&quot;handle_group&quot;</span><span class="p">]</span>
@@ -345,7 +344,6 @@ document.write(`
     <span class="c1"># data[&quot;expected_size&quot;] = size</span>
     <span class="k">del</span> <span class="n">size</span>
 
-    <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">DEFAULT_STRUCT</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">data</span>
 
 

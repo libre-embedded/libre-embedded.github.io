@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -293,7 +297,7 @@ document.write(`
 
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExitStack</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.file_writer</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -309,7 +313,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.struct.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">python_struct_header</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.struct.stream</span><span class="w"> </span><span class="kn">import</span> <span class="n">struct_stream_methods</span>
 
-<span class="n">FieldConfig</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>
+<span class="n">FieldConfig</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="enforce_expected_size">
@@ -337,6 +341,7 @@ document.write(`
     <span class="n">volatile</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
     <span class="n">const</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
     <span class="n">array_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">default</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LineWithComment</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a string for a struct-field line.&quot;&quot;&quot;</span>
 
@@ -347,7 +352,9 @@ document.write(`
     <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;volatile &quot;</span> <span class="k">if</span> <span class="n">volatile</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
     <span class="n">prefix</span> <span class="o">+=</span> <span class="s2">&quot;const &quot;</span> <span class="k">if</span> <span class="n">const</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="n">const</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">default</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; = </span><span class="si">{</span><span class="n">default</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">elif</span> <span class="n">const</span><span class="p">:</span>
         <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot; = </span><span class="si">{}</span><span class="s2">&quot;</span>
 
     <span class="k">return</span> <span class="n">prefix</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">;&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div>
@@ -394,12 +401,33 @@ document.write(`
                     <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">possible_union</span><span class="p">:</span>
                         <span class="n">possible_union</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
 
+                    <span class="c1"># Handle enum defaults.</span>
+                    <span class="n">default</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">is_enum</span><span class="p">(</span><span class="n">possible_union</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]):</span>
+                        <span class="n">enum</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">get_enum</span><span class="p">(</span><span class="n">possible_union</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">])</span>
+                        <span class="k">if</span> <span class="n">enum</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
+                            <span class="n">default</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">possible_union</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_default&quot;</span>
+                            <span class="k">if</span> <span class="s2">&quot;array_length&quot;</span> <span class="ow">in</span> <span class="n">field</span><span class="p">:</span>
+                                <span class="n">default</span> <span class="o">=</span> <span class="p">(</span>
+                                    <span class="s2">&quot;{&quot;</span>
+                                    <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                                        <span class="p">[</span>
+                                            <span class="n">default</span>
+                                            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+                                                <span class="n">field</span><span class="p">[</span><span class="s2">&quot;array_length&quot;</span><span class="p">]</span>
+                                            <span class="p">)</span>
+                                        <span class="p">]</span>
+                                    <span class="p">)</span>
+                                    <span class="o">+</span> <span class="s2">&quot;}&quot;</span>
+                                <span class="p">)</span>
+
                     <span class="n">line</span><span class="p">,</span> <span class="n">comment</span> <span class="o">=</span> <span class="n">struct_line</span><span class="p">(</span>
                         <span class="n">possible_union</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
                         <span class="n">possible_union</span><span class="p">,</span>
                         <span class="n">possible_union</span><span class="p">[</span><span class="s2">&quot;volatile&quot;</span><span class="p">],</span>
                         <span class="n">possible_union</span><span class="p">[</span><span class="s2">&quot;const&quot;</span><span class="p">],</span>
                         <span class="n">array_length</span><span class="o">=</span><span class="n">possible_union</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;array_length&quot;</span><span class="p">),</span>
+                        <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">,</span>
                     <span class="p">)</span>
                     <span class="k">if</span> <span class="n">is_union</span><span class="p">:</span>
                         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
@@ -477,17 +505,18 @@ document.write(`
         <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Methods.&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;methods&quot;</span><span class="p">]:</span>
-            <span class="n">struct_methods</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">struct_methods</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
 
-        <span class="n">bit_fields</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">bit_fields</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
 
     <span class="c1"># Add size assertion.</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;static_assert(sizeof(</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">) == </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">::size);&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;static_assert(ifgen_struct&lt;</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&gt;);&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;stream&quot;</span><span class="p">]:</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-        <span class="n">struct_stream_methods</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">struct_stream_methods</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;instances&quot;</span><span class="p">,</span> <span class="p">[]):</span>
         <span class="n">struct_instance</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span></div>

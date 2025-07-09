@@ -394,6 +394,8 @@ document.write(`
 <span class="n">VALUES_FILE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">VALUES_KEY</span><span class="si">}</span><span class="s2">.json&quot;</span>
 <span class="n">FIELDS_FILE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FIELDS_KEY</span><span class="si">}</span><span class="s2">.json&quot;</span>
 <span class="n">NAMES_FILE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">NAMES_KEY</span><span class="si">}</span><span class="s2">.json&quot;</span>
+<span class="n">VIEWS_KEY</span> <span class="o">=</span> <span class="s2">&quot;views&quot;</span>
+<span class="c1"># VIEWS_FILE = f&quot;{VIEWS_KEY}.json&quot;</span>
 
 
 <div class="viewcode-block" id="FileChannelEnvironment">
@@ -420,6 +422,7 @@ document.write(`
             <span class="n">VALUES_KEY</span><span class="p">:</span> <span class="n">_cast</span><span class="p">(</span>
                 <span class="n">_JsonObject</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">resolve_enum</span><span class="o">=</span><span class="n">resolve_enum</span><span class="p">)</span>
             <span class="p">),</span>
+            <span class="n">VIEWS_KEY</span><span class="p">:</span> <span class="n">_cast</span><span class="p">(</span><span class="n">_JsonObject</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">views</span><span class="p">),</span>
         <span class="p">}</span></div>
 
 
@@ -508,6 +511,7 @@ document.write(`
             <span class="n">enums</span><span class="o">=</span><span class="n">enum_reg</span><span class="p">,</span>
             <span class="n">values</span><span class="o">=</span><span class="n">_cast</span><span class="p">(</span><span class="n">_Optional</span><span class="p">[</span><span class="n">_ValueMap</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">VALUES_KEY</span><span class="p">)),</span>
             <span class="n">fields</span><span class="o">=</span><span class="n">_fields_from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">FIELDS_KEY</span><span class="p">]),</span>
+            <span class="n">views</span><span class="o">=</span><span class="n">_cast</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">VIEWS_KEY</span><span class="p">,</span> <span class="p">{})),</span>
         <span class="p">)</span>
 
         <span class="c1"># Typically, externally loaded environments should be final at load</span>

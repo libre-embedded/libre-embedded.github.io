@@ -361,6 +361,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">mimetypes</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlencode</span>
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_ENCODING</span>
@@ -369,15 +370,16 @@ document.write(`
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_EXT</span><span class="p">,</span> <span class="n">PKG_NAME</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.environment.command</span><span class="w"> </span><span class="kn">import</span> <span class="n">GLOBAL</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.environment.command</span><span class="w"> </span><span class="kn">import</span> <span class="n">GLOBAL</span><span class="p">,</span> <span class="n">global_command</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.html</span><span class="w"> </span><span class="kn">import</span> <span class="n">full_markdown_page</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.http.header</span><span class="w"> </span><span class="kn">import</span> <span class="n">RequestHeader</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.http.request_target</span><span class="w"> </span><span class="kn">import</span> <span class="n">PathMaybeQuery</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.http.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResponseHeader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.http.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncResponse</span><span class="p">,</span> <span class="n">ResponseHeader</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.server.html</span><span class="w"> </span><span class="kn">import</span> <span class="n">HtmlApp</span><span class="p">,</span> <span class="n">HtmlApps</span><span class="p">,</span> <span class="n">get_html</span><span class="p">,</span> <span class="n">html_handler</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.server.json</span><span class="w"> </span><span class="kn">import</span> <span class="n">encode_json</span><span class="p">,</span> <span class="n">json_handler</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.server.markdown</span><span class="w"> </span><span class="kn">import</span> <span class="n">markdown_for_dir</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.tcp.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpConnection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.server.markdown</span><span class="w"> </span><span class="kn">import</span> <span class="n">DIR_FILE</span><span class="p">,</span> <span class="n">markdown_for_dir</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.server.mux</span><span class="w"> </span><span class="kn">import</span> <span class="n">mux_app</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.tcp.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpConnection</span><span class="p">,</span> <span class="n">HttpResult</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize_root</span><span class="p">,</span> <span class="n">path_has_part</span><span class="p">,</span> <span class="n">read_binary</span>
 
 <span class="n">MIMETYPES_INIT</span> <span class="o">=</span> <span class="kc">False</span>
@@ -400,7 +402,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class implementing a server-connection interface for this package.&quot;&quot;&quot;</span>
 
     <span class="c1"># Can register application methods to URL paths.</span>
-    <span class="n">apps</span><span class="p">:</span> <span class="n">HtmlApps</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">apps</span><span class="p">:</span> <span class="n">HtmlApps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;/mux.html&quot;</span><span class="p">:</span> <span class="n">mux_app</span><span class="p">}</span>
     <span class="n">default_app</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HtmlApp</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># Can load additional data into this dictionary for easy HTTP access.</span>
@@ -411,6 +413,12 @@ document.write(`
     <span class="n">paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span>
     <span class="n">class_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(),</span> <span class="n">package_data_dir</span><span class="p">()]</span>
     <span class="n">class_redirect_paths</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Set these to control meta attributes.</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">HttpConnection</span><span class="o">.</span><span class="n">identity</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">HttpConnection</span><span class="o">.</span><span class="n">identity</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
 
 <div class="viewcode-block" id="RuntimepyServerConnection.add_path">
 <a class="viewcode-back" href="../../../runtimepy.net.server.html#runtimepy.net.server.RuntimepyServerConnection.add_path">[docs]</a>
@@ -522,7 +530,15 @@ document.write(`
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return rendered markdown content.&quot;&quot;&quot;</span>
 
-        <span class="n">document</span> <span class="o">=</span> <span class="n">get_html</span><span class="p">()</span>
+        <span class="n">meta</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+
+        <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+            <span class="s2">&quot; This page was rendered from &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Markdown by </span><span class="si">{</span><span class="n">HttpConnection</span><span class="o">.</span><span class="n">identity</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+        <span class="n">document</span> <span class="o">=</span> <span class="n">get_html</span><span class="p">(</span><span class="o">**</span><span class="n">meta</span><span class="p">)</span>
+
         <span class="k">with</span> <span class="n">IndentedFileWriter</span><span class="o">.</span><span class="n">string</span><span class="p">()</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">write_markdown</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="n">full_markdown_page</span><span class="p">(</span>
@@ -533,7 +549,9 @@ document.write(`
 
         <span class="n">response</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;text/html; charset=</span><span class="si">{</span><span class="n">DEFAULT_ENCODING</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        <span class="k">return</span> <span class="n">document</span><span class="o">.</span><span class="n">encode_str</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span></div>
+        <span class="k">with</span> <span class="n">StringIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="n">document</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="RuntimepyServerConnection.render_markdown_file">
@@ -556,20 +574,24 @@ document.write(`
 <a class="viewcode-back" href="../../../runtimepy.net.server.html#runtimepy.net.server.RuntimepyServerConnection.try_file">[docs]</a>
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">try_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">PathMaybeQuery</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">ResponseHeader</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HttpResult</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Try serving this path as a file directly from the file-system.&quot;&quot;&quot;</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">result</span><span class="p">:</span> <span class="n">HttpResult</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="c1"># Keep track of directories encountered.</span>
-        <span class="n">directories</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">directories</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="c1"># Build a list of all candidate files to check.</span>
         <span class="n">candidates</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">search</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">:</span>
             <span class="n">candidate</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
+
+            <span class="k">if</span> <span class="n">candidate</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">DIR_FILE</span><span class="p">:</span>
+                <span class="n">candidate</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">parent</span>
+
             <span class="k">if</span> <span class="n">candidate</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
-                <span class="n">directories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+                <span class="n">directories</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">candidate</span><span class="p">,</span> <span class="n">search</span><span class="p">))</span>
                 <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
@@ -589,6 +611,13 @@ document.write(`
 
                 <span class="c1"># Set MIME type if it can be determined.</span>
                 <span class="k">if</span> <span class="n">mime</span><span class="p">:</span>
+                    <span class="c1"># webhint suggestion</span>
+                    <span class="k">if</span> <span class="p">(</span>
+                        <span class="n">mime</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+                        <span class="ow">and</span> <span class="n">DEFAULT_ENCODING</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mime</span>
+                    <span class="p">):</span>
+                        <span class="n">mime</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;; charset=</span><span class="si">{</span><span class="n">DEFAULT_ENCODING</span><span class="si">}</span><span class="s2">&quot;</span>
+
                     <span class="n">response</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mime</span>
 
                 <span class="c1"># We don&#39;t handle this yet.</span>
@@ -596,15 +625,17 @@ document.write(`
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Serving &#39;</span><span class="si">%s</span><span class="s2">&#39; (MIME: </span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">candidate</span><span class="p">,</span> <span class="n">mime</span><span class="p">)</span>
 
+                <span class="n">response</span><span class="o">.</span><span class="n">static_resource</span><span class="p">()</span>
+
                 <span class="c1"># Return the file data.</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">read_binary</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">AsyncResponse</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
                 <span class="k">break</span>
 
         <span class="c1"># Handle a directory as a last resort.</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">directories</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_markdown</span><span class="p">(</span>
                 <span class="n">markdown_for_dir</span><span class="p">(</span>
-                    <span class="n">directories</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">{</span><span class="s2">&quot;applications&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+                    <span class="n">directories</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;applications&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
                 <span class="p">),</span>
                 <span class="n">response</span><span class="p">,</span>
                 <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
@@ -625,17 +656,22 @@ document.write(`
         <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;No command executed.&quot;</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span> <span class="ow">or</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">GLOBAL</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">cmd_usage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Set usage information for the response.&quot;&quot;&quot;</span>
             <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;usage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="s2">&quot;/&lt;environment (arg0)&gt;/&lt;arg1&gt;[/.../&lt;argN&gt;]&quot;</span>
             <span class="p">)</span>
             <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;environments&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">GLOBAL</span><span class="p">)</span>
 
-        <span class="c1"># Run command.</span>
+        <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">global_command</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cmd_usage</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span>
+                <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">GLOBAL</span><span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="n">cmd_usage</span><span class="p">()</span>
 
         <span class="c1"># Send response.</span>
         <span class="n">encode_json</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">response_data</span><span class="p">)</span></div>
@@ -647,8 +683,8 @@ document.write(`
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">response</span><span class="p">:</span> <span class="n">ResponseHeader</span><span class="p">,</span>
         <span class="n">request</span><span class="p">:</span> <span class="n">RequestHeader</span><span class="p">,</span>
-        <span class="n">request_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">],</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+        <span class="n">request_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytearray</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HttpResult</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle POST requests.&quot;&quot;&quot;</span>
 
         <span class="n">request</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
@@ -672,8 +708,8 @@ document.write(`
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">response</span><span class="p">:</span> <span class="n">ResponseHeader</span><span class="p">,</span>
         <span class="n">request</span><span class="p">:</span> <span class="n">RequestHeader</span><span class="p">,</span>
-        <span class="n">request_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">],</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+        <span class="n">request_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytearray</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HttpResult</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle GET requests.&quot;&quot;&quot;</span>
 
         <span class="n">request</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
@@ -688,6 +724,7 @@ document.write(`
                 <span class="c1"># Handle favicon (for browser clients).</span>
                 <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;/favicon&quot;</span><span class="p">):</span>
                     <span class="n">response</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;image/x-icon&quot;</span>
+                    <span class="n">response</span><span class="o">.</span><span class="n">static_resource</span><span class="p">()</span>
                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">favicon_data</span>
 
                 <span class="c1"># Try serving a file and handling redirects.</span>
@@ -718,12 +755,16 @@ document.write(`
                         <span class="n">response</span><span class="p">,</span>
                         <span class="n">request_data</span><span class="p">,</span>
                         <span class="n">default_app</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">default_app</span><span class="p">,</span>
+                        <span class="o">**</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
                     <span class="p">)</span>
 
                 <span class="k">if</span> <span class="n">populated</span><span class="p">:</span>
                     <span class="n">result</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">result</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_to</span><span class="p">(</span><span class="s2">&quot;/404.html&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">result</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_to</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;/404.html?</span><span class="si">{</span><span class="n">urlencode</span><span class="p">({</span><span class="s1">&#39;target&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">request</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">raw</span><span class="p">})</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">response</span><span class="p">,</span>
+        <span class="p">)</span></div>
 </div>
 
 </pre></div>

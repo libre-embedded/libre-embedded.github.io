@@ -368,7 +368,6 @@ document.write(`
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyChannel</span> <span class="k">as</span> <span class="n">_AnyChannel</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel</span><span class="w"> </span><span class="kn">import</span> <span class="n">Channel</span> <span class="k">as</span> <span class="n">_Channel</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel</span><span class="w"> </span><span class="kn">import</span> <span class="n">Default</span> <span class="k">as</span> <span class="n">_Default</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.event.header</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimitiveEventHeader</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.codec.protocol</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_PATTERN</span>
@@ -381,7 +380,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Registry</span> <span class="k">as</span> <span class="n">_Registry</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry.name</span><span class="w"> </span><span class="kn">import</span> <span class="n">NameRegistry</span> <span class="k">as</span> <span class="n">_NameRegistry</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry.name</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegistryKey</span> <span class="k">as</span> <span class="n">_RegistryKey</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controlslike</span><span class="p">,</span> <span class="n">normalize_controls</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controlslike</span><span class="p">,</span> <span class="n">Default</span><span class="p">,</span> <span class="n">normalize_controls</span>
 
 
 <div class="viewcode-block" id="ChannelNameRegistry">
@@ -460,7 +459,7 @@ document.write(`
         <span class="n">enum</span><span class="p">:</span> <span class="n">_RegistryKey</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">scaling</span><span class="p">:</span> <span class="n">ChannelScaling</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">default</span><span class="p">:</span> <span class="n">_Default</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">default</span><span class="p">:</span> <span class="n">Default</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">controls</span><span class="p">:</span> <span class="n">Controlslike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_AnyChannel</span><span class="p">]:</span>

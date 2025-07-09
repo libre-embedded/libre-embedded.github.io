@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -308,7 +309,7 @@ document.write(`
 <div class="viewcode-block" id="normalize">
 <a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.base.normalize">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Path</span><span class="p">],</span> <span class="n">require</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">_Path</span><span class="p">,</span> <span class="n">require</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Path</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Normalize an input that could be a path into a path.&quot;&quot;&quot;</span>
     <span class="n">path</span> <span class="o">=</span> <span class="p">(</span>

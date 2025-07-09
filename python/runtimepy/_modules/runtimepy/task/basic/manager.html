@@ -357,6 +357,7 @@ document.write(`
 <span class="c1"># built-in</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_asyncio</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">asynccontextmanager</span> <span class="k">as</span> <span class="n">_asynccontextmanager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">suppress</span> <span class="k">as</span> <span class="n">_suppress</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncIterator</span> <span class="k">as</span> <span class="n">_AsyncIterator</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generic</span> <span class="k">as</span> <span class="n">_Generic</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
@@ -422,11 +423,27 @@ document.write(`
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_AsyncIterator</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Run tasks as an async context.&quot;&quot;&quot;</span>
 
+        <span class="n">task</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">stop_sig</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stopper</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Stop tasks when stop signal is set.&quot;&quot;&quot;</span>
+
+                <span class="k">with</span> <span class="n">_suppress</span><span class="p">(</span><span class="n">_asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">):</span>
+                    <span class="k">await</span> <span class="n">stop_sig</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+            <span class="n">task</span> <span class="o">=</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">stopper</span><span class="p">())</span>
+
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">stop_sig</span><span class="o">=</span><span class="n">stop_sig</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">yield</span>
         <span class="k">finally</span><span class="p">:</span>
-            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">task</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+                <span class="k">await</span> <span class="n">task</span></div>
 </div>
 
 </pre></div>

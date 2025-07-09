@@ -327,14 +327,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.aggregation">Module contents</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.collect_files"><code class="docutils literal notranslate"><span class="pre">collect_files()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.compile_sources"><code class="docutils literal notranslate"><span class="pre">compile_sources()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.headers"><code class="docutils literal notranslate"><span class="pre">headers()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.populate_sources"><code class="docutils literal notranslate"><span class="pre">populate_sources()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.sources_headers"><code class="docutils literal notranslate"><span class="pre">sources_headers()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
 </ul>
             </nav>
         </div>
@@ -348,39 +341,8 @@ document.write(`
                   
   <section id="yambs-aggregation-package">
 <h1>yambs.aggregation package<a class="headerlink" href="#yambs-aggregation-package" title="Link to this heading">#</a></h1>
-<section id="module-yambs.aggregation">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yambs.aggregation" title="Link to this heading">#</a></h2>
-<p>A module with interfaces for aggregating sources.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="yambs.aggregation.collect_files">
-<span class="sig-prename descclassname"><span class="pre">yambs.aggregation.</span></span><span class="sig-name descname"><span class="pre">collect_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/aggregation.html#collect_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.aggregation.collect_files" title="Link to this definition">#</a></dt>
-<dd><p>Collect files (by suffix) from a starting directory.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="yambs.aggregation.compile_sources">
-<span class="sig-prename descclassname"><span class="pre">yambs.aggregation.</span></span><span class="sig-name descname"><span class="pre">compile_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/aggregation.html#compile_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.aggregation.compile_sources" title="Link to this definition">#</a></dt>
-<dd><p>Get all sources that require compilation.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="yambs.aggregation.headers">
-<span class="sig-prename descclassname"><span class="pre">yambs.aggregation.</span></span><span class="sig-name descname"><span class="pre">headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/aggregation.html#headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.aggregation.headers" title="Link to this definition">#</a></dt>
-<dd><p>Get header files.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="yambs.aggregation.populate_sources">
-<span class="sig-prename descclassname"><span class="pre">yambs.aggregation.</span></span><span class="sig-name descname"><span class="pre">populate_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">third_party</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/aggregation.html#populate_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.aggregation.populate_sources" title="Link to this definition">#</a></dt>
-<dd><p>Populate application and regular sources from a group of paths.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="yambs.aggregation.sources_headers">
-<span class="sig-prename descclassname"><span class="pre">yambs.aggregation.</span></span><span class="sig-name descname"><span class="pre">sources_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/aggregation.html#sources_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.aggregation.sources_headers" title="Link to this definition">#</a></dt>
-<dd><p>Get sources and header files.</p>
-</dd></dl>
-
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -429,14 +391,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.aggregation">Module contents</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.collect_files"><code class="docutils literal notranslate"><span class="pre">collect_files()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.compile_sources"><code class="docutils literal notranslate"><span class="pre">compile_sources()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.headers"><code class="docutils literal notranslate"><span class="pre">headers()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.populate_sources"><code class="docutils literal notranslate"><span class="pre">populate_sources()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.aggregation.sources_headers"><code class="docutils literal notranslate"><span class="pre">sources_headers()</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
 </ul>
   </nav></div>
 

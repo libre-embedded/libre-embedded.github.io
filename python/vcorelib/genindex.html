@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -383,6 +384,8 @@ document.write(`
         <li><a href="vcorelib.dict.html#vcorelib.dict.codec.JsonCodec.asdict">(vcorelib.dict.codec.JsonCodec method)</a>
 </li>
       </ul></li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus">AsyncMessageBus (class in vcorelib.io.bus)</a>
+</li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.edge.GraphEdge.attrs">attrs (vcorelib.graph.edge.GraphEdge attribute)</a>
 </li>
       <li><a href="vcorelib.math.analysis.html#vcorelib.math.analysis.weighted.WeightedAverage.average">average() (vcorelib.math.analysis.weighted.WeightedAverage method)</a>
@@ -745,6 +748,12 @@ document.write(`
 </li>
       <li><a href="vcorelib.io.arbiter.html#vcorelib.io.arbiter.directory.DataArbiterDirectories.encode_directory_async">encode_directory_async() (vcorelib.io.arbiter.directory.DataArbiterDirectories method)</a>
 </li>
+      <li><a href="vcorelib.io.html#vcorelib.io.encode_if_different">encode_if_different() (in module vcorelib.io)</a>
+
+      <ul>
+        <li><a href="vcorelib.io.arbiter.html#vcorelib.io.arbiter.encode_if_different">(in module vcorelib.io.arbiter)</a>
+</li>
+      </ul></li>
       <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_ini">encode_ini() (in module vcorelib.io.encode)</a>
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_json">encode_json() (in module vcorelib.io.encode)</a>
@@ -753,10 +762,10 @@ document.write(`
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_toml">encode_toml() (in module vcorelib.io.encode)</a>
 </li>
-      <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_yaml">encode_yaml() (in module vcorelib.io.encode)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="vcorelib.io.html#vcorelib.io.encode.encode_yaml">encode_yaml() (in module vcorelib.io.encode)</a>
+</li>
       <li><a href="vcorelib.io.html#vcorelib.io.mapping.DataHandle.encoder">encoder (vcorelib.io.mapping.DataHandle attribute)</a>
 </li>
       <li><a href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.ends">ends() (vcorelib.io.file_writer.IndentedFileWriter method)</a>
@@ -863,14 +872,14 @@ document.write(`
         <li><a href="vcorelib.math.analysis.html#vcorelib.math.analysis.buffer.FloatBuffer">(class in vcorelib.math.analysis.buffer)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.logging.html#vcorelib.logging.forward_flags">forward_flags() (in module vcorelib.logging)</a>
 
       <ul>
         <li><a href="vcorelib.logging.html#vcorelib.logging.args.forward_flags">(in module vcorelib.logging.args)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.logging.html#vcorelib.logging.forward_logging_flags">forward_logging_flags() (in module vcorelib.logging)</a>
 
       <ul>
@@ -925,6 +934,12 @@ document.write(`
         <li><a href="vcorelib.io.html#vcorelib.io.types.FileExtension.from_path">(vcorelib.io.types.FileExtension static method)</a>
 </li>
         <li><a href="vcorelib.schemas.html#vcorelib.schemas.base.Schema.from_path">(vcorelib.schemas.base.Schema class method)</a>
+</li>
+      </ul></li>
+      <li><a href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.from_path_if_different">from_path_if_different() (vcorelib.io.file_writer.IndentedFileWriter static method)</a>
+
+      <ul>
+        <li><a href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.from_path_if_different">(vcorelib.io.IndentedFileWriter static method)</a>
 </li>
       </ul></li>
       <li><a href="vcorelib.math.analysis.rate.html#vcorelib.math.analysis.rate.limiter.RateLimiter.from_s">from_s() (vcorelib.math.analysis.rate.limiter.RateLimiter static method)</a>
@@ -1373,6 +1388,8 @@ document.write(`
 </li>
         <li><a href="vcorelib.io.archive.html#module-vcorelib.io.archive">vcorelib.io.archive</a>
 </li>
+        <li><a href="vcorelib.io.bus.html#module-vcorelib.io.bus">vcorelib.io.bus</a>
+</li>
         <li><a href="vcorelib.io.html#module-vcorelib.io.cache">vcorelib.io.cache</a>
 </li>
         <li><a href="vcorelib.io.html#module-vcorelib.io.decode">vcorelib.io.decode</a>
@@ -1774,13 +1791,17 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.dict.html#vcorelib.dict.MergeStrategy.RECURSIVE">RECURSIVE (vcorelib.dict.MergeStrategy attribute)</a>
 </li>
-      <li><a href="vcorelib.target.html#vcorelib.target.resolver.TargetResolver.register">register() (vcorelib.target.resolver.TargetResolver method)</a>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.register">register() (vcorelib.io.bus.AsyncMessageBus method)</a>
 
       <ul>
+        <li><a href="vcorelib.target.html#vcorelib.target.resolver.TargetResolver.register">(vcorelib.target.resolver.TargetResolver method)</a>
+</li>
         <li><a href="vcorelib.task.html#vcorelib.task.manager.TaskManager.register">(vcorelib.task.manager.TaskManager method)</a>
 </li>
       </ul></li>
       <li><a href="vcorelib.paths.html#vcorelib.paths.find.register_file_finder">register_file_finder() (in module vcorelib.paths.find)</a>
+</li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.register_ro">register_ro() (vcorelib.io.bus.AsyncMessageBus method)</a>
 </li>
       <li><a href="vcorelib.task.html#vcorelib.task.manager.TaskManager.register_to">register_to() (vcorelib.task.manager.TaskManager method)</a>
 </li>
@@ -1986,6 +2007,10 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.target.html#vcorelib.target.evaluation.TargetInterface.segment_count">segment_count() (vcorelib.target.evaluation.TargetInterface class method)</a>
 </li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.send">send() (vcorelib.io.bus.AsyncMessageBus method)</a>
+</li>
+      <li><a href="vcorelib.io.bus.html#vcorelib.io.bus.AsyncMessageBus.send_ro">send_ro() (vcorelib.io.bus.AsyncMessageBus method)</a>
+</li>
       <li><a href="vcorelib.io.html#vcorelib.io.Serializable">Serializable (class in vcorelib.io)</a>
 
       <ul>
@@ -2020,14 +2045,14 @@ document.write(`
 </li>
       <li><a href="vcorelib.math.html#vcorelib.math.keeper.TimeKeeper.simulated">simulated() (vcorelib.math.keeper.TimeKeeper method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.math.html#vcorelib.math.simulated_time">simulated_time() (in module vcorelib.math)</a>
 
       <ul>
         <li><a href="vcorelib.math.html#vcorelib.math.time.simulated_time">(in module vcorelib.math.time)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.math.html#vcorelib.math.SimulatedTime">SimulatedTime (class in vcorelib.math)</a>
 
       <ul>
@@ -2180,6 +2205,8 @@ document.write(`
         <li><a href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.temporary">(vcorelib.io.IndentedFileWriter static method)</a>
 </li>
       </ul></li>
+      <li><a href="vcorelib.paths.html#vcorelib.paths.context.text_stream_if_different">text_stream_if_different() (in module vcorelib.paths.context)</a>
+</li>
       <li><a href="vcorelib.io.html#vcorelib.io.LoadResult.time_ns">time_ns (vcorelib.io.LoadResult attribute)</a>
 
       <ul>
@@ -2188,14 +2215,14 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.math.html#vcorelib.math.keeper.TimeKeeper">TimeKeeper (class in vcorelib.math.keeper)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.math.html#vcorelib.math.Timer">Timer (class in vcorelib.math)</a>
 
       <ul>
         <li><a href="vcorelib.math.html#vcorelib.math.time.Timer">(class in vcorelib.math.time)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.io.html#vcorelib.io.abc.Serializable.to_file">to_file() (vcorelib.io.abc.Serializable method)</a>
 
       <ul>
@@ -2475,6 +2502,13 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    vcorelib.io.bus
+
+      <ul>
+        <li><a href="vcorelib.io.bus.html#module-vcorelib.io.bus">module</a>
+</li>
+      </ul></li>
+      <li>
     vcorelib.io.cache
 
       <ul>
@@ -2565,6 +2599,8 @@ document.write(`
         <li><a href="vcorelib.math.html#module-vcorelib.math">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     vcorelib.math.analysis
 
@@ -2572,8 +2608,6 @@ document.write(`
         <li><a href="vcorelib.math.analysis.html#module-vcorelib.math.analysis">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     vcorelib.math.analysis.average
 
@@ -2875,14 +2909,14 @@ document.write(`
       </ul></li>
       <li><a href="vcorelib.io.html#vcorelib.io.file_writer.CommentStyle.wrap">wrap() (vcorelib.io.file_writer.CommentStyle method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.write">write() (vcorelib.io.file_writer.IndentedFileWriter method)</a>
 
       <ul>
         <li><a href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.write">(vcorelib.io.IndentedFileWriter method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="vcorelib.graph.html#vcorelib.graph.edge.write_attributes">write_attributes() (in module vcorelib.graph.edge)</a>
 </li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.write_indent">write_indent() (in module vcorelib.graph)</a>
@@ -2894,6 +2928,8 @@ document.write(`
 </li>
       </ul></li>
       <li><a href="vcorelib.graph.html#vcorelib.graph.edge.write_node_id">write_node_id() (in module vcorelib.graph.edge)</a>
+</li>
+      <li><a href="vcorelib.paths.html#vcorelib.paths.context.write_text_if_different">write_text_if_different() (in module vcorelib.paths.context)</a>
 </li>
   </ul></td>
 </tr></table>

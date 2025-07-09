@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -297,9 +298,7 @@ document.write(`
 
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserDict</span> <span class="k">as</span> <span class="n">_UserDict</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Set</span> <span class="k">as</span> <span class="n">_Set</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span> <span class="k">as</span> <span class="n">_Type</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span> <span class="k">as</span> <span class="n">_TypeVar</span>
 
@@ -405,11 +404,11 @@ document.write(`
 
 <div class="viewcode-block" id="AbstractDiGraphNode.parallel">
 <a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.parallel">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Set</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterate over nodes that this instance shares parallel edges with.&quot;&quot;&quot;</span>
 
-        <span class="n">outgoing</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outgoing</span><span class="p">())</span>
-        <span class="n">incoming</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">incoming</span><span class="p">())</span>
+        <span class="n">outgoing</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outgoing</span><span class="p">())</span>
+        <span class="n">incoming</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">incoming</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">outgoing</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">incoming</span><span class="p">)</span></div>
 </div>
 
@@ -426,7 +425,7 @@ document.write(`
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">initialdata</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">initialdata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">graph_attrs</span><span class="p">:</span> <span class="n">_AttributeMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">node_attrs</span><span class="p">:</span> <span class="n">_AttributeMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">edge_attrs</span><span class="p">:</span> <span class="n">_AttributeMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -440,7 +439,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">edge_attrs</span> <span class="o">=</span> <span class="n">edge_attrs</span>
 
         <span class="c1"># Source node -&gt; a set of all destination edges.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Set</span><span class="p">[</span><span class="n">_GraphEdge</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">_GraphEdge</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="AbstractDiGraph.handle_node">
 <a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraph.handle_node">[docs]</a>

@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -293,7 +297,7 @@ document.write(`
 
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">xml.etree</span><span class="w"> </span><span class="kn">import</span> <span class="n">ElementTree</span>
 
 <span class="c1"># internal</span>
@@ -480,8 +484,8 @@ document.write(`
     <span class="n">derived_from</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;Peripheral&quot;</span><span class="p">]</span>
 
     <span class="c1"># Currently treated as metadata.</span>
-    <span class="n">interrupts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Interrupt</span><span class="p">]</span>
-    <span class="n">address_blocks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">AddressBlock</span><span class="p">]</span>
+    <span class="n">interrupts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Interrupt</span><span class="p">]</span>
+    <span class="n">address_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressBlock</span><span class="p">]</span>
 
     <span class="n">registers</span><span class="p">:</span> <span class="n">RegisterData</span>
 

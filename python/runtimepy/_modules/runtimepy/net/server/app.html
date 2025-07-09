@@ -425,10 +425,13 @@ document.write(`
         <span class="p">)</span>
     <span class="p">)</span>
 
+    <span class="n">RuntimepyServerConnection</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">config_param</span><span class="p">(</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+
     <span class="c1"># Default application (environment tabs).</span>
     <span class="n">html_app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_import_module</span><span class="p">(</span><span class="n">module</span><span class="p">),</span> <span class="n">method</span><span class="p">))</span>
     <span class="n">target</span><span class="p">:</span> <span class="nb">str</span>
     <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">app</span><span class="o">.</span><span class="n">config_param</span><span class="p">(</span><span class="s2">&quot;http_app_paths&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="k">assert</span> <span class="n">target</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">RuntimepyServerConnection</span><span class="o">.</span><span class="n">apps</span><span class="p">,</span> <span class="n">target</span>
         <span class="n">RuntimepyServerConnection</span><span class="o">.</span><span class="n">apps</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="n">html_app</span>
 
     <span class="c1"># Register redirects.</span>

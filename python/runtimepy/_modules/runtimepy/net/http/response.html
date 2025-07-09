@@ -358,8 +358,12 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">http</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncIterator</span><span class="p">,</span> <span class="n">cast</span>
 
 <span class="c1"># third-party</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">aiofiles</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">aiofiles.os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggerType</span>
 
 <span class="c1"># internal</span>
@@ -442,6 +446,53 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">status_line</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ResponseHeader.static_resource">
+<a class="viewcode-back" href="../../../../runtimepy.net.http.html#runtimepy.net.http.response.ResponseHeader.static_resource">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">static_resource</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;public, max-age=31536000, immutable&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set headers for static resources.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;Cache-Control&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="AsyncResponse">
+<a class="viewcode-back" href="../../../../runtimepy.net.http.html#runtimepy.net.http.response.AsyncResponse">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AsyncResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class facilitating asynchronous server responses for e.g.</span>
+<span class="sd">    file-system files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this instance.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="n">chunk_size</span>
+
+<div class="viewcode-block" id="AsyncResponse.size">
+<a class="viewcode-back" href="../../../../runtimepy.net.http.html#runtimepy.net.http.response.AsyncResponse.size">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get this response&#39;s size.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="k">await</span> <span class="n">aiofiles</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="AsyncResponse.process">
+<a class="viewcode-back" href="../../../../runtimepy.net.http.html#runtimepy.net.http.response.AsyncResponse.process">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AsyncIterator</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Yield chunks to write asynchronously.&quot;&quot;&quot;</span>
+
+        <span class="k">async</span> <span class="k">with</span> <span class="n">aiofiles</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">path_fd</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">path_fd</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">data</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">break</span></div>
 </div>
 
 </pre></div>

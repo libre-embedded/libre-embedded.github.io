@@ -165,6 +165,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -618,6 +619,10 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.archive.html#module-vcorelib.io.archive">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.bus.html">vcorelib.io.bus package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcorelib.io.bus.html#module-vcorelib.io.bus">Module contents</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.io.html#submodules">Submodules</a></li>
@@ -683,6 +688,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.empty"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.empty()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.ends"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.ends()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.from_path"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.from_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.from_path_if_different"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.from_path_if_different()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.indent"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.indent()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.indented"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.indented()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.file_writer.IndentedFileWriter.javadoc"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.javadoc()</span></code></a></li>
@@ -807,6 +813,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.empty"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.empty()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.ends"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.ends()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.from_path"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.from_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.from_path_if_different"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.from_path_if_different()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.indent"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.indent()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.indented"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.indented()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.IndentedFileWriter.javadoc"><code class="docutils literal notranslate"><span class="pre">IndentedFileWriter.javadoc()</span></code></a></li>
@@ -837,6 +844,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.Serializable.to_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.to_stream()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.html#vcorelib.io.encode_if_different"><code class="docutils literal notranslate"><span class="pre">encode_if_different()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1102,6 +1110,8 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html#vcorelib.paths.context.in_dir"><code class="docutils literal notranslate"><span class="pre">in_dir()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html#vcorelib.paths.context.linked_to"><code class="docutils literal notranslate"><span class="pre">linked_to()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html#vcorelib.paths.context.tempfile"><code class="docutils literal notranslate"><span class="pre">tempfile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html#vcorelib.paths.context.text_stream_if_different"><code class="docutils literal notranslate"><span class="pre">text_stream_if_different()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html#vcorelib.paths.context.write_text_if_different"><code class="docutils literal notranslate"><span class="pre">write_text_if_different()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.paths.html#module-vcorelib.paths.find">vcorelib.paths.find module</a><ul>

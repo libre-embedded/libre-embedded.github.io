@@ -282,13 +282,10 @@ document.write(`
 <span class="sd">svgen - A module for working with number primitives.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># built-in</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
-
 
 <div class="viewcode-block" id="css_number_to_ratio">
 <a class="viewcode-back" href="../../../svgen.color.html#svgen.color.numbers.css_number_to_ratio">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">css_number_to_ratio</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">css_number_to_ratio</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given a few possible types of input, return a ratio between 0.0 and 1.0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -331,7 +328,7 @@ document.write(`
 <a class="viewcode-back" href="../../../svgen.color.html#svgen.color.numbers.parse_ctor">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">parse_ctor</span><span class="p">(</span>
     <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse individual arguments out of some color constructor.&quot;&quot;&quot;</span>
 
     <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>

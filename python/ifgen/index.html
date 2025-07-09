@@ -171,6 +171,10 @@
 <li class="toctree-l3"><a class="reference internal" href="ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -389,11 +393,15 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.generation.html#module-ifgen.generation">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.plugins.html">ifgen.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.plugins.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.plugins.html#module-ifgen.plugins">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.struct.html">ifgen.struct package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.header">ifgen.struct.header module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.source">ifgen.struct.source module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.stream">ifgen.struct.stream module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.test">ifgen.struct.test module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.struct.html#module-ifgen.struct.util">ifgen.struct.util module</a></li>
@@ -424,9 +432,29 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ifgen.html#module-ifgen.enums">ifgen.enums module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.CUSTOM"><code class="docutils literal notranslate"><span class="pre">Generator.CUSTOM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.ENUMS"><code class="docutils literal notranslate"><span class="pre">Generator.ENUMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.IFGEN"><code class="docutils literal notranslate"><span class="pre">Generator.IFGEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator.STRUCTS"><code class="docutils literal notranslate"><span class="pre">Generator.STRUCTS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.enums.Language"><code class="docutils literal notranslate"><span class="pre">Language</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.CPP"><code class="docutils literal notranslate"><span class="pre">Language.CPP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.PYTHON"><code class="docutils literal notranslate"><span class="pre">Language.PYTHON</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.cfg_dir_name"><code class="docutils literal notranslate"><span class="pre">Language.cfg_dir_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.header_suffix"><code class="docutils literal notranslate"><span class="pre">Language.header_suffix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.slug"><code class="docutils literal notranslate"><span class="pre">Language.slug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.html#ifgen.enums.Language.source_suffix"><code class="docutils literal notranslate"><span class="pre">Language.source_suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.html#module-ifgen.paths">ifgen.paths module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.paths.audit_init_file"><code class="docutils literal notranslate"><span class="pre">audit_init_file()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ifgen.html#ifgen.paths.create_formatter"><code class="docutils literal notranslate"><span class="pre">create_formatter()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ifgen.html#module-ifgen.schemas">ifgen.schemas module</a><ul>

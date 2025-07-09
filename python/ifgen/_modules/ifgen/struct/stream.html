@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -300,21 +304,13 @@ document.write(`
 
 <div class="viewcode-block" id="struct_istream">
 <a class="viewcode-back" href="../../../ifgen.struct.html#ifgen.struct.stream.struct_istream">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">struct_istream</span><span class="p">(</span>
-    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">struct_istream</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate an input-stream handling method.&quot;&quot;&quot;</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-        <span class="p">(</span>
-            <span class="s2">&quot;byte_istream &amp;operator&gt;&gt;&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;(byte_istream &amp;stream, </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &amp;instance)&quot;</span>
-        <span class="p">)</span>
-        <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;;&quot;</span> <span class="k">if</span> <span class="n">header</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="s2">&quot;inline byte_istream &amp;operator&gt;&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;(byte_istream &amp;stream, </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &amp;instance)&quot;</span>
     <span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
-        <span class="k">return</span>
 
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
@@ -326,21 +322,13 @@ document.write(`
 
 <div class="viewcode-block" id="struct_ostream">
 <a class="viewcode-back" href="../../../ifgen.struct.html#ifgen.struct.stream.struct_ostream">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">struct_ostream</span><span class="p">(</span>
-    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">struct_ostream</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate an output-stream handling method.&quot;&quot;&quot;</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-        <span class="p">(</span>
-            <span class="s2">&quot;byte_ostream &amp;operator&lt;&lt;&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;(byte_ostream &amp;stream, const </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &amp;instance)&quot;</span>
-        <span class="p">)</span>
-        <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;;&quot;</span> <span class="k">if</span> <span class="n">header</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="s2">&quot;inline byte_ostream &amp;operator&lt;&lt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;(byte_ostream &amp;stream, const </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &amp;instance)&quot;</span>
     <span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
-        <span class="k">return</span>
 
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
@@ -353,18 +341,13 @@ document.write(`
 <div class="viewcode-block" id="struct_stream_methods">
 <a class="viewcode-back" href="../../../ifgen.struct.html#ifgen.struct.stream.struct_stream_methods">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">struct_stream_methods</span><span class="p">(</span>
-    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate struct stream read and write methods.&quot;&quot;&quot;</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Stream interfaces.&quot;</span><span class="p">)</span>
-
-    <span class="n">struct_istream</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">header</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-
-    <span class="n">struct_ostream</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span></div>
+    <span class="n">struct_istream</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+    <span class="n">struct_ostream</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span></div>
 
 </pre></div>
 

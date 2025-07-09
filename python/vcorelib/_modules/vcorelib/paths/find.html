@@ -164,6 +164,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.io.html">vcorelib.io package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.bus.html">vcorelib.io.bus package</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
@@ -300,7 +301,6 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span> <span class="k">as</span> <span class="n">_Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span> <span class="k">as</span> <span class="n">_Iterable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParseResult</span> <span class="k">as</span> <span class="n">_ParseResult</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span> <span class="k">as</span> <span class="n">_urlparse</span>
 
@@ -416,7 +416,7 @@ document.write(`
 <a class="viewcode-back" href="../../../vcorelib.paths.html#vcorelib.paths.find.find_file">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">find_file</span><span class="p">(</span>
     <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span>
-    <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Path</span><span class="p">],</span>
+    <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">_Path</span><span class="p">,</span>
     <span class="n">search_paths</span><span class="p">:</span> <span class="n">_Iterable</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">include_cwd</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">relative_to</span><span class="p">:</span> <span class="n">Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

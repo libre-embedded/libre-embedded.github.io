@@ -355,29 +355,33 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span> <span class="k">as</span> <span class="n">_ABC</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_asyncio</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncExitStack</span> <span class="k">as</span> <span class="n">_AsyncExitStack</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">import_module</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">getLogger</span> <span class="k">as</span> <span class="n">_getLogger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">re</span><span class="w"> </span><span class="kn">import</span> <span class="nb">compile</span> <span class="k">as</span> <span class="n">_compile</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Awaitable</span> <span class="k">as</span> <span class="n">_Awaitable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span> <span class="k">as</span> <span class="n">_Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MutableMapping</span> <span class="k">as</span> <span class="n">_MutableMapping</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span> <span class="k">as</span> <span class="n">_TypeVar</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span>
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonObject</span> <span class="k">as</span> <span class="n">_JsonObject</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggerMixin</span> <span class="k">as</span> <span class="n">_LoggerMixin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggerType</span> <span class="k">as</span> <span class="n">_LoggerType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.names</span><span class="w"> </span><span class="kn">import</span> <span class="n">import_str_and_item</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.namespace</span><span class="w"> </span><span class="kn">import</span> <span class="n">Namespace</span> <span class="k">as</span> <span class="n">_Namespace</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.environment.sample</span><span class="w"> </span><span class="kn">import</span> <span class="n">poll_sample_env</span><span class="p">,</span> <span class="n">sample_env</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.codec.protocol</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">ProtocolFactory</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_PATTERN</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.mixins.trig</span><span class="w"> </span><span class="kn">import</span> <span class="n">TrigMixin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.net.arbiter.result</span><span class="w"> </span><span class="kn">import</span> <span class="n">OverallResult</span><span class="p">,</span> <span class="n">results</span>
@@ -404,11 +408,13 @@ document.write(`
 
 <div class="viewcode-block" id="RuntimeStruct">
 <a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.apps.RuntimeStruct">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">RuntimeStruct</span><span class="p">(</span><span class="n">RuntimeStructBase</span><span class="p">,</span> <span class="n">_ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RuntimeStruct</span><span class="p">(</span><span class="n">RuntimeStructBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class implementing a base runtime structure.&quot;&quot;&quot;</span>
 
     <span class="n">app</span><span class="p">:</span> <span class="s2">&quot;AppInfo&quot;</span>
     <span class="n">array</span><span class="p">:</span> <span class="n">PrimitiveArray</span>
+    <span class="n">recv</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Protocol</span><span class="p">]</span>
+    <span class="n">send</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Protocol</span><span class="p">]</span>
 
     <span class="n">byte_order</span><span class="p">:</span> <span class="n">ByteOrder</span> <span class="o">=</span> <span class="n">DEFAULT_BYTE_ORDER</span>
 
@@ -440,8 +446,29 @@ document.write(`
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">final_poll</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_final_poll</span><span class="p">())</span>
 
+        <span class="n">byte_order</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">byte_order</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">recv</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;protocol_factory&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
+            <span class="n">module</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">import_str_and_item</span><span class="p">(</span>
+                <span class="n">cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;protocol_factory&quot;</span><span class="p">])</span>
+            <span class="p">)</span>
+            <span class="n">factory</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">ProtocolFactory</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
+                <span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">),</span> <span class="n">name</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">ProtocolFactory</span> <span class="ow">in</span> <span class="n">factory</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">recv</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">singleton</span><span class="p">()</span>
+                <span class="n">byte_order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv</span><span class="o">.</span><span class="n">byte_order</span>
+                <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="s2">&quot;rx&quot;</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">register_protocol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recv</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">send</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+                <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="s2">&quot;tx&quot;</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">register_protocol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">init_env</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update_byte_order</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">byte_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_byte_order</span><span class="p">(</span><span class="n">byte_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="RuntimeStruct.update_byte_order">
@@ -449,7 +476,12 @@ document.write(`
     <span class="k">def</span><span class="w"> </span><span class="nf">update_byte_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">byte_order</span><span class="p">:</span> <span class="n">ByteOrder</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the over-the-wire byte order for this struct.&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">byte_order</span><span class="o">=</span><span class="n">byte_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">array</span></div>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">byte_order</span><span class="o">=</span><span class="n">byte_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">array</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Can&#39;t change byte order at runtime in this configuration.</span>
+            <span class="k">assert</span> <span class="n">byte_order</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv</span><span class="o">.</span><span class="n">byte_order</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv</span></div>
 </div>
 
 

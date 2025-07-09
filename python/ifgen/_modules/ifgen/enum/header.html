@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -292,7 +296,7 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">IndentedFileWriter</span>
@@ -303,7 +307,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenerateTask</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.json</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_json_method</span>
 
-<span class="n">EnumConfig</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span>
+<span class="n">EnumConfig</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]]</span>
 
 
 <div class="viewcode-block" id="enum_line">
@@ -354,11 +358,26 @@ document.write(`
         <span class="p">)</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
 
+    <span class="k">if</span> <span class="n">runtime</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;static constexpr auto </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">_default = &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">::</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+
     <span class="n">enum_to_string_function</span><span class="p">(</span>
         <span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;use_map&quot;</span><span class="p">],</span> <span class="n">definition</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span>
 
-    <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;inline std::ostream &amp;operator&lt;&lt;(std::ostream &amp;stream, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> instance)&quot;</span>
+        <span class="p">)</span>
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;stream &lt;&lt; to_string(instance);&quot;</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return stream;&quot;</span><span class="p">)</span>
+
     <span class="n">string_to_enum_function</span><span class="p">(</span>
         <span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;use_map&quot;</span><span class="p">],</span> <span class="n">definition</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span>

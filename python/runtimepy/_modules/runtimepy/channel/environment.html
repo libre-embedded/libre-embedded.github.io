@@ -355,10 +355,12 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExitStack</span> <span class="k">as</span> <span class="n">_ExitStack</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span> <span class="k">as</span> <span class="n">_cast</span>
 
 <span class="c1"># internal</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel</span><span class="w"> </span><span class="kn">import</span> <span class="n">Default</span> <span class="k">as</span> <span class="n">_Default</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.environment.array</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">ArrayChannelEnvironment</span> <span class="k">as</span> <span class="n">_ArrayChannelEnvironment</span><span class="p">,</span>
 <span class="p">)</span>
@@ -371,6 +373,26 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.channel.environment.telemetry</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">TelemetryChannelEnvironment</span> <span class="k">as</span> <span class="n">_TelemetryChannelEnvironment</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.codec.protocol</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span> <span class="k">as</span> <span class="n">_Protocol</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.codec.protocol.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">FieldSpec</span> <span class="k">as</span> <span class="n">_FieldSpec</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">Controls</span><span class="p">,</span> <span class="n">Default</span><span class="p">,</span> <span class="n">bit_slider</span>
+
+
+<div class="viewcode-block" id="regular_channel_controls">
+<a class="viewcode-back" href="../../../runtimepy.channel.environment.html#runtimepy.channel.environment.regular_channel_controls">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">regular_channel_controls</span><span class="p">(</span>
+    <span class="n">primitive</span><span class="p">:</span> <span class="n">AnyPrimitive</span><span class="p">,</span> <span class="n">commandable</span><span class="p">:</span> <span class="nb">bool</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Controls</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get channel controls for a regular primitive.&quot;&quot;&quot;</span>
+
+    <span class="n">controls</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">commandable</span> <span class="ow">and</span> <span class="n">primitive</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">is_integer</span> <span class="ow">and</span> <span class="n">primitive</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">:</span>
+        <span class="n">controls</span> <span class="o">=</span> <span class="n">bit_slider</span><span class="p">(</span><span class="n">primitive</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">bits</span><span class="p">,</span> <span class="n">primitive</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">signed</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">controls</span></div>
+
 
 
 <div class="viewcode-block" id="ChannelEnvironment">
@@ -383,6 +405,81 @@ document.write(`
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class integrating channel and enumeration registries.&quot;&quot;&quot;</span>
 
+<div class="viewcode-block" id="ChannelEnvironment.register_protocol">
+<a class="viewcode-back" href="../../../runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment.register_protocol">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_protocol</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">protocol</span><span class="p">:</span> <span class="n">_Protocol</span><span class="p">,</span> <span class="n">commandable</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Register protocol elements as named channels and fields.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Register any new enumerations.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enums</span><span class="o">.</span><span class="n">register_from_other</span><span class="p">(</span><span class="n">protocol</span><span class="o">.</span><span class="n">enum_registry</span><span class="p">)</span>
+
+        <span class="c1"># need to handle defaults</span>
+
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">protocol</span><span class="o">.</span><span class="n">build</span><span class="p">:</span>
+            <span class="c1"># Handle regular primitive fields.</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">_FieldSpec</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_array</span><span class="p">():</span>
+                    <span class="k">assert</span> <span class="n">item</span><span class="o">.</span><span class="n">array_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">array_length</span><span class="p">):</span>
+                            <span class="n">primitive</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">.</span><span class="n">get_primitive</span><span class="p">(</span>
+                                <span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">idx</span>
+                            <span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span>
+                                <span class="n">kind</span><span class="o">=</span><span class="n">primitive</span><span class="p">,</span>
+                                <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span>
+                                <span class="n">enum</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">enum</span><span class="p">,</span>
+                                <span class="n">controls</span><span class="o">=</span><span class="n">regular_channel_controls</span><span class="p">(</span>
+                                    <span class="n">primitive</span><span class="p">,</span> <span class="n">commandable</span>
+                                <span class="p">),</span>
+                            <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">primitive</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">.</span><span class="n">get_primitive</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span>
+                        <span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">kind</span><span class="o">=</span><span class="n">primitive</span><span class="p">,</span>
+                        <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span>
+                        <span class="n">enum</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">enum</span><span class="p">,</span>
+                        <span class="n">controls</span><span class="o">=</span><span class="n">regular_channel_controls</span><span class="p">(</span>
+                            <span class="n">primitive</span><span class="p">,</span> <span class="n">commandable</span>
+                        <span class="p">),</span>
+                    <span class="p">)</span>
+
+            <span class="c1"># Handle nested protocols.</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">candidates</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">.</span><span class="n">serializables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">candidates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">_Protocol</span><span class="p">):</span>
+                    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">candidates</span><span class="p">):</span>
+                            <span class="k">with</span> <span class="n">_ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
+                                <span class="c1"># Enter array-index namespace if applicable.</span>
+                                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                                    <span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+                                    <span class="p">)</span>
+
+                                <span class="bp">self</span><span class="o">.</span><span class="n">register_protocol</span><span class="p">(</span>
+                                    <span class="n">_cast</span><span class="p">(</span><span class="n">_Protocol</span><span class="p">,</span> <span class="n">candidate</span><span class="p">),</span> <span class="n">commandable</span>
+                                <span class="p">)</span>
+
+            <span class="c1"># Handle bit fields.</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="n">fields</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">.</span><span class="n">get_fields</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="n">field</span><span class="o">.</span><span class="n">commandable</span> <span class="o">=</span> <span class="n">commandable</span>
+                    <span class="c1"># add sliders for non enum non bool (check enum fields too)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_fields</span><span class="p">(</span>
+                    <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="n">fields</span><span class="p">,</span>
+                    <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span>
+                    <span class="n">controls</span><span class="o">=</span><span class="n">bit_slider</span><span class="p">(</span><span class="n">fields</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">bits</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+                <span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="ChannelEnvironment.search_names">
 <a class="viewcode-back" href="../../../runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment.search_names">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">search_names</span><span class="p">(</span>
@@ -394,7 +491,7 @@ document.write(`
 
 <div class="viewcode-block" id="ChannelEnvironment.set_default">
 <a class="viewcode-back" href="../../../runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment.set_default">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">set_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">_Default</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Default</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a new default value for a channel.&quot;&quot;&quot;</span>
 
         <span class="n">chan</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>

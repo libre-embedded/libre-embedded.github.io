@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -300,8 +304,7 @@ document.write(`
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenerateTask</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.json</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_json_method</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.struct.methods.decode</span><span class="w"> </span><span class="kn">import</span> <span class="n">struct_decode</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.struct.methods.encode</span><span class="w"> </span><span class="kn">import</span> <span class="n">struct_encode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.struct.methods.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">swap_fields</span>
 
 
 <div class="viewcode-block" id="protocol_json">
@@ -319,20 +322,14 @@ document.write(`
 
 <div class="viewcode-block" id="span_method">
 <a class="viewcode-back" href="../../../ifgen.struct.methods.html#ifgen.struct.methods.span_method">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">span_method</span><span class="p">(</span>
-    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">span_method</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a span method.&quot;&quot;&quot;</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">header</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">c_comment</span><span class="p">(</span><span class="s2">&quot;Span method defined in header.&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
 
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">javadoc</span><span class="p">():</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s2">&quot;Get this instance as a byte span.&quot;</span><span class="p">))</span>
 
-    <span class="n">span_type</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span><span class="s2">&quot;Span&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-    <span class="n">method</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+    <span class="n">span_type</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span><span class="s2">&quot;Span&quot;</span><span class="p">)</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">)</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;inline </span><span class="si">{</span><span class="n">span_type</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
 
@@ -346,13 +343,9 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">struct_buffer_method</span><span class="p">(</span>
     <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span>
     <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span>
-    <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
     <span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a method for raw buffer access.&quot;&quot;&quot;</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">header</span><span class="p">:</span>
-        <span class="k">return</span>
 
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">javadoc</span><span class="p">():</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
@@ -363,14 +356,14 @@ document.write(`
             <span class="p">)</span>
         <span class="p">)</span>
 
-    <span class="n">buff_type</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span><span class="s2">&quot;Buffer&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+    <span class="n">buff_type</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span><span class="s2">&quot;Buffer&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">read_only</span><span class="p">:</span>
         <span class="n">buff_type</span> <span class="o">=</span> <span class="s2">&quot;const &quot;</span> <span class="o">+</span> <span class="n">buff_type</span>
 
     <span class="c1"># Returns a pointer.</span>
     <span class="n">method</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span>
-        <span class="s2">&quot;raw()&quot;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">read_only</span> <span class="k">else</span> <span class="s2">&quot;raw_ro()&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span>
+        <span class="s2">&quot;raw()&quot;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">read_only</span> <span class="k">else</span> <span class="s2">&quot;raw_ro()&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;*&quot;</span>
     <span class="p">)</span>
     <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;inline </span><span class="si">{</span><span class="n">buff_type</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot; const&quot;</span> <span class="k">if</span> <span class="n">read_only</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -384,66 +377,158 @@ document.write(`
 
 
 
-<div class="viewcode-block" id="swap_method">
-<a class="viewcode-back" href="../../../ifgen.struct.methods.html#ifgen.struct.methods.swap_method">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">swap_method</span><span class="p">(</span>
-    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add an in-place swap method.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="endian_str">
+<a class="viewcode-back" href="../../../ifgen.struct.methods.html#ifgen.struct.methods.endian_str">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">endian_str</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the appropriate default endian argument for this struct.&quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">header</span><span class="p">:</span>
-        <span class="k">return</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;std::endian::</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s1">&#39;default_endianness&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;default_endianness&quot;</span><span class="p">]</span>
+        <span class="o">!=</span> <span class="n">task</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;struct&quot;</span><span class="p">][</span><span class="s2">&quot;default_endianness&quot;</span><span class="p">]</span>
+        <span class="k">else</span> <span class="s2">&quot;default_endian&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="handle_endian">
+<a class="viewcode-back" href="../../../ifgen.struct.methods.html#ifgen.struct.methods.handle_endian">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_endian</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a struct method for byte swapping.&quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">javadoc</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Handle swapping bytes for endian conversion (native).&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span>
+                <span class="s2">&quot;tparam&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;endianness Byte order for encoding elements.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;template &lt;std::endian endianness = </span><span class="si">{</span><span class="n">endian_str</span><span class="p">(</span><span class="n">task</span><span class="p">)</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline void endian(void)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;requires(endianness == std::endian::native)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="k">pass</span>
 
     <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
 
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">javadoc</span><span class="p">():</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Swap this instance&#39;s bytes in place.&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;Handle swapping bytes for endian conversion (swap required).&quot;</span>
+        <span class="p">)</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;return&quot;</span><span class="p">,</span> <span class="s2">&quot;A reference to the instance.&quot;</span><span class="p">))</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span>
+                <span class="s2">&quot;tparam&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;endianness Byte order for encoding elements.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
-    <span class="n">method</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">cpp_namespace</span><span class="p">(</span><span class="s2">&quot;swap&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;inline const </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &amp;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
-
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;template &lt;std::endian endianness = </span><span class="si">{</span><span class="n">endian_str</span><span class="p">(</span><span class="n">task</span><span class="p">)</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline void endian(void)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">indented</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;requires(endianness != std::endian::native)&quot;</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;encode_swapped(raw());&quot;</span><span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return *this;&quot;</span><span class="p">)</span></div>
+        <span class="n">swap_fields</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="encode_endian">
+<a class="viewcode-back" href="../../../ifgen.struct.methods.html#ifgen.struct.methods.encode_endian">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_endian</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a struct method for encoding buffers.&quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">javadoc</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Encode this instance to a buffer.&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span>
+                <span class="s2">&quot;tparam&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;    endianness Byte order for encoding elements.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;param[out]&quot;</span><span class="p">,</span> <span class="s2">&quot;buffer     Buffer to write.&quot;</span><span class="p">))</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span>
+                <span class="s2">&quot;return&quot;</span><span class="p">,</span> <span class="s2">&quot;               The number of bytes encoded.&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;template &lt;std::endian endianness = </span><span class="si">{</span><span class="n">endian_str</span><span class="p">(</span><span class="n">task</span><span class="p">)</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline std::size_t encode(Buffer *buffer) const&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;*buffer = *raw_ro();&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;reinterpret_cast&lt;</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> *&gt;&quot;</span>
+                <span class="s2">&quot;(buffer)-&gt;endian&lt;endianness&gt;();&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return size;&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="decode_endian">
+<a class="viewcode-back" href="../../../ifgen.struct.methods.html#ifgen.struct.methods.decode_endian">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">decode_endian</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a struct method for decoding buffers.&quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">javadoc</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Update this instance from a buffer.&quot;</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span>
+                <span class="s2">&quot;tparam&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;   endianness Byte order from decoding elements.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;param[in]&quot;</span><span class="p">,</span> <span class="s2">&quot;buffer     Buffer to read.&quot;</span><span class="p">))</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">command</span><span class="p">(</span>
+                <span class="s2">&quot;return&quot;</span><span class="p">,</span> <span class="s2">&quot;              The number of bytes decoded.&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;template &lt;std::endian endianness = </span><span class="si">{</span><span class="n">endian_str</span><span class="p">(</span><span class="n">task</span><span class="p">)</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;inline std::size_t decode(const Buffer *buffer)&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;*raw() = *buffer;&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;endian&lt;endianness&gt;();&quot;</span><span class="p">)</span>
+
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;return size;&quot;</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="struct_methods">
 <a class="viewcode-back" href="../../../ifgen.struct.methods.html#ifgen.struct.methods.struct_methods">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">struct_methods</span><span class="p">(</span>
-    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">struct_methods</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Write generated-struct methods.&quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;using Buffer = byte_array&lt;size&gt;;&quot;</span><span class="p">)</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;using Span = byte_span&lt;size&gt;;&quot;</span><span class="p">)</span>
-        <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
-            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;auto operator&lt;=&gt;(const </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &amp;) const = default;&quot;</span>
-            <span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;using Buffer = byte_array&lt;size&gt;;&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;using Span = byte_span&lt;size&gt;;&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;auto operator&lt;=&gt;(const </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &amp;) const = default;&quot;</span><span class="p">)</span>
 
-    <span class="n">struct_buffer_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">struct_buffer_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">padding</span><span class="p">():</span>
+        <span class="n">span_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
 
-    <span class="n">span_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
-        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-
-    <span class="n">struct_buffer_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">struct_buffer_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;codec&quot;</span><span class="p">]:</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-        <span class="n">struct_encode</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
-
-        <span class="n">swap_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
-
-        <span class="n">struct_decode</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
+        <span class="n">handle_endian</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">encode_endian</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+        <span class="n">decode_endian</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">]:</span>
         <span class="n">to_json_method</span><span class="p">(</span>
@@ -453,7 +538,7 @@ document.write(`
             <span class="n">dumps_indent</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;json_indent&quot;</span><span class="p">],</span>
             <span class="n">task_name</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">static</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">definition</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+            <span class="n">definition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 </pre></div>

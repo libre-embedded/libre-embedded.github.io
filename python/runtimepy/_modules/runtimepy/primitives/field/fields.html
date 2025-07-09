@@ -429,6 +429,8 @@ document.write(`
                     <span class="n">enum</span><span class="o">=</span><span class="n">enum</span><span class="p">,</span>
                     <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>
                     <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span>
+                    <span class="n">controls</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;controls&quot;</span><span class="p">),</span>
+                    <span class="n">default</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">),</span>
                 <span class="p">)</span>
                 <span class="n">flag</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
                 <span class="n">item</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flag</span><span class="o">.</span><span class="n">index</span>
@@ -440,6 +442,8 @@ document.write(`
                     <span class="n">enum</span><span class="o">=</span><span class="n">enum</span><span class="p">,</span>
                     <span class="n">description</span><span class="o">=</span><span class="n">desc</span><span class="p">,</span>
                     <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span>
+                    <span class="n">controls</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;controls&quot;</span><span class="p">),</span>
+                    <span class="n">default</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">),</span>
                 <span class="p">)</span>
                 <span class="n">field</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
                 <span class="n">item</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">index</span>
@@ -609,12 +613,17 @@ document.write(`
 <a class="viewcode-back" href="../../../../runtimepy.primitives.field.html#runtimepy.primitives.field.fields.BitFields.new">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span>
-        <span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">_Primitivelike</span> <span class="o">|</span> <span class="n">_AnyPrimitive</span> <span class="o">=</span> <span class="s2">&quot;uint8&quot;</span>
+        <span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">_Primitivelike</span> <span class="o">|</span> <span class="n">_AnyPrimitive</span> <span class="o">=</span> <span class="s2">&quot;uint8&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new bit-field storage entity.&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-            <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">_cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;finalized&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">_cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+                <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;finalized&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">}</span>
         <span class="p">)</span></div>
 </div>
 

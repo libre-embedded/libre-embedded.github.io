@@ -358,6 +358,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span><span class="p">,</span> <span class="n">suppress</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">copy</span> <span class="k">as</span> <span class="n">_copy</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryIO</span> <span class="k">as</span> <span class="n">_BinaryIO</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
@@ -370,8 +371,9 @@ document.write(`
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">RuntimeEnum</span> <span class="k">as</span> <span class="n">_RuntimeEnum</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.enum.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnumRegistry</span> <span class="k">as</span> <span class="n">_EnumRegistry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.enum.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_ENUM_PRIMITIVE</span><span class="p">,</span> <span class="n">EnumRegistry</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyPrimitive</span> <span class="k">as</span> <span class="n">_AnyPrimitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimitiveInstancelike</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">Primitivelike</span> <span class="k">as</span> <span class="n">_Primitivelike</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize_instance</span> <span class="k">as</span> <span class="n">_normalize_instance</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.array</span><span class="w"> </span><span class="kn">import</span> <span class="n">PrimitiveArray</span>
@@ -381,6 +383,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.byte_order</span><span class="w"> </span><span class="kn">import</span> <span class="n">ByteOrder</span> <span class="k">as</span> <span class="n">_ByteOrder</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.field.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">BitFields</span> <span class="k">as</span> <span class="n">_BitFields</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.field.manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">BitFieldsManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.int</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsignedInt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.serializable</span><span class="w"> </span><span class="kn">import</span> <span class="n">Serializable</span><span class="p">,</span> <span class="n">SerializableMap</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry.name</span><span class="w"> </span><span class="kn">import</span> <span class="n">NameRegistry</span> <span class="k">as</span> <span class="n">_NameRegistry</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry.name</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegistryKey</span> <span class="k">as</span> <span class="n">_RegistryKey</span>
@@ -397,6 +400,13 @@ document.write(`
     <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">enum</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_RegistryKey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">array_length</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="FieldSpec.is_array">
+<a class="viewcode-back" href="../../../../runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.is_array">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_array</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if this instance is an array.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">array_length</span> <span class="o">&gt;</span> <span class="mi">1</span></div>
+
 
 <div class="viewcode-block" id="FieldSpec.asdict">
 <a class="viewcode-back" href="../../../../runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.asdict">[docs]</a>
@@ -426,11 +436,12 @@ document.write(`
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">enum_registry</span><span class="p">:</span> <span class="n">_EnumRegistry</span><span class="p">,</span>
+        <span class="n">enum_registry</span><span class="p">:</span> <span class="n">EnumRegistry</span><span class="p">,</span>
         <span class="n">names</span><span class="p">:</span> <span class="n">_NameRegistry</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">fields</span><span class="p">:</span> <span class="n">BitFieldsManager</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">build</span><span class="p">:</span> <span class="n">ProtocolBuild</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">identifier</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">identifier_primitive</span><span class="p">:</span> <span class="n">PrimitiveInstancelike</span> <span class="o">=</span> <span class="n">DEFAULT_ENUM_PRIMITIVE</span><span class="p">,</span>
         <span class="n">byte_order</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="n">_ByteOrder</span><span class="p">,</span> <span class="n">_RegistryKey</span><span class="p">]</span> <span class="o">=</span> <span class="n">_DEFAULT_BYTE_ORDER</span><span class="p">,</span>
         <span class="n">serializables</span><span class="p">:</span> <span class="n">SerializableMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">alias</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -438,17 +449,23 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this protocol.&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">identifier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_primitive</span><span class="p">:</span> <span class="n">UnsignedInt</span> <span class="o">=</span> <span class="n">_normalize_instance</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+            <span class="n">identifier_primitive</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_primitive</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">is_integer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_primitive</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">alias</span> <span class="o">=</span> <span class="n">alias</span>
 
         <span class="c1"># Register the byte-order enumeration if it&#39;s not present.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span> <span class="o">=</span> <span class="n">enum_registry</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ByteOrder&quot;</span><span class="p">):</span>
-            <span class="n">_ByteOrder</span><span class="o">.</span><span class="n">register_enum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span> <span class="o">=</span> <span class="n">enum_registry</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ByteOrder&quot;</span><span class="p">):</span>
+            <span class="n">_ByteOrder</span><span class="o">.</span><span class="n">register_enum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span><span class="p">)</span>
 
         <span class="c1"># Each instance gets its own array.</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">byte_order</span><span class="p">,</span> <span class="n">_ByteOrder</span><span class="p">):</span>
             <span class="n">byte_order</span> <span class="o">=</span> <span class="n">_ByteOrder</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span><span class="p">[</span><span class="s2">&quot;ByteOrder&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="n">byte_order</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span><span class="p">[</span><span class="s2">&quot;ByteOrder&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="n">byte_order</span><span class="p">)</span>
             <span class="p">)</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">byte_order</span><span class="o">=</span><span class="n">byte_order</span><span class="p">)</span>
@@ -458,14 +475,14 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
 
         <span class="k">if</span> <span class="n">fields</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">fields</span> <span class="o">=</span> <span class="n">BitFieldsManager</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span><span class="p">)</span>
+            <span class="n">fields</span> <span class="o">=</span> <span class="n">BitFieldsManager</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span> <span class="o">=</span> <span class="n">fields</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_regular_fields</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">_AnyPrimitive</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_enum_fields</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_RuntimeEnum</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="c1"># Keep track of the order that the protocol was created.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="p">:</span> <span class="n">ProtocolBuild</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">:</span> <span class="n">ProtocolBuild</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="c1"># Keep track of named serializables.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">serializables</span><span class="p">:</span> <span class="n">SerializableMap</span> <span class="o">=</span> <span class="p">{}</span>
@@ -504,12 +521,13 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create another protocol instance from this one.&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span><span class="p">,</span>
             <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
             <span class="n">fields</span><span class="o">=</span><span class="n">_copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">),</span>
-            <span class="n">build</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="p">,</span>
+            <span class="n">build</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">,</span>
             <span class="n">byte_order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">byte_order</span><span class="p">,</span>
             <span class="n">identifier</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">identifier_primitive</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">id_primitive</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="n">serializables</span><span class="o">=</span><span class="p">{</span>
                 <span class="n">key</span><span class="p">:</span> <span class="p">[</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy_without_chain</span><span class="p">()]</span>
                 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">serializables</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
@@ -537,7 +555,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">register_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
         <span class="n">instances</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_to_end</span><span class="p">(</span><span class="n">serializable</span><span class="p">,</span> <span class="n">array_length</span><span class="o">=</span><span class="n">array_length</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">instances</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">instances</span><span class="p">)))</span>
 
         <span class="k">assert</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">serializables</span><span class="p">,</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">serializables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">instances</span></div>
@@ -566,8 +584,9 @@ document.write(`
 
         <span class="bp">self</span><span class="o">.</span><span class="n">register_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
+        <span class="n">runtime_enum</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">enum</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">runtime_enum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enum_registry</span><span class="p">[</span><span class="n">enum</span><span class="p">]</span>
+            <span class="n">runtime_enum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enum_registry</span><span class="p">[</span><span class="n">enum</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_enum_fields</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">runtime_enum</span>
 
             <span class="c1"># Allow the primitive type to be overridden when passed as a</span>
@@ -578,13 +597,20 @@ document.write(`
         <span class="k">assert</span> <span class="n">kind</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="n">inst</span> <span class="o">=</span> <span class="n">_normalize_instance</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
 
+        <span class="c1"># Set enum defaults.</span>
+        <span class="k">if</span> <span class="n">runtime_enum</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">runtime_enum</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">runtime_enum</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="n">runtime_enum</span><span class="o">.</span><span class="n">default</span><span class="p">)</span>
+
         <span class="k">assert</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regular_fields</span><span class="p">,</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_regular_fields</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">inst</span><span class="p">,</span> <span class="n">array_length</span><span class="o">=</span><span class="n">array_length</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">track</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                 <span class="n">FieldSpec</span><span class="p">(</span>
-                    <span class="n">name</span><span class="p">,</span> <span class="n">inst</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">enum</span><span class="p">,</span> <span class="n">array_length</span><span class="o">=</span><span class="n">array_length</span>
+                    <span class="n">name</span><span class="p">,</span>
+                    <span class="n">inst</span><span class="o">.</span><span class="n">kind</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">enum</span><span class="p">,</span>
+                    <span class="n">array_length</span><span class="o">=</span><span class="n">array_length</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span></div>
 
@@ -598,7 +624,7 @@ document.write(`
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">fields</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="n">track</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ProtocolBase.add_bit_fields">
@@ -614,6 +640,20 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_bit_fields</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="ProtocolBase.get_primitive">
+<a class="viewcode-back" href="../../../../runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.get_primitive">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_primitive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_AnyPrimitive</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get an underlying primitive instance.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regular_fields</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">index</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ProtocolBase.get_fields">
+<a class="viewcode-back" href="../../../../runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.get_fields">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_BitFields</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a bit-fields instance from its build identifier.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
+
+
 <div class="viewcode-block" id="ProtocolBase.value">
 <a class="viewcode-back" href="../../../../runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.value">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span>
@@ -624,7 +664,7 @@ document.write(`
         <span class="n">val</span><span class="p">:</span> <span class="n">ProtocolPrimitive</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regular_fields</span><span class="p">:</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regular_fields</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_primitive</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
 
             <span class="c1"># Resolve the enum value.</span>
             <span class="k">if</span> <span class="n">resolve_enum</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enum_fields</span><span class="p">:</span>
@@ -711,7 +751,15 @@ document.write(`
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">ProtocolPrimitive</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a value of a field belonging to the protocol.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ProtocolBase.write_with_id">
+<a class="viewcode-back" href="../../../../runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.write_with_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_with_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">_BinaryIO</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write this instance to a stream with its identifier as a prefix.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_primitive</span><span class="o">.</span><span class="n">to_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">byte_order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">byte_order</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">to_stream</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 

@@ -380,6 +380,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnumMappingData</span> <span class="k">as</span> <span class="n">_EnumMappingData</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChannelScaling</span><span class="p">,</span> <span class="n">Primitive</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives</span><span class="w"> </span><span class="kn">import</span> <span class="n">Primitivelike</span> <span class="k">as</span> <span class="n">_Primitivelike</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.primitives.field.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">BitFields</span> <span class="k">as</span> <span class="n">_BitFields</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy.registry.name</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegistryKey</span> <span class="k">as</span> <span class="n">_RegistryKey</span>
 
 
@@ -430,9 +431,24 @@ document.write(`
 
         <span class="c1"># Keep track of any new enum channels.</span>
         <span class="k">if</span> <span class="n">enum</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">channel_enums</span><span class="p">[</span><span class="n">result</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enums</span><span class="p">[</span><span class="n">enum</span><span class="p">]</span>
+            <span class="n">runtime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enums</span><span class="p">[</span><span class="n">enum</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channel_enums</span><span class="p">[</span><span class="n">result</span><span class="p">]</span> <span class="o">=</span> <span class="n">runtime</span>
+            <span class="k">if</span> <span class="n">runtime</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">.</span><span class="n">default</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="CreateChannelEnvironment.add_fields">
+<a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.create.CreateChannelEnvironment.add_fields">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_fields</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="n">_BitFields</span><span class="p">,</span> <span class="o">**</span><span class="n">channel_kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add bit fields to this channel environment.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">fields</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="o">**</span><span class="n">channel_kwargs</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_namespace</span><span class="p">,</span> <span class="n">track</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="CreateChannelEnvironment.int_channel">
@@ -539,6 +555,7 @@ document.write(`
         <span class="n">items</span><span class="p">:</span> <span class="n">_EnumMappingData</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">namespace</span><span class="p">:</span> <span class="n">_Namespace</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">primitive</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_ENUM_PRIMITIVE</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_RuntimeEnum</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new enum from the environment.&quot;&quot;&quot;</span>
 
@@ -547,6 +564,7 @@ document.write(`
             <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
             <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">,</span>
             <span class="n">primitive</span><span class="o">=</span><span class="n">primitive</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Can&#39;t create enum &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;!&quot;</span>
         <span class="k">return</span> <span class="n">result</span></div>

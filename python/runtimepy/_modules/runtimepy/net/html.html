@@ -357,7 +357,7 @@ document.write(`
 <span class="c1"># built-in</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_qs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_qs</span><span class="p">,</span> <span class="n">urlencode</span>
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">svgen.element</span><span class="w"> </span><span class="kn">import</span> <span class="n">Element</span>
@@ -365,7 +365,6 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_ENCODING</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">IndentedFileWriter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.paths</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_file</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrToBool</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">runtimepy</span><span class="w"> </span><span class="kn">import</span> <span class="n">PKG_NAME</span>
@@ -391,23 +390,34 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a bootstrap-based application shell.&quot;&quot;&quot;</span>
 
     <span class="n">container</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="n">container</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;d-flex&quot;</span><span class="p">,</span> <span class="s2">&quot;align-items-start&quot;</span><span class="p">,</span> <span class="s2">&quot;bg-body&quot;</span><span class="p">)</span>
+    <span class="n">container</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;d-flex&quot;</span><span class="p">,</span> <span class="s2">&quot;align-items-start&quot;</span><span class="p">,</span> <span class="s2">&quot;bg-body&quot;</span><span class="p">,</span> <span class="s2">&quot;h-100&quot;</span><span class="p">)</span>
 
     <span class="c1"># Dark theme.</span>
     <span class="n">container</span><span class="p">[</span><span class="s2">&quot;data-bs-theme&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bootstrap_theme</span>
 
     <span class="c1"># Buttons.</span>
-    <span class="n">button_column</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">container</span> <span class="k">if</span> <span class="n">use_button_column</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">button_column</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;button-column&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">container</span> <span class="k">if</span> <span class="n">use_button_column</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">head_child</span><span class="o">=</span><span class="n">div</span><span class="p">(</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;flex-grow-1 border-bottom &quot;</span>
+            <span class="s2">&quot;bg-gradient-secondary-to-bottom&quot;</span>
+        <span class="p">),</span>
+        <span class="n">tail_child</span><span class="o">=</span><span class="n">div</span><span class="p">(</span>
+            <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;flex-grow-1 border-top bg-gradient-secondary-to-top&quot;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
     <span class="n">button_column</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
         <span class="s2">&quot;d-flex&quot;</span><span class="p">,</span> <span class="s2">&quot;flex-column&quot;</span><span class="p">,</span> <span class="s2">&quot;h-100&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;bg-</span><span class="si">{</span><span class="n">bootstrap_theme</span><span class="si">}</span><span class="s2">-subtle&quot;</span>
     <span class="p">)</span>
 
     <span class="c1"># Dark/light theme switch button.</span>
     <span class="n">bootstrap_button</span><span class="p">(</span>
-        <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;lightbulb&quot;</span><span class="p">),</span>
-        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot; Toggle light/dark.&quot;</span><span class="p">,</span>
+        <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;highlights&quot;</span><span class="p">),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Toggle light/dark.&quot;</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;theme-button&quot;</span><span class="p">,</span>
         <span class="n">parent</span><span class="o">=</span><span class="n">button_column</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;change theme button&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">container</span><span class="p">,</span> <span class="n">button_column</span></div>
@@ -457,25 +467,35 @@ document.write(`
 
     <span class="n">markdown_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">PKG_NAME</span><span class="p">}</span>
 
+    <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;print&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">uri_query</span><span class="p">:</span>
         <span class="n">parsed</span> <span class="o">=</span> <span class="n">parse_qs</span><span class="p">(</span><span class="n">uri_query</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">parsed</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="c1"># Handle pages optimized for document creation.</span>
-        <span class="k">if</span> <span class="s2">&quot;print&quot;</span> <span class="ow">in</span> <span class="n">parsed</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span>
-            <span class="n">StrToBool</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;print&quot;</span><span class="p">]</span>
-        <span class="p">):</span>
-            <span class="n">markdown_kwargs</span><span class="p">[</span><span class="s2">&quot;bootstrap_theme&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;light&quot;</span>
-            <span class="n">markdown_kwargs</span><span class="p">[</span><span class="s2">&quot;use_button_column&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># from vcorelib.python import StrToBool</span>
+        <span class="c1"># if &quot;print&quot; in parsed and any(</span>
+        <span class="c1">#     StrToBool.check(x) for x in parsed[&quot;print&quot;]</span>
+        <span class="c1"># ):</span>
+        <span class="c1">#     markdown_kwargs[&quot;bootstrap_theme&quot;] = &quot;light&quot;</span>
+        <span class="c1">#     markdown_kwargs[&quot;use_button_column&quot;] = False</span>
 
     <span class="n">_</span><span class="p">,</span> <span class="n">button_column</span> <span class="o">=</span> <span class="n">markdown_page</span><span class="p">(</span>
         <span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="n">markdown</span><span class="p">,</span> <span class="o">**</span><span class="n">markdown_kwargs</span>
     <span class="p">)</span>
+    <span class="n">button_column</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-end&quot;</span><span class="p">)</span>
 
     <span class="n">bootstrap_button</span><span class="p">(</span>
         <span class="n">icon_str</span><span class="p">(</span><span class="s2">&quot;printer&quot;</span><span class="p">),</span>
         <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Printer-friendly view.&quot;</span><span class="p">,</span>
         <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;print-button&quot;</span><span class="p">,</span>
-        <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;?print=true&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">button_column</span><span class="p">),</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;print-view button&quot;</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">div</span><span class="p">(</span>
+            <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span>
+            <span class="n">href</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;?</span><span class="si">{</span><span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span><span class="si">}</span><span class="s2">#light-mode&quot;</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">button_column</span><span class="p">,</span>
+        <span class="p">),</span>
     <span class="p">)</span>
 
     <span class="c1"># JavaScript.</span>

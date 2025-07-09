@@ -513,6 +513,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.dx"><code class="docutils literal notranslate"><span class="pre">Translation.dx</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.dy"><code class="docutils literal notranslate"><span class="pre">Translation.dy</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.normalize"><code class="docutils literal notranslate"><span class="pre">Translation.normalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.polar"><code class="docutils literal notranslate"><span class="pre">Translation.polar()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.mutate.Translation.rotate"><code class="docutils literal notranslate"><span class="pre">Translation.rotate()</span></code></a></li>
 </ul>
 </li>
@@ -531,6 +532,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.center"><code class="docutils literal notranslate"><span class="pre">Point.center</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.distance"><code class="docutils literal notranslate"><span class="pre">Point.distance()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.idx"><code class="docutils literal notranslate"><span class="pre">Point.idx</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.polar"><code class="docutils literal notranslate"><span class="pre">Point.polar()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.to_center"><code class="docutils literal notranslate"><span class="pre">Point.to_center()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.translate"><code class="docutils literal notranslate"><span class="pre">Point.translate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.cartesian.html#svgen.cartesian.point.Point.with_index"><code class="docutils literal notranslate"><span class="pre">Point.with_index()</span></code></a></li>
@@ -705,6 +707,27 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.line.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element.path">svgen.element.path module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.path.Path"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.Path.create"><code class="docutils literal notranslate"><span class="pre">Path.create()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathBuilder"><code class="docutils literal notranslate"><span class="pre">PathBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathBuilder.close"><code class="docutils literal notranslate"><span class="pre">PathBuilder.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathBuilder.horizontal"><code class="docutils literal notranslate"><span class="pre">PathBuilder.horizontal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathBuilder.path"><code class="docutils literal notranslate"><span class="pre">PathBuilder.path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathBuilder.point"><code class="docutils literal notranslate"><span class="pre">PathBuilder.point()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathBuilder.translation"><code class="docutils literal notranslate"><span class="pre">PathBuilder.translation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathBuilder.vertical"><code class="docutils literal notranslate"><span class="pre">PathBuilder.vertical()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathCmd"><code class="docutils literal notranslate"><span class="pre">PathCmd</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathCmd.LINE"><code class="docutils literal notranslate"><span class="pre">PathCmd.LINE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.path.PathCmd.MOVE"><code class="docutils literal notranslate"><span class="pre">PathCmd.MOVE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="svgen.element.html#module-svgen.element.rect">svgen.element.rect module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.rect.Rect.bottom_left"><code class="docutils literal notranslate"><span class="pre">Rect.bottom_left</span></code></a></li>
@@ -745,6 +768,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.closing"><code class="docutils literal notranslate"><span class="pre">Element.closing()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.encode"><code class="docutils literal notranslate"><span class="pre">Element.encode()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.encode_str"><code class="docutils literal notranslate"><span class="pre">Element.encode_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.has_children"><code class="docutils literal notranslate"><span class="pre">Element.has_children()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.style"><code class="docutils literal notranslate"><span class="pre">Element.style</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="svgen.element.html#svgen.element.Element.xml"><code class="docutils literal notranslate"><span class="pre">Element.xml</span></code></a></li>
 </ul>
@@ -767,10 +791,15 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#module-svgen.shapes.chip">svgen.shapes.chip module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.chip.add_chip"><code class="docutils literal notranslate"><span class="pre">add_chip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.chip.add_outline_chip"><code class="docutils literal notranslate"><span class="pre">add_outline_chip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.chip.add_outline_pins"><code class="docutils literal notranslate"><span class="pre">add_outline_pins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.chip.handle_debug"><code class="docutils literal notranslate"><span class="pre">handle_debug()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#module-svgen.shapes.pins">svgen.shapes.pins module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.pins.add_pins"><code class="docutils literal notranslate"><span class="pre">add_pins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.pins.corners_translated"><code class="docutils literal notranslate"><span class="pre">corners_translated()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html#svgen.shapes.pins.translate_maps"><code class="docutils literal notranslate"><span class="pre">translate_maps()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html#module-svgen.shapes">Module contents</a></li>
@@ -820,7 +849,7 @@ document.write(`
 <p>A class to storge a width and height ratio.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.args">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.display.AspectRatio.args" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.display.AspectRatio.args" title="Link to this definition">#</a></dt>
 <dd><p>Get inkscape command-line arguments.</p>
 </dd></dl>
 
@@ -898,7 +927,7 @@ document.write(`
 <p>This package’s command-line entry-point (boilerplate).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.entry.main">
-<span class="sig-prename descclassname"><span class="pre">svgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.entry.main" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.entry.main" title="Link to this definition">#</a></dt>
 <dd><p>Program entry-point.</p>
 </dd></dl>
 
@@ -928,7 +957,7 @@ document.write(`
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.inkscape.invoke_multiple">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke_multiple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke_multiple" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke_multiple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke_multiple" title="Link to this definition">#</a></dt>
 <dd><p>Run multiple inkscape invocations at the same time.</p>
 </dd></dl>
 

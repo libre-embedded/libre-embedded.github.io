@@ -422,6 +422,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.array_length"><code class="docutils literal notranslate"><span class="pre">FieldSpec.array_length</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.asdict"><code class="docutils literal notranslate"><span class="pre">FieldSpec.asdict()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.enum"><code class="docutils literal notranslate"><span class="pre">FieldSpec.enum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.is_array"><code class="docutils literal notranslate"><span class="pre">FieldSpec.is_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.kind"><code class="docutils literal notranslate"><span class="pre">FieldSpec.kind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.name"><code class="docutils literal notranslate"><span class="pre">FieldSpec.name</span></code></a></li>
 </ul>
@@ -430,10 +431,13 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.add_bit_fields"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.add_bit_fields()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.add_field"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.add_field()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.add_serializable"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.add_serializable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.get_fields"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.get_fields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.get_primitive"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.get_primitive()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.register_name"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.register_name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.set"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.set()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.trace_size"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.trace_size()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.value"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.ProtocolBase.write_with_id"><code class="docutils literal notranslate"><span class="pre">ProtocolBase.write_with_id()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -449,9 +453,23 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.codec.protocol.html#module-runtimepy.codec.protocol.receiver">runtimepy.codec.protocol.receiver module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver"><code class="docutils literal notranslate"><span class="pre">StructReceiver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver.add_handler"><code class="docutils literal notranslate"><span class="pre">StructReceiver.add_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver.add_non_struct_handler"><code class="docutils literal notranslate"><span class="pre">StructReceiver.add_non_struct_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver.byte_order"><code class="docutils literal notranslate"><span class="pre">StructReceiver.byte_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver.id_primitive"><code class="docutils literal notranslate"><span class="pre">StructReceiver.id_primitive</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver.non_struct_message_prefix"><code class="docutils literal notranslate"><span class="pre">StructReceiver.non_struct_message_prefix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver.process"><code class="docutils literal notranslate"><span class="pre">StructReceiver.process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.receiver.StructReceiver.register"><code class="docutils literal notranslate"><span class="pre">StructReceiver.register()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.codec.protocol.html#module-runtimepy.codec.protocol">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.Protocol"><code class="docutils literal notranslate"><span class="pre">Protocol</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.ProtocolFactory"><code class="docutils literal notranslate"><span class="pre">ProtocolFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.ProtocolFactory.id"><code class="docutils literal notranslate"><span class="pre">ProtocolFactory.id()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.ProtocolFactory.initialize"><code class="docutils literal notranslate"><span class="pre">ProtocolFactory.initialize()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.ProtocolFactory.initialized"><code class="docutils literal notranslate"><span class="pre">ProtocolFactory.initialized</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.ProtocolFactory.instance"><code class="docutils literal notranslate"><span class="pre">ProtocolFactory.instance()</span></code></a></li>

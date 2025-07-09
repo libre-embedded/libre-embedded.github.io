@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -318,7 +322,6 @@ document.write(`
     <span class="n">parent</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
     <span class="n">field</span><span class="p">:</span> <span class="n">BitField</span><span class="p">,</span>
     <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span>
-    <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
     <span class="n">read_fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">BitField</span><span class="p">],</span>
     <span class="n">write_fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">BitField</span><span class="p">],</span>
     <span class="n">alias</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -336,12 +339,12 @@ document.write(`
 
     <span class="c1"># Generate a &#39;get&#39; method.</span>
     <span class="k">if</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">]:</span>
-        <span class="n">bit_field_get_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">)</span>
+        <span class="n">bit_field_get_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">)</span>
         <span class="n">read_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
 
     <span class="c1"># Generate a &#39;set&#39; method.</span>
     <span class="k">if</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;write&quot;</span><span class="p">]:</span>
-        <span class="n">bit_field_set_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">)</span>
+        <span class="n">bit_field_set_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">)</span>
         <span class="n">write_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field</span><span class="p">)</span></div>
 
 
@@ -351,7 +354,6 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">handle_atomic_fields_methods</span><span class="p">(</span>
     <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span>
     <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span>
-    <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
     <span class="n">field</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
     <span class="n">read_fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">BitField</span><span class="p">],</span>
     <span class="n">write_fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">BitField</span><span class="p">],</span>
@@ -361,23 +363,19 @@ document.write(`
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">read_fields</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-        <span class="n">bit_field_get_all_method</span><span class="p">(</span>
-            <span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">read_fields</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span>
-        <span class="p">)</span>
+        <span class="n">bit_field_get_all_method</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">read_fields</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">write_fields</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
         <span class="n">bit_field_set_all_method</span><span class="p">(</span>
-            <span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">write_fields</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span>
+            <span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">write_fields</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span>
         <span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="bit_fields">
 <a class="viewcode-back" href="../../../../ifgen.struct.methods.fields.html#ifgen.struct.methods.fields.bit_fields">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">bit_fields</span><span class="p">(</span>
-    <span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bit_fields</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">GenerateTask</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">IndentedFileWriter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate bit-field lines.&quot;&quot;&quot;</span>
 
     <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;fields&quot;</span><span class="p">]:</span>
@@ -385,11 +383,9 @@ document.write(`
         <span class="n">write_fields</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">BitField</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">bfield</span> <span class="ow">in</span> <span class="n">field</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fields&quot;</span><span class="p">,</span> <span class="p">[]):</span>
-            <span class="n">bit_field</span><span class="p">(</span>
-                <span class="n">task</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">bfield</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">read_fields</span><span class="p">,</span> <span class="n">write_fields</span>
-            <span class="p">)</span>
+            <span class="n">bit_field</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">bfield</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">read_fields</span><span class="p">,</span> <span class="n">write_fields</span><span class="p">)</span>
         <span class="n">handle_atomic_fields_methods</span><span class="p">(</span>
-            <span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">read_fields</span><span class="p">,</span> <span class="n">write_fields</span>
+            <span class="n">task</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">read_fields</span><span class="p">,</span> <span class="n">write_fields</span>
         <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">alternate</span> <span class="ow">in</span> <span class="n">field</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;alternates&quot;</span><span class="p">,</span> <span class="p">[]):</span>
@@ -402,7 +398,6 @@ document.write(`
                     <span class="n">field</span><span class="p">,</span>
                     <span class="n">bfield</span><span class="p">,</span>
                     <span class="n">writer</span><span class="p">,</span>
-                    <span class="n">header</span><span class="p">,</span>
                     <span class="n">read_fields</span><span class="p">,</span>
                     <span class="n">write_fields</span><span class="p">,</span>
                     <span class="n">alias</span><span class="o">=</span><span class="n">alternate</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
@@ -410,7 +405,6 @@ document.write(`
             <span class="n">handle_atomic_fields_methods</span><span class="p">(</span>
                 <span class="n">task</span><span class="p">,</span>
                 <span class="n">writer</span><span class="p">,</span>
-                <span class="n">header</span><span class="p">,</span>
                 <span class="n">field</span><span class="p">,</span>
                 <span class="n">read_fields</span><span class="p">,</span>
                 <span class="n">write_fields</span><span class="p">,</span>

@@ -169,6 +169,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../ifgen.generation.python.html">ifgen.generation.python package</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.plugins.html">ifgen.plugins package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ifgen.plugins.struct_receiver.html">ifgen.plugins.struct_receiver package</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../ifgen.struct.html">ifgen.struct package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../ifgen.struct.methods.html">ifgen.struct.methods package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../ifgen.struct.methods.fields.html">ifgen.struct.methods.fields package</a></li>
@@ -299,6 +303,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenerateTask</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ifgen.generation.python</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">python_class</span><span class="p">,</span>
+    <span class="n">python_docstring</span><span class="p">,</span>
     <span class="n">python_function</span><span class="p">,</span>
     <span class="n">python_imports</span><span class="p">,</span>
 <span class="p">)</span>
@@ -348,10 +353,15 @@ document.write(`
         <span class="n">built_in</span><span class="p">[</span><span class="s2">&quot;enum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;auto&quot;</span><span class="p">]</span>
     <span class="n">built_in</span><span class="p">[</span><span class="s2">&quot;typing&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Optional&quot;</span><span class="p">]</span>
 
+    <span class="n">runtime</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">enum</span><span class="p">()</span>
+
     <span class="c1"># Write imports.</span>
+    <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RuntimeIntEnum&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">runtime</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
+        <span class="n">imports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
     <span class="n">python_imports</span><span class="p">(</span>
         <span class="n">writer</span><span class="p">,</span>
-        <span class="n">third_party</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;runtimepy.enum.registry&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;RuntimeIntEnum&quot;</span><span class="p">]},</span>
+        <span class="n">third_party</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;runtimepy.enum.registry&quot;</span><span class="p">:</span> <span class="n">imports</span><span class="p">},</span>
         <span class="n">built_in</span><span class="o">=</span><span class="n">built_in</span><span class="p">,</span>
     <span class="p">)</span>
 
@@ -368,13 +378,9 @@ document.write(`
             <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
                 <span class="n">final</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">final</span><span class="p">)</span>
 
-            <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">to_enum_name</span><span class="p">(</span><span class="n">enum</span><span class="p">)</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">final</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">to_enum_name</span><span class="p">(</span><span class="n">enum</span><span class="p">)</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">final</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">value</span> <span class="ow">and</span> <span class="s2">&quot;description&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-                <span class="n">line</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;  # </span><span class="si">{</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-
-            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-
-        <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+                <span class="n">python_docstring</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">value</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">])</span>
 
         <span class="c1"># Override underlying primitive if necessary.</span>
         <span class="n">underlying</span> <span class="o">=</span> <span class="n">strip_t_suffix</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;underlying&quot;</span><span class="p">])</span>
@@ -400,7 +406,22 @@ document.write(`
             <span class="n">final_empty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">decorators</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;classmethod&quot;</span><span class="p">],</span>
         <span class="p">):</span>
-            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;return </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">enum</span><span class="p">()</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+            <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;return </span><span class="si">{</span><span class="n">runtime</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">runtime</span><span class="o">.</span><span class="n">default</span><span class="p">:</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+            <span class="k">with</span> <span class="n">python_function</span><span class="p">(</span>
+                <span class="n">writer</span><span class="p">,</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Get a possible default value for this enumeration.&quot;</span><span class="p">,</span>
+                <span class="n">params</span><span class="o">=</span><span class="s2">&quot;cls: type[T]&quot;</span><span class="p">,</span>
+                <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;Optional[T]&quot;</span><span class="p">,</span>
+                <span class="n">final_empty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">decorators</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;classmethod&quot;</span><span class="p">],</span>
+            <span class="p">):</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;return cls.normalize(</span><span class="se">\&quot;</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">instance</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">)&quot;</span>
+                <span class="p">)</span></div>
 
 </pre></div>
 

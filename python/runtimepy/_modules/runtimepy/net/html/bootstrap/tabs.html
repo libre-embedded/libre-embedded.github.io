@@ -410,9 +410,7 @@ document.write(`
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Element</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a navigation container element.&quot;&quot;&quot;</span>
 
-    <span class="n">content</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span>
-        <span class="nb">id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;tabpanel&quot;</span><span class="p">,</span> <span class="n">tabindex</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span>
-    <span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;tabpanel&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
     <span class="n">content</span><span class="p">[</span><span class="s2">&quot;aria-labelledby&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">-tab&quot;</span>
 
     <span class="n">content</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;tab-pane&quot;</span><span class="p">,</span> <span class="s2">&quot;fade&quot;</span><span class="p">)</span>
@@ -449,16 +447,25 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">button_column</span> <span class="o">=</span> <span class="n">create_app_shell</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
 
         <span class="c1"># Toggle tabs button.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add_button</span><span class="p">(</span><span class="s2">&quot;Toggle tabs&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">PKG_NAME</span><span class="si">}</span><span class="s2">-tabs&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;tabs-button&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_button</span><span class="p">(</span>
+            <span class="s2">&quot;Toggle tabs&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">PKG_NAME</span><span class="si">}</span><span class="s2">-tabs&quot;</span><span class="p">,</span>
+            <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;tabs-button&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;list-task&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="c1"># Create tab container.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span> <span class="o">=</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PKG_NAME</span><span class="si">}</span><span class="s2">-tabs&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
             <span class="s2">&quot;nav&quot;</span><span class="p">,</span>
             <span class="s2">&quot;flex-column&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-shrink-0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;flex-nowrap&quot;</span><span class="p">,</span>
             <span class="s2">&quot;nav-pills&quot;</span><span class="p">,</span>
             <span class="s2">&quot;show&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;flex-column-scroll-bodge&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;h-100&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overflow-y-scroll&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;overscroll-behavior-none&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Create content container.</span>
@@ -473,9 +480,9 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set classes on content element.&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;tab-content&quot;</span><span class="p">,</span> <span class="s2">&quot;tab-content-bodge&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;tab-content&quot;</span><span class="p">,</span> <span class="s2">&quot;w-100&quot;</span><span class="p">,</span> <span class="s2">&quot;h-100&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">scroll</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;scroll&quot;</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;overflow-scroll&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TabbedContent.create">
@@ -483,7 +490,7 @@ document.write(`
     <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Element</span><span class="p">,</span> <span class="n">Element</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Only the first tab is active.&quot;&quot;&quot;</span>
 
-        <span class="n">container</span> <span class="o">=</span> <span class="n">flex</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="p">)</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="n">flex</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-start&quot;</span><span class="p">)</span>
 
         <span class="c1"># Open in new window button.</span>
         <span class="n">toggle_button</span><span class="p">(</span>
@@ -491,9 +498,8 @@ document.write(`
             <span class="nb">id</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
             <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;window-plus&quot;</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Open &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; in a new window.&quot;</span><span class="p">,</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span>
-            <span class="s2">&quot;border-start&quot;</span><span class="p">,</span> <span class="s2">&quot;border-bottom&quot;</span><span class="p">,</span> <span class="s2">&quot;window-button&quot;</span><span class="p">,</span> <span class="s2">&quot;btn-link&quot;</span>
-        <span class="p">)</span>
+            <span class="n">tabindex</span><span class="o">=</span><span class="s2">&quot;-1&quot;</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-bottom&quot;</span><span class="p">,</span> <span class="s2">&quot;window-button&quot;</span><span class="p">,</span> <span class="s2">&quot;btn-link&quot;</span><span class="p">)</span>
 
         <span class="c1"># Navigate to tab button.</span>
         <span class="n">button</span> <span class="o">=</span> <span class="n">create_nav_button</span><span class="p">(</span>
@@ -501,6 +507,7 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="n">name</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">active_tab</span><span class="p">,</span>
+            <span class="n">tabindex</span><span class="o">=</span><span class="s2">&quot;-1&quot;</span><span class="p">,</span>
             <span class="n">class_str</span><span class="o">=</span><span class="s2">&quot;border-bottom border-end flex-grow-1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
