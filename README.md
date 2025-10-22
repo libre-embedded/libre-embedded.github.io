@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=3.2.3
-    hash=88ed87b6a8fbf34b1ae03e8607a7f253
+    hash=bbbd008146c337eba555f854280ffb7a
     =====================================
 -->
 
@@ -41,7 +41,7 @@ Live (demo) control servers run on AWS free-tier resources.
 | [`telemetry_demo`](https://libre-embedded.com/telemetry_demo/#rx/rx:timestamp,sequence) | A demo application that demonstrates telemetry transmission and reception via UDP. |
 | [`collection`](https://libre-embedded.com/collection/#wave1,hide-tabs/wave1:sin,cos) | An application showcasing multiple runtime control features. |
 | [`process`](https://libre-embedded.com/process/#process_dev/process_dev:uptime) | An external process controller example (i.e. game server, COTS software integration). |
-| [audio visual](https://www.youtube.com/@cosmic-insurgency) | Brain food. |
+| [`audio visual`](https://www.youtube.com/@cosmic-insurgency) | Brain food. |
 
 ---
 
