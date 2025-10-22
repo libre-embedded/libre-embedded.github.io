@@ -2,15 +2,14 @@
     =====================================
     generator=datazen
     version=3.2.3
-    hash=70a25c959047b9d4b86a936bab7a150c
+    hash=88ed87b6a8fbf34b1ae03e8607a7f253
     =====================================
 -->
 
 # Libre [![logo](https://libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png)](https://libre-embedded.com) Embedded
 
-**Free as in freedom.**
-
-(consider [sponsoring development](https://github.com/sponsors/libre-embedded))
+**Free as in freedom.** (consider
+[sponsoring development](https://github.com/sponsors/libre-embedded))
 
 ---
 
@@ -19,16 +18,55 @@
 *Libre Embedded Engineering Technologies LLC* is an engineering consultancy
 and product development company.
 
-([website](https://libre-embedded.com), [source](https://github.com/libre-embedded))
+([website](https://libre-embedded.com), [source](https://github.com/libre-embedded),
+email `v@libre-embedded.com` with business inquiries)
 
-### Contact
+### Clients
 
-Email `vaughn@libre-embedded.com` with business and partnership inquiries at
-this time.
+| name | work | contract |
+|------|------|----------|
+| `Amazon` | fulfillment-center payload robotics safety sub-system firmware | salaried engineering position |
+| `SpaceX` | avionics hardware development-and-test technologies for full-vehicle integration testing and rapid iteration therein | salaried engineering position |
+| `Cosmic Insurgency` | broadcasting technologies for [internet culture](https://www.youtube.com/@cosmic-insurgency) | pro bono |
 
 ---
 
-## Python Packages
+## Demo Applications
+
+Live (demo) control servers run on AWS free-tier resources.
+
+| name (link) | description |
+|-------------|-------------|
+| [`monitor`](https://libre-embedded.com/monitor/#linux/linux:cpu.percent) | The system monitor for the production web server. |
+| [`telemetry_demo`](https://libre-embedded.com/telemetry_demo/#rx/rx:timestamp,sequence) | A demo application that demonstrates telemetry transmission and reception via UDP. |
+| [`collection`](https://libre-embedded.com/collection/#wave1,hide-tabs/wave1:sin,cos) | An application showcasing multiple runtime control features. |
+| [`process`](https://libre-embedded.com/process/#process_dev/process_dev:uptime) | An external process controller example (i.e. game server, COTS software integration). |
+| [audio visual](https://www.youtube.com/@cosmic-insurgency) | Brain food. |
+
+---
+
+## Open Source Products
+
+**Note: `not all products are open source`** - through `sponsorship`, more
+products and product support can manifest in the free domain.
+
+### C/C++ Packages
+
+These use [yambs](https://github.com/libre-embedded/yambs) as a build system
+and GitHub releases for dependency lifecycle management. See also:
+[yambs-project-template](https://github.com/libre-embedded/yambs-project-template).
+
+| name | git |
+|------|-----|
+| `picolibc-semihost` | [git](https://github.com/libre-embedded/picolibc-semihost) |
+| `toolchains` | [git](https://github.com/libre-embedded/toolchains) |
+| `coral` | [git](https://github.com/libre-embedded/coral) |
+
+### Python Packages
+
+Distributed to [PyPI](https://pypi.org/) and trivially installable anywhere.
+See also:
+[python-package-template](https://github.com/libre-embedded/python-package-template).
 
 | name | git | docs | pypi |
 |------|-----|------|------|
@@ -43,27 +81,3 @@ this time.
 | `vcorelib` | [git](https://github.com/libre-embedded/vcorelib) | [docs](https://libre-embedded.com/python/vcorelib) | [pypi](https://pypi.org/project/vcorelib)
 | `vmklib` | [git](https://github.com/libre-embedded/vmklib) | [docs](https://libre-embedded.com/python/vmklib) | [pypi](https://pypi.org/project/vmklib)
 | `yambs` | [git](https://github.com/libre-embedded/yambs) | [docs](https://libre-embedded.com/python/yambs) | [pypi](https://pypi.org/project/yambs)
-
----
-
-## Demo Applications
-
-Live control servers.
-
-### [`monitor`](https://libre-embedded.com/monitor/#linux/linux:cpu.percent)
-
-The live system monitor for the production web server.
-
-### [`telemetry_demo`](https://libre-embedded.com/telemetry_demo/#rx/rx:timestamp,sequence)
-
-A demo application that demonstrates telemetry transmission and reception
-via UDP.
-
-### [`collection`](https://libre-embedded.com/collection/#wave1,hide-tabs/wave1:sin,cos)
-
-An application showcasing multiple runtime control features.
-
-### [`process`](https://libre-embedded.com/process/#process_dev/process_dev:uptime)
-
-An external process controller example (i.e. game server, COTS software
-integration).
