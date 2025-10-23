@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=3.2.3
-    hash=72bde5838d67380318962aab7cae696d
+    hash=71baa55fe2c12ad579b442fa584ab3f5
     =====================================
 -->
 
@@ -23,11 +23,11 @@ email `v@libre-embedded.com` with business inquiries)
 
 ### Clients
 
-| name | work | contract |
-|------|------|----------|
-| `Amazon` | fulfillment-center payload robotics safety sub-system firmware | salaried engineering position |
-| `SpaceX` | avionics hardware development-and-test technologies for full-vehicle integration testing and rapid iteration therein | salaried engineering position |
-| `Cosmic Insurgency` | broadcasting technologies for [internet culture](https://www.youtube.com/@cosmic-insurgency) | ? |
+| name | work |
+|------|------|
+| `Amazon` | fulfillment-center payload robotics safety sub-system firmware |
+| `SpaceX` | avionics hardware development-and-test technologies for full-vehicle integration testing and rapid iteration therein |
+| `Cosmic Insurgency` | broadcasting technologies for [internet culture](https://www.youtube.com/@cosmic-insurgency) |
 
 ---
 
