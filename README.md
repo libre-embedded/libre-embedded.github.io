@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=3.2.3
-    hash=71baa55fe2c12ad579b442fa584ab3f5
+    hash=4ce80d8d95c8ef120a22a1398a9fdcd2
     =====================================
 -->
 
@@ -10,24 +10,6 @@
 
 **Free as in freedom.** (consider
 [sponsoring development](https://github.com/sponsors/libre-embedded))
-
----
-
-## About
-
-*Libre Embedded Engineering Technologies LLC* is an engineering consultancy
-and product development company.
-
-([website](https://libre-embedded.com), [source](https://github.com/libre-embedded),
-email `v@libre-embedded.com` with business inquiries)
-
-### Clients
-
-| name | work |
-|------|------|
-| `Amazon` | fulfillment-center payload robotics safety sub-system firmware |
-| `SpaceX` | avionics hardware development-and-test technologies for full-vehicle integration testing and rapid iteration therein |
-| `Cosmic Insurgency` | broadcasting technologies for [internet culture](https://www.youtube.com/@cosmic-insurgency) |
 
 ---
 
@@ -47,8 +29,8 @@ Live (demo) control servers run on AWS free-tier resources.
 
 ## Open Source Products
 
-**Note: `not all products are open source`** - through `sponsorship`, more
-products and product support can manifest in the free domain.
+Note: [sponsorship](https://github.com/sponsors/libre-embedded) can enable
+public access to additional products.
 
 ### C/C++ Packages
 
@@ -81,3 +63,22 @@ See also:
 | `vcorelib` | [git](https://github.com/libre-embedded/vcorelib) | [docs](https://libre-embedded.com/python/vcorelib) | [pypi](https://pypi.org/project/vcorelib)
 | `vmklib` | [git](https://github.com/libre-embedded/vmklib) | [docs](https://libre-embedded.com/python/vmklib) | [pypi](https://pypi.org/project/vmklib)
 | `yambs` | [git](https://github.com/libre-embedded/yambs) | [docs](https://libre-embedded.com/python/yambs) | [pypi](https://pypi.org/project/yambs)
+
+
+---
+
+## About
+
+*Libre Embedded Engineering Technologies LLC* is an engineering consultancy
+and product development company.
+
+([website](https://libre-embedded.com), [source](https://github.com/libre-embedded),
+email `v@libre-embedded.com` with business inquiries)
+
+### Clients
+
+| name | work |
+|------|------|
+| `Amazon` | fulfillment-center payload robotics safety sub-system firmware |
+| `SpaceX` | avionics hardware development-and-test technologies for full-vehicle integration testing and rapid iteration therein |
+| `Cosmic Insurgency` | broadcasting technologies for [internet culture](https://www.youtube.com/@cosmic-insurgency) |
