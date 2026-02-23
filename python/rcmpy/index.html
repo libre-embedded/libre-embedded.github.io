@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>rcmpy &#8212; documentation</title>
+    <title>rcmpy (1.5.9) &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=7a87f8ca"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -156,7 +156,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="rcmpy.html">rcmpy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="rcmpy.commands.html">rcmpy.commands package</a></li>
@@ -293,7 +293,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -304,11 +306,42 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>rcmpy</h1>
+    <h1>rcmpy (1.5.9)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">rcmpy (1.5.9)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-requirements">System Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-setup">Installation and Setup</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-command-options">Sub-command Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dump"><code class="docutils literal notranslate"><span class="pre">dump</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use"><code class="docutils literal notranslate"><span class="pre">use</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variant"><code class="docutils literal notranslate"><span class="pre">variant</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watch"><code class="docutils literal notranslate"><span class="pre">watch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -318,11 +351,263 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="rcmpy">
-<h1>rcmpy<a class="headerlink" href="#rcmpy" title="Link to this heading">#</a></h1>
+  <!--
+    =====================================
+    generator=datazen
+    version=3.2.3
+    hash=af7f0c2578b463b6a5682446e16473d7
+    =====================================
+-->
+<section id="rcmpy-1-5-9">
+<h1>rcmpy (<a class="reference external" href="https://pypi.org/project/rcmpy/">1.5.9</a>)<a class="headerlink" href="#rcmpy-1-5-9" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/rcmpy/"><img alt="python" src="https://img.shields.io/pypi/pyversions/rcmpy.svg" /></a>
+<img alt="Build Status" src="https://github.com/libre-embedded/rcmpy/workflows/Python%20Package/badge.svg" />
+<a class="reference external" href="https://codecov.io/github/libre-embedded/rcmpy"><img alt="codecov" src="https://codecov.io/gh/libre-embedded/rcmpy/branch/master/graphs/badge.svg?branch=master" /></a>
+<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/rcmpy" />
+<img alt="Dependents (via libraries.io)" src="https://img.shields.io/librariesio/dependents/pypi/rcmpy" /></p>
+<p><em>A configuration-file management system.</em></p>
 <p>Consider <a class="reference external" href="https://github.com/sponsors/libre-embedded">sponsoring development</a>.</p>
+<p>(<a class="reference external" href="https://libre-embedded.github.io/python/rcmpy">interface documentation</a>)</p>
+<section id="python-version-support">
+<h2>Python Version Support<a class="headerlink" href="#python-version-support" title="Link to this heading">#</a></h2>
+<p>This package is tested with the following Python minor versions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3.13/"><code class="docutils literal notranslate"><span class="pre">python3.13</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.14/"><code class="docutils literal notranslate"><span class="pre">python3.14</span></code></a></p></li>
+</ul>
+</section>
+<section id="platform-support">
+<h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading">#</a></h2>
+<p>This package is tested on the following platforms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">macos-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">windows-latest</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>This project aims to simplify management of user configuration files, user (or
+system-wide) package installations, system settings and more on a variety of
+platforms.</p>
+<p>Reasons to use it:</p>
+<ol class="arabic simple">
+<li><p>Simplify bootstrapping a fresh system to a “developer workstation” in as few
+steps as possible</p>
+<ol class="arabic simple">
+<li><p>This can be a simpler options for teams or individuals who don’t have
+infrastructure to manage system-install images, system-distribution build
+systems, other kinds of provisioning automation, etc.</p></li>
+</ol>
+</li>
+<li><p>Normalize software configurations for a team of developers, but still allow
+personalized overrides when desired (e.g. text-editor or terminal configs)</p>
+<ol class="arabic simple">
+<li><p>This can help make your team or organization’s development environment
+more approachable to new or inexperienced developers (ask yourself this:
+are the code changes usually even the hard part?)</p></li>
+</ol>
+</li>
+<li><p>Relies on a minimal <a class="reference internal" href="md/data_repository.html"><span class="std std-doc">data repository</span></a> that can be
+managed with version control, shared by multiple people, open source to provide
+examples to the community, etc.</p>
+<ol class="arabic simple">
+<li><p>This enables a workflow for adding, removing, updating and re-configuring
+software used by a project-ecosystem over time</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<p>This package attempts to adhere to the
+<a class="reference external" href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory Specification</a>.
+It keeps stateful formation that needs to persist between command invocations
+in a <code class="docutils literal notranslate"><span class="pre">rcmpy</span></code> sub-directory of the user-state directory controlled
+by <code class="docutils literal notranslate"><span class="pre">XDG_STATE_HOME</span></code> (or the default: <code class="docutils literal notranslate"><span class="pre">$HOME/.local/state</span></code>).</p>
+<p>One tracked piece of stateful information is the location of the current
+<a class="reference internal" href="md/data_repository.html"><span class="std std-doc">data repository</span></a>. If this is not changed (via the <code class="docutils literal notranslate"><span class="pre">use</span></code>
+command), it checks a <code class="docutils literal notranslate"><span class="pre">rcmpy/default</span></code> sub-directory in the
+user-config directory controlled by <code class="docutils literal notranslate"><span class="pre">XDG_CONFIG_HOME</span></code> (or the default:
+<code class="docutils literal notranslate"><span class="pre">$HOME/.config</span></code>).</p>
+<section id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>It is assumed that the system has a <a class="reference external" href="https://www.python.org/">Python</a>
+executable and <a class="reference external" href="https://pypi.org/project/pip/">pip</a> is available to it as
+an installed package (can be checked with: <code class="docutils literal notranslate"><span class="pre">python[3][.exe]</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">--version</span></code>
+or <code class="docutils literal notranslate"><span class="pre">pip[3][.exe]</span> <span class="pre">--version</span></code>).</p></li>
+<li><p>A mechanism to obtain a <a class="reference internal" href="md/data_repository.html"><span class="std std-doc">data repository</span></a> via a
+network connection, if one won’t be created from scratch (e.g. a
+<a class="reference external" href="https://git-scm.com/">git</a> client).</p></li>
+</ol>
+</section>
+<section id="installation-and-setup">
+<h2>Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install the package with <code class="docutils literal notranslate"><span class="pre">pip[3][.exe]</span> <span class="pre">--user</span> <span class="pre">rcmpy</span></code> or
+<code class="docutils literal notranslate"><span class="pre">python[3][.exe]</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">--user</span> <span class="pre">rcmpy</span></code>.</p></li>
+<li><p>Test that <code class="docutils literal notranslate"><span class="pre">rcmpy</span></code> is now a shell command with
+<code class="docutils literal notranslate"><span class="pre">rcmpy</span> <span class="pre">--version</span></code>.</p>
+<ol class="arabic simple">
+<li><p>If not, you may need to invoke
+<code class="docutils literal notranslate"><span class="pre">rcmpy</span></code> directly from <code class="docutils literal notranslate"><span class="pre">$HOME/.local/bin</span></code> or
+<code class="docutils literal notranslate"><span class="pre">%APPDATA%\Python</span></code>.
+(see the
+<a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/?highlight=--user#user-installs">pip documentation</a>
+for more info).</p></li>
+</ol>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">rcmpy</span> <span class="pre">use</span></code> to view the default
+<a class="reference internal" href="md/data_repository.html"><span class="std std-doc">data repository</span></a> location (printed to the console):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rcmpy use
+rcmpy.state                          - INFO   - Using directory &#39;/home/vkottler/.config/rcmpy/default&#39;.
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Begin setting up your <a class="reference internal" href="md/data_repository.html"><span class="std std-doc">data repository</span></a> in this
+location, or:</p>
+<ol class="arabic simple">
+<li><p>Download (or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) one to that default location.</p></li>
+<li><p>Create a <a class="reference external" href="https://en.wikipedia.org/wiki/Symbolic_link">symbolic link</a> at
+that location, pointing to one.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">rcmpy</span> <span class="pre">use</span> <span class="pre">&lt;path&gt;</span></code> to point <code class="docutils literal notranslate"><span class="pre">rcmpy</span></code> at
+an existing one at any arbitrary location.</p></li>
+</ol>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">rcmpy</span> <span class="pre">apply</span></code> to perform tasks specified in the
+<a class="reference internal" href="md/data_repository.html"><span class="std std-doc">top-level configuration file</span></a>.</p></li>
+</ol>
+</section>
+</section>
+<section id="command-line-options">
+<h1>Command-line Options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/rcmpy -h
+
+usage: rcmpy [-h] [--version] [-v] [-q] [--curses] [--no-uvloop] [-C DIR]
+             {apply,dump,use,variant,watch,noop} ...
+
+A configuration-file management system.
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program&#39;s version number and exit
+  -v, --verbose         set to increase logging verbosity
+  -q, --quiet           set to reduce output
+  --curses              whether or not to use curses.wrapper when starting
+  --no-uvloop           whether or not to disable uvloop as event loop driver
+  -C, --dir DIR         execute from a specific directory
+
+commands:
+  {apply,dump,use,variant,watch,noop}
+                        set of available commands
+    apply               apply any pending changes from the active data
+                        repository
+    dump                dump template data to stdout as JSON
+    use                 set the directory to use as the rcmpy data repository
+    variant             set the variant of configuration data to use
+    watch               do a task whenever a file in a specified directory
+                        changes
+    noop                command stub (does nothing)
+
+</pre></div>
+</div>
+<section id="sub-command-options">
+<h2>Sub-command Options<a class="headerlink" href="#sub-command-options" title="Link to this heading">#</a></h2>
+<section id="apply">
+<h3><code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#apply" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/rcmpy apply -h
+
+usage: rcmpy apply [-h] [-f] [-d]
+
+options:
+  -h, --help     show this help message and exit
+  -f, --force    whether or not to forcibly render all outputs
+  -d, --dry-run  whether or not to update output files
+
+</pre></div>
+</div>
+</section>
+<section id="dump">
+<h3><code class="docutils literal notranslate"><span class="pre">dump</span></code><a class="headerlink" href="#dump" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/rcmpy dump -h
+
+usage: rcmpy dump [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+</pre></div>
+</div>
+</section>
+<section id="use">
+<h3><code class="docutils literal notranslate"><span class="pre">use</span></code><a class="headerlink" href="#use" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/rcmpy use -h
+
+usage: rcmpy use [-h] [-d] [directory]
+
+positional arguments:
+  directory      the directory to use
+
+options:
+  -h, --help     show this help message and exit
+  -d, --default  sets the directory back to the package default
+
+</pre></div>
+</div>
+</section>
+<section id="variant">
+<h3><code class="docutils literal notranslate"><span class="pre">variant</span></code><a class="headerlink" href="#variant" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/rcmpy variant -h
+
+usage: rcmpy variant [-h] [-d] [variant]
+
+positional arguments:
+  variant        new variant to use
+
+options:
+  -h, --help     show this help message and exit
+  -d, --default  sets the directory back to the package default
+
+</pre></div>
+</div>
+</section>
+<section id="watch">
+<h3><code class="docutils literal notranslate"><span class="pre">watch</span></code><a class="headerlink" href="#watch" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/rcmpy watch -h
+
+usage: rcmpy watch [-h] [-p POLL_RATE] [-s] [-i] [-n] directory cmd [cmd ...]
+
+positional arguments:
+  directory             directory to watch for file changes
+  cmd                   command to run
+
+options:
+  -h, --help            show this help message and exit
+  -p, --poll-rate POLL_RATE
+                        poll period in seconds (default: 0.1s)
+  -s, --shell           set to run a shell command
+  -i, --single-pass     only run a single iteration
+  -n, --no-change       don&#39;t act on changed files, only the overall set of
+                        files changing (added or removed)
+
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="internal-dependency-graph">
+<h1>Internal Dependency Graph<a class="headerlink" href="#internal-dependency-graph" title="Link to this heading">#</a></h1>
+<p>A coarse view of the internal structure and scale of
+<code class="docutils literal notranslate"><span class="pre">rcmpy</span></code>’s source.
+Generated using <a class="reference external" href="https://github.com/thebjorn/pydeps">pydeps</a> (via
+<code class="docutils literal notranslate"><span class="pre">mk</span> <span class="pre">python-deps</span></code>).</p>
+<p><img alt="rcmpy's Dependency Graph" src="_images/pydeps.svg" /></p>
+</section>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="rcmpy.html">rcmpy package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rcmpy.html#subpackages">Subpackages</a><ul>
@@ -394,7 +679,6 @@ document.write(`
 </li>
 </ul>
 </div>
-</section>
 
 
                 </article>
@@ -423,6 +707,44 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">rcmpy (1.5.9)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-requirements">System Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-setup">Installation and Setup</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-command-options">Sub-command Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dump"><code class="docutils literal notranslate"><span class="pre">dump</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use"><code class="docutils literal notranslate"><span class="pre">use</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variant"><code class="docutils literal notranslate"><span class="pre">variant</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watch"><code class="docutils literal notranslate"><span class="pre">watch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -442,7 +764,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

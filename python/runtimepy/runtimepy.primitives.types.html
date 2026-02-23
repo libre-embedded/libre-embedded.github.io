@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>runtimepy.primitives.types package &#8212; documentation</title>
+    <title>runtimepy.primitives.types package &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=fe2fc0f7"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.primitives.types';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -155,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -531,12 +531,12 @@ document.write(`
 <p>A module for implementing a base class for primitive types.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.base.PrimitiveType">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.base.</span></span><span class="sig-name descname"><span class="pre">PrimitiveType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/types/base.html#PrimitiveType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.base.</span></span><span class="sig-name descname"><span class="pre">PrimitiveType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/types/base.html#PrimitiveType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>A simple wrapper around ctype primitives.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.base.PrimitiveType.c_type">
-<span class="sig-name descname"><span class="pre">c_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.c_type" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">c_type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel.type" title="runtimepy.channel.Channel.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.c_type" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -553,18 +553,18 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.base.PrimitiveType.instance">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/base.html#PrimitiveType.instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.instance" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/base.html#PrimitiveType.instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.instance" title="Link to this definition">#</a></dt>
 <dd><p>Get an instance of this primitive type.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.base.PrimitiveType.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.base.PrimitiveType.python_type">
-<span class="sig-name descname"><span class="pre">python_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.python_type" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">python_type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.Channel.type" title="runtimepy.channel.Channel.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.python_type" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -575,7 +575,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.base.PrimitiveType.valid_primitive">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">valid_primitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/base.html#PrimitiveType.valid_primitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.valid_primitive" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">valid_primitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/base.html#PrimitiveType.valid_primitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.base.PrimitiveType.valid_primitive" title="Link to this definition">#</a></dt>
 <dd><p>Determine if a Python primitive is valid for this class.</p>
 </dd></dl>
 
@@ -593,7 +593,7 @@ document.write(`
 <p>A module implementing a type interface for booleans.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.bool.BooleanType">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.bool.</span></span><span class="sig-name descname"><span class="pre">BooleanType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/bool.html#BooleanType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bool.BooleanType" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.bool.</span></span><span class="sig-name descname"><span class="pre">BooleanType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/bool.html#BooleanType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bool.BooleanType" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_bool</span></code>]</p>
 <p>A simple type interface for booleans.</p>
 <dl class="py attribute">
@@ -604,7 +604,7 @@ document.write(`
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.bool.BooleanType.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bool'</span></em><a class="headerlink" href="#runtimepy.primitives.types.bool.BooleanType.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bool'</span></span><a class="headerlink" href="#runtimepy.primitives.types.bool.BooleanType.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -622,7 +622,7 @@ document.write(`
 bounds (based on bit width).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.bounds.IntegerBounds">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.bounds.</span></span><span class="sig-name descname"><span class="pre">IntegerBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/types/bounds.html#IntegerBounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.bounds.</span></span><span class="sig-name descname"><span class="pre">IntegerBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/types/bounds.html#IntegerBounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A container for integer bounds.</p>
 <dl class="py method">
@@ -634,25 +634,25 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.bounds.IntegerBounds.create">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.primitives.types.bounds.IntegerBounds" title="runtimepy.primitives.types.bounds.IntegerBounds"><span class="pre">IntegerBounds</span></a></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/bounds.html#IntegerBounds.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.create" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.primitives.types.bounds.IntegerBounds" title="runtimepy.primitives.types.bounds.IntegerBounds"><span class="pre">IntegerBounds</span></a></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/bounds.html#IntegerBounds.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.create" title="Link to this definition">#</a></dt>
 <dd><p>Compute maximum and minimum values given size and signedness.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.bounds.IntegerBounds.create_bit">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_bit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bit_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.primitives.types.bounds.IntegerBounds" title="runtimepy.primitives.types.bounds.IntegerBounds"><span class="pre">IntegerBounds</span></a></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/bounds.html#IntegerBounds.create_bit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.create_bit" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_bit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bit_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.primitives.types.bounds.IntegerBounds" title="runtimepy.primitives.types.bounds.IntegerBounds"><span class="pre">IntegerBounds</span></a></span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/bounds.html#IntegerBounds.create_bit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.create_bit" title="Link to this definition">#</a></dt>
 <dd><p>Compute maximum and minimum values given size and signedness.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.bounds.IntegerBounds.max">
-<span class="sig-name descname"><span class="pre">max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.max" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">max</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.max" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.bounds.IntegerBounds.min">
-<span class="sig-name descname"><span class="pre">min</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.min" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">min</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#runtimepy.primitives.types.bounds.IntegerBounds.min" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -676,7 +676,7 @@ instead of the provided value if it exceeds these bounds.</p>
 <p>A module implementing a type interface for floating-point numbers.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.float.DoubleType">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.float.</span></span><span class="sig-name descname"><span class="pre">DoubleType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/float.html#DoubleType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.float.DoubleType" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.float.</span></span><span class="sig-name descname"><span class="pre">DoubleType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/float.html#DoubleType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.float.DoubleType" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_double</span></code>]</p>
 <p>A simple type interface for double-precision floating-point.</p>
 <dl class="py attribute">
@@ -687,7 +687,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.float.DoubleType.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'double'</span></em><a class="headerlink" href="#runtimepy.primitives.types.float.DoubleType.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'double'</span></span><a class="headerlink" href="#runtimepy.primitives.types.float.DoubleType.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -700,7 +700,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.float.FloatType">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.float.</span></span><span class="sig-name descname"><span class="pre">FloatType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/float.html#FloatType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.float.FloatType" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.float.</span></span><span class="sig-name descname"><span class="pre">FloatType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/float.html#FloatType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.float.FloatType" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_float</span></code>]</p>
 <p>A simple type interface for single-precision floating-point.</p>
 <dl class="py attribute">
@@ -711,7 +711,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.float.FloatType.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'float'</span></em><a class="headerlink" href="#runtimepy.primitives.types.float.FloatType.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'float'</span></span><a class="headerlink" href="#runtimepy.primitives.types.float.FloatType.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -724,7 +724,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.float.HalfType">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.float.</span></span><span class="sig-name descname"><span class="pre">HalfType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/float.html#HalfType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.float.HalfType" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.float.</span></span><span class="sig-name descname"><span class="pre">HalfType</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/float.html#HalfType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.float.HalfType" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_float</span></code>]</p>
 <p>A simple type interface for single-precision floating-point.</p>
 <dl class="py attribute">
@@ -735,7 +735,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.float.HalfType.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'half'</span></em><a class="headerlink" href="#runtimepy.primitives.types.float.HalfType.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'half'</span></span><a class="headerlink" href="#runtimepy.primitives.types.float.HalfType.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -752,7 +752,7 @@ instead of the provided value if it exceeds these bounds.</p>
 <p>A module implementing a type interface for integers.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int16Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int16Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int16Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int16Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int16Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int16Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int16Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_short</span></code>]</p>
 <p>A simple type interface for int16’s.</p>
 <dl class="py attribute">
@@ -763,7 +763,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int16Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int16'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Int16Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int16'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Int16Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -776,7 +776,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int32Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int32Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int32Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int32Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int32Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int32Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int32Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_int</span></code>]</p>
 <p>A simple type interface for int32’s.</p>
 <dl class="py attribute">
@@ -787,7 +787,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int32Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int32'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Int32Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int32'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Int32Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -800,7 +800,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int64Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int64Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int64Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int64Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int64Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int64Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int64Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_long</span></code>]</p>
 <p>A simple type interface for int64’s.</p>
 <dl class="py attribute">
@@ -811,7 +811,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int64Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int64'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Int64Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int64'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Int64Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -824,7 +824,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int8Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int8Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int8Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int8Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Int8Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Int8Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Int8Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_byte</span></code>]</p>
 <p>A simple type interface for int8’s.</p>
 <dl class="py attribute">
@@ -835,7 +835,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Int8Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int8'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Int8Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'int8'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Int8Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -848,7 +848,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint16Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint16Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint16Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint16Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint16Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint16Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint16Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_ushort</span></code>]</p>
 <p>A simple type interface for uint16’s.</p>
 <dl class="py attribute">
@@ -859,7 +859,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint16Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint16'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Uint16Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint16'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Uint16Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -872,7 +872,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint32Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint32Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint32Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint32Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint32Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint32Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint32Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_uint</span></code>]</p>
 <p>A simple type interface for uint32’s.</p>
 <dl class="py attribute">
@@ -883,7 +883,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint32Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint32'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Uint32Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint32'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Uint32Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -896,7 +896,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint64Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint64Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint64Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint64Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint64Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint64Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint64Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_ulong</span></code>]</p>
 <p>A simple type interface for uint64’s.</p>
 <dl class="py attribute">
@@ -907,7 +907,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint64Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint64'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Uint64Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint64'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Uint64Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -920,7 +920,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint8Type">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint8Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint8Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint8Type" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.types.int.</span></span><span class="sig-name descname"><span class="pre">Uint8Type</span></span><a class="reference internal" href="_modules/runtimepy/primitives/types/int.html#Uint8Type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.types.int.Uint8Type" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.types.base.PrimitiveType" title="runtimepy.primitives.types.base.PrimitiveType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimitiveType</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">c_ubyte</span></code>]</p>
 <p>A simple type interface for uint8’s.</p>
 <dl class="py attribute">
@@ -931,7 +931,7 @@ instead of the provided value if it exceeds these bounds.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.types.int.Uint8Type.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint8'</span></em><a class="headerlink" href="#runtimepy.primitives.types.int.Uint8Type.name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uint8'</span></span><a class="headerlink" href="#runtimepy.primitives.types.int.Uint8Type.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1138,7 +1138,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

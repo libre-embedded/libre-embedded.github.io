@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>vmklib &#8212; documentation</title>
+    <title>vmklib (2.0.12) &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=96e9dbe8"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -156,7 +156,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="vmklib.html">vmklib package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="vmklib.tasks.html">vmklib.tasks package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -292,7 +292,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -303,11 +305,64 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>vmklib</h1>
+    <h1>vmklib (2.0.12)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">vmklib (2.0.12)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">Targets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen">datazen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-arguments">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grip">grip</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pypi">pypi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib">vmklib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yaml">yaml</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -317,11 +372,244 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="vmklib">
-<h1>vmklib<a class="headerlink" href="#vmklib" title="Link to this heading">#</a></h1>
+  <!--
+    =====================================
+    generator=datazen
+    version=3.2.3
+    hash=840dae6ff36d11c17a8245212897c333
+    =====================================
+-->
+<section id="vmklib-2-0-12">
+<h1>vmklib (<a class="reference external" href="https://pypi.org/project/vmklib/">2.0.12</a>)<a class="headerlink" href="#vmklib-2-0-12" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/vmklib/"><img alt="python" src="https://img.shields.io/pypi/pyversions/vmklib.svg" /></a>
+<img alt="Build Status" src="https://github.com/libre-embedded/vmklib/workflows/Python%20Package/badge.svg" />
+<a class="reference external" href="https://codecov.io/github/libre-embedded/vmklib"><img alt="codecov" src="https://codecov.io/gh/libre-embedded/vmklib/branch/master/graphs/badge.svg?branch=master" /></a>
+<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/vmklib" />
+<img alt="Dependents (via libraries.io)" src="https://img.shields.io/librariesio/dependents/pypi/vmklib" /></p>
+<p><em>Simplify project workflows by standardizing use of GNU Make.</em></p>
 <p>Consider <a class="reference external" href="https://github.com/sponsors/libre-embedded">sponsoring development</a>.</p>
+<p>(<a class="reference external" href="https://libre-embedded.github.io/python/vmklib">interface documentation</a>)</p>
+<section id="python-version-support">
+<h2>Python Version Support<a class="headerlink" href="#python-version-support" title="Link to this heading">#</a></h2>
+<p>This package is tested with the following Python minor versions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3.13/"><code class="docutils literal notranslate"><span class="pre">python3.13</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.14/"><code class="docutils literal notranslate"><span class="pre">python3.14</span></code></a></p></li>
+</ul>
+</section>
+<section id="platform-support">
+<h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading">#</a></h2>
+<p>This package is tested on the following platforms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">macos-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">windows-latest</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>This tool integrates with existing <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>’s with zero additional
+content or bootstrapping required.</p>
+<p>There are many choices in technology or products for performing static
+analysis on source code, building test infrastructure, or managing local
+development environments. These are only a small subset of common, developer
+tasks when building software. This package intends to aggregate recipes
+(and their dependency relationships) for these tasks so that they can be
+integrated into a project without re-building this infrastructure. Lessons
+learned and improvements in each project can be back-propagated everywhere
+else with simple package updates.</p>
+</section>
+<section id="command-line-options">
+<h1>Command-line Options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mk -h
+
+usage: mk [-h] [--version] [-v] [-q] [--curses] [--no-uvloop] [-C DIR]
+          [-p PREFIX] [-d] [-D DEFAULT] [-f FILE] [-c CONFIG] [-P PROJ]
+          [targets ...]
+
+Simplify project workflows by standardizing use of GNU Make.
+
+positional arguments:
+  targets               targets to execute
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program&#39;s version number and exit
+  -v, --verbose         set to increase logging verbosity
+  -q, --quiet           set to reduce output
+  --curses              whether or not to use curses.wrapper when starting
+  --no-uvloop           whether or not to disable uvloop as event loop driver
+  -C, --dir DIR         execute from a specific directory
+  -p, --prefix PREFIX   a prefix to apply to all targets
+  -d, --disable-make    whether or not to allow GNU Make target resolution
+                        (default: &#39;False&#39;)
+  -D, --default DEFAULT
+                        default target to make if none is specified (default:
+                        &#39;all&#39;)
+  -f, --file FILE       file to source user-provided recipes from (default:
+                        &#39;Makefile&#39;)
+  -c, --config CONFIG   file to source user-provided variable definitions,
+                        ahead of loading package makefiles (default:
+                        &#39;vmklib.json&#39;)
+  -P, --proj PROJ       project name for internal variable use
+
+</pre></div>
+</div>
+</section>
+<section id="targets">
+<h1>Targets<a class="headerlink" href="#targets" title="Link to this heading">#</a></h1>
+<p>Note that the full invocation for a target’s command is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mk</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">prefix</span><span class="o">&gt;-&lt;</span><span class="n">command</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">ARG1</span><span class="o">=</span><span class="n">val1</span> <span class="n">ARG2</span><span class="o">=</span><span class="n">val2</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="datazen">
+<h2>datazen<a class="headerlink" href="#datazen" title="Link to this heading">#</a></h2>
+<p>Targets for use with the <a class="reference external" href="https://pypi.org/project/datazen/">datazen</a> package.</p>
+<p>Prefix: <code class="docutils literal notranslate"><span class="pre">dz-</span></code></p>
+<section id="optional-arguments">
+<h3>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Link to this heading">#</a></h3>
+<p><strong>DZ_DIR</strong> - Optionally override the <code class="docutils literal notranslate"><span class="pre">-C</span></code> argument.</p>
+<p><strong>DZ_MANIFEST</strong> - Optionally provide a non-default manifest file to <code class="docutils literal notranslate"><span class="pre">-m</span></code>.</p>
+<p><strong>DZ_VERBOSE</strong> - Setting this passes <code class="docutils literal notranslate"><span class="pre">-v</span></code> as an additional argument.</p>
+</section>
+<section id="commands">
+<h3>Commands<a class="headerlink" href="#commands" title="Link to this heading">#</a></h3>
+<p><strong>sync</strong> - Run <code class="docutils literal notranslate"><span class="pre">dz</span></code>, executing the default target.</p>
+<p><strong>clean</strong> - Run <code class="docutils literal notranslate"><span class="pre">dz</span></code> with <code class="docutils literal notranslate"><span class="pre">-c</span></code> to clean the cache.</p>
+<p><strong>describe</strong> - Run <code class="docutils literal notranslate"><span class="pre">dz</span></code> with <code class="docutils literal notranslate"><span class="pre">-d</span></code> to describe cache contents.</p>
+<p><strong>install</strong> - Install <code class="docutils literal notranslate"><span class="pre">datazen</span></code> in the resolved virtual environment (with <code class="docutils literal notranslate"><span class="pre">pip</span></code>). This depends on a “concrete” underlying target that allows it to be installed only once.</p>
+<p><strong>upgrade</strong> - Upgrade <code class="docutils literal notranslate"><span class="pre">datazen</span></code> in the resolved virtual environment (with <code class="docutils literal notranslate"><span class="pre">pip</span></code>).</p>
+</section>
+</section>
+<section id="grip">
+<h2>grip<a class="headerlink" href="#grip" title="Link to this heading">#</a></h2>
+<p>Targets for rendering <a class="reference external" href="https://docs.github.com/en/rest/reference/markdown">GitHub Markdown</a> with <a class="reference external" href="https://github.com/joeyespo/grip">grip</a>.</p>
+<p>Prefix: <code class="docutils literal notranslate"><span class="pre">grip-</span></code></p>
+<section id="id1">
+<h3>Optional Arguments<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>SECRETHUB_GRIP_PATH</strong> - The full path for the <code class="docutils literal notranslate"><span class="pre">secrethub</span> <span class="pre">read</span></code> command to source a <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">GitHub personal access token</a> from, requires <a class="reference external" href="https://secrethub.io/">secrethub</a>.</p>
+<p><strong>GRIP_PORT</strong> - The <code class="docutils literal notranslate"><span class="pre">host:port</span></code> String to serve the rendered results on.</p>
+<p><strong>GRIP_ENV</strong> - Output file to write to for sourcing credentials.</p>
+<p><strong>GRIP_FILE</strong> - The file to render, path is relative to project root.</p>
+</section>
+<section id="id2">
+<h3>Commands<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>check-env</strong> - Checks that <code class="docutils literal notranslate"><span class="pre">GRIP_TOKEN</span></code> is set in the environment, errors if not.</p>
+<p><strong>render</strong> - Serve <code class="docutils literal notranslate"><span class="pre">README.md</span></code> with <code class="docutils literal notranslate"><span class="pre">grip</span></code>.</p>
+</section>
+</section>
+<section id="pypi">
+<h2>pypi<a class="headerlink" href="#pypi" title="Link to this heading">#</a></h2>
+<p>Targets for uploading packages to <a class="reference external" href="https://pypi.org/">PyPI</a>.</p>
+<p>Prefix: <code class="docutils literal notranslate"><span class="pre">pypi-</span></code></p>
+<section id="id3">
+<h3>Optional Arguments<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>UPLOAD_ENV</strong> - Output file to write to for sourcing credentials.</p>
+<p><strong>SECRETHUB_PYPI_PATH</strong> - The full path for the <code class="docutils literal notranslate"><span class="pre">secrethub</span> <span class="pre">read</span></code> command to source a <a class="reference external" href="https://pypi.org/help/#apitoken">PyPI API token</a> from, requires <a class="reference external" href="https://secrethub.io/">secrethub</a>.</p>
+</section>
+<section id="id4">
+<h3>Commands<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>check-env</strong> - Enforces that <code class="docutils literal notranslate"><span class="pre">TWINE_USERNAME</span></code> and <code class="docutils literal notranslate"><span class="pre">TWINE_PASSWORD</span></code> are set in the environment, errors if not.</p>
+<p><strong>upload</strong> - Attempt to upload everything in <code class="docutils literal notranslate"><span class="pre">dist</span></code> to <a class="reference external" href="https://pypi.org/">PyPI</a>.</p>
+</section>
+</section>
+<section id="python">
+<h2>python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<p>Targets for executing common, <a class="reference external" href="https://www.python.org/">Python</a> workflow tasks.</p>
+<p>Prefix: <code class="docutils literal notranslate"><span class="pre">python-</span></code></p>
+<section id="id5">
+<h3>Optional Arguments<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>PY_LINT_ARGS</strong> - Set to override the default, adds the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory and <code class="docutils literal notranslate"><span class="pre">PY_LINT_EXTRA_ARGS</span></code>.</p>
+<p><strong>PY_WIDTH</strong> - Override (from <code class="docutils literal notranslate"><span class="pre">79</span></code>) to set <code class="docutils literal notranslate"><span class="pre">--line-length</span></code> arguments for formatters.</p>
+<p><strong>PY_LINT_EXTRA_ARGS</strong> - Set to add additional linting arguments.</p>
+<p><strong>PYTEST_ARGS</strong> - Set to override the default, additional <a class="reference external" href="https://docs.pytest.org/en/stable/">pytest</a> arguments.</p>
+<p><strong>PYTEST_EXTRA_ARGS</strong> - Add additional arguments to the default set.</p>
+<p><strong>PYTHON_COV_PORT</strong> - Port to host test-coverage HTML on (using <code class="docutils literal notranslate"><span class="pre">http.server</span></code>). Defaults to zero.</p>
+<p><strong>PY_BUILDER</strong> - The target name to use as a <code class="docutils literal notranslate"><span class="pre">python-upload</span></code> dependency (e.g. <code class="docutils literal notranslate"><span class="pre">python-dist</span></code> versus <code class="docutils literal notranslate"><span class="pre">python-build</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">python-build</span></code>.</p>
+<p><strong>PY_DOCS_HOST</strong> - Host argument passed to <code class="docutils literal notranslate"><span class="pre">pydoc</span></code> module (<code class="docutils literal notranslate"><span class="pre">-n</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p>
+<p><strong>PY_DOCS_PORT</strong> - Port argument passed to <code class="docutils literal notranslate"><span class="pre">pydoc</span></code> module (<code class="docutils literal notranslate"><span class="pre">-p</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p><strong>PY_DOCS_EXTRA_ARGS</strong> - Extra arguments to pass to the <code class="docutils literal notranslate"><span class="pre">pydoc</span></code> module.</p>
+</section>
+<section id="id6">
+<h3>Commands<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>lint</strong> - Run <a class="reference external" href="https://www.pylint.org/">pylint</a> and <a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> against a project’s package sources. Also runs the format checkers.</p>
+<p><strong>sa</strong> - Run <a class="reference external" href="http://mypy-lang.org/">mypy</a> against a project’s package sources.</p>
+<p><strong>sa-types</strong> - Run <a class="reference external" href="http://mypy-lang.org/">mypy</a> without checking the result and attempt to install missing type/stub packages.</p>
+<p><strong>stubs</strong> - Run <a class="reference external" href="https://mypy.readthedocs.io/en/stable/stubgen.html">stubgen</a> against a project’s package sources.</p>
+<p><strong>format</strong> - Run <a class="reference external" href="https://pypi.org/project/black/">black</a> and <a class="reference external" href="https://pypi.org/project/isort/">isort</a> against a project’s package sources.</p>
+<p><strong>format-check</strong> - Run <a class="reference external" href="https://pypi.org/project/black/">black</a> with the <code class="docutils literal notranslate"><span class="pre">--check</span></code> argument and <a class="reference external" href="https://pypi.org/project/isort/">isort</a> with the <code class="docutils literal notranslate"><span class="pre">--check-only</span></code> argument.</p>
+<p><strong>tags</strong> - Create a <code class="docutils literal notranslate"><span class="pre">tags</span></code> file for the project using <a class="reference external" href="https://github.com/universal-ctags/ctags">ctags</a> (must be installed).</p>
+<p><strong>edit</strong> - Create <code class="docutils literal notranslate"><span class="pre">tags</span></code> and then open $EDITOR in the project directory.</p>
+<p><strong>test</strong> - Run all of a project’s tests with <a class="reference external" href="https://docs.pytest.org/en/stable/">pytest</a>.</p>
+<p><strong>test-%</strong> - Run project tests based on a search pattern (i.e. the <code class="docutils literal notranslate"><span class="pre">-k</span></code> option).</p>
+<p><strong>view</strong> - Attempt to open the test-coverage HTML with <code class="docutils literal notranslate"><span class="pre">$BROWSER</span></code> (environment variable).</p>
+<p><strong>host-coverage</strong> - Host test-coverage HTML locally, with the port specified by <code class="docutils literal notranslate"><span class="pre">PYTHON_COV_PORT</span></code>.</p>
+<p><strong>all</strong> - Run <code class="docutils literal notranslate"><span class="pre">lint</span></code>, <code class="docutils literal notranslate"><span class="pre">sa</span></code> and <code class="docutils literal notranslate"><span class="pre">test</span></code> in sequence.</p>
+<p><strong>clean</strong> - Remove compiled and cached files, test coverage, built package artifacts and other caches.</p>
+<p><strong>dist</strong> - Build <code class="docutils literal notranslate"><span class="pre">sdist</span></code> and <code class="docutils literal notranslate"><span class="pre">bdist_wheel</span></code> with <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> in the project root.</p>
+<p><strong>build</strong> - Build the package with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">build</span></code>.</p>
+<p><strong>dist-with-stubs</strong> - Build <code class="docutils literal notranslate"><span class="pre">sdist</span></code> and <code class="docutils literal notranslate"><span class="pre">bdist_wheel</span></code> with <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> in the project root, this also runs <code class="docutils literal notranslate"><span class="pre">stubgen</span></code> ahead of packaging so that stubs are included in the source distribution and wheel.</p>
+<p><strong>upload</strong> - Use <a class="reference external" href="https://pypi.org/project/twine/">twine</a> to upload the built package to <a class="reference external" href="https://pypi.org/">PyPI</a>.</p>
+<p><strong>editable</strong> - Install the project’s package in editable mode (<code class="docutils literal notranslate"><span class="pre">-e</span></code> option) to the virtual environment.</p>
+<p><strong>docs</strong> - Run the <code class="docutils literal notranslate"><span class="pre">pydoc</span></code> module and host HTML documentation via an arbitrary HTTP port.</p>
+<p><strong>docs-%</strong> - Run the <code class="docutils literal notranslate"><span class="pre">pydoc</span></code> module and pass the stem as an argument.</p>
+<p><strong>deps</strong> - Run <code class="docutils literal notranslate"><span class="pre">pydeps</span></code> against the project (producing <a class="reference external" href="https://www.w3.org/TR/SVG2/">SVG</a> output).</p>
+</section>
+</section>
+<section id="venv">
+<h2>venv<a class="headerlink" href="#venv" title="Link to this heading">#</a></h2>
+<p>Targets for managing <a class="reference external" href="https://docs.python.org/3/library/venv.html">Python virtual environments</a>.</p>
+<p>Prefix: <code class="docutils literal notranslate"><span class="pre">(no</span> <span class="pre">prefix)</span></code></p>
+<section id="id7">
+<h3>Optional Arguments<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>PYTHON_VERSION</strong> - The version of Python to create a virtual environment for. (default: <code class="docutils literal notranslate"><span class="pre">3.8</span></code>)</p>
+<p><strong>REQUIREMENTS_DIR</strong> - The location of the directory containing requirements files. (default: <code class="docutils literal notranslate"><span class="pre">requirements</span></code> in the project root)</p>
+<p><strong>REQ_FILES</strong> - Text files to install requirements from (using <code class="docutils literal notranslate"><span class="pre">-r</span></code>), in the requirements directory. (default: <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">dev_requirements.txt</span></code>)</p>
+</section>
+<section id="id8">
+<h3>Commands<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>venv</strong> - Create or update the resolved virtual environment, if necessary.</p>
+<p><strong>venv-clean</strong> - Remove any virtual environments from the project root (or sub-directories).</p>
+</section>
+</section>
+<section id="vmklib">
+<h2>vmklib<a class="headerlink" href="#vmklib" title="Link to this heading">#</a></h2>
+<p>Targets related to this package, itself.</p>
+<p>Prefix: <code class="docutils literal notranslate"><span class="pre">mk-</span></code></p>
+<section id="id9">
+<h3>Commands<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>upgrade</strong> - Upgrade (or install) <code class="docutils literal notranslate"><span class="pre">vmklib</span></code> in the resolved virtual environment.</p>
+<p><strong>sys-upgrade</strong> - Upgrade (or install) <code class="docutils literal notranslate"><span class="pre">vmklib</span></code> as a system or user package.</p>
+<p><strong>header</strong> - Print the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> header that should be used when integrating this package.</p>
+<p><strong>todo</strong> - Perform a case-insensitive search for <code class="docutils literal notranslate"><span class="pre">todo</span></code> in project directories.</p>
+</section>
+</section>
+<section id="yaml">
+<h2>yaml<a class="headerlink" href="#yaml" title="Link to this heading">#</a></h2>
+<p>Targets for interacting with <a class="reference external" href="https://yaml.org/">yaml</a> data (files).</p>
+<p>Prefix: <code class="docutils literal notranslate"><span class="pre">yaml-</span></code></p>
+<section id="id10">
+<h3>Optional Arguments<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>YAMLLINT_ARGS</strong> - Set to provide arguments to <code class="docutils literal notranslate"><span class="pre">yamllint</span></code> (such as the path to a config file).</p>
+</section>
+<section id="id11">
+<h3>Commands<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>yaml-lint-install</strong> - Install <a class="reference external" href="https://yamllint.readthedocs.io/en/stable/index.html">yamllint</a>.</p>
+<p><strong>yaml-lint-%</strong> - Execute <code class="docutils literal notranslate"><span class="pre">yamllint</span></code> against <code class="docutils literal notranslate"><span class="pre">$*</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="internal-dependency-graph">
+<h1>Internal Dependency Graph<a class="headerlink" href="#internal-dependency-graph" title="Link to this heading">#</a></h1>
+<p>A coarse view of the internal structure and scale of
+<code class="docutils literal notranslate"><span class="pre">vmklib</span></code>’s source.
+Generated using <a class="reference external" href="https://github.com/thebjorn/pydeps">pydeps</a> (via
+<code class="docutils literal notranslate"><span class="pre">mk</span> <span class="pre">python-deps</span></code>).</p>
+<p><img alt="vmklib's Dependency Graph" src="_images/pydeps.svg" /></p>
+</section>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="vmklib.html">vmklib package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="vmklib.html#subpackages">Subpackages</a><ul>
@@ -361,7 +649,6 @@ document.write(`
 </li>
 </ul>
 </div>
-</section>
 
 
                 </article>
@@ -390,6 +677,66 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">vmklib (2.0.12)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">Targets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datazen">datazen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-arguments">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grip">grip</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pypi">pypi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmklib">vmklib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yaml">yaml</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Optional Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -409,7 +756,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

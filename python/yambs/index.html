@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>yambs &#8212; documentation</title>
+    <title>yambs (3.1.5) &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=1cebcb90"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -156,7 +156,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="yambs.html">yambs package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
@@ -305,7 +305,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -316,11 +318,51 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>yambs</h1>
+    <h1>yambs (3.1.5)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">yambs (3.1.5)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-art">Prior Art</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#y-a-w-r">Y.A.W.R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system-cardinal-sins">Build System Cardinal Sins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-configurability-and-flexibility">Infinite Configurability and Flexibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-scalability">Infinite Scalability</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-command-options">Sub-command Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-config"><code class="docutils literal notranslate"><span class="pre">compile_config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dist"><code class="docutils literal notranslate"><span class="pre">dist</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download"><code class="docutils literal notranslate"><span class="pre">download</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gen"><code class="docutils literal notranslate"><span class="pre">gen</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native"><code class="docutils literal notranslate"><span class="pre">native</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native-manifest"><code class="docutils literal notranslate"><span class="pre">native_manifest</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uf2conv"><code class="docutils literal notranslate"><span class="pre">uf2conv</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -330,28 +372,328 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="yambs">
-<h1>yambs<a class="headerlink" href="#yambs" title="Link to this heading">#</a></h1>
+  <!--
+    =====================================
+    generator=datazen
+    version=3.2.3
+    hash=58bc1833c21224133e8483cced381959
+    =====================================
+-->
+<section id="yambs-3-1-5">
+<h1>yambs (<a class="reference external" href="https://pypi.org/project/yambs/">3.1.5</a>)<a class="headerlink" href="#yambs-3-1-5" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/yambs/"><img alt="python" src="https://img.shields.io/pypi/pyversions/yambs.svg" /></a>
+<img alt="Build Status" src="https://github.com/libre-embedded/yambs/workflows/Python%20Package/badge.svg" />
+<a class="reference external" href="https://codecov.io/github/libre-embedded/yambs"><img alt="codecov" src="https://codecov.io/gh/libre-embedded/yambs/branch/master/graphs/badge.svg?branch=master" /></a>
+<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/yambs" />
+<img alt="Dependents (via libraries.io)" src="https://img.shields.io/librariesio/dependents/pypi/yambs" /></p>
+<p><em>Yet another meta build-system.</em></p>
 <p>Consider <a class="reference external" href="https://github.com/sponsors/libre-embedded">sponsoring development</a>.</p>
+<p>(<a class="reference external" href="https://libre-embedded.github.io/python/yambs">interface documentation</a>)</p>
+<section id="python-version-support">
+<h2>Python Version Support<a class="headerlink" href="#python-version-support" title="Link to this heading">#</a></h2>
+<p>This package is tested with the following Python minor versions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3.13/"><code class="docutils literal notranslate"><span class="pre">python3.13</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.14/"><code class="docutils literal notranslate"><span class="pre">python3.14</span></code></a></p></li>
+</ul>
+</section>
+<section id="platform-support">
+<h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading">#</a></h2>
+<p>This package is tested on the following platforms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">macos-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">windows-latest</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>It’s undeniable that a software engineer must implement some project-workflow
+tooling as a coming-of-age endeavor.</p>
+<p>Your current workflow is slow and cumbersome? Time to roll up your sleeves and
+improve it!</p>
+<p>What does every build system on the block advertise? <em>Speed</em> of course!</p>
+<p>What else do they advertise? Scalability! Compile source repositories that only
+fleets of data centers can even fathom checking out entire source trees of.
+Compile your whole company’s software stack in only eight hours! (Down from
+ten from the previous build-system we used!!!)</p>
+<p><strong>Most build systems optimize for technical problem solving, and leave
+user-facing configuration and recurring-interaction mechanisms an
+afterthought.</strong></p>
+<p>Want to use our awesome tool that solves every hard computer-science problem
+known to mankind? Sorry but you need to learn a totally bespoke programming
+language to get started. What’s that? Does it have linting + formatting +
+static-analysis tooling? Your text editor doesn’t even ship with syntax
+highlighting out of the box? C’mon just configure your build. Buy some books
+on Amazon and spend a few days reading the manual cover-to-cover.</p>
+<p>This project aims at bringing sanity to the user-facing parts of build systems:
+<strong>the commands you enter, and the coherence of configuration data that actually
+warrants human management</strong> (and not automated generation).</p>
+<section id="prior-art">
+<h2>Prior Art<a class="headerlink" href="#prior-art" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vkottler/vmklib">vmklib</a> - a “Makefile library” with a
+Python extensibility interface, great for generic project workflow tasks, but
+not specific enough for meta build-system purposes</p></li>
+<li><p><a class="reference external" href="https://github.com/vkottler/datazen">datazen</a> - a solution for connecting
+the awesomeness of <a class="reference external" href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja</a> to
+data and template directories, eliminating a need for writing bespoke code
+to generate common boilerplate when a bit of configuration data is sufficient</p></li>
+<li><p><a class="reference external" href="https://github.com/vkottler/rcmpy">rcmpy</a> - a more targeted <code class="docutils literal notranslate"><span class="pre">datazen</span></code>,
+focused on a “put templates and configuration data here” approach to
+generating userspace configuration files (for e.g. your developer workstation
+editor, shell and other configurations)</p></li>
+<li><p><a class="reference external" href="https://github.com/vkottler/userfs">userfs</a> - a tool for performing
+arbitrary fresh-system bootstrapping tasks (cloning repositories, building
+and installing software from source) at the userspace level, rather than as
+a privileged user</p></li>
+</ul>
+</section>
+</section>
+<section id="y-a-w-r">
+<h1>Y.A.W.R<a class="headerlink" href="#y-a-w-r" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">yambs</span></code> ain’t wheel reinvention.</p>
+<p>This isn’t a build-system alternative - it generates build instructions for
+<a class="reference external" href="https://ninja-build.org/">ninja</a>.</p>
+<p>What’s that? Have I heard of <a class="reference external" href="https://cmake.org/">CMake</a>?
+<a class="reference external" href="https://mesonbuild.com/">Meson</a> perhaps? What about
+<a class="reference external" href="https://bazel.build/">Bazel</a>? GNU’s <a class="reference external" href="https://www.gnu.org/software/make/">Make</a>
+is a timeless classic.</p>
+<section id="build-system-cardinal-sins">
+<h2>Build System Cardinal Sins<a class="headerlink" href="#build-system-cardinal-sins" title="Link to this heading">#</a></h2>
+<section id="infinite-configurability-and-flexibility">
+<h3>Infinite Configurability and Flexibility<a class="headerlink" href="#infinite-configurability-and-flexibility" title="Link to this heading">#</a></h3>
+<p>It’s understandable that almost every build system implementation begins with
+the objective of compiling sources and linking programs from an <em>existing</em>
+source tree, with probably a lot of inconsistent organization conventions.</p>
+<p>This drives complexity into the build system’s interface for being told what
+to do. <strong>It’s rare for any build system to have an out-of-the-box notion of
+where to look for things and what work to do.</strong></p>
+</section>
+<section id="infinite-scalability">
+<h3>Infinite Scalability<a class="headerlink" href="#infinite-scalability" title="Link to this heading">#</a></h3>
+<p>Isn’t any modern piece of software junk if it can’t scale to millions of
+concurrent network connections / disk read-write tasks / computations?</p>
+<p>That’s what the current software engineering zeitgeist will tell you. Why
+define conventions for small/medium projects, trivial to spawn the N+1’th
+instance when the need arises, when you can spend all of your time making an
+infinitely scalable build system for every line of code that thousands of
+people are contributing every day?</p>
+</section>
+</section>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Sane out-of-the-box conventions: put your code here (and organize it by
+following a specific convention), put your configuration data here.</p></li>
+</ol>
+</section>
+</section>
+<section id="command-line-options">
+<h1>Command-line Options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs -h
+
+usage: mbs [-h] [--version] [-v] [-q] [--curses] [--no-uvloop] [-C DIR]
+           {compile_config,dist,download,gen,native,native_manifest,uf2conv,noop} ...
+
+Yet another meta build-system.
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program&#39;s version number and exit
+  -v, --verbose         set to increase logging verbosity
+  -q, --quiet           set to reduce output
+  --curses              whether or not to use curses.wrapper when starting
+  --no-uvloop           whether or not to disable uvloop as event loop driver
+  -C, --dir DIR         execute from a specific directory
+
+commands:
+  {compile_config,dist,download,gen,native,native_manifest,uf2conv,noop}
+                        set of available commands
+    compile_config      load configuration data and write results to a file
+    dist                create a source distribution
+    download            download GitHub release assets
+    gen                 poll the source tree and generate any new build files
+    native              generate build files for native-style projects
+    native_manifest     generate a source-file manifest for native-style
+                        projects
+    uf2conv             convert to UF2 or flash directly
+    noop                command stub (does nothing)
+
+</pre></div>
+</div>
+<section id="sub-command-options">
+<h2>Sub-command Options<a class="headerlink" href="#sub-command-options" title="Link to this heading">#</a></h2>
+<section id="compile-config">
+<h3><code class="docutils literal notranslate"><span class="pre">compile_config</span></code><a class="headerlink" href="#compile-config" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs compile_config -h
+
+usage: mbs compile_config [-h] [-i INCLUDES_KEY] [-u] [-e]
+                          output inputs [inputs ...]
+
+positional arguments:
+  output                file to write
+  inputs                files to read
+
+options:
+  -h, --help            show this help message and exit
+  -i, --includes-key INCLUDES_KEY
+                        top-level key to use for included files (default:
+                        includes)
+  -u, --update          whether or not to use the &#39;update&#39; merge strategy
+                        (instead of &#39;recursive&#39;)
+  -e, --expect-overwrite
+                        allow configuration files to overwrite data when
+                        loaded
+
+</pre></div>
+</div>
+</section>
+<section id="dist">
+<h3><code class="docutils literal notranslate"><span class="pre">dist</span></code><a class="headerlink" href="#dist" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs dist -h
+
+usage: mbs dist [-h] [-c CONFIG] [-s]
+
+options:
+  -h, --help           show this help message and exit
+  -c, --config CONFIG  the path to the top-level configuration file (default:
+                       &#39;yambs.yaml&#39;)
+  -s, --sources        set this flag to only capture source files
+
+</pre></div>
+</div>
+</section>
+<section id="download">
+<h3><code class="docutils literal notranslate"><span class="pre">download</span></code><a class="headerlink" href="#download" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs download -h
+
+usage: mbs download [-h] [-o OWNER] [-r REPO] [-O OUTPUT] [-p PATTERN]
+
+options:
+  -h, --help            show this help message and exit
+  -o, --owner OWNER     repository owner (default: &#39;libre-embedded&#39;)
+  -r, --repo REPO       repository name (default: &#39;toolchains&#39;)
+  -O, --output OUTPUT   output directory (default: &#39;.&#39;)
+  -p, --pattern PATTERN
+                        a pattern to use to select project specifications
+                        filtered by name
+
+</pre></div>
+</div>
+</section>
+<section id="gen">
+<h3><code class="docutils literal notranslate"><span class="pre">gen</span></code><a class="headerlink" href="#gen" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs gen -h
+
+usage: mbs gen [-h] [-c CONFIG] [-i] [-w] [-s] [-n]
+
+options:
+  -h, --help           show this help message and exit
+  -c, --config CONFIG  the path to the top-level configuration file (default:
+                       &#39;yambs.yaml&#39;)
+  -i, --single-pass    only run a single watch iteration
+  -w, --watch          whether or not to continue watching for source tree
+                       changes
+  -s, --sources        whether or not to only re-generate source manifests
+  -n, --no-build       whether or not to skip running &#39;ninja&#39;
+
+</pre></div>
+</div>
+</section>
+<section id="native">
+<h3><code class="docutils literal notranslate"><span class="pre">native</span></code><a class="headerlink" href="#native" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs native -h
+
+usage: mbs native [-h] [-c CONFIG] [-i] [-w] [-s] [-n]
+
+options:
+  -h, --help           show this help message and exit
+  -c, --config CONFIG  the path to the top-level configuration file (default:
+                       &#39;yambs.yaml&#39;)
+  -i, --single-pass    only run a single watch iteration
+  -w, --watch          whether or not to continue watching for source tree
+                       changes
+  -s, --sources        whether or not to only re-generate source manifests
+  -n, --no-build       whether or not to skip running &#39;ninja&#39;
+
+</pre></div>
+</div>
+</section>
+<section id="native-manifest">
+<h3><code class="docutils literal notranslate"><span class="pre">native_manifest</span></code><a class="headerlink" href="#native-manifest" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs native_manifest -h
+
+usage: mbs native_manifest [-h] [-c CONFIG]
+
+options:
+  -h, --help           show this help message and exit
+  -c, --config CONFIG  the path to the top-level configuration file (default:
+                       &#39;yambs.yaml&#39;)
+
+</pre></div>
+</div>
+</section>
+<section id="uf2conv">
+<h3><code class="docutils literal notranslate"><span class="pre">uf2conv</span></code><a class="headerlink" href="#uf2conv" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/mbs uf2conv -h
+
+usage: mbs uf2conv [-h] [-b BASE] [-f FAMILY] [-o FILE] [-d DEVICE_PATH] [-l]
+                   [-c] [-D] [-w] [-C] [-i]
+                   [INPUT]
+
+positional arguments:
+  INPUT                 input file (HEX, BIN or UF2)
+
+options:
+  -h, --help            show this help message and exit
+  -b, --base BASE       set base address of application for BIN format
+                        (default: 0x2000)
+  -f, --family FAMILY   specify familyID - number or name (default: 0x0)
+  -o, --output FILE     write output to named file; defaults to &quot;flash.uf2&quot; or
+                        &quot;flash.bin&quot; where sensible
+  -d, --device DEVICE_PATH
+                        select a device path to flash
+  -l, --list            list connected devices
+  -c, --convert         do not flash, just convert
+  -D, --deploy          just flash, do not convert
+  -w, --wait            wait for device to flash
+  -C, --carray          convert binary file to a C array, not UF2
+  -i, --info            display header information from UF2, do not convert
+
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="internal-dependency-graph">
+<h1>Internal Dependency Graph<a class="headerlink" href="#internal-dependency-graph" title="Link to this heading">#</a></h1>
+<p>A coarse view of the internal structure and scale of
+<code class="docutils literal notranslate"><span class="pre">yambs</span></code>’s source.
+Generated using <a class="reference external" href="https://github.com/thebjorn/pydeps">pydeps</a> (via
+<code class="docutils literal notranslate"><span class="pre">mk</span> <span class="pre">python-deps</span></code>).</p>
+<p><img alt="yambs's Dependency Graph" src="_images/pydeps.svg" /></p>
+</section>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="yambs.html">yambs package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="yambs.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="yambs.aggregation.html#module-contents">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.aggregation.html#module-yambs.aggregation">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html">yambs.commands package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#yambs-commands-all-module">yambs.commands.all module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.all">yambs.commands.all module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.common">yambs.commands.common module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#yambs-commands-compile-config-module">yambs.commands.compile_config module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#yambs-commands-dist-module">yambs.commands.dist module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.compile_config">yambs.commands.compile_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.dist">yambs.commands.dist module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.download">yambs.commands.download module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#yambs-commands-gen-module">yambs.commands.gen module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#yambs-commands-native-module">yambs.commands.native module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#yambs-commands-native-manifest-module">yambs.commands.native_manifest module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.gen">yambs.commands.gen module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.native">yambs.commands.native module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.native_manifest">yambs.commands.native_manifest module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.uf2conv">yambs.commands.uf2conv module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.commands.html#module-yambs.commands">Module contents</a></li>
 </ul>
@@ -369,7 +711,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#module-yambs.dependency.config">yambs.dependency.config module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#module-yambs.dependency.github">yambs.dependency.github module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#yambs-dependency-manager-module">yambs.dependency.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#module-yambs.dependency.manager">yambs.dependency.manager module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#module-yambs.dependency.state">yambs.dependency.state module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#module-yambs.dependency">Module contents</a></li>
 </ul>
@@ -380,20 +722,20 @@ document.write(`
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.environment.html">yambs.environment package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs-environment-native-module">yambs.environment.native module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#module-yambs.environment.native">yambs.environment.native module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#module-yambs.environment">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.generate.html">yambs.generate package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#yambs-generate-architectures-module">yambs.generate.architectures module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#yambs-generate-boards-module">yambs.generate.boards module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#yambs-generate-chips-module">yambs.generate.chips module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#yambs-generate-common-module">yambs.generate.common module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#yambs-generate-toolchains-module">yambs.generate.toolchains module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#yambs-generate-variants-module">yambs.generate.variants module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-contents">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.architectures">yambs.generate.architectures module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.boards">yambs.generate.boards module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.chips">yambs.generate.chips module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.common">yambs.generate.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.toolchains">yambs.generate.toolchains module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.variants">yambs.generate.variants module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.html#module-yambs.generate">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.github.html">yambs.github package</a><ul>
@@ -411,8 +753,15 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.html#yambs-app-module">yambs.app module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.html#yambs-entry-module">yambs.entry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.app">yambs.app module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.html#yambs.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.html#yambs.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.entry">yambs.entry module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.html#yambs.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.paths">yambs.paths module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.html#yambs.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.html#yambs.paths.resolve_build_dir"><code class="docutils literal notranslate"><span class="pre">resolve_build_dir()</span></code></a></li>
@@ -431,7 +780,6 @@ document.write(`
 </li>
 </ul>
 </div>
-</section>
 
 
                 </article>
@@ -460,6 +808,53 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">yambs (3.1.5)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-art">Prior Art</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#y-a-w-r">Y.A.W.R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system-cardinal-sins">Build System Cardinal Sins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-configurability-and-flexibility">Infinite Configurability and Flexibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-scalability">Infinite Scalability</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-command-options">Sub-command Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-config"><code class="docutils literal notranslate"><span class="pre">compile_config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dist"><code class="docutils literal notranslate"><span class="pre">dist</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download"><code class="docutils literal notranslate"><span class="pre">download</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gen"><code class="docutils literal notranslate"><span class="pre">gen</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native"><code class="docutils literal notranslate"><span class="pre">native</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#native-manifest"><code class="docutils literal notranslate"><span class="pre">native_manifest</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uf2conv"><code class="docutils literal notranslate"><span class="pre">uf2conv</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -479,7 +874,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

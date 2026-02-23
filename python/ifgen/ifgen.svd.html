@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ifgen.svd package &#8212; documentation</title>
+    <title>ifgen.svd package &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=3b39a0c6"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ifgen.svd';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -155,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="ifgen.html">ifgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
@@ -548,6 +548,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.register_groups"><code class="docutils literal notranslate"><span class="pre">Peripheral.register_groups()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.registers"><code class="docutils literal notranslate"><span class="pre">Peripheral.registers</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.string_keys"><code class="docutils literal notranslate"><span class="pre">Peripheral.string_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Peripheral.system_width_bits"><code class="docutils literal notranslate"><span class="pre">Peripheral.system_width_bits</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.peripheral.Register"><code class="docutils literal notranslate"><span class="pre">Register</span></code></a><ul>
@@ -614,7 +615,7 @@ document.write(`
 <p>A module implementing a ‘peripherals’ SVD-element processor.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ifgen.svd.peripherals.process_peripheral">
-<span class="sig-prename descclassname"><span class="pre">ifgen.svd.peripherals.</span></span><span class="sig-name descname"><span class="pre">process_peripheral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/peripherals.html#process_peripheral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.peripherals.process_peripheral" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ifgen.svd.peripherals.</span></span><span class="sig-name descname"><span class="pre">process_peripheral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_width_bits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/svd/peripherals.html#process_peripheral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.peripherals.process_peripheral" title="Link to this definition">#</a></dt>
 <dd><p>Process a SVD peripheral element.</p>
 </dd></dl>
 
@@ -652,35 +653,35 @@ document.write(`
 <p>A module implementing interfaces for string-data elements.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyVal">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.svd.string.</span></span><span class="sig-name descname"><span class="pre">StringKeyVal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyVal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyVal" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.svd.string.</span></span><span class="sig-name descname"><span class="pre">StringKeyVal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyVal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyVal" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Name of key and whether or not it’s required.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyVal.key">
-<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ifgen.svd.string.StringKeyVal.key" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">key</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#ifgen.svd.string.StringKeyVal.key" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyVal.required">
-<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#ifgen.svd.string.StringKeyVal.required" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">required</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#ifgen.svd.string.StringKeyVal.required" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.svd.string.</span></span><span class="sig-name descname"><span class="pre">StringKeyValueMixin</span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.svd.string.</span></span><span class="sig-name descname"><span class="pre">StringKeyValueMixin</span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>A mixin for SVD data model classes.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.create">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.create" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.create" title="Link to this definition">#</a></dt>
 <dd><p>Create a device instance from an element.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.get_values">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.get_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.get_values" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Element</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.get_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.get_values" title="Link to this definition">#</a></dt>
 <dd><p>Get string values for this instance.</p>
 </dd></dl>
 
@@ -704,12 +705,12 @@ document.write(`
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.raw_data">
-<span class="sig-name descname"><span class="pre">raw_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.raw_data" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">raw_data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.raw_data" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ifgen.svd.string.StringKeyValueMixin.string_keys">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">string_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ifgen.svd.string.StringKeyVal" title="ifgen.svd.string.StringKeyVal"><span class="pre">StringKeyVal</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.string_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.string_keys" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">string_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ifgen.svd.string.StringKeyVal" title="ifgen.svd.string.StringKeyVal"><span class="pre">StringKeyVal</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ifgen/svd/string.html#StringKeyValueMixin.string_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.string.StringKeyValueMixin.string_keys" title="Link to this definition">#</a></dt>
 <dd><p>Get string keys for this instance type.</p>
 </dd></dl>
 
@@ -727,7 +728,7 @@ document.write(`
 <p>A module implementing an SVD-processing task interface.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.svd.task.</span></span><span class="sig-name descname"><span class="pre">SvdProcessingTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel" title="ifgen.svd.model.SvdModel"><span class="pre">SvdModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_enum_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.svd.task.</span></span><span class="sig-name descname"><span class="pre">SvdProcessingTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel" title="ifgen.svd.model.SvdModel"><span class="pre">SvdModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_enum_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A container for SVD-processing state.</p>
 <dl class="py method">
@@ -738,12 +739,12 @@ document.write(`
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.min_enum_width">
-<span class="sig-name descname"><span class="pre">min_enum_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.min_enum_width" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">min_enum_width</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.min_enum_width" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.model">
-<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel" title="ifgen.svd.model.SvdModel"><span class="pre">SvdModel</span></a></em><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.model" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">model</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="ifgen.svd.model.html#ifgen.svd.model.SvdModel" title="ifgen.svd.model.SvdModel"><span class="pre">SvdModel</span></a></span><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.model" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -754,7 +755,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ifgen.svd.task.SvdProcessingTask.svd">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_enum_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask.svd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.svd" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_enum_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ifgen.svd.task.SvdProcessingTask" title="ifgen.svd.task.SvdProcessingTask"><span class="pre">SvdProcessingTask</span></a></span></span><a class="reference internal" href="_modules/ifgen/svd/task.html#SvdProcessingTask.svd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.svd.task.SvdProcessingTask.svd" title="Link to this definition">#</a></dt>
 <dd><p>Process a single SVD file.</p>
 </dd></dl>
 
@@ -904,7 +905,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

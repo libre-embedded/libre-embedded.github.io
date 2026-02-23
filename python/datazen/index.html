@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>datazen &#8212; documentation</title>
+    <title>datazen (3.2.4) &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=4fe865c8"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -156,7 +156,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="datazen.html">datazen package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="datazen.classes.html">datazen.classes package</a></li>
@@ -290,7 +290,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -301,11 +303,47 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>datazen</h1>
+    <h1>datazen (3.2.4)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">datazen (3.2.4)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-schema-reference">Manifest Schema Reference</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-schema">Manifest Schema</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-directories">Default Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-includes">Manifest Includes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-directory">Output Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-directory">Cache Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-loads">Global Loads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-parameters">Manifest Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-target">Default Target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiles">Compiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renders">Renders</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-schema-types">Manifest Schema Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deps">deps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">paths</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -315,11 +353,321 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="datazen">
-<h1>datazen<a class="headerlink" href="#datazen" title="Link to this heading">#</a></h1>
+  <!--
+    =====================================
+    generator=datazen
+    version=3.2.4
+    hash=253c0964ea2445c99cbcbc8c0d0210a1
+    =====================================
+-->
+<section id="datazen-3-2-4">
+<h1>datazen (<a class="reference external" href="https://pypi.org/project/datazen/">3.2.4</a>)<a class="headerlink" href="#datazen-3-2-4" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/datazen/"><img alt="python" src="https://img.shields.io/pypi/pyversions/datazen.svg" /></a>
+<img alt="Build Status" src="https://github.com/libre-embedded/datazen/workflows/Python%20Package/badge.svg" />
+<a class="reference external" href="https://codecov.io/github/libre-embedded/datazen"><img alt="codecov" src="https://codecov.io/gh/libre-embedded/datazen/branch/master/graphs/badge.svg?branch=master" /></a>
+<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/datazen" />
+<img alt="Dependents (via libraries.io)" src="https://img.shields.io/librariesio/dependents/pypi/datazen" /></p>
+<p><em>Compile and render schema-validated configuration data.</em></p>
 <p>Consider <a class="reference external" href="https://github.com/sponsors/libre-embedded">sponsoring development</a>.</p>
+<p>(<a class="reference external" href="https://libre-embedded.github.io/python/datazen">interface documentation</a>)</p>
+<section id="python-version-support">
+<h2>Python Version Support<a class="headerlink" href="#python-version-support" title="Link to this heading">#</a></h2>
+<p>This package is tested with the following Python minor versions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3.13/"><code class="docutils literal notranslate"><span class="pre">python3.13</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.14/"><code class="docutils literal notranslate"><span class="pre">python3.14</span></code></a></p></li>
+</ul>
+</section>
+<section id="platform-support">
+<h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading">#</a></h2>
+<p>This package is tested on the following platforms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">macos-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">windows-latest</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>Good software is composable and configurable, but
+the complexity of managing configuration data scales with its complexity.</p>
+<p>This package simplifies data curation and partitioning for uses in rendering
+templates, or just rendering final sets of serialized data.</p>
+</section>
+<section id="manifest-schema-reference">
+<h1>Manifest Schema Reference<a class="headerlink" href="#manifest-schema-reference" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="#default-directories"><span class="xref myst">Default Directories</span></a></p></li>
+<li><p><a class="reference internal" href="#manifest-includes"><span class="xref myst">Manifest Includes</span></a></p></li>
+<li><p><a class="reference internal" href="#output-directory"><span class="xref myst">Output Directory</span></a></p></li>
+<li><p><a class="reference internal" href="#cache-directory"><span class="xref myst">Cache Directory</span></a></p></li>
+<li><p><a class="reference internal" href="#global-loads"><span class="xref myst">Global Loads</span></a></p></li>
+<li><p><a class="reference internal" href="#manifest-parameters"><span class="xref myst">Manifest Parameters</span></a></p></li>
+<li><p><a class="reference internal" href="#default-target"><span class="xref myst">Default Target</span></a></p></li>
+<li><p><a class="reference internal" href="#compiles"><span class="xref myst">Compiles</span></a></p></li>
+<li><p><a class="reference internal" href="datazen.commands.html#module-datazen.commands" title="datazen.commands"><span class="xref myst py py-mod">Commands</span></a></p></li>
+<li><p><a class="reference internal" href="#renders"><span class="xref myst">Renders</span></a></p></li>
+<li><p><a class="reference internal" href="#groups"><span class="xref myst">Groups</span></a></p></li>
+</ul>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/dz -h
+
+usage: dz [-h] [--version] [-v] [-q] [--curses] [--no-uvloop] [-C DIR]
+          [--line-ending {unix,dos,unix}] [-m MANIFEST] [-c] [--sync] [-d]
+          [targets ...]
+
+Compile and render schema-validated configuration data.
+
+positional arguments:
+  targets               target(s) to execute
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program&#39;s version number and exit
+  -v, --verbose         set to increase logging verbosity
+  -q, --quiet           set to reduce output
+  --curses              whether or not to use curses.wrapper when starting
+  --no-uvloop           whether or not to disable uvloop as event loop driver
+  -C, --dir DIR         execute from a specific directory
+  --line-ending {unix,dos,unix}
+                        line-ending option to use by default (default: &#39;unix&#39;)
+  -m, --manifest MANIFEST
+                        manifest to execute tasks from (default:
+                        &#39;manifest.yaml&#39;)
+  -c, --clean           clean the manifest&#39;s cache and exit
+  --sync                sync the manifest&#39;s cache (write-through) with the
+                        state of the file system before execution
+  -d, --describe        describe the manifest&#39;s cache and exit
+
+</pre></div>
+</div>
+</section>
+<section id="manifest-schema">
+<h1>Manifest Schema<a class="headerlink" href="#manifest-schema" title="Link to this heading">#</a></h1>
+<p>A manifest is provided to <code class="docutils literal notranslate"><span class="pre">datazen</span></code> to establish the set of targets
+that should be executed based on defaults or the command-line invocation.</p>
+<section id="default-directories">
+<h2>Default Directories<a class="headerlink" href="#default-directories" title="Link to this heading">#</a></h2>
+<p>A boolean flag specifying whether or not to load directories relative
+to the current manifest file that coincide with names of load-able
+data types (e.g. “configs” loaded as configs, “variables” loaded as
+variables). By default these are loaded into the global namespace.</p>
+<p>Setting this false will not automatically load these directories.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default_dirs</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">boolean</span>
+  <span class="n">default</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+</section>
+<section id="manifest-includes">
+<h2>Manifest Includes<a class="headerlink" href="#manifest-includes" title="Link to this heading">#</a></h2>
+<p>Include additional files to build the final, root manifest with.
+This same schema applies to included files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">includes</span><span class="p">:</span> <span class="n">paths</span>
+</pre></div>
+</div>
+</section>
+<section id="output-directory">
+<h2>Output Directory<a class="headerlink" href="#output-directory" title="Link to this heading">#</a></h2>
+<p>Override the default output directory (i.e. <code class="docutils literal notranslate"><span class="pre">datazen-out</span></code>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_dir</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+</pre></div>
+</div>
+</section>
+<section id="cache-directory">
+<h2>Cache Directory<a class="headerlink" href="#cache-directory" title="Link to this heading">#</a></h2>
+<p>Override the default cache directory (i.e. <code class="docutils literal notranslate"><span class="pre">.manifest_cache</span></code>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cache_dir</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+</pre></div>
+</div>
+</section>
+<section id="global-loads">
+<h2>Global Loads<a class="headerlink" href="#global-loads" title="Link to this heading">#</a></h2>
+<p>For each of these keys, add paths that should be loaded globally.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">configs</span><span class="p">:</span> <span class="n">paths</span>
+<span class="n">schemas</span><span class="p">:</span> <span class="n">paths</span>
+<span class="n">schema_types</span><span class="p">:</span> <span class="n">paths</span>
+<span class="n">templates</span><span class="p">:</span> <span class="n">paths</span>
+<span class="n">variables</span><span class="p">:</span> <span class="n">paths</span>
+</pre></div>
+</div>
+</section>
+<section id="manifest-parameters">
+<h2>Manifest Parameters<a class="headerlink" href="#manifest-parameters" title="Link to this heading">#</a></h2>
+<p>Manifests themselves are
+<a class="reference external" href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja</a> templates that are
+rendered with the data contained in this key.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="nb">dict</span>
+</pre></div>
+</div>
+</section>
+<section id="default-target">
+<h2>Default Target<a class="headerlink" href="#default-target" title="Link to this heading">#</a></h2>
+<p>The target to execute by default if none is provided.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default_target</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+</pre></div>
+</div>
+</section>
+<section id="compiles">
+<h2>Compiles<a class="headerlink" href="#compiles" title="Link to this heading">#</a></h2>
+<p>Target definitions for compilation tasks.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compiles</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="nb">list</span>
+  <span class="n">schema</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="n">schema</span><span class="p">:</span>
+      <span class="n">configs</span><span class="p">:</span> <span class="n">paths</span>
+      <span class="n">schemas</span><span class="p">:</span> <span class="n">paths</span>
+      <span class="n">schema_types</span><span class="p">:</span> <span class="n">paths</span>
+      <span class="n">variables</span><span class="p">:</span> <span class="n">paths</span>
+      <span class="n">dependencies</span><span class="p">:</span> <span class="n">deps</span>
+      <span class="n">name</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">key</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">override_path</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">output_type</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">output_path</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">output_dir</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">index_path</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">merge_deps</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">boolean</span>
+        <span class="n">default</span><span class="p">:</span> <span class="n">false</span>
+      <span class="n">append</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">boolean</span>
+</pre></div>
+</div>
+</section>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">#</a></h2>
+<p>Target definitions for command-line command tasks.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">commands</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="nb">list</span>
+  <span class="n">schema</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="n">schema</span><span class="p">:</span>
+      <span class="n">file</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">name</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">command</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">force</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">boolean</span>
+      <span class="n">replace_newlines</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">boolean</span>
+      <span class="n">arguments</span><span class="p">:</span> <span class="n">deps</span>
+      <span class="n">dependencies</span><span class="p">:</span> <span class="n">deps</span>
+</pre></div>
+</div>
+</section>
+<section id="renders">
+<h2>Renders<a class="headerlink" href="#renders" title="Link to this heading">#</a></h2>
+<p>Target definitions for render tasks. Renders can create output files
+based on <a class="reference external" href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja</a> templates,
+or just String data to be used as a dependency for another task.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">renders</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="nb">list</span>
+  <span class="n">schema</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="n">schema</span><span class="p">:</span>
+      <span class="n">templates</span><span class="p">:</span> <span class="n">paths</span>
+      <span class="n">children</span><span class="p">:</span> <span class="n">deps</span>
+      <span class="n">child_delimeter</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">child_indent</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">integer</span>
+      <span class="n">dependencies</span><span class="p">:</span> <span class="n">deps</span>
+      <span class="n">name</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">override_path</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="k">as</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">key</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">output_dir</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">output_path</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">no_dynamic_fingerprint</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">boolean</span>
+      <span class="n">no_file</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">boolean</span>
+      <span class="n">indent</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">integer</span>
+      <span class="n">template_dependencies</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="nb">list</span>
+        <span class="n">schema</span><span class="p">:</span>
+          <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+</pre></div>
+</div>
+</section>
+<section id="groups">
+<h2>Groups<a class="headerlink" href="#groups" title="Link to this heading">#</a></h2>
+<p>Target definitions for group tasks. Groups declare a set of dependencies
+and nothing else. Groups can be used as dependencies for any other target.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="nb">list</span>
+  <span class="n">schema</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="n">schema</span><span class="p">:</span>
+      <span class="n">name</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+      <span class="n">dependencies</span><span class="p">:</span> <span class="n">deps</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="manifest-schema-types">
+<h1>Manifest Schema Types<a class="headerlink" href="#manifest-schema-types" title="Link to this heading">#</a></h1>
+<p>These items may appear in the manifest schema.</p>
+<section id="deps">
+<h2>deps<a class="headerlink" href="#deps" title="Link to this heading">#</a></h2>
+<p>Dependencies are lists of Strings.
+They should be formatted as <code class="docutils literal notranslate"><span class="pre">(compiles,renders,...)-target</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">:</span> <span class="nb">list</span>
+<span class="n">schema</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+</pre></div>
+</div>
+</section>
+<section id="paths">
+<h2>paths<a class="headerlink" href="#paths" title="Link to this heading">#</a></h2>
+<p>Paths are lists of Strings and can use <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">\\</span></code> as delimeters.
+Paths are relative to the directory that a manifest file is in, but for
+manifest includes, all “loaded” directories are relative to the root
+manifest’s directory. Paths can also be absolute.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">:</span> <span class="nb">list</span>
+<span class="n">schema</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">string</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="internal-dependency-graph">
+<h1>Internal Dependency Graph<a class="headerlink" href="#internal-dependency-graph" title="Link to this heading">#</a></h1>
+<p>A coarse view of the internal structure and scale of
+<code class="docutils literal notranslate"><span class="pre">datazen</span></code>’s source.
+Generated using <a class="reference external" href="https://github.com/thebjorn/pydeps">pydeps</a> (via
+<code class="docutils literal notranslate"><span class="pre">mk</span> <span class="pre">python-deps</span></code>).</p>
+<p><img alt="datazen's Dependency Graph" src="_images/pydeps.svg" /></p>
+<p><em>This entire document is generated by this package.</em></p>
+</section>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="datazen.html">datazen package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="datazen.html#subpackages">Subpackages</a><ul>
@@ -454,7 +802,6 @@ document.write(`
 </li>
 </ul>
 </div>
-</section>
 
 
                 </article>
@@ -483,6 +830,49 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">datazen (3.2.4)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-schema-reference">Manifest Schema Reference</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-schema">Manifest Schema</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-directories">Default Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-includes">Manifest Includes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-directory">Output Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-directory">Cache Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-loads">Global Loads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-parameters">Manifest Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-target">Default Target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiles">Compiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renders">Renders</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-schema-types">Manifest Schema Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deps">deps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">paths</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -502,7 +892,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

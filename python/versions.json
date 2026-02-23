@@ -1,0 +1,13 @@
+{
+  "datazen": "3.2.4",
+  "experimental-lowqa": "0.2.3",
+  "ifgen": "4.7.3",
+  "rcmpy": "1.5.9",
+  "runtimepy": "5.17.0",
+  "setuptools-wrapper": "0.2.11",
+  "svgen": "0.9.5",
+  "userfs": "1.1.7",
+  "vcorelib": "3.6.10",
+  "vmklib": "2.0.12",
+  "yambs": "3.1.5"
+}

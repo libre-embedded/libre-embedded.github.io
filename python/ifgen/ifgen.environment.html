@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ifgen.environment package &#8212; documentation</title>
+    <title>ifgen.environment package &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=3b39a0c6"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ifgen.environment';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -155,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="ifgen.html">ifgen package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ifgen.commands.html">ifgen.commands package</a></li>
@@ -362,6 +362,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.directories"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.directories</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.generated"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.generated</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.get_dirs"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_dirs()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.get_enum"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_enum()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.get_protocol"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_protocol()</span></code></a></li>
@@ -369,6 +371,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.is_struct"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.is_struct()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.make_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_path()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.make_test_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_test_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.preprocessors"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.preprocessors</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.prune_empty"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.prune_empty()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.rel_include"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.rel_include()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.size"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.size()</span></code></a></li>
@@ -408,7 +411,7 @@ document.write(`
 <p>A module implementing a struct-padding manager.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ifgen.environment.padding.PaddingManager">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.environment.padding.</span></span><span class="sig-name descname"><span class="pre">PaddingManager</span></span><a class="reference internal" href="_modules/ifgen/environment/padding.html#PaddingManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.padding.PaddingManager" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.environment.padding.</span></span><span class="sig-name descname"><span class="pre">PaddingManager</span></span><a class="reference internal" href="_modules/ifgen/environment/padding.html#PaddingManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.padding.PaddingManager" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class implementing basic padding management.</p>
 <dl class="py method">
@@ -419,7 +422,7 @@ document.write(`
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.environment.padding.PaddingManager.base_name">
-<span class="sig-name descname"><span class="pre">base_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'reserved_padding'</span></em><a class="headerlink" href="#ifgen.environment.padding.PaddingManager.base_name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">base_name</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'reserved_padding'</span></span><a class="headerlink" href="#ifgen.environment.padding.PaddingManager.base_name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -442,18 +445,18 @@ document.write(`
 <p>A module implementing a generation-environment interface.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ifgen.environment.Directories">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.environment.</span></span><span class="sig-name descname"><span class="pre">Directories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_parts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/environment.html#Directories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.Directories" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.environment.</span></span><span class="sig-name descname"><span class="pre">Directories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_parts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/environment.html#Directories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.Directories" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A collection of directories relevant to code generation outputs.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.environment.Directories.config_parts">
-<span class="sig-name descname"><span class="pre">config_parts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ifgen.environment.Directories.config_parts" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">config_parts</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#ifgen.environment.Directories.config_parts" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.environment.Directories.output">
-<span class="sig-name descname"><span class="pre">output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#ifgen.environment.Directories.output" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">output</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></span><a class="headerlink" href="#ifgen.environment.Directories.output" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
@@ -465,13 +468,13 @@ document.write(`
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.environment.Directories.source">
-<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#ifgen.environment.Directories.source" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">source</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></span><a class="headerlink" href="#ifgen.environment.Directories.source" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ifgen.environment.Directories.test_dir">
-<span class="sig-name descname"><span class="pre">test_dir</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#ifgen.environment.Directories.test_dir" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">test_dir</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></span><a class="headerlink" href="#ifgen.environment.Directories.test_dir" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
@@ -479,9 +482,19 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ifgen.environment.IfgenEnvironment">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ifgen.environment.</span></span><span class="sig-name descname"><span class="pre">IfgenEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.config.html#ifgen.config.Config" title="ifgen.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/environment.html#IfgenEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.IfgenEnvironment" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">ifgen.environment.</span></span><span class="sig-name descname"><span class="pre">IfgenEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.config.html#ifgen.config.Config" title="ifgen.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ifgen/environment.html#IfgenEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.IfgenEnvironment" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
 <p>A class for managing stateful information while generating outputs.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.environment.IfgenEnvironment.directories">
+<span class="sig-name descname"><span class="pre">directories</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ifgen.html#ifgen.enums.Language" title="ifgen.enums.Language"><span class="pre">Language</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#ifgen.environment.Directories" title="ifgen.environment.Directories"><span class="pre">Directories</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#ifgen.environment.IfgenEnvironment.directories" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.environment.IfgenEnvironment.generated">
+<span class="sig-name descname"><span class="pre">generated</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#ifgen.environment.IfgenEnvironment.generated" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="ifgen.environment.IfgenEnvironment.get_dirs">
 <span class="sig-name descname"><span class="pre">get_dirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">langauge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.html#ifgen.enums.Language" title="ifgen.enums.Language"><span class="pre">Language</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ifgen.environment.Directories" title="ifgen.environment.Directories"><span class="pre">Directories</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ifgen/environment.html#IfgenEnvironment.get_dirs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.IfgenEnvironment.get_dirs" title="Link to this definition">#</a></dt>
@@ -523,6 +536,11 @@ document.write(`
 <span class="sig-name descname"><span class="pre">make_test_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.html#ifgen.enums.Generator" title="ifgen.enums.Generator"><span class="pre">Generator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ifgen.html#ifgen.enums.Language" title="ifgen.enums.Language"><span class="pre">Language</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/ifgen/environment.html#IfgenEnvironment.make_test_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ifgen.environment.IfgenEnvironment.make_test_path" title="Link to this definition">#</a></dt>
 <dd><p>Make a path to an interface’s unit-test suite.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ifgen.environment.IfgenEnvironment.preprocessors">
+<span class="sig-name descname"><span class="pre">preprocessors</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ifgen.html#ifgen.enums.Language" title="ifgen.enums.Language"><span class="pre">Language</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#ifgen.environment.IfgenEnvironment.preprocessors" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ifgen.environment.IfgenEnvironment.prune_empty">
@@ -623,6 +641,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.directories"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.directories</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.generated"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.generated</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.get_dirs"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_dirs()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.get_enum"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_enum()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.get_protocol"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.get_protocol()</span></code></a></li>
@@ -630,6 +650,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.is_struct"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.is_struct()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.make_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_path()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.make_test_path"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.make_test_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.preprocessors"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.preprocessors</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.prune_empty"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.prune_empty()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.rel_include"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.rel_include()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ifgen.environment.IfgenEnvironment.size"><code class="docutils literal notranslate"><span class="pre">IfgenEnvironment.size()</span></code></a></li>
@@ -662,7 +683,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>yambs package &#8212; documentation</title>
+    <title>yambs package &#8212; docs</title>
   
   
   
@@ -36,16 +36,16 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=1cebcb90"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'yambs';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="yambs.aggregation package" href="yambs.aggregation.html" />
-    <link rel="prev" title="yambs" href="index.html" />
+    <link rel="prev" title="yambs (3.1.5)" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -155,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">yambs package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
@@ -329,8 +329,15 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-app-module">yambs.app module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-entry-module">yambs.entry module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.app">yambs.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.entry">yambs.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.paths">yambs.paths module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.paths.resolve_build_dir"><code class="docutils literal notranslate"><span class="pre">resolve_build_dir()</span></code></a></li>
@@ -363,12 +370,22 @@ document.write(`
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html#module-yambs.aggregation">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html#yambs.aggregation.collect_files"><code class="docutils literal notranslate"><span class="pre">collect_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html#yambs.aggregation.compile_sources"><code class="docutils literal notranslate"><span class="pre">compile_sources()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html#yambs.aggregation.headers"><code class="docutils literal notranslate"><span class="pre">headers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html#yambs.aggregation.populate_sources"><code class="docutils literal notranslate"><span class="pre">populate_sources()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html#yambs.aggregation.sources_headers"><code class="docutils literal notranslate"><span class="pre">sources_headers()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="yambs.commands.html">yambs.commands package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#yambs-commands-all-module">yambs.commands.all module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.all">yambs.commands.all module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.all.commands"><code class="docutils literal notranslate"><span class="pre">commands()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.common">yambs.commands.common module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.common.add_common_args"><code class="docutils literal notranslate"><span class="pre">add_common_args()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.common.add_config_arg"><code class="docutils literal notranslate"><span class="pre">add_config_arg()</span></code></a></li>
@@ -377,16 +394,36 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.common.run_watch"><code class="docutils literal notranslate"><span class="pre">run_watch()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#yambs-commands-compile-config-module">yambs.commands.compile_config module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#yambs-commands-dist-module">yambs.commands.dist module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.compile_config">yambs.commands.compile_config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.compile_config.add_compile_config_cmd"><code class="docutils literal notranslate"><span class="pre">add_compile_config_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.compile_config.compile_config_cmd"><code class="docutils literal notranslate"><span class="pre">compile_config_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.dist">yambs.commands.dist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.dist.add_dist_cmd"><code class="docutils literal notranslate"><span class="pre">add_dist_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.dist.dist_cmd"><code class="docutils literal notranslate"><span class="pre">dist_cmd()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.download">yambs.commands.download module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.download.add_download_cmd"><code class="docutils literal notranslate"><span class="pre">add_download_cmd()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.download.download_cmd"><code class="docutils literal notranslate"><span class="pre">download_cmd()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#yambs-commands-gen-module">yambs.commands.gen module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#yambs-commands-native-module">yambs.commands.native module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#yambs-commands-native-manifest-module">yambs.commands.native_manifest module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.gen">yambs.commands.gen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.gen.add_gen_cmd"><code class="docutils literal notranslate"><span class="pre">add_gen_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.gen.gen_cmd"><code class="docutils literal notranslate"><span class="pre">gen_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.native">yambs.commands.native module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.native.add_native_cmd"><code class="docutils literal notranslate"><span class="pre">add_native_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.native.native_cmd"><code class="docutils literal notranslate"><span class="pre">native_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.native_manifest">yambs.commands.native_manifest module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.native_manifest.add_native_manifest_cmd"><code class="docutils literal notranslate"><span class="pre">add_native_manifest_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.native_manifest.native_manifest_cmd"><code class="docutils literal notranslate"><span class="pre">native_manifest_cmd()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.commands.html#module-yambs.commands.uf2conv">yambs.commands.uf2conv module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.uf2conv.add_uf2conv_cmd"><code class="docutils literal notranslate"><span class="pre">add_uf2conv_cmd()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="yambs.commands.html#yambs.commands.uf2conv.error"><code class="docutils literal notranslate"><span class="pre">error()</span></code></a></li>
@@ -516,7 +553,16 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.github.ensure_extracted"><code class="docutils literal notranslate"><span class="pre">ensure_extracted()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.dependency.html#yambs-dependency-manager-module">yambs.dependency.manager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.dependency.html#module-yambs.dependency.manager">yambs.dependency.manager module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.manager.DependencyManager"><code class="docutils literal notranslate"><span class="pre">DependencyManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.manager.DependencyManager.audit"><code class="docutils literal notranslate"><span class="pre">DependencyManager.audit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.manager.DependencyManager.info"><code class="docutils literal notranslate"><span class="pre">DependencyManager.info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.manager.DependencyManager.save"><code class="docutils literal notranslate"><span class="pre">DependencyManager.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.manager.write_third_party_script"><code class="docutils literal notranslate"><span class="pre">write_third_party_script()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.dependency.html#module-yambs.dependency.state">yambs.dependency.state module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.state.DependencyState"><code class="docutils literal notranslate"><span class="pre">DependencyState</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="yambs.dependency.html#yambs.dependency.state.DependencyState.INIT"><code class="docutils literal notranslate"><span class="pre">DependencyState.INIT</span></code></a></li>
@@ -538,7 +584,20 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="yambs.environment.html">yambs.environment package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="yambs.environment.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.environment.html#yambs-environment-native-module">yambs.environment.native module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.environment.html#module-yambs.environment.native">yambs.environment.native module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.generate"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.populate_sources"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.populate_sources()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.render"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.render()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_app_rules"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_app_rules()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_compile_line"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_compile_line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_source_rules"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_source_rules()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_static_library_rule"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_static_library_rule()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_third_party_line"><code class="docutils literal notranslate"><span class="pre">NativeBuildEnvironment.write_third_party_line()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.environment.html#module-yambs.environment">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.environment.html#yambs.environment.BuildEnvironment"><code class="docutils literal notranslate"><span class="pre">BuildEnvironment</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="yambs.environment.html#yambs.environment.BuildEnvironment.first_party_sources_headers"><code class="docutils literal notranslate"><span class="pre">BuildEnvironment.first_party_sources_headers()</span></code></a></li>
@@ -561,20 +620,47 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html">yambs.generate.ninja package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="yambs.generate.ninja.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.ninja.html#yambs-generate-ninja-format-module">yambs.generate.ninja.format module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yambs.generate.ninja.html#module-contents">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.ninja.html#module-yambs.generate.ninja.format">yambs.generate.ninja.format module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yambs.generate.ninja.html#module-yambs.generate.ninja">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#yambs-generate-architectures-module">yambs.generate.architectures module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#yambs-generate-boards-module">yambs.generate.boards module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#yambs-generate-chips-module">yambs.generate.chips module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#yambs-generate-common-module">yambs.generate.common module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#yambs-generate-toolchains-module">yambs.generate.toolchains module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#yambs-generate-variants-module">yambs.generate.variants module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.architectures">yambs.generate.architectures module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.architectures.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.boards">yambs.generate.boards module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.boards.add_dir"><code class="docutils literal notranslate"><span class="pre">add_dir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.boards.create_paths_dict"><code class="docutils literal notranslate"><span class="pre">create_paths_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.boards.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.boards.write_sources"><code class="docutils literal notranslate"><span class="pre">write_sources()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.chips">yambs.generate.chips module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.chips.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.common">yambs.generate.common module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.common.get_jinja"><code class="docutils literal notranslate"><span class="pre">get_jinja()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.common.render_template"><code class="docutils literal notranslate"><span class="pre">render_template()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.toolchains">yambs.generate.toolchains module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.toolchains.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-yambs.generate.variants">yambs.generate.variants module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.variants.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.variants.modified_variant_data"><code class="docutils literal notranslate"><span class="pre">modified_variant_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.html#module-yambs.generate">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.create_board_apps"><code class="docutils literal notranslate"><span class="pre">create_board_apps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html#yambs.generate.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="yambs.github.html">yambs.github package</a><ul>
@@ -637,11 +723,31 @@ document.write(`
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
-<section id="yambs-app-module">
-<h2>yambs.app module<a class="headerlink" href="#yambs-app-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.app">
+<span id="yambs-app-module"></span><h2>yambs.app module<a class="headerlink" href="#module-yambs.app" title="Link to this heading">#</a></h2>
+<p>This package’s command-line entry-point application.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.app.add_app_args">
+<span class="sig-prename descclassname"><span class="pre">yambs.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.app.add_app_args" title="Link to this definition">#</a></dt>
+<dd><p>Add application-specific arguments to the command-line parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.app.entry">
+<span class="sig-prename descclassname"><span class="pre">yambs.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/yambs/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.app.entry" title="Link to this definition">#</a></dt>
+<dd><p>Execute the requested task.</p>
+</dd></dl>
+
 </section>
-<section id="yambs-entry-module">
-<h2>yambs.entry module<a class="headerlink" href="#yambs-entry-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.entry">
+<span id="yambs-entry-module"></span><h2>yambs.entry module<a class="headerlink" href="#module-yambs.entry" title="Link to this heading">#</a></h2>
+<p>This package’s command-line entry-point (boilerplate).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.entry.main">
+<span class="sig-prename descclassname"><span class="pre">yambs.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/yambs/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.entry.main" title="Link to this definition">#</a></dt>
+<dd><p>Program entry-point.</p>
+</dd></dl>
+
 </section>
 <section id="module-yambs.paths">
 <span id="yambs-paths-module"></span><h2>yambs.paths module<a class="headerlink" href="#module-yambs.paths" title="Link to this heading">#</a></h2>
@@ -670,12 +776,12 @@ document.write(`
 <p>A module for working with schemas belonging to this package.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="yambs.schemas.YambsDictCodec">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.schemas.</span></span><span class="sig-name descname"><span class="pre">YambsDictCodec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/schemas.html#YambsDictCodec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.schemas.YambsDictCodec" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yambs.schemas.</span></span><span class="sig-name descname"><span class="pre">YambsDictCodec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/schemas.html#YambsDictCodec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.schemas.YambsDictCodec" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DictCodec</span></code></p>
 <p>A simple wrapper for package classes that want to implement DictCodec.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="yambs.schemas.YambsDictCodec.default_schemas">
-<span class="sig-name descname"><span class="pre">default_schemas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SchemaMap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'entry_common':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Config':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Github':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Native':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Project':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'CommonConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Chip':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Variant':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Toolchain':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Architecture':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'toolchain_common':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'config_common':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Board':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Dependency':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#yambs.schemas.YambsDictCodec.default_schemas" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">default_schemas</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SchemaMap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Variant':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Dependency':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Architecture':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'CommonConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Chip':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'config_common':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Native':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Toolchain':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Project':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Board':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'entry_common':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Config':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'toolchain_common':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Github':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;}</span></span><a class="headerlink" href="#yambs.schemas.YambsDictCodec.default_schemas" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -704,7 +810,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">yambs</p>
+        <p class="prev-next-title">yambs (3.1.5)</p>
       </div>
     </a>
     <a class="right-next"
@@ -734,8 +840,15 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-app-module">yambs.app module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-entry-module">yambs.entry module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.app">yambs.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.entry">yambs.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.paths">yambs.paths module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.paths.combine_if_not_absolute"><code class="docutils literal notranslate"><span class="pre">combine_if_not_absolute()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.paths.resolve_build_dir"><code class="docutils literal notranslate"><span class="pre">resolve_build_dir()</span></code></a></li>
@@ -774,7 +887,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

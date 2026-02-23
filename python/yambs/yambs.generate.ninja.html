@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>yambs.generate.ninja package &#8212; documentation</title>
+    <title>yambs.generate.ninja package &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=1cebcb90"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'yambs.generate.ninja';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -155,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="yambs.html">yambs package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
@@ -328,8 +328,23 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-ninja-format-module">yambs.generate.ninja.format module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.ninja.format">yambs.generate.ninja.format module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.format.final_format_targets"><code class="docutils literal notranslate"><span class="pre">final_format_targets()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.format.render_format"><code class="docutils literal notranslate"><span class="pre">render_format()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.format.write_format_target"><code class="docutils literal notranslate"><span class="pre">write_format_target()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.ninja">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.variant_phony"><code class="docutils literal notranslate"><span class="pre">variant_phony()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_continuation"><code class="docutils literal notranslate"><span class="pre">write_continuation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_generated_phony"><code class="docutils literal notranslate"><span class="pre">write_generated_phony()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_link"><code class="docutils literal notranslate"><span class="pre">write_link()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_link_line"><code class="docutils literal notranslate"><span class="pre">write_link_line()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_link_lines"><code class="docutils literal notranslate"><span class="pre">write_link_lines()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_phony"><code class="docutils literal notranslate"><span class="pre">write_phony()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_source_line"><code class="docutils literal notranslate"><span class="pre">write_source_line()</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -346,11 +361,80 @@ document.write(`
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
-<section id="yambs-generate-ninja-format-module">
-<h2>yambs.generate.ninja.format module<a class="headerlink" href="#yambs-generate-ninja-format-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.ninja.format">
+<span id="yambs-generate-ninja-format-module"></span><h2>yambs.generate.ninja.format module<a class="headerlink" href="#module-yambs.generate.ninja.format" title="Link to this heading">#</a></h2>
+<p>A module for writing formatting-related ninja build rules.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.format.final_format_targets">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.format.</span></span><span class="sig-name descname"><span class="pre">final_format_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja/format.html#final_format_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.format.final_format_targets" title="Link to this definition">#</a></dt>
+<dd><p>Create final, highest-level format targets.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.format.render_format">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.format.</span></span><span class="sig-name descname"><span class="pre">render_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.common.CommonConfig" title="yambs.config.common.CommonConfig"><span class="pre">CommonConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja/format.html#render_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.format.render_format" title="Link to this definition">#</a></dt>
+<dd><p>Render the ninja source for formatting files.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.format.write_format_target">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.format.</span></span><span class="sig-name descname"><span class="pre">write_format_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja/format.html#write_format_target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.format.write_format_target" title="Link to this definition">#</a></dt>
+<dd><p>Write rules and targets for running clang-format on first-party sources
+and headers.</p>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.ninja">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yambs.generate.ninja" title="Link to this heading">#</a></h2>
+<p>A module for working with ninja syntax.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.variant_phony">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">variant_phony</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elfs_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uf2_family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wasm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/generate/ninja.html#variant_phony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.variant_phony" title="Link to this definition">#</a></dt>
+<dd><p>Write variant-specific phony targets.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.write_continuation">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">write_continuation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja.html#write_continuation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.write_continuation" title="Link to this definition">#</a></dt>
+<dd><p>Write a line continuation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.write_generated_phony">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">write_generated_phony</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.environment.html#yambs.environment.SourceSets" title="yambs.environment.SourceSets"><span class="pre">SourceSets</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja.html#write_generated_phony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.write_generated_phony" title="Link to this definition">#</a></dt>
+<dd><p>Write generated-file phony target.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.write_link">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">write_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wasm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja.html#write_link"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.write_link" title="Link to this definition">#</a></dt>
+<dd><p>Write a ‘link’ rule.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.write_link_line">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">write_link_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.board.Board" title="yambs.config.board.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.environment.html#yambs.environment.SourceSets" title="yambs.environment.SourceSets"><span class="pre">SourceSets</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja.html#write_link_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.write_link_line" title="Link to this definition">#</a></dt>
+<dd><p>Write a ninja configuration line for an application requiring linking.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.write_link_lines">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">write_link_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.board.Board" title="yambs.config.board.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.environment.html#yambs.environment.SourceSets" title="yambs.environment.SourceSets"><span class="pre">SourceSets</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja.html#write_link_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.write_link_lines" title="Link to this definition">#</a></dt>
+<dd><p>Write the application manifest and phony targets.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.write_phony">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">write_phony</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_srcs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja.html#write_phony"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.write_phony" title="Link to this definition">#</a></dt>
+<dd><p>Write the phony target.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.ninja.write_source_line">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.ninja.</span></span><span class="sig-name descname"><span class="pre">write_source_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.board.Board" title="yambs.config.board.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">translator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.translation.html#yambs.translation.SourceTranslator" title="yambs.translation.SourceTranslator"><span class="pre">SourceTranslator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board_specific</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/yambs/generate/ninja.html#write_source_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.ninja.write_source_line" title="Link to this definition">#</a></dt>
+<dd><p>Write a ninja configuration line for a source file.</p>
+</dd></dl>
+
 </section>
 </section>
 
@@ -400,8 +484,23 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-ninja-format-module">yambs.generate.ninja.format module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.ninja.format">yambs.generate.ninja.format module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.format.final_format_targets"><code class="docutils literal notranslate"><span class="pre">final_format_targets()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.format.render_format"><code class="docutils literal notranslate"><span class="pre">render_format()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.format.write_format_target"><code class="docutils literal notranslate"><span class="pre">write_format_target()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.ninja">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.variant_phony"><code class="docutils literal notranslate"><span class="pre">variant_phony()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_continuation"><code class="docutils literal notranslate"><span class="pre">write_continuation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_generated_phony"><code class="docutils literal notranslate"><span class="pre">write_generated_phony()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_link"><code class="docutils literal notranslate"><span class="pre">write_link()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_link_line"><code class="docutils literal notranslate"><span class="pre">write_link_line()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_link_lines"><code class="docutils literal notranslate"><span class="pre">write_link_lines()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_phony"><code class="docutils literal notranslate"><span class="pre">write_phony()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.ninja.write_source_line"><code class="docutils literal notranslate"><span class="pre">write_source_line()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -426,7 +525,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

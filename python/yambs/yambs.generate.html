@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>yambs.generate package &#8212; documentation</title>
+    <title>yambs.generate package &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=1cebcb90"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'yambs.generate';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -155,7 +155,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="yambs.html">yambs package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
@@ -329,13 +329,40 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-architectures-module">yambs.generate.architectures module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-boards-module">yambs.generate.boards module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-chips-module">yambs.generate.chips module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-common-module">yambs.generate.common module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-toolchains-module">yambs.generate.toolchains module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-variants-module">yambs.generate.variants module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.architectures">yambs.generate.architectures module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.architectures.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.boards">yambs.generate.boards module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.add_dir"><code class="docutils literal notranslate"><span class="pre">add_dir()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.create_paths_dict"><code class="docutils literal notranslate"><span class="pre">create_paths_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.write_sources"><code class="docutils literal notranslate"><span class="pre">write_sources()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.chips">yambs.generate.chips module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.chips.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.common">yambs.generate.common module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.common.get_jinja"><code class="docutils literal notranslate"><span class="pre">get_jinja()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.common.render_template"><code class="docutils literal notranslate"><span class="pre">render_template()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.toolchains">yambs.generate.toolchains module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.toolchains.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.variants">yambs.generate.variants module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.variants.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.variants.modified_variant_data"><code class="docutils literal notranslate"><span class="pre">modified_variant_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.create_board_apps"><code class="docutils literal notranslate"><span class="pre">create_board_apps()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -355,8 +382,23 @@ document.write(`
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="yambs.generate.ninja.html">yambs.generate.ninja package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="yambs.generate.ninja.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.ninja.html#yambs-generate-ninja-format-module">yambs.generate.ninja.format module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yambs.generate.ninja.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.ninja.html#module-yambs.generate.ninja.format">yambs.generate.ninja.format module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.format.final_format_targets"><code class="docutils literal notranslate"><span class="pre">final_format_targets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.format.render_format"><code class="docutils literal notranslate"><span class="pre">render_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.format.write_format_target"><code class="docutils literal notranslate"><span class="pre">write_format_target()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.generate.ninja.html#module-yambs.generate.ninja">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.variant_phony"><code class="docutils literal notranslate"><span class="pre">variant_phony()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.write_continuation"><code class="docutils literal notranslate"><span class="pre">write_continuation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.write_generated_phony"><code class="docutils literal notranslate"><span class="pre">write_generated_phony()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.write_link"><code class="docutils literal notranslate"><span class="pre">write_link()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.write_link_line"><code class="docutils literal notranslate"><span class="pre">write_link_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.write_link_lines"><code class="docutils literal notranslate"><span class="pre">write_link_lines()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.write_phony"><code class="docutils literal notranslate"><span class="pre">write_phony()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.ninja.html#yambs.generate.ninja.write_source_line"><code class="docutils literal notranslate"><span class="pre">write_source_line()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -365,26 +407,113 @@ document.write(`
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
-<section id="yambs-generate-architectures-module">
-<h2>yambs.generate.architectures module<a class="headerlink" href="#yambs-generate-architectures-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.architectures">
+<span id="yambs-generate-architectures-module"></span><h2>yambs.generate.architectures module<a class="headerlink" href="#module-yambs.generate.architectures" title="Link to this heading">#</a></h2>
+<p>A module for generating architecture-related files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.architectures.generate">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.architectures.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jinja</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.common.CommonConfig" title="yambs.config.common.CommonConfig"><span class="pre">CommonConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/architectures.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.architectures.generate" title="Link to this definition">#</a></dt>
+<dd><p>Generate architecture-related ninja files.</p>
+</dd></dl>
+
 </section>
-<section id="yambs-generate-boards-module">
-<h2>yambs.generate.boards module<a class="headerlink" href="#yambs-generate-boards-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.boards">
+<span id="yambs-generate-boards-module"></span><h2>yambs.generate.boards module<a class="headerlink" href="#module-yambs.generate.boards" title="Link to this heading">#</a></h2>
+<p>A module for generating board-related files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.boards.add_dir">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.boards.</span></span><span class="sig-name descname"><span class="pre">add_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.board.Board" title="yambs.config.board.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">board_specific</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/generate/boards.html#add_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.boards.add_dir" title="Link to this definition">#</a></dt>
+<dd><p>Add a directory to set of paths.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.boards.create_paths_dict">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.boards.</span></span><span class="sig-name descname"><span class="pre">create_paths_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.board.Board" title="yambs.config.board.Board"><span class="pre">Board</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/generate/boards.html#create_paths_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.boards.create_paths_dict" title="Link to this definition">#</a></dt>
+<dd><p>Create paths based on common pathing conventions.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.boards.generate">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.boards.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jinja</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.environment.html#yambs.environment.BuildEnvironment" title="yambs.environment.BuildEnvironment"><span class="pre">BuildEnvironment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/boards.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.boards.generate" title="Link to this definition">#</a></dt>
+<dd><p>Generate board-related ninja files.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.boards.write_sources">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.boards.</span></span><span class="sig-name descname"><span class="pre">write_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.board.Board" title="yambs.config.board.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.environment.html#yambs.environment.BuildEnvironment" title="yambs.environment.BuildEnvironment"><span class="pre">BuildEnvironment</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="yambs.environment.html#yambs.environment.SourceSets" title="yambs.environment.SourceSets"><span class="pre">SourceSets</span></a></span></span><a class="reference internal" href="_modules/yambs/generate/boards.html#write_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.boards.write_sources" title="Link to this definition">#</a></dt>
+<dd><p>Write the source-file manifest.</p>
+</dd></dl>
+
 </section>
-<section id="yambs-generate-chips-module">
-<h2>yambs.generate.chips module<a class="headerlink" href="#yambs-generate-chips-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.chips">
+<span id="yambs-generate-chips-module"></span><h2>yambs.generate.chips module<a class="headerlink" href="#module-yambs.generate.chips" title="Link to this heading">#</a></h2>
+<p>A module for generating chip-related files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.chips.generate">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.chips.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jinja</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.common.CommonConfig" title="yambs.config.common.CommonConfig"><span class="pre">CommonConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/chips.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.chips.generate" title="Link to this definition">#</a></dt>
+<dd><p>Generate chip-related ninja files.</p>
+</dd></dl>
+
 </section>
-<section id="yambs-generate-common-module">
-<h2>yambs.generate.common module<a class="headerlink" href="#yambs-generate-common-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.common">
+<span id="yambs-generate-common-module"></span><h2>yambs.generate.common module<a class="headerlink" href="#module-yambs.generate.common" title="Link to this heading">#</a></h2>
+<p>A module containing common generation utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.common.get_jinja">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.common.</span></span><span class="sig-name descname"><span class="pre">get_jinja</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Environment</span></span></span><a class="reference internal" href="_modules/yambs/generate/common.html#get_jinja"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.common.get_jinja" title="Link to this definition">#</a></dt>
+<dd><p>Get a jinja environment for package templates.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.common.render_template">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.common.</span></span><span class="sig-name descname"><span class="pre">render_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jinja</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/common.html#render_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.common.render_template" title="Link to this definition">#</a></dt>
+<dd><p>Render a single template.</p>
+</dd></dl>
+
 </section>
-<section id="yambs-generate-toolchains-module">
-<h2>yambs.generate.toolchains module<a class="headerlink" href="#yambs-generate-toolchains-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.toolchains">
+<span id="yambs-generate-toolchains-module"></span><h2>yambs.generate.toolchains module<a class="headerlink" href="#module-yambs.generate.toolchains" title="Link to this heading">#</a></h2>
+<p>A module for generating toolchain-related files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.toolchains.generate">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.toolchains.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jinja</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.common.CommonConfig" title="yambs.config.common.CommonConfig"><span class="pre">CommonConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/toolchains.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.toolchains.generate" title="Link to this definition">#</a></dt>
+<dd><p>Generate toolchain-related ninja files.</p>
+</dd></dl>
+
 </section>
-<section id="yambs-generate-variants-module">
-<h2>yambs.generate.variants module<a class="headerlink" href="#yambs-generate-variants-module" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate.variants">
+<span id="yambs-generate-variants-module"></span><h2>yambs.generate.variants module<a class="headerlink" href="#module-yambs.generate.variants" title="Link to this heading">#</a></h2>
+<p>A module for generating variant-related files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.variants.generate">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.variants.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jinja</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Environment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.common.CommonConfig" title="yambs.config.common.CommonConfig"><span class="pre">CommonConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cflag_groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ldflag_groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate/variants.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.variants.generate" title="Link to this definition">#</a></dt>
+<dd><p>Generate variant-related ninja files.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.variants.modified_variant_data">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.variants.</span></span><span class="sig-name descname"><span class="pre">modified_variant_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cflag_groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ldflag_groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/generate/variants.html#modified_variant_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.variants.modified_variant_data" title="Link to this definition">#</a></dt>
+<dd><p>Ensure that cflag groups are processed, and that the variant has access to
+its name while rendering.</p>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<section id="module-yambs.generate">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yambs.generate" title="Link to this heading">#</a></h2>
+<p>A module for generating templated outputs.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.create_board_apps">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.</span></span><span class="sig-name descname"><span class="pre">create_board_apps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.environment.html#yambs.environment.BuildEnvironment" title="yambs.environment.BuildEnvironment"><span class="pre">BuildEnvironment</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate.html#create_board_apps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.create_board_apps" title="Link to this definition">#</a></dt>
+<dd><p>Generate JSON metadata to give other tools a simple lookup to application
+sources (e.g. for loading or deploying).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.generate.generate">
+<span class="sig-prename descclassname"><span class="pre">yambs.generate.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.environment.html#yambs.environment.BuildEnvironment" title="yambs.environment.BuildEnvironment"><span class="pre">BuildEnvironment</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/generate.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.generate.generate" title="Link to this definition">#</a></dt>
+<dd><p>Generate ninja files.</p>
+</dd></dl>
+
 </section>
 </section>
 
@@ -435,13 +564,40 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-architectures-module">yambs.generate.architectures module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-boards-module">yambs.generate.boards module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-chips-module">yambs.generate.chips module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-common-module">yambs.generate.common module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-toolchains-module">yambs.generate.toolchains module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs-generate-variants-module">yambs.generate.variants module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.architectures">yambs.generate.architectures module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.architectures.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.boards">yambs.generate.boards module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.add_dir"><code class="docutils literal notranslate"><span class="pre">add_dir()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.create_paths_dict"><code class="docutils literal notranslate"><span class="pre">create_paths_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.boards.write_sources"><code class="docutils literal notranslate"><span class="pre">write_sources()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.chips">yambs.generate.chips module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.chips.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.common">yambs.generate.common module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.common.get_jinja"><code class="docutils literal notranslate"><span class="pre">get_jinja()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.common.render_template"><code class="docutils literal notranslate"><span class="pre">render_template()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.toolchains">yambs.generate.toolchains module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.toolchains.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate.variants">yambs.generate.variants module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.variants.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.variants.modified_variant_data"><code class="docutils literal notranslate"><span class="pre">modified_variant_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-yambs.generate">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.create_board_apps"><code class="docutils literal notranslate"><span class="pre">create_board_apps()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yambs.generate.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -466,7 +622,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>

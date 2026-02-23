@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>runtimepy &#8212; documentation</title>
+    <title>runtimepy (5.17.0) &#8212; docs</title>
   
   
   
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=fe2fc0f7"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="documentation - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="documentation - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
+    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
   
   
 </a></div>
@@ -156,7 +156,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -374,7 +374,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -385,11 +387,38 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>runtimepy</h1>
+    <h1>runtimepy (5.17.0)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">runtimepy (5.17.0)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-command-options">Sub-command Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arbiter"><code class="docutils literal notranslate"><span class="pre">arbiter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mtu"><code class="docutils literal notranslate"><span class="pre">mtu</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server"><code class="docutils literal notranslate"><span class="pre">server</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task"><code class="docutils literal notranslate"><span class="pre">task</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tftp"><code class="docutils literal notranslate"><span class="pre">tftp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tui"><code class="docutils literal notranslate"><span class="pre">tui</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -399,11 +428,232 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="runtimepy">
-<h1>runtimepy<a class="headerlink" href="#runtimepy" title="Link to this heading">#</a></h1>
+  <!--
+    =====================================
+    generator=datazen
+    version=3.2.3
+    hash=2fb2d85a4f46fda14e39e1fadf7aa445
+    =====================================
+-->
+<section id="runtimepy-5-17-0">
+<h1>runtimepy (<a class="reference external" href="https://pypi.org/project/runtimepy/">5.17.0</a>)<a class="headerlink" href="#runtimepy-5-17-0" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/runtimepy/"><img alt="python" src="https://img.shields.io/pypi/pyversions/runtimepy.svg" /></a>
+<img alt="Build Status" src="https://github.com/libre-embedded/runtimepy/workflows/Python%20Package/badge.svg" />
+<a class="reference external" href="https://codecov.io/github/libre-embedded/runtimepy"><img alt="codecov" src="https://codecov.io/gh/libre-embedded/runtimepy/branch/master/graphs/badge.svg?branch=master" /></a>
+<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/runtimepy" />
+<img alt="Dependents (via libraries.io)" src="https://img.shields.io/librariesio/dependents/pypi/runtimepy" /></p>
+<p><em>A framework for implementing Python services.</em></p>
 <p>Consider <a class="reference external" href="https://github.com/sponsors/libre-embedded">sponsoring development</a>.</p>
+<p>(<a class="reference external" href="https://libre-embedded.github.io/python/runtimepy">interface documentation</a>)</p>
+<section id="python-version-support">
+<h2>Python Version Support<a class="headerlink" href="#python-version-support" title="Link to this heading">#</a></h2>
+<p>This package is tested with the following Python minor versions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3.13/"><code class="docutils literal notranslate"><span class="pre">python3.13</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.14/"><code class="docutils literal notranslate"><span class="pre">python3.14</span></code></a></p></li>
+</ul>
+</section>
+<section id="platform-support">
+<h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading">#</a></h2>
+<p>This package is tested on the following platforms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">macos-latest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">windows-latest</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+</section>
+<section id="command-line-options">
+<h1>Command-line Options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/runtimepy -h
+
+usage: runtimepy [-h] [--version] [-v] [-q] [--curses] [--no-uvloop] [-C DIR]
+                 {arbiter,mtu,server,task,tftp,tui,noop} ...
+
+A framework for implementing Python services.
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program&#39;s version number and exit
+  -v, --verbose         set to increase logging verbosity
+  -q, --quiet           set to reduce output
+  --curses              whether or not to use curses.wrapper when starting
+  --no-uvloop           whether or not to disable uvloop as event loop driver
+  -C, --dir DIR         execute from a specific directory
+
+commands:
+  {arbiter,mtu,server,task,tftp,tui,noop}
+                        set of available commands
+    arbiter             run a connection-arbiter application from a config
+    mtu                 probe for MTU size to some endpoint
+    server              run a server for a specific connection factory
+    task                run a task from a specific task factory
+    tftp                perform a tftp interaction
+    tui                 run a terminal interface for the channel environment
+    noop                command stub (does nothing)
+
+</pre></div>
+</div>
+<section id="sub-command-options">
+<h2>Sub-command Options<a class="headerlink" href="#sub-command-options" title="Link to this heading">#</a></h2>
+<section id="arbiter">
+<h3><code class="docutils literal notranslate"><span class="pre">arbiter</span></code><a class="headerlink" href="#arbiter" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/runtimepy arbiter -h
+
+usage: runtimepy arbiter [-h] [-i] [-w] [--no-poller] configs [configs ...]
+
+positional arguments:
+  configs               the configuration to load
+
+options:
+  -h, --help            show this help message and exit
+  -i, --init_only, --init-only
+                        exit after completing initialization
+  -w, --wait-for-stop, --wait_for_stop
+                        ensure that a &#39;wait_for_stop&#39; application method is
+                        run last
+  --no-poller           don&#39;t run a connection-metrics poller task
+
+</pre></div>
+</div>
+</section>
+<section id="mtu">
+<h3><code class="docutils literal notranslate"><span class="pre">mtu</span></code><a class="headerlink" href="#mtu" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/runtimepy mtu -h
+
+usage: runtimepy mtu [-h] [--probe-size PROBE_SIZE] [--fallback FALLBACK] [-t]
+                     destination [destination ...]
+
+positional arguments:
+  destination           endpoint parameters (host, port[, flowinfo, scope_id])
+
+options:
+  -h, --help            show this help message and exit
+  --probe-size PROBE_SIZE
+                        data payload size to use for probe (default: 1432)
+  --fallback FALLBACK   fallback MTU value if probing doesn&#39;t succeed (i.e.
+                        not on Linux, default: 1500)
+  -t, --tcp             use TCP instead of UDP
+
+</pre></div>
+</div>
+</section>
+<section id="server">
+<h3><code class="docutils literal notranslate"><span class="pre">server</span></code><a class="headerlink" href="#server" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/runtimepy server -h
+
+usage: runtimepy server [-h] [-i] [-w] [--no-poller] [--cafile CAFILE]
+                        [--capath CAPATH] [--cadata CADATA]
+                        [--certfile CERTFILE] [--keyfile KEYFILE]
+                        [--host HOST] [-p PORT] [-u] [-l]
+                        factory [configs ...]
+
+positional arguments:
+  factory               name of connection factory to create server for
+  configs               the configuration to load
+
+options:
+  -h, --help            show this help message and exit
+  -i, --init_only, --init-only
+                        exit after completing initialization
+  -w, --wait-for-stop, --wait_for_stop
+                        ensure that a &#39;wait_for_stop&#39; application method is
+                        run last
+  --no-poller           don&#39;t run a connection-metrics poller task
+  --cafile CAFILE       passed directly to instantiation
+  --capath CAPATH       passed directly to instantiation
+  --cadata CADATA       passed directly to instantiation
+  --certfile CERTFILE   passed directly to instantiation
+  --keyfile KEYFILE     passed directly to instantiation
+  --host HOST           host address to listen on (default: &#39;0.0.0.0&#39;)
+  -p, --port PORT       port to listen on (default: 0)
+  -u, --udp             whether or not this is a UDP-based server (otherwise
+                        it must be a TCP-based server)
+  -l, --loopback        if true a client of the same connection type is added
+
+</pre></div>
+</div>
+</section>
+<section id="task">
+<h3><code class="docutils literal notranslate"><span class="pre">task</span></code><a class="headerlink" href="#task" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/runtimepy task -h
+
+usage: runtimepy task [-h] [-i] [-w] [--no-poller] [-r RATE]
+                      factory [configs ...]
+
+positional arguments:
+  factory               name of task factory to create task with
+  configs               the configuration to load
+
+options:
+  -h, --help            show this help message and exit
+  -i, --init_only, --init-only
+                        exit after completing initialization
+  -w, --wait-for-stop, --wait_for_stop
+                        ensure that a &#39;wait_for_stop&#39; application method is
+                        run last
+  --no-poller           don&#39;t run a connection-metrics poller task
+  -r, --rate RATE       rate (in Hz) that the task should run (default: 10)
+
+</pre></div>
+</div>
+</section>
+<section id="tftp">
+<h3><code class="docutils literal notranslate"><span class="pre">tftp</span></code><a class="headerlink" href="#tftp" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/runtimepy tftp -h
+
+usage: runtimepy tftp [-h] [-p PORT] [-m MODE] [-t TIMEOUT] [-r REEMIT]
+                      {read,write} host our_file [their_file]
+
+positional arguments:
+  {read,write}          action to perform
+  host                  host to message
+  our_file              path to our file
+  their_file            path to their file
+
+options:
+  -h, --help            show this help message and exit
+  -p, --port PORT       port to message (default: 69)
+  -m, --mode MODE       tftp mode to use (default: octet)
+  -t, --timeout TIMEOUT
+                        timeout for each step
+  -r, --reemit REEMIT   transmit period for each step
+
+</pre></div>
+</div>
+</section>
+<section id="tui">
+<h3><code class="docutils literal notranslate"><span class="pre">tui</span></code><a class="headerlink" href="#tui" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./venv3.14/bin/runtimepy tui -h
+
+usage: runtimepy tui [-h] [-i ITERATIONS] [-r RATE]
+
+options:
+  -h, --help            show this help message and exit
+  -i, --iterations ITERATIONS
+                        maximum number of program iterations (if greater than
+                        zero, default: 0)
+  -r, --rate RATE       frequency (in Hz) to run the interface (default: 60.0
+                        Hz)
+
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="internal-dependency-graph">
+<h1>Internal Dependency Graph<a class="headerlink" href="#internal-dependency-graph" title="Link to this heading">#</a></h1>
+<p>A coarse view of the internal structure and scale of
+<code class="docutils literal notranslate"><span class="pre">runtimepy</span></code>’s source.
+Generated using <a class="reference external" href="https://github.com/thebjorn/pydeps">pydeps</a> (via
+<code class="docutils literal notranslate"><span class="pre">mk</span> <span class="pre">python-deps</span></code>).</p>
+<p><img alt="runtimepy's Dependency Graph" src="_images/pydeps.svg" /></p>
+</section>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="runtimepy.html">runtimepy package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.html#subpackages">Subpackages</a><ul>
@@ -613,7 +863,6 @@ document.write(`
 </li>
 </ul>
 </div>
-</section>
 
 
                 </article>
@@ -642,6 +891,40 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">runtimepy (5.17.0)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-version-support">Python Version Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command-line Options</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-command-options">Sub-command Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arbiter"><code class="docutils literal notranslate"><span class="pre">arbiter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mtu"><code class="docutils literal notranslate"><span class="pre">mtu</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server"><code class="docutils literal notranslate"><span class="pre">server</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task"><code class="docutils literal notranslate"><span class="pre">task</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tftp"><code class="docutils literal notranslate"><span class="pre">tftp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tui"><code class="docutils literal notranslate"><span class="pre">tui</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-dependency-graph">Internal Dependency Graph</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -661,7 +944,7 @@ By Libre Embedded
 
   <p class="copyright">
     
-      © Copyright 2025, Libre Embedded.
+      © Copyright 2026, Libre Embedded.
       <br/>
     
   </p>
