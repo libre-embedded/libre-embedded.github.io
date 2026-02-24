@@ -1,8 +1,8 @@
 <!--
     =====================================
     generator=datazen
-    version=3.2.3
-    hash=4ce80d8d95c8ef120a22a1398a9fdcd2
+    version=3.2.4
+    hash=6a0595aa219fa2cd5dab1a4e899ea728
     =====================================
 -->
 
@@ -27,27 +27,30 @@ Live (demo) control servers run on AWS free-tier resources.
 
 ---
 
-## Open Source Products
-
-Note: [sponsorship](https://github.com/sponsors/libre-embedded) can enable
-public access to additional products.
-
-### C/C++ Packages
+## [C++ Packages](https://libre-embedded.com/cpp)
 
 These use [yambs](https://github.com/libre-embedded/yambs) as a build system
-and GitHub releases for dependency lifecycle management. See also:
-[yambs-project-template](https://github.com/libre-embedded/yambs-project-template).
+and GitHub releases for dependency lifecycle management.
 
-| name | git |
-|------|-----|
-| `picolibc-semihost` | [git](https://github.com/libre-embedded/picolibc-semihost) |
-| `toolchains` | [git](https://github.com/libre-embedded/toolchains) |
-| `coral` | [git](https://github.com/libre-embedded/coral) |
+*See also:* [yambs-project-template](https://github.com/libre-embedded/yambs-project-template),
+[toolchains](https://github.com/libre-embedded/toolchains).
 
-### Python Packages
+| name | git | docs | release |
+|------|-----|------|---------|
+| `coral` | [git](https://github.com/libre-embedded/coral) | [docs](https://libre-embedded.com/cpp/coral) | [latest](https://github.com/libre-embedded/coral/releases/latest)
+| `hal-rp2040` | [git](https://github.com/libre-embedded/hal-rp2040) | [docs](https://libre-embedded.com/cpp/hal-rp2040) | [latest](https://github.com/libre-embedded/hal-rp2040/releases/latest)
+| `hal-rp2xxx` | [git](https://github.com/libre-embedded/hal-rp2xxx) | [docs](https://libre-embedded.com/cpp/hal-rp2xxx) | [latest](https://github.com/libre-embedded/hal-rp2xxx/releases/latest)
+| `picolibc-semihost` | [git](https://github.com/libre-embedded/picolibc-semihost) | [docs](https://libre-embedded.com/cpp/picolibc-semihost) | [latest](https://github.com/libre-embedded/picolibc-semihost/releases/latest)
+| `yambs-sample` | [git](https://github.com/libre-embedded/yambs-sample) | [docs](https://libre-embedded.com/cpp/yambs-sample) | [latest](https://github.com/libre-embedded/yambs-sample/releases/latest)
+| `yambs-sample2` | [git](https://github.com/libre-embedded/yambs-sample2) | [docs](https://libre-embedded.com/cpp/yambs-sample2) | [latest](https://github.com/libre-embedded/yambs-sample2/releases/latest)
+| `yambs-sample3` | [git](https://github.com/libre-embedded/yambs-sample3) | [docs](https://libre-embedded.com/cpp/yambs-sample3) | [latest](https://github.com/libre-embedded/yambs-sample3/releases/latest)
+
+
+## [Python Packages](https://libre-embedded.com/python)
 
 Distributed to [PyPI](https://pypi.org/) and trivially installable anywhere.
-See also:
+
+*See also:*
 [python-package-template](https://github.com/libre-embedded/python-package-template).
 
 | name | git | docs | pypi |
