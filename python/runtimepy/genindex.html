@@ -15,36 +15,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=fe2fc0f7"></script>
+    <script src="_static/documentation_options.js?v=a3228d8a"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="icon" href="https://www.libre-embedded.com/favicon.ico"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="5.17.6" />
   </head>
   
   
@@ -60,19 +64,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -80,7 +73,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -88,8 +80,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -107,7 +99,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -137,21 +130,17 @@
     
     
     <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-light" alt="docs - Home"/>
-    <script>document.write(`<img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark" alt="docs - Home"/>`);</script>
+    <img src="https://www.libre-embedded.com/static/png/chip-circle-bootstrap/128x128.png" class="logo__image only-dark pst-js-only" alt="docs - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Interface Documentation</span></p>
@@ -255,9 +244,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -292,7 +286,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -306,24 +300,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -756,6 +742,8 @@ document.write(`
       </ul></li>
       <li><a href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder.BIG_ENDIAN">BIG_ENDIAN (runtimepy.primitives.byte_order.ByteOrder attribute)</a>
 </li>
+      <li><a href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.binary">binary (runtimepy.net.server.websocket.state.TabState attribute)</a>
+</li>
       <li><a href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.binary">binary() (runtimepy.primitives.base.Primitive method)</a>
 
       <ul>
@@ -792,10 +780,10 @@ document.write(`
 </li>
       <li><a href="runtimepy.html#runtimepy.mapping.TwoWayNameMapping.bool_from_dict">bool_from_dict() (runtimepy.mapping.TwoWayNameMapping class method)</a>
 </li>
-      <li><a href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive">BooleanPrimitive (class in runtimepy.primitives.bool)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive">BooleanPrimitive (class in runtimepy.primitives.bool)</a>
+</li>
       <li><a href="runtimepy.registry.html#runtimepy.registry.bool.BooleanRegistry">BooleanRegistry (class in runtimepy.registry.bool)</a>
 </li>
       <li><a href="runtimepy.primitives.types.html#runtimepy.primitives.types.bool.BooleanType">BooleanType (class in runtimepy.primitives.types.bool)</a>
@@ -1098,9 +1086,11 @@ document.write(`
         <li><a href="runtimepy.net.server.app.html#runtimepy.net.server.app.tab.Tab.compose">(runtimepy.net.server.app.tab.Tab method)</a>
 </li>
       </ul></li>
-      <li><a href="runtimepy.net.apps.html#runtimepy.net.apps.AppInfo.config">config (runtimepy.net.apps.AppInfo attribute)</a>
+      <li><a href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.config">config (runtimepy.codec.protocol.base.FieldSpec attribute)</a>
 
       <ul>
+        <li><a href="runtimepy.net.apps.html#runtimepy.net.apps.AppInfo.config">(runtimepy.net.apps.AppInfo attribute)</a>
+</li>
         <li><a href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.AppInfo.config">(runtimepy.net.arbiter.AppInfo attribute)</a>
 </li>
         <li><a href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.info.AppInfo.config">(runtimepy.net.arbiter.info.AppInfo attribute)</a>
@@ -1378,6 +1368,14 @@ document.write(`
       </ul></li>
       <li><a href="runtimepy.net.udp.tftp.html#runtimepy.net.udp.tftp.enums.TftpOpCode.DATA">DATA (runtimepy.net.udp.tftp.enums.TftpOpCode attribute)</a>
 </li>
+      <li><a href="runtimepy.net.factories.html#runtimepy.net.factories.RuntimepyWebsocketConnection.data_connection">data_connection (runtimepy.net.factories.RuntimepyWebsocketConnection attribute)</a>
+
+      <ul>
+        <li><a href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyWebsocketConnection.data_connection">(runtimepy.net.server.websocket.RuntimepyWebsocketConnection attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.data.data_connection_future">data_connection_future() (in module runtimepy.net.server.websocket.data)</a>
+</li>
       <li><a href="runtimepy.enum.html#runtimepy.enum.RuntimeEnum.data_from_enum">data_from_enum() (runtimepy.enum.RuntimeEnum static method)</a>
 </li>
       <li><a href="runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.codes.TelnetCode.DATA_MARK">DATA_MARK (runtimepy.net.tcp.telnet.codes.TelnetCode attribute)</a>
@@ -1407,7 +1405,11 @@ document.write(`
 </li>
       </ul></li>
       <li><a href="runtimepy.channel.html#runtimepy.channel.Channel.default">default (runtimepy.channel.Channel attribute)</a>
+
+      <ul>
+        <li><a href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.default">(runtimepy.codec.protocol.base.FieldSpec attribute)</a>
 </li>
+      </ul></li>
       <li><a href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum.default">default() (runtimepy.enum.registry.RuntimeIntEnum class method)</a>
 
       <ul>
@@ -1431,6 +1433,8 @@ document.write(`
       <li><a href="runtimepy.net.server.app.env.tab.html#runtimepy.net.server.app.env.tab.controls.default_button">default_button() (in module runtimepy.net.server.app.env.tab.controls)</a>
 </li>
       <li><a href="runtimepy.html#runtimepy.schemas.RuntimepyDictCodec.default_schemas">default_schemas (runtimepy.schemas.RuntimepyDictCodec attribute)</a>
+</li>
+      <li><a href="runtimepy.codec.protocol.html#runtimepy.codec.protocol.base.FieldSpec.description">description (runtimepy.codec.protocol.base.FieldSpec attribute)</a>
 </li>
       <li><a href="runtimepy.net.arbiter.config.html#runtimepy.net.arbiter.config.codec.ConnectionArbiterConfig.directory">directory (runtimepy.net.arbiter.config.codec.ConnectionArbiterConfig attribute)</a>
 </li>
@@ -1758,6 +1762,8 @@ document.write(`
         <li><a href="runtimepy.primitives.field.manager.html#runtimepy.primitives.field.manager.BitFieldsManager.export_json">(runtimepy.primitives.field.manager.BitFieldsManager method)</a>
 </li>
       </ul></li>
+      <li><a href="runtimepy.net.arbiter.housekeeping.html#runtimepy.net.arbiter.housekeeping.ConnectionMetricsPoller.extra_channels">extra_channels (runtimepy.net.arbiter.housekeeping.ConnectionMetricsPoller attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -2352,6 +2358,8 @@ document.write(`
         <li><a href="runtimepy.net.arbiter.config.html#runtimepy.net.arbiter.config.codec.ConnectionArbiterConfig.init">(runtimepy.net.arbiter.config.codec.ConnectionArbiterConfig method)</a>
 </li>
         <li><a href="runtimepy.net.arbiter.housekeeping.html#runtimepy.net.arbiter.housekeeping.ConnectionMetricsLogger.init">(runtimepy.net.arbiter.housekeeping.ConnectionMetricsLogger method)</a>
+</li>
+        <li><a href="runtimepy.net.arbiter.housekeeping.html#runtimepy.net.arbiter.housekeeping.ConnectionMetricsPoller.init">(runtimepy.net.arbiter.housekeeping.ConnectionMetricsPoller method)</a>
 </li>
         <li><a href="runtimepy.net.arbiter.html#runtimepy.net.arbiter.task.ArbiterTask.init">(runtimepy.net.arbiter.task.ArbiterTask method)</a>
 </li>
@@ -3242,6 +3250,8 @@ document.write(`
 </li>
         <li><a href="runtimepy.net.server.websocket.html#module-runtimepy.net.server.websocket">runtimepy.net.server.websocket</a>
 </li>
+        <li><a href="runtimepy.net.server.websocket.html#module-runtimepy.net.server.websocket.data">runtimepy.net.server.websocket.data</a>
+</li>
         <li><a href="runtimepy.net.server.websocket.html#module-runtimepy.net.server.websocket.state">runtimepy.net.server.websocket.state</a>
 </li>
         <li><a href="runtimepy.net.html#module-runtimepy.net.ssl">runtimepy.net.ssl</a>
@@ -3873,10 +3883,10 @@ document.write(`
 </li>
       <li><a href="runtimepy.channel.event.html#runtimepy.channel.event.header.PrimitiveEventHeader">PrimitiveEventHeader (class in runtimepy.channel.event.header)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="runtimepy.primitives.html#runtimepy.primitives.evaluation.PrimitiveIsCloseMixin">PrimitiveIsCloseMixin (class in runtimepy.primitives.evaluation)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.state.TabState.primitives">primitives (runtimepy.net.server.websocket.state.TabState attribute)</a>
 </li>
       <li><a href="runtimepy.control.html#runtimepy.control.source.PrimitiveSource">PrimitiveSource (class in runtimepy.control.source)</a>
@@ -3967,9 +3977,11 @@ document.write(`
 </li>
       <li><a href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.process_json">process_json() (runtimepy.message.interface.JsonMessageInterface method)</a>
 </li>
-      <li><a href="runtimepy.net.stream.json.html#runtimepy.net.stream.json.JsonMessageConnection.process_message">process_message() (runtimepy.net.stream.json.JsonMessageConnection method)</a>
+      <li><a href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.data.RuntimepyDataWebsocketConnection.process_message">process_message() (runtimepy.net.server.websocket.data.RuntimepyDataWebsocketConnection method)</a>
 
       <ul>
+        <li><a href="runtimepy.net.stream.json.html#runtimepy.net.stream.json.JsonMessageConnection.process_message">(runtimepy.net.stream.json.JsonMessageConnection method)</a>
+</li>
         <li><a href="runtimepy.net.stream.html#runtimepy.net.stream.string.StringMessageConnection.process_message">(runtimepy.net.stream.string.StringMessageConnection method)</a>
 </li>
         <li><a href="runtimepy.net.stream.html#runtimepy.net.stream.StringMessageConnection.process_message">(runtimepy.net.stream.StringMessageConnection method)</a>
@@ -5293,6 +5305,13 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    runtimepy.net.server.websocket.data
+
+      <ul>
+        <li><a href="runtimepy.net.server.websocket.html#module-runtimepy.net.server.websocket.data">module</a>
+</li>
+      </ul></li>
+      <li>
     runtimepy.net.server.websocket.state
 
       <ul>
@@ -5901,7 +5920,7 @@ document.write(`
         <li><a href="runtimepy.html#module-runtimepy.util">module</a>
 </li>
       </ul></li>
-      <li><a href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.RuntimepyDataWebsocketConnection">RuntimepyDataWebsocketConnection (class in runtimepy.net.server.websocket)</a>
+      <li><a href="runtimepy.net.server.websocket.html#runtimepy.net.server.websocket.data.RuntimepyDataWebsocketConnection">RuntimepyDataWebsocketConnection (class in runtimepy.net.server.websocket.data)</a>
 </li>
       <li><a href="runtimepy.html#runtimepy.schemas.RuntimepyDictCodec">RuntimepyDictCodec (class in runtimepy.schemas)</a>
 </li>
@@ -6219,10 +6238,10 @@ document.write(`
 </li>
       <li><a href="runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.np_05b.Np05bStrings.SET_OUTLET">SET_OUTLET (runtimepy.net.tcp.telnet.np_05b.Np05bStrings attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.np_05b.Np05bConnection.set_outlet_state">set_outlet_state() (runtimepy.net.tcp.telnet.np_05b.Np05bConnection method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="runtimepy.task.basic.html#runtimepy.task.basic.periodic.PeriodicTask.set_period">set_period() (runtimepy.task.basic.periodic.PeriodicTask method)</a>
 
       <ul>
@@ -6248,6 +6267,8 @@ document.write(`
       <li><a href="runtimepy.net.html.bootstrap.html#runtimepy.net.html.bootstrap.tabs.TabbedContent.set_scroll">set_scroll() (runtimepy.net.html.bootstrap.tabs.TabbedContent method)</a>
 </li>
       <li><a href="runtimepy.primitives.field.html#runtimepy.primitives.field.BitField.set_slider">set_slider() (runtimepy.primitives.field.BitField method)</a>
+</li>
+      <li><a href="runtimepy.primitives.html#runtimepy.primitives.Primitive.set_streak">set_streak (runtimepy.primitives.Primitive attribute)</a>
 </li>
       <li><a href="runtimepy.net.server.app.html#runtimepy.net.server.app.files.set_text_to_file">set_text_to_file() (in module runtimepy.net.server.app.files)</a>
 </li>
@@ -7282,8 +7303,8 @@ By Libre Embedded
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
