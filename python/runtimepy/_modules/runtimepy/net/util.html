@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=a3228d8a"></script>
+    <script src="../../../_static/documentation_options.js?v=1019e16c"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
@@ -48,7 +48,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.17.6" />
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -341,8 +341,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">suppress</span> <span class="k">as</span> <span class="n">_suppress</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cache</span>
+<span class="c1"># from contextlib import suppress as _suppress</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ipaddress</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">socket</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_socket</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Awaitable</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">TypeVar</span>
@@ -492,7 +492,7 @@
 
 <div class="viewcode-block" id="hostname">
 <a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.hostname">[docs]</a>
-<span class="nd">@cache</span>
+<span class="nd">@lru_cache</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">hostname</span><span class="p">(</span><span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Attempt to get a string hostname for a string IP address argument that</span>
@@ -504,8 +504,10 @@
     <span class="k">if</span> <span class="n">ip_address</span> <span class="ow">in</span> <span class="n">USE_FQDN</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">_socket</span><span class="o">.</span><span class="n">getfqdn</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">_suppress</span><span class="p">(</span><span class="n">_socket</span><span class="o">.</span><span class="n">herror</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">_socket</span><span class="o">.</span><span class="n">gethostbyaddr</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">pass</span>
+        <span class="c1"># https://github.com/libre-embedded/runtimepy/issues/250</span>
+        <span class="c1"># with _suppress(_socket.herror, OSError):</span>
+        <span class="c1">#     result = _socket.gethostbyaddr(ip_address)[0]</span>
 
     <span class="k">return</span> <span class="n">result</span></div>
 
@@ -513,7 +515,7 @@
 
 <div class="viewcode-block" id="address_str">
 <a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.address_str">[docs]</a>
-<span class="nd">@cache</span>
+<span class="nd">@lru_cache</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">address_str</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fallback_host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get an IP address string for a given name.&quot;&quot;&quot;</span>
 
@@ -525,7 +527,6 @@
 
 <div class="viewcode-block" id="hostname_port">
 <a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.hostname_port">[docs]</a>
-<span class="nd">@cache</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">hostname_port</span><span class="p">(</span><span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a hostname string with a port appended.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hostname</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span></div>

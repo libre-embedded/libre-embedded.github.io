@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=a3228d8a"></script>
+    <script src="../../_static/documentation_options.js?v=1019e16c"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
@@ -48,7 +48,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.17.6" />
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -347,6 +347,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="c1"># third-party</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenericStrDict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.markdown</span><span class="w"> </span><span class="kn">import</span> <span class="n">MarkdownMixin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">vcorelib.io.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonObject</span> <span class="k">as</span> <span class="n">_JsonObject</span>
 
@@ -392,6 +393,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="n">ChannelCommandProcessor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="o">.</span><span class="n">buttons</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ActionButton</span><span class="o">.</span><span class="n">from_top_level</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">))</span>
+
+        <span class="c1"># handle registering some initial channels</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;channels&quot;</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">:</span> <span class="n">GenericStrDict</span>
+            <span class="k">for</span> <span class="n">chan</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;channels&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>  <span class="c1"># type: ignore</span>
+                <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;namespace&quot;</span><span class="p">,</span> <span class="p">[])):</span>
+                    <span class="n">commandable</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;commandable&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span>
+                        <span class="n">chan</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span> <span class="n">commandable</span><span class="o">=</span><span class="n">commandable</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span>
+                    <span class="p">)</span>
 
         <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">poll</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Namespace</span><span class="p">,</span> <span class="n">__</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FieldOrChannel</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Handle a test command.&quot;&quot;&quot;</span>

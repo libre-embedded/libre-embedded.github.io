@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../../_static/documentation_options.js?v=a3228d8a"></script>
+    <script src="../../../../_static/documentation_options.js?v=1019e16c"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
@@ -48,7 +48,7 @@
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.17.6" />
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -434,12 +434,22 @@
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">:</span> <span class="s2">&quot;AppInfo&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a struct instance&#39;s channel environment.&quot;&quot;&quot;</span>
 
+        <span class="c1"># Handle config overrides.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">final_poll</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;final_poll&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">final_poll</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">byte_order</span> <span class="o">=</span> <span class="n">ByteOrder</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+                <span class="s2">&quot;byte_order&quot;</span><span class="p">,</span>
+                <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">byte_order</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">final_poll</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_final_poll</span><span class="p">())</span>
 
-        <span class="n">byte_order</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">byte_order</span>
-
+        <span class="c1"># Handle a struct definition.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">recv</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">send</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="s2">&quot;protocol_factory&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
@@ -451,7 +461,7 @@
             <span class="p">)</span>
             <span class="k">if</span> <span class="n">ProtocolFactory</span> <span class="ow">in</span> <span class="n">factory</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">recv</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">singleton</span><span class="p">()</span>
-                <span class="n">byte_order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv</span><span class="o">.</span><span class="n">byte_order</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">byte_order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv</span><span class="o">.</span><span class="n">byte_order</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;control&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
                     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="s2">&quot;rx&quot;</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">register_protocol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recv</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
@@ -464,7 +474,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">init_env</span><span class="p">()</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">async_init_env</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update_byte_order</span><span class="p">(</span><span class="n">byte_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_byte_order</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">byte_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="RuntimeStruct.update_byte_order">

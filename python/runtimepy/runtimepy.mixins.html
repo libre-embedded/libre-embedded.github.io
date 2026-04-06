@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=a3228d8a"></script>
+    <script src="_static/documentation_options.js?v=1019e16c"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
@@ -51,7 +51,7 @@
     <link rel="prev" title="runtimepy.metrics package" href="runtimepy.metrics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.17.6" />
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -422,13 +422,24 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.logging">runtimepy.mixins.logging module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher"><code class="docutils literal notranslate"><span class="pre">FileWatcher</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.close"><code class="docutils literal notranslate"><span class="pre">FileWatcher.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.ctime"><code class="docutils literal notranslate"><span class="pre">FileWatcher.ctime</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.get_ctime"><code class="docutils literal notranslate"><span class="pre">FileWatcher.get_ctime()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.handle_open"><code class="docutils literal notranslate"><span class="pre">FileWatcher.handle_open()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.poll"><code class="docutils literal notranslate"><span class="pre">FileWatcher.poll()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.running"><code class="docutils literal notranslate"><span class="pre">FileWatcher.running()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.stream"><code class="docutils literal notranslate"><span class="pre">FileWatcher.stream</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.dispatch_log_capture()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.handle_watcher"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.handle_watcher()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.init_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.init_log_capture()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.log_line"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.log_line()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.logger"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.logger</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.safe_to_log"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.safe_to_log</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.streams"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.streams</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.watchers"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.watchers</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a><ul class="nav section-nav flex-column">
@@ -625,6 +636,53 @@ runtime-state storage needs during initialization alone.</p>
 <span id="runtimepy-mixins-logging-module"></span><h2>runtimepy.mixins.logging module<a class="headerlink" href="#module-runtimepy.mixins.logging" title="Link to this heading">#</a></h2>
 <p>A module implementing a logger-mixin extension.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.logging.</span></span><span class="sig-name descname"><span class="pre">FileWatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.mixins.logging.LogLevel" title="runtimepy.mixins.logging.LogLevel"><span class="pre">LogLevel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#FileWatcher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class implementing an interface for watching file contents.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher.close">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#FileWatcher.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher.close" title="Link to this definition">#</a></dt>
+<dd><p>Close this stream.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher.ctime">
+<span class="sig-name descname"><span class="pre">ctime</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher.ctime" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher.get_ctime">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_ctime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#FileWatcher.get_ctime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher.get_ctime" title="Link to this definition">#</a></dt>
+<dd><p>Get ctime for this path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher.handle_open">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">handle_open</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#FileWatcher.handle_open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher.handle_open" title="Link to this definition">#</a></dt>
+<dd><p>Handle opening the stream.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher.poll">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.mixins.logging.LogLevel" title="runtimepy.mixins.logging.LogLevel"><span class="pre">LogLevel</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#FileWatcher.poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher.poll" title="Link to this definition">#</a></dt>
+<dd><p>Poll stream contents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher.running">
+<span class="sig-name descname"><span class="pre">running</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AsyncIterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.mixins.logging.FileWatcher" title="runtimepy.mixins.logging.FileWatcher"><span class="pre">FileWatcher</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#FileWatcher.running"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher.running" title="Link to this definition">#</a></dt>
+<dd><p>Handle closing stream.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.FileWatcher.stream">
+<span class="sig-name descname"><span class="pre">stream</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#runtimepy.mixins.logging.FileWatcher.stream" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">runtimepy.mixins.logging.</span></span><span class="sig-name descname"><span class="pre">LogCaptureMixin</span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogCaptureMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -633,6 +691,12 @@ runtime-state storage needs during initialization alone.</p>
 <dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture">
 <span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">dispatch_log_capture</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogCaptureMixin.dispatch_log_capture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture" title="Link to this definition">#</a></dt>
 <dd><p>Get the next line from this log stream.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.handle_watcher">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">handle_watcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">watcher</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.mixins.logging.FileWatcher" title="runtimepy.mixins.logging.FileWatcher"><span class="pre">FileWatcher</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mixins/logging.html#LogCaptureMixin.handle_watcher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.handle_watcher" title="Link to this definition">#</a></dt>
+<dd><p>Handle any file watcher lines.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -658,8 +722,8 @@ runtime-state storage needs during initialization alone.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.streams">
-<span class="sig-name descname"><span class="pre">streams</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.streams" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="runtimepy.mixins.logging.LogCaptureMixin.watchers">
+<span class="sig-name descname"><span class="pre">watchers</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#runtimepy.mixins.logging.FileWatcher" title="runtimepy.mixins.logging.FileWatcher"><span class="pre">FileWatcher</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#runtimepy.mixins.logging.LogCaptureMixin.watchers" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -897,13 +961,24 @@ validate names with.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.mixins.logging">runtimepy.mixins.logging module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher"><code class="docutils literal notranslate"><span class="pre">FileWatcher</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.close"><code class="docutils literal notranslate"><span class="pre">FileWatcher.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.ctime"><code class="docutils literal notranslate"><span class="pre">FileWatcher.ctime</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.get_ctime"><code class="docutils literal notranslate"><span class="pre">FileWatcher.get_ctime()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.handle_open"><code class="docutils literal notranslate"><span class="pre">FileWatcher.handle_open()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.poll"><code class="docutils literal notranslate"><span class="pre">FileWatcher.poll()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.running"><code class="docutils literal notranslate"><span class="pre">FileWatcher.running()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.FileWatcher.stream"><code class="docutils literal notranslate"><span class="pre">FileWatcher.stream</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.dispatch_log_capture()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.handle_watcher"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.handle_watcher()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.init_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.init_log_capture()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.log_line"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.log_line()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.logger"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.logger</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.safe_to_log"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.safe_to_log</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.streams"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.streams</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogCaptureMixin.watchers"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.watchers</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mixins.logging.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a><ul class="nav section-nav flex-column">

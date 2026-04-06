@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=a3228d8a"></script>
+    <script src="../../../_static/documentation_options.js?v=1019e16c"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
@@ -48,7 +48,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.17.6" />
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -341,10 +341,11 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncExitStack</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncExitStack</span><span class="p">,</span> <span class="n">asynccontextmanager</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">AsyncIterator</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span>
 
 <span class="c1"># third-party</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">aiofiles</span>
@@ -445,6 +446,88 @@
 
 
 
+<div class="viewcode-block" id="FileWatcher">
+<a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FileWatcher</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class implementing an interface for watching file contents.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="n">LogLevellike</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this instance.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">LogLevel</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ctime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="FileWatcher.get_ctime">
+<a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.get_ctime">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_ctime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get ctime for this path.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+            <span class="k">await</span> <span class="n">aiofiles</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getctime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FileWatcher.handle_open">
+<a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.handle_open">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_open</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle opening the stream.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="ow">and</span> <span class="n">normalize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="k">await</span> <span class="n">aiofiles</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ctime</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ctime</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="FileWatcher.poll">
+<a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.poll">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">poll</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AsyncIterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">LogLevel</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Poll stream contents.&quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Handle re-opening file if necessary.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctime</span> <span class="o">!=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ctime</span><span class="p">():</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_open</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">:</span>
+                <span class="k">while</span> <span class="n">line</span> <span class="o">:=</span> <span class="p">(</span><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">():</span>
+                    <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="FileWatcher.close">
+<a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.close">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close this stream.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="FileWatcher.running">
+<a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.running">[docs]</a>
+    <span class="nd">@asynccontextmanager</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">running</span><span class="p">(</span>
+        <span class="n">level</span><span class="p">:</span> <span class="n">LogLevellike</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AsyncIterator</span><span class="p">[</span><span class="s2">&quot;FileWatcher&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle closing stream.&quot;&quot;&quot;</span>
+
+        <span class="n">inst</span> <span class="o">=</span> <span class="n">FileWatcher</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">inst</span><span class="o">.</span><span class="n">handle_open</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">inst</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">inst</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+</div>
+
+
+
 <div class="viewcode-block" id="LogCaptureMixin">
 <a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">LogCaptureMixin</span><span class="p">:</span>
@@ -452,8 +535,7 @@
 
     <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span>
 
-    <span class="c1"># Open aiofiles handles.</span>
-    <span class="n">streams</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+    <span class="n">watchers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">FileWatcher</span><span class="p">]</span>
 
     <span class="c1"># Set false to only forward to ListLogger handlers. Required for when the</span>
     <span class="c1"># system log / process-management logs are being forwarded (otherwise also</span>
@@ -467,18 +549,10 @@
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this task with application information.&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">streams</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="p">(</span>
-                <span class="n">LogLevel</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">level</span><span class="p">),</span>
-                <span class="k">await</span> <span class="n">stack</span><span class="o">.</span><span class="n">enter_async_context</span><span class="p">(</span><span class="n">aiofiles</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)),</span>
-            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">watchers</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="k">await</span> <span class="n">stack</span><span class="o">.</span><span class="n">enter_async_context</span><span class="p">(</span><span class="n">FileWatcher</span><span class="o">.</span><span class="n">running</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
             <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">log_paths</span>
-            <span class="k">if</span> <span class="n">normalize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
-        <span class="p">]</span>
-
-        <span class="c1"># Don&#39;t handle any kind of backhaul.</span>
-        <span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">streams</span><span class="p">:</span>
-            <span class="k">await</span> <span class="n">stream</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">SEEK_END</span><span class="p">)</span></div>
+        <span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="LogCaptureMixin.log_line">
@@ -489,16 +563,21 @@
         <span class="n">handle_safe_log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">safe_to_log</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="LogCaptureMixin.handle_watcher">
+<a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.handle_watcher">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_watcher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">watcher</span><span class="p">:</span> <span class="n">FileWatcher</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle any file watcher lines.&quot;&quot;&quot;</span>
+
+        <span class="k">async</span> <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">watcher</span><span class="o">.</span><span class="n">poll</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_line</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="LogCaptureMixin.dispatch_log_capture">
 <a class="viewcode-back" href="../../../runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture">[docs]</a>
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">dispatch_log_capture</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the next line from this log stream.&quot;&quot;&quot;</span>
 
-        <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">stream</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">streams</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="n">stream</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-            <span class="k">while</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log_line</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-                <span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="n">stream</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span></div>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_watcher</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">watchers</span><span class="p">))</span></div>
 </div>
 
 </pre></div>

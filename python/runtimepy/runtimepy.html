@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=a3228d8a"></script>
+    <script src="_static/documentation_options.js?v=1019e16c"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
@@ -48,10 +48,10 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="runtimepy.channel package" href="runtimepy.channel.html" />
-    <link rel="prev" title="runtimepy (5.17.6)" href="index.html" />
+    <link rel="prev" title="runtimepy (5.17.10)" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="5.17.6" />
+  <meta name="docsearch:version" content="5.17.10" />
   </head>
   
   
@@ -859,13 +859,24 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.logging">runtimepy.mixins.logging module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher"><code class="docutils literal notranslate"><span class="pre">FileWatcher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.close"><code class="docutils literal notranslate"><span class="pre">FileWatcher.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.ctime"><code class="docutils literal notranslate"><span class="pre">FileWatcher.ctime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.get_ctime"><code class="docutils literal notranslate"><span class="pre">FileWatcher.get_ctime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.handle_open"><code class="docutils literal notranslate"><span class="pre">FileWatcher.handle_open()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.poll"><code class="docutils literal notranslate"><span class="pre">FileWatcher.poll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.running"><code class="docutils literal notranslate"><span class="pre">FileWatcher.running()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.FileWatcher.stream"><code class="docutils literal notranslate"><span class="pre">FileWatcher.stream</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.dispatch_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.dispatch_log_capture()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.handle_watcher"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.handle_watcher()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.init_log_capture"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.init_log_capture()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.log_line"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.log_line()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.logger"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.logger</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.safe_to_log"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.safe_to_log</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.streams"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.streams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogCaptureMixin.watchers"><code class="docutils literal notranslate"><span class="pre">LogCaptureMixin.watchers</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a><ul>
@@ -2082,7 +2093,7 @@ are yielded.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">runtimepy (5.17.6)</p>
+        <p class="prev-next-title">runtimepy (5.17.10)</p>
       </div>
     </a>
     <a class="right-next"
